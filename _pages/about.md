@@ -30,8 +30,8 @@ Mingqi Gao, Jie Ruan, Renliang Sun, **Xunjian Yin**, Shiping Yang, Xiaojun Wan
 *arXiv*:2211.07843  [[paper](https://arxiv.org/abs/2211.07843)]
 
 - A Comprehensive Evaluation and Analysis Study for Chinese Spelling Check
-**Xunjian Yin**, Xiaojun Wan
-*arXiv*:2307.13655  [[paper](https://arxiv.org/abs/2307.13655)]
+ **Xunjian Yin**, Xiaojun Wan
+ *arXiv*:2307.13655  [[paper](https://arxiv.org/abs/2307.13655)]
 
 Publications
 ======
@@ -45,7 +45,7 @@ Xinyu Hu, **Xunjian Yin**, Xiaojun Wan
 *EMNLP 2023 findings*  [[pdf](TODO)] [[code](TODO)]  
 
 - How Do Seq2Seq Models Perform on End-to-End Data-to-Text Generation?    
-**Xunjian Yin**, Xiaojun Wan 
+**Xunjian Yin**, Xiaojun Wan
 *ACL 2022*  [[pdf](https://aclanthology.org/2022.acl-long.531.pdf)] [[code](https://github.com/xunjianyin/Seq2SeqOnData2Text)]  
 
 
@@ -53,5 +53,5 @@ Xinyu Hu, **Xunjian Yin**, Xiaojun Wan
 Academic Services
 ======
 
-- Reviewer: ACL ARR 2023 
+- Reviewer: ACL 2023, ACL ARR 2023 
 
