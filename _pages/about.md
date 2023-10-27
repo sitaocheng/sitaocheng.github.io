@@ -44,6 +44,10 @@ Publications
 Xinyu Hu, **Xunjian Yin**, Xiaojun Wan  
 *EMNLP 2023 findings*  [[pdf](TODO)] [[code](TODO)]  
 
+- Overview of the NLPCC 2023 Shared Task: Chinese Spelling Check
+**Xunjian Yin**, Xiaojun Wan, Dan Zhang, Linlin Yu, Long Yu
+*NLPCC 2023* [[pdf](https://link.springer.com/chapter/10.1007/978-3-031-44699-3_30)] [[code](https://github.com/Arvid-pku/NLPCC2023_Shared_Task8)]
+
 - How Do Seq2Seq Models Perform on End-to-End Data-to-Text Generation?    
 **Xunjian Yin**, Xiaojun Wan    
 *ACL 2022*  [[pdf](https://aclanthology.org/2022.acl-long.531.pdf)] [[code](https://github.com/xunjianyin/Seq2SeqOnData2Text)]  
@@ -53,5 +57,6 @@ Xinyu Hu, **Xunjian Yin**, Xiaojun Wan
 Academic Services
 ======
 
-- Reviewer: ACL 2023, ACL ARR 2023 
+- Reviewer: ACL 2023, ACL ARR 2023
+- NLPCC Shared Task 8 track chair 
 
