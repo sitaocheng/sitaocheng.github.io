@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-I am Xunjian Yin, a second-year Master's student in the [Wangxuan Institute of Computer Technology](https://www.icst.pku.edu.cn/english/home/index.htm) at [Peking University](https://english.pku.edu.cn/). My advisor is Prof. [Xiaojun Wan](https://wanxiaojun.github.io/). Previously, I obtained my B.S. degree in [Computer Science]((https://eecs.pku.edu.cn/en/)) from [Peking University](https://english.pku.edu.cn/).
+I am Xunjian Yin, a second-year Master's student in the [Wangxuan Institute of Computer Technology](https://www.icst.pku.edu.cn/english/home/index.htm) at [Peking University](https://english.pku.edu.cn/). My advisor is Prof. [Xiaojun Wan](https://wanxiaojun.github.io/). Previously, I obtained my B.S. degree in [Computer Science](https://eecs.pku.edu.cn/en/) from [Peking University](https://english.pku.edu.cn/).
 
 My research interest lies in large language models (LLMs). Specifically, I aim to design methods that allow for a better understanding of the knowledge inside LLMs, and to go further in acquiring and editing knowledge. I also aim to devise ways to make models better at learning knowledge, and applying that knowledge to reasoning.
 
