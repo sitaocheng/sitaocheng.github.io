@@ -44,8 +44,8 @@ Publications
 Xinyu Hu, **Xunjian Yin**, Xiaojun Wan  
 *EMNLP 2023 findings*  [[pdf](TODO)] [[code](TODO)]  
 
-- Overview of the NLPCC 2023 Shared Task: Chinese Spelling Check
-**Xunjian Yin**, Xiaojun Wan, Dan Zhang, Linlin Yu, Long Yu
+- Overview of the NLPCC 2023 Shared Task: Chinese Spelling Check           
+**Xunjian Yin**, Xiaojun Wan, Dan Zhang, Linlin Yu, Long Yu           
 *NLPCC 2023* [[pdf](https://link.springer.com/chapter/10.1007/978-3-031-44699-3_30)] [[code](https://github.com/Arvid-pku/NLPCC2023_Shared_Task8)]
 
 - How Do Seq2Seq Models Perform on End-to-End Data-to-Text Generation?    
