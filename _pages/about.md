@@ -40,8 +40,8 @@ Mingqi Gao, Jie Ruan, Renliang Sun, **Xunjian Yin**, Shiping Yang, Xiaojun Wan
 Publications
 ======
 
-- History Matters: Temporal Knowledge Editing in Large Language Model
-**Xunjian Yin**, Jin Jiang, Liming Yang, Xiaojun Wan
+- History Matters: Temporal Knowledge Editing in Large Language Model 
+**Xunjian Yin**, Jin Jiang, Liming Yang, Xiaojun Wan 
 *AAAI 2024*
 
 - ALCUNA: Large Language Models Meet New Knowledge  
