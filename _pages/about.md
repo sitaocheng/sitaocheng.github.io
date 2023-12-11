@@ -19,7 +19,7 @@ My research interest lies in knowledge and large language models (LLMs). Specifi
 Recent News
 ======
 
-- 2023-10: Two papers are accepted to EMNLP 2023 (one at main conference, one at findings). 
+- 2023-12: One paper is accepted to AAAI 2024 :) 
 
 
 Preprints
@@ -39,6 +39,10 @@ Mingqi Gao, Jie Ruan, Renliang Sun, **Xunjian Yin**, Shiping Yang, Xiaojun Wan
 
 Publications
 ======
+
+- History Matters: Temporal Knowledge Editing in Large Language Model
+**Xunjian Yin**, Jin Jiang, Liming Yang, Xiaojun Wan
+*AAAI 2024*
 
 - ALCUNA: Large Language Models Meet New Knowledge  
 **Xunjian Yin**\*, Baizhou Huang\*, Xiaojun Wan  
