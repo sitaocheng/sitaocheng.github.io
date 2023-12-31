@@ -12,8 +12,9 @@ I am Xunjian Yin, a second-year Master's student in the [Wangxuan Institute of C
 
 My research interest lies in knowledge and large language models (LLMs). Specifically, 
 1. I am committed to analyzing and researching the storage patterns of knowledge within large language models, aiming to uncover underlying structures and mechanisms (**Knowledge Storage Patterns**).
-2. I aspire to design methods that allow us to effectively manipulate and update the knowledge within these models, providing them with more flexible learning and adaptability (**Knowledge Manipulation and Updating**).
-3. My goal is to design methods that can better leverage the knowledge within the model for reasoning and practical problem-solving, enhancing the model's applicability (**Knowledge Utilization for Reasoning and Problem Solving**).
+2. I work on better extracting the knowledge within the model as well as assessing the boundaries of the model's knowledge capabilities. (**Knowledge Extraction and Evaluation**)
+3. I aspire to design methods that allow us to effectively manipulate and update the knowledge within these models, providing them with more flexible learning and adaptability (**Knowledge Manipulation and Updating**).
+4. My goal is to design methods that can better leverage the knowledge within the model for reasoning and practical problem-solving, enhancing the model's applicability (**Knowledge Utilization for Reasoning and Problem Solving**).
 
 
 Recent News
