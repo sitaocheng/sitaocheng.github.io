@@ -28,7 +28,7 @@ Preprints
 
 - Benchmarking Knowledge Boundary for Large Language Model: A Different Perspective on Model Evaluation  
 **Xunjian Yin**\*, Xu Zhang\*, Jie Ruan, Xiaojun Wan  
-*arXiv*  
+*arXiv*:2402.11493  [[paper](https://arxiv.org/abs/2402.11493)]   
 
 - Human-like Summarization Evaluation with ChatGPT  
 Mingqi Gao, Jie Ruan, Renliang Sun, **Xunjian Yin**, Shiping Yang, Xiaojun Wan  
