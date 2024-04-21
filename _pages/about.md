@@ -34,24 +34,21 @@ Preprints
 Mingqi Gao, Jie Ruan, Renliang Sun, **Xunjian Yin**, Shiping Yang, Xiaojun Wan  
 *arXiv*:2304.02554  [[paper](https://arxiv.org/abs/2304.02554)]  
 
-- Chinese Spelling Check with Nearest Neighbors  
+- Error-Robust Retrieval for Chinese Spelling Check  
 **Xunjian Yin**, Xinyu Hu, Xiaojun Wan  
 *arXiv*:2211.07843  [[paper](https://arxiv.org/abs/2211.07843)]
 
-- A Comprehensive Evaluation and Analysis Study for Chinese Spelling Check     
-**Xunjian Yin**, Xiaojun Wan      
- *arXiv*:2307.13655  [[paper](https://arxiv.org/abs/2307.13655)]
 
 Publications
 ======
 
 - History Matters: Temporal Knowledge Editing in Large Language Model      
 **Xunjian Yin**, Jin Jiang, Liming Yang, Xiaojun Wan       
-*AAAI 2024*
+*AAAI 2024*   [[pdf](https://arxiv.org/pdf/2312.05497.pdf)] [[code](https://github.com/Arvid-pku/ATOKE)]
 
 - ALCUNA: Large Language Models Meet New Knowledge  
 **Xunjian Yin**\*, Baizhou Huang\*, Xiaojun Wan  
-*EMNLP 2023*  [[pdf](https://arxiv.org/pdf/2310.14820v1.pdf)] [[code](https://github.com/arvid-pku/alcuna)]
+*EMNLP 2023*  [[pdf](https://arxiv.org/pdf/2310.14820.pdf)] [[code](https://github.com/arvid-pku/alcuna)]
 
 - Exploring Context-Aware Evaluation Metrics for Machine Translation   
 Xinyu Hu, **Xunjian Yin**, Xiaojun Wan  
@@ -70,6 +67,7 @@ Xinyu Hu, **Xunjian Yin**, Xiaojun Wan
 Academic Services
 ======
 
-- Reviewer: ACL 2023, ACL ARR 2023
-- NLPCC Shared Task 8 track chair 
+- Reviewer: ACL 2023, ACL ARR 2023, ACL ARR 2024
+- NLPCC Shared Task 8 track chair
+- AAAI 2024 Volunteer
 
