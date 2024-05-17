@@ -20,15 +20,13 @@ My research interest lies in knowledge and large language models (LLMs). Specifi
 Recent News
 ======
 
+- 2024-05: One paper is accepted to ACL 2024   
 - 2023-12: One paper is accepted to AAAI 2024   
 - 2023-10: Two papers are accepted to EMNLP 2023  
 
 Preprints
 ======
 
-- Benchmarking Knowledge Boundary for Large Language Model: A Different Perspective on Model Evaluation  
-**Xunjian Yin**\*, Xu Zhang\*, Jie Ruan, Xiaojun Wan  
-*arXiv*:2402.11493  [[paper](https://arxiv.org/abs/2402.11493)]   
 
 - Human-like Summarization Evaluation with ChatGPT  
 Mingqi Gao, Jie Ruan, Renliang Sun, **Xunjian Yin**, Shiping Yang, Xiaojun Wan  
@@ -41,6 +39,10 @@ Mingqi Gao, Jie Ruan, Renliang Sun, **Xunjian Yin**, Shiping Yang, Xiaojun Wan
 
 Publications
 ======
+
+- Benchmarking Knowledge Boundary for Large Language Model: A Different Perspective on Model Evaluation  
+**Xunjian Yin**\*, Xu Zhang\*, Jie Ruan, Xiaojun Wan  
+*ACL 2024*  [[paper](https://arxiv.org/abs/2402.11493)]   
 
 - History Matters: Temporal Knowledge Editing in Large Language Model      
 **Xunjian Yin**, Jin Jiang, Liming Yang, Xiaojun Wan       
