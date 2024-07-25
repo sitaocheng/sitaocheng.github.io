@@ -9,65 +9,70 @@ redirect_from:
 
 {% include base_path %}
 
-See also my [RESUME](../files/stcheng_cv.pdf).
-
-<!-- [<a href="./Files/stcheng_cv.pdf" target="_blank">
-                                    <font style="font-family:Microsoft YaHei">English CV</font>
-                                </a>]
-                                <!-- [<a href="./Files/chinese_cv.pdf" target="_blank">
-                                    <font style="font-family:Microsoft YaHei">Chinese CV</font>
-                                </a>]  -->
-                                [<a href="./Files/stcheng_PS.pdf" target="_blank">
-                                    <font style="font-family:Microsoft YaHei">Personal Statements</font>
-                                </a>] [<a href="./Files/stcheng_research_slides.pdf" target="_blank">
-                                    <font style="font-family:Microsoft YaHei">Slides of my works</font>
-                                </a>] -->
+See also my [RESUME](../files/stcheng_cv.pdf), my [Personal Statements](../files/stcheng_PS.pdf), and [Slides of my works](../files/stcheng_research_slides.pdf)
                                 
 Education
 ======
-* B.S. in GitHub, GitHub University, 2012
-* M.S. in Jekyll, GitHub University, 2014
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
+* M.S. in Computer Science, Nanjing University, 2021
+* B.S. in Software Engineering, University of Electronic Science and Technology of China, 2017
 
 Work experience
 ======
-* Summer 2015: Research Assistant
-  * Github University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
+* 07.2024 - Now : Visiting Research Scholar
+  * University of California, Santa Barbara
+  * Supervisor: Professor William Wang
 
-* Fall 2015: Research Assistant
-  * Github University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
+* 10.2023 - 06.2024 : Research Intern
+  * DKI(Data, Knowledge, Intelligence) Group, Microsoft Research
+  * Supervisor: Yong Xu, Fangkai Yang, Chaoyun Zhang
+
+* 06.2023 - 09.2024 : Research Intern
+  * Data Management Intelligence Departiment, Ant Group
   
-Skills
+
+
+Preprints
 ======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+
+- Thread: A Logic-Based Data Organization Paradigm for How-To Question Answering with Retrieval Augmented Generation \
+The 2024 Conference on Empirical Methods in Natural Language Processing(EMNLP) 2024. \
+Kaikai An, Fangkai Yang, Liqun Li, Junting Lu, **Sitao Cheng**, Lu Wang, Pu Zhao, Lele Cao, Qingwei Lin, Saravan Rajmohan, Dongmei Zhang, Qi Zhang\
+[[paper](https://arxiv.org/abs/2406.13372)]  
+
 
 Publications
 ======
-  <ul>{% for post in site.publications %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
+
+- Call Me When Necessary: LLMs can Efficiently and Faithfully Reason over Structured Environments\
+The 62nd Annual Meeting of the Association for Computational Linguistics(Findings of ACL), in Bangkok, Thailand, 2024.\
+**Sitao Cheng**, Ziyuan Zhuang, Yong Xu, Fangkai Yang, Chaoyun Zhang, Xiaoting Qin, Xiang Huang, Ling Chen, Qingwei Lin, Dongmei Zhang, Saravan Rajmohan, Qi Zhang\
+[[paper](https://arxiv.org/abs/2403.08593)] [[code](https://github.com/microsoft/Readi)]  
+
+
+
+- QueryAgent: A Reliable and Efficient Reasoning Framework with Environmental Feedback based Self-Correction\
+The 62nd Annual Meeting of the Association for Computational Linguistics(ACL), in Bangkok, Thailand, 2024.\
+Xiang Huang*, **Sitao Cheng\***, Shanshan Huang, Jiayu Shen, Yong Xu, Chaoyun Zhang, Yuzhong Qu\
+[[paper](https://arxiv.org/abs/2403.11886)] [[code](https://github.com/cdhx/QueryAgent)]
+
+
+
+- MarkQA: A Large Scale KBQA Dataset with Numerical Reasoning\
+The 2023 Conference on Empirical Methods in Natural Language Processing(EMNLP), in Singapore, 2023.\
+Xiang Huang, **Sitao Cheng**, Yuheng Bao, Shanshan Huang, Yuzhong Qu\
+[[paper](https://arxiv.org/abs/2310.15517)] [[code](https://github.com/cdhx/MarkQA)] [[homepage](http://ws.nju.edu.cn/MarkQA)]
+
+
+
+- Question Decomposition Tree for Answering Complex Questions over Knowledge Bases\
+Thirty-Seventh AAAI Conference on Artificial Intelligence(AAAI), in Washington, DC, USA, 2023. \
+Xiang Huang, Sitao Cheng, Yiheng Shu, Yuheng Bao, Yuzhong Qu \
+[[paper](https://arxiv.org/abs/2306.07597)] [[code](https://github.com/cdhx/QDTQA)]
+
+
   
-Talks
+Services
 ======
-  <ul>{% for post in site.talks %}
-    {% include archive-single-talk-cv.html %}
-  {% endfor %}</ul>
-  
-Teaching
-======
-  <ul>{% for post in site.teaching %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Service and leadership
-======
-* Currently signed in to 43 different slack teams
+
+- Reviewer: ACL ARR 2023, EMNLP ARR 2024
+- ACL 2024 Volunteer
