@@ -76,6 +76,6 @@ Thirty-Seventh AAAI Conference on Artificial Intelligence(AAAI), in Washington, 
 Academic Services
 ======
 
-- Reviewer: ACL 2023, ACL ARR 2023, ACL ARR 2024
+- Reviewer: ACL ARR 2023, EMNLP ARR 2024
 - ACL 2024 Volunteer
 

@@ -81,8 +81,8 @@ analytics:
 # Site Author
 author:
   name             : "Sitao Cheng"
-  avatar           : "font_img.jpg"
-  bio              : "Master's student at Nanjing University working on NLP.\n Seeking for Ph.D. position in 25Fall."
+  avatar           : "front_img.jpg"
+  bio              : "Master at Nanjing University.\n Seeking for NLP Ph.D. position in 25Fall."
   location         : "Santa Barbara, USA"
   employer         :
   pubmed           : # "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
