@@ -13,9 +13,7 @@ redirect_from:
  Previously, I worked as an intern at [Microsoft DKI Group](https://www.microsoft.com/en-us/research/group/data-knowledge-intelligence/).
  
 
- My research mainly focuses on how to adopt language models (LMs) to reasoning over real-world environments
-          (e.g. knowledge base, tables, DBs). My interests include multi-hop reasoning, LLM-agents, RAG and
-          neural-symblic grounding. Currently, I am focusing on the following research topics:
+ My research mainly focuses on adopting language models (LMs) to reason over real-world environments(e.g. knowledge base, tables, DBs). My interests include LLM-agents, RAG and neural-symblic grounding. Currently, I am doing research on the following topics:
         
 1. LLMs interaction with structured environments. (e.g. reasoning on KB.)
 2. Retrieval Augmented Generation. (e.g. retrieval of information by LLMs.)
@@ -24,7 +22,7 @@ redirect_from:
           
 I'm seeking for Ph.D. opportunities for 25Fall! Feel free to reach out to me if you’re interested in my research!
 
-In my free time, I love body building (power lifting, crossfit, nutritions, etc) and basketball.
+I go to gym almost every day. I love body building (power lifting, crossfit, nutritions, etc). Let's be friends!
 
 
 Recent News
@@ -39,7 +37,7 @@ Preprints
 
 - Thread: A Logic-Based Data Organization Paradigm for How-To Question Answering with Retrieval Augmented Generation
 The 2024 Conference on Empirical Methods in Natural Language Processing( EMNLP ) 2024.
-Kaikai An, Fangkai Yang, Liqun Li, Junting Lu, **Sitao Cheng**, Lu Wang, Pu Zhao, Lele Cao, Qingwei Lin, Saravan Rajmohan, Dongmei Zhang, Qi Zhang
+Kaikai An, Fangkai Yang, Liqun Li, Junting Lu, **Sitao Cheng**, Lu Wang, Pu Zhao, Lele Cao, Qingwei Lin, Saravan Rajmohan, Dongmei Zhang, Qi Zhang\
 [[paper](https://arxiv.org/abs/2406.13372)]  
 
 
@@ -54,20 +52,20 @@ The 62nd Annual Meeting of the Association for Computational Linguistics(ACL Fin
 
 - QueryAgent: A Reliable and Efficient Reasoning Framework with Environmental Feedback based Self-Correction
 The 62nd Annual Meeting of the Association for Computational Linguistics(ACL), in Bangkok, Thailand, 2024.
-Xiang Huang*, **Sitao Cheng\***, Shanshan Huang, Jiayu Shen, Yong Xu, Chaoyun Zhang, Yuzhong Qu
+Xiang Huang*, **Sitao Cheng\***, Shanshan Huang, Jiayu Shen, Yong Xu, Chaoyun Zhang, Yuzhong Qu\
 [[paper](https://arxiv.org/abs/2403.11886)] [[code](https://github.com/cdhx/QueryAgent)]
 
 
 
 - MarkQA: A large scale KBQA dataset with numerical reasoning
 The 2023 Conference on Empirical Methods in Natural Language Processing(EMNLP), in Singapore, 2023.
-Xiang Huang, Sitao Cheng, Yuheng Bao, Shanshan Huang, Yuzhong Qu
+Xiang Huang, Sitao Cheng, Yuheng Bao, Shanshan Huang, Yuzhong Qu\
 [[paper](https://arxiv.org/abs/2310.15517)] [[code](https://github.com/cdhx/MarkQA)] [[homepage](http://ws.nju.edu.cn/MarkQA)]
 
 
 
 - Question Decomposition Tree for Answering Complex Questions over Knowledge Bases
-Thirty-Seventh AAAI Conference on Artificial Intelligence(AAAI), in Washington, DC, USA, 2023.
+Thirty-Seventh AAAI Conference on Artificial Intelligence(AAAI), in Washington, DC, USA, 2023.\
 [[paper](https://arxiv.org/abs/2306.07597)] [[code](https://github.com/cdhx/QDTQA)]
 
 
