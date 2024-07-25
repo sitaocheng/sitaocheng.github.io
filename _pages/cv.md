@@ -3,12 +3,26 @@ layout: archive
 title: "CV"
 permalink: /cv/
 author_profile: true
-redirect_from:
-  - /resume
+# redirect_from:
+#   - /resume
 ---
 
 {% include base_path %}
 
+See also my [RESUME](./files/stcheng_cv.pdf).
+
+<!-- [<a href="./Files/stcheng_cv.pdf" target="_blank">
+                                    <font style="font-family:Microsoft YaHei">English CV</font>
+                                </a>]
+                                <!-- [<a href="./Files/chinese_cv.pdf" target="_blank">
+                                    <font style="font-family:Microsoft YaHei">Chinese CV</font>
+                                </a>]  -->
+                                [<a href="./Files/stcheng_PS.pdf" target="_blank">
+                                    <font style="font-family:Microsoft YaHei">Personal Statements</font>
+                                </a>] [<a href="./Files/stcheng_research_slides.pdf" target="_blank">
+                                    <font style="font-family:Microsoft YaHei">Slides of my works</font>
+                                </a>] -->
+                                
 Education
 ======
 * B.S. in GitHub, GitHub University, 2012

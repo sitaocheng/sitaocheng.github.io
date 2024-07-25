@@ -87,8 +87,8 @@ author:
   employer         :
   pubmed           : # "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
   googlescholar    : "https://scholar.google.com/citations?user=e4U43aYAAAAJ"
-  email            : "stcheng@smail.nju.edu.cn"
-  researchgate     : "https://www.researchgate.net/profile/Sitao-Cheng"
+  email            : "sitaotonycheng@foxmail.com"
+  researchgate     : # "https://www.researchgate.net/profile/Sitao-Cheng"
   uri              :
   bitbucket        :
   codepen          :
@@ -102,7 +102,7 @@ author:
   instagram        :
   impactstory      : #"https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
   lastfm           :
-  linkedin         : "sitao-cheng-1a557a175/"
+  linkedin         : # "sitao-cheng-1a557a175/"
   orcid            : # "http://orcid.org/yourorcidurl"
   pinterest        :
   soundcloud       :

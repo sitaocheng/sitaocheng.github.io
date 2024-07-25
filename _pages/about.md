@@ -8,17 +8,17 @@ redirect_from:
   - /about.html
 ---
 
- Hi, I am Sitao Cheng. I am a graduate student at [Websoft Lab](http://ws.nju.edu.cn/wiki/), Institude of Computer Science, Nanjing University, advised by Professor [Yuzhong Qu](http://ws.nju.edu.cn/~yzqu). 
+ Hi, I am Sitao Cheng(程思陶). I am a graduate student at [Websoft Lab](http://ws.nju.edu.cn/wiki/), Institude of Computer Science, Nanjing University, advised by Professor [Yuzhong Qu](http://ws.nju.edu.cn/~yzqu). 
  Currently, I am a visiting scholar at [UCSB NLP Group](http://nlp.cs.ucsb.edu/), advised by Professor [William Wang](https://sites.cs.ucsb.edu/~william/index.html).
  Previously, I worked as an intern at [Microsoft DKI Group](https://www.microsoft.com/en-us/research/group/data-knowledge-intelligence/).
  
 
- My research mainly focuses on adopting language models (LMs) to reason over real-world environments(e.g. knowledge base, tables, DBs). My interests include LLM-agents, RAG and neural-symblic grounding. Currently, I am doing research on the following topics:
+ My research mainly focuses on adopting language models (LMs) to reason over real-world environments(e.g. Knowledge Base, Tables, DBs). My interests include LLM-agents, RAG and neural-symblic grounding. Currently, I am doing research on the following topics:
         
-1. LLMs interaction with structured environments. (e.g. reasoning on KB.)
-2. Retrieval Augmented Generation. (e.g. retrieval of information by LLMs.)
-3. Semantic parsing. (Translate a natural language utterance to executable queries for precise reasoning.)
-4. Grounded language models. (Ground a plan to real-world environments, e.g. KB, Tables, etc.)
+1. LLMs interaction with structured environments (e.g. reasoning on KB).
+2. Retrieval Augmented Generation (e.g. retrieval of information by LLMs).
+3. Semantic parsing (Translate a natural language utterance to executable queries for precise reasoning).
+4. Grounded language models (Ground a plan to real-world environments, e.g. KB, Tables, etc).
           
 I'm seeking for Ph.D. opportunities for 25Fall! Feel free to reach out to me if you’re interested in my research!
 
@@ -36,7 +36,7 @@ Preprints
 ======
 
 - Thread: A Logic-Based Data Organization Paradigm for How-To Question Answering with Retrieval Augmented Generation \
-The 2024 Conference on Empirical Methods in Natural Language Processing( EMNLP ) 2024. \
+The 2024 Conference on Empirical Methods in Natural Language Processing(EMNLP) 2024. \
 Kaikai An, Fangkai Yang, Liqun Li, Junting Lu, **Sitao Cheng**, Lu Wang, Pu Zhao, Lele Cao, Qingwei Lin, Saravan Rajmohan, Dongmei Zhang, Qi Zhang\
 [[paper](https://arxiv.org/abs/2406.13372)]  
 
@@ -45,7 +45,7 @@ Publications
 ======
 
 - Call Me When Necessary: LLMs can Efficiently and Faithfully Reason over Structured Environments\
-The 62nd Annual Meeting of the Association for Computational Linguistics(ACL Findings), in Bangkok, Thailand, 2024.\
+The 62nd Annual Meeting of the Association for Computational Linguistics(Findings of ACL), in Bangkok, Thailand, 2024.\
 **Sitao Cheng**, Ziyuan Zhuang, Yong Xu, Fangkai Yang, Chaoyun Zhang, Xiaoting Qin, Xiang Huang, Ling Chen, Qingwei Lin, Dongmei Zhang, Saravan Rajmohan, Qi Zhang\
 [[paper](https://arxiv.org/abs/2403.08593)] [[code](https://github.com/microsoft/Readi)]  
 
