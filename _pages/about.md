@@ -45,9 +45,13 @@ Publications
 ======
 
 - Call Me When Necessary: LLMs can Efficiently and Faithfully Reason over Structured Environments
+
 The 62nd Annual Meeting of the Association for Computational Linguistics(ACL Findings), in Bangkok, Thailand, 2024.
+
 **Sitao Cheng**, Ziyuan Zhuang, Yong Xu, Fangkai Yang, Chaoyun Zhang, Xiaoting Qin, Xiang Huang, Ling Chen, Qingwei Lin, Dongmei Zhang, Saravan Rajmohan, Qi Zhang
+
 [[paper](https://arxiv.org/abs/2403.08593)] [[code](https://github.com/microsoft/Readi)]  
+
 
 
 - QueryAgent: A Reliable and Efficient Reasoning Framework with Environmental Feedback based Self-Correction
