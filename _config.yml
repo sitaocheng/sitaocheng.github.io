@@ -7,13 +7,13 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Xunjian Yin"
+title                    : "Sitao Cheng"
 title_separator          : "-"
-name                     : &name "Xunjian Yin"
+name                     : &name "Sitao Cheng"
 description              : &description "Master student at Peking University working on NLP"
-url                      : https://xunjianyin.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+url                      : https://sitaocheng.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
-repository               : "xunjianyin/yinxunjian.github.io"
+repository               : "sitaocheng/sitaocheng.github.io"
 teaser                   :  # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
 breadcrumbs              : false # true, false (default)
 words_per_minute         : 160
@@ -80,15 +80,15 @@ analytics:
 
 # Site Author
 author:
-  name             : "Xunjian Yin"
-  avatar           : "img2.jpg"
-  bio              : "Master's student at Peking University working on NLP"
-  location         : "Beijing, China"
+  name             : "Sitao Cheng"
+  avatar           : "font_img.jpg"
+  bio              : "Master's student at Nanjing University working on NLP.\n Seeking for Ph.D. position in 25Fall."
+  location         : "Santa Barbara, USA"
   employer         :
   pubmed           : # "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
-  googlescholar    : "https://scholar.google.com/citations?user=PociQ5EAAAAJ"
-  email            : "xjyin@pku.edu.cn"
-  researchgate     : # example: "https://www.researchgate.net/profile/yourprofile"
+  googlescholar    : "https://scholar.google.com/citations?user=e4U43aYAAAAJ"
+  email            : "stcheng@smail.nju.edu.cn"
+  researchgate     : "https://www.researchgate.net/profile/Sitao-Cheng"
   uri              :
   bitbucket        :
   codepen          :
@@ -96,20 +96,20 @@ author:
   flickr           :
   facebook         :
   foursquare       :
-  github           : "arvid-pku"
+  github           : "sitaocheng"
   google_plus      :
   keybase          :
   instagram        :
   impactstory      : #"https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
   lastfm           :
-  linkedin         : "xunjian-yin-5b40252a5/"
+  linkedin         : "sitao-cheng-1a557a175/"
   orcid            : # "http://orcid.org/yourorcidurl"
   pinterest        :
   soundcloud       :
   stackoverflow    : # http://stackoverflow.com/users/123456/username
   steam            :
   tumblr           :
-  twitter          : "ard25974550"
+  twitter          : "TonyCheng990417"
   vine             :
   weibo            :
   xing             :

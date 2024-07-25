@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "About me"
+# title: "About me"
 excerpt: "About me"
 author_profile: true
 redirect_from: 
@@ -8,61 +8,68 @@ redirect_from:
   - /about.html
 ---
 
-I am Xunjian Yin, a second-year Master's student in the [Wangxuan Institute of Computer Technology](https://www.icst.pku.edu.cn/english/home/index.htm) at [Peking University](https://english.pku.edu.cn/). My advisor is Prof. [Xiaojun Wan](https://wanxiaojun.github.io/). Previously, I obtained my B.S. degree in [Computer Science](https://eecs.pku.edu.cn/en/) from [Peking University](https://english.pku.edu.cn/).
+ Hi, I am Sitao Cheng. I am a graduate student at [Websoft Lab](http://ws.nju.edu.cn/wiki/), Institude of Computer Science, Nanjing University, advised by Professor [Yuzhong Qu](http://ws.nju.edu.cn/~yzqu). 
+ Currently, I am a visiting scholar at [UCSB NLP Group](http://nlp.cs.ucsb.edu/), advised by Professor [William Wang](https://sites.cs.ucsb.edu/~william/index.html).
+ Previously, I worked as an intern at [Microsoft DKI Group](https://www.microsoft.com/en-us/research/group/data-knowledge-intelligence/).
+ 
 
-My research interest lies in knowledge and large language models (LLMs). Specifically, 
-1. I am committed to analyzing and researching the storage patterns of knowledge within large language models, aiming to uncover underlying structures and mechanisms (**Knowledge Storage Patterns**).
-2. I work on better extracting the knowledge within the model as well as assessing the boundaries of the model's knowledge capabilities. (**Knowledge Extraction and Evaluation**)
-3. I aspire to design methods that allow us to effectively manipulate and update the knowledge within these models, providing them with more flexible learning and adaptability (**Knowledge Manipulation and Updating**).
-4. My goal is to design methods that can better leverage the knowledge within the model for reasoning and practical problem-solving, enhancing the model's applicability (**Knowledge Utilization for Reasoning and Problem Solving**).
+ My research mainly focuses on how to adopt language models (LMs) to reasoning over real-world environments
+          (e.g. knowledge base, tables, DBs). My interests include multi-hop reasoning, LLM-agents, RAG and
+          neural-symblic grounding. Currently, I am focusing on the following research topics:
+        
+1. LLMs interaction with structured environments. (e.g. reasoning on KB.)
+2. Retrieval Augmented Generation. (e.g. retrieval of information by LLMs.)
+3. Semantic parsing. (Translate a natural language utterance to executable queries for precise reasoning.)
+4. Grounded language models. (Ground a plan to real-world environments, e.g. KB, Tables, etc.)
+          
+I'm seeking for Ph.D. opportunities for 25Fall! Feel free to reach out to me if you’re interested in my research!
+
+In my free time, I love body building (power lifting, crossfit, nutritions, etc) and basketball.
 
 
 Recent News
 ======
 
-- 2024-05: One paper is accepted to ACL 2024   
-- 2023-12: One paper is accepted to AAAI 2024   
-- 2023-10: Two papers are accepted to EMNLP 2023  
+- 2024-05: Two papers accepted by ACL 2024 (Main + Findings).
+- 2023-10: One paper accepted by EMNLP 2023.
+- 2022-11: One paper accepted by AAAI 2023.  
 
 Preprints
 ======
 
-
-- Human-like Summarization Evaluation with ChatGPT  
-Mingqi Gao, Jie Ruan, Renliang Sun, **Xunjian Yin**, Shiping Yang, Xiaojun Wan  
-*arXiv*:2304.02554  [[paper](https://arxiv.org/abs/2304.02554)]  
-
-- Error-Robust Retrieval for Chinese Spelling Check  
-**Xunjian Yin**, Xinyu Hu, Xiaojun Wan  
-*arXiv*:2211.07843  [[paper](https://arxiv.org/abs/2211.07843)]
+- Thread: A Logic-Based Data Organization Paradigm for How-To Question Answering with Retrieval Augmented Generation
+The 2024 Conference on Empirical Methods in Natural Language Processing( EMNLP ) 2024.
+Kaikai An, Fangkai Yang, Liqun Li, Junting Lu, **Sitao Cheng**, Lu Wang, Pu Zhao, Lele Cao, Qingwei Lin, Saravan Rajmohan, Dongmei Zhang, Qi Zhang
+[[paper](https://arxiv.org/abs/2406.13372)]  
 
 
 Publications
 ======
 
-- Benchmarking Knowledge Boundary for Large Language Model: A Different Perspective on Model Evaluation  
-**Xunjian Yin**\*, Xu Zhang\*, Jie Ruan, Xiaojun Wan  
-*ACL 2024*  [[paper](https://arxiv.org/abs/2402.11493)]   
+- Call Me When Necessary: LLMs can Efficiently and Faithfully Reason over Structured Environments
+The 62nd Annual Meeting of the Association for Computational Linguistics(ACL Findings), in Bangkok, Thailand, 2024.
+**Sitao Cheng**, Ziyuan Zhuang, Yong Xu, Fangkai Yang, Chaoyun Zhang, Xiaoting Qin, Xiang Huang, Ling Chen, Qingwei Lin, Dongmei Zhang, Saravan Rajmohan, Qi Zhang
+[[paper](https://arxiv.org/abs/2403.08593)] [[code](https://github.com/microsoft/Readi)]  
 
-- History Matters: Temporal Knowledge Editing in Large Language Model      
-**Xunjian Yin**, Jin Jiang, Liming Yang, Xiaojun Wan       
-*AAAI 2024*   [[pdf](https://arxiv.org/pdf/2312.05497.pdf)] [[code](https://github.com/Arvid-pku/ATOKE)]
 
-- ALCUNA: Large Language Models Meet New Knowledge  
-**Xunjian Yin**\*, Baizhou Huang\*, Xiaojun Wan  
-*EMNLP 2023*  [[pdf](https://arxiv.org/pdf/2310.14820.pdf)] [[code](https://github.com/arvid-pku/alcuna)]
+- QueryAgent: A Reliable and Efficient Reasoning Framework with Environmental Feedback based Self-Correction
+The 62nd Annual Meeting of the Association for Computational Linguistics(ACL), in Bangkok, Thailand, 2024.
+Xiang Huang*, **Sitao Cheng\***, Shanshan Huang, Jiayu Shen, Yong Xu, Chaoyun Zhang, Yuzhong Qu
+[[paper](https://arxiv.org/abs/2403.11886)] [[code](https://github.com/cdhx/QueryAgent)]
 
-- Exploring Context-Aware Evaluation Metrics for Machine Translation   
-Xinyu Hu, **Xunjian Yin**, Xiaojun Wan  
-*EMNLP 2023 findings*  [[pdf](TODO)] [[code](TODO)]  
 
-- Overview of the NLPCC 2023 Shared Task: Chinese Spelling Check           
-**Xunjian Yin**, Xiaojun Wan, Dan Zhang, Linlin Yu, Long Yu           
-*NLPCC 2023* [[pdf](https://link.springer.com/chapter/10.1007/978-3-031-44699-3_30)] [[code](https://github.com/Arvid-pku/NLPCC2023_Shared_Task8)]
 
-- How Do Seq2Seq Models Perform on End-to-End Data-to-Text Generation?    
-**Xunjian Yin**, Xiaojun Wan    
-*ACL 2022*  [[pdf](https://aclanthology.org/2022.acl-long.531.pdf)] [[code](https://github.com/xunjianyin/Seq2SeqOnData2Text)]  
+- MarkQA: A large scale KBQA dataset with numerical reasoning
+The 2023 Conference on Empirical Methods in Natural Language Processing(EMNLP), in Singapore, 2023.
+Xiang Huang, Sitao Cheng, Yuheng Bao, Shanshan Huang, Yuzhong Qu
+[[paper](https://arxiv.org/abs/2310.15517)] [[code](https://github.com/cdhx/MarkQA)] [[homepage](http://ws.nju.edu.cn/MarkQA)]
+
+
+
+- Question Decomposition Tree for Answering Complex Questions over Knowledge Bases
+Thirty-Seventh AAAI Conference on Artificial Intelligence(AAAI), in Washington, DC, USA, 2023.
+[[paper](https://arxiv.org/abs/2306.07597)] [[code](https://github.com/cdhx/QDTQA)]
+
 
 
 
@@ -70,6 +77,5 @@ Academic Services
 ======
 
 - Reviewer: ACL 2023, ACL ARR 2023, ACL ARR 2024
-- NLPCC Shared Task 8 track chair
-- AAAI 2024 Volunteer
+- ACL 2024 Volunteer
 
