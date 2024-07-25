@@ -9,7 +9,7 @@ redirect_from:
 
 {% include base_path %}
 
-See also my [RESUME](./files/stcheng_cv.pdf).
+See also my [RESUME](../files/stcheng_cv.pdf).
 
 <!-- [<a href="./Files/stcheng_cv.pdf" target="_blank">
                                     <font style="font-family:Microsoft YaHei">English CV</font>
