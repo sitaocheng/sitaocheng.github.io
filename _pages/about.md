@@ -13,7 +13,7 @@ Previously, I worked as an intern at [Microsoft DKI Group](https://www.microsoft
 Currently, I am a visiting scholar at [UCSB NLP Group](http://nlp.cs.ucsb.edu/), advised by Professor [William Wang](https://sites.cs.ucsb.edu/~william/index.html).
 
 
- My research mainly focuses on adopting language models (LMs) to reason over real-world environments(e.g. Knowledge Base, Tables, DBs). My interests include LLM-agents, RAG and neural-symblic grounding. Currently, I am doing research on the following topics:
+ My research mainly focuses on adopting language models (LMs) to reason over real-world environments(e.g. Knowledge Base, Tables, DBs). My interests include LM-agents, RAG and neural-symblic grounding. Currently, I am doing research on the following topics:
 
 1. Understanding and Application of Retrieval Augmented Generation (e.g. the machanism and usage of RAG).        
 2. LLMs interaction with structured environments (e.g. reasoning on KB).

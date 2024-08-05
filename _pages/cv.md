@@ -13,29 +13,27 @@ See also my [RESUME](../files/stcheng_cv.pdf), my [Personal Statements](../files
                                 
 Education
 ======
-* M.S. in Computer Science, Nanjing University, 2021
-* B.S. in Software Engineering, University of Electronic Science and Technology of China, 2017
+* M.S. in Computer Science, Nanjing University, advised by Professor Yuzhong Qu, 2024
+* B.S. in Software Engineering, University of Electronic Science and Technology of China, advised by Professor Yi Ding, 2021
 
 Work experience
 ======
 * 07.2024 - Now : Visiting Research Scholar
   * University of California, Santa Barbara
-  * Supervisor: Professor William Wang
+  * Supervisor: Professor [William Wang](https://sites.cs.ucsb.edu/~william/index.html)
 
 * 10.2023 - 06.2024 : Research Intern
   * DKI(Data, Knowledge, Intelligence) Group, Microsoft Research
   * Supervisor: Yong Xu, Fangkai Yang, Chaoyun Zhang
 
-* 06.2023 - 09.2024 : Research Intern
+* 06.2023 - 09.2023 : Research Intern
   * Data Management Intelligence Departiment, Ant Group
   
-
 
 Preprints
 ======
 
 - Thread: A Logic-Based Data Organization Paradigm for How-To Question Answering with Retrieval Augmented Generation \
-The 2024 Conference on Empirical Methods in Natural Language Processing(EMNLP) 2024. \
 Kaikai An, Fangkai Yang, Liqun Li, Junting Lu, **Sitao Cheng**, Lu Wang, Pu Zhao, Lele Cao, Qingwei Lin, Saravan Rajmohan, Dongmei Zhang, Qi Zhang\
 [[paper](https://arxiv.org/abs/2406.13372)]  
 
@@ -44,7 +42,7 @@ Publications
 ======
 
 - Call Me When Necessary: LLMs can Efficiently and Faithfully Reason over Structured Environments\
-The 62nd Annual Meeting of the Association for Computational Linguistics(Findings of ACL), in Bangkok, Thailand, 2024.\
+The 62nd Annual Meeting of the Association for Computational Linguistics(ACL Findings), in Bangkok, Thailand, 2024.\
 **Sitao Cheng**, Ziyuan Zhuang, Yong Xu, Fangkai Yang, Chaoyun Zhang, Xiaoting Qin, Xiang Huang, Ling Chen, Qingwei Lin, Dongmei Zhang, Saravan Rajmohan, Qi Zhang\
 [[paper](https://arxiv.org/abs/2403.08593)] [[code](https://github.com/microsoft/Readi)]  
 
@@ -66,13 +64,17 @@ Xiang Huang, **Sitao Cheng**, Yuheng Bao, Shanshan Huang, Yuzhong Qu\
 
 - Question Decomposition Tree for Answering Complex Questions over Knowledge Bases\
 Thirty-Seventh AAAI Conference on Artificial Intelligence(AAAI), in Washington, DC, USA, 2023. \
-Xiang Huang, Sitao Cheng, Yiheng Shu, Yuheng Bao, Yuzhong Qu \
+Xiang Huang, **Sitao Cheng**, Yiheng Shu, Yuheng Bao, Yuzhong Qu \
 [[paper](https://arxiv.org/abs/2306.07597)] [[code](https://github.com/cdhx/QDTQA)]
 
+
+Selected Awards
+======
+* 2024 Outstanding Graduating Student at Nanjing University
+* 2021 Outstanding Graduating Student at Sichuan Province
+* 2021 Outstanding Graduating Student at UESTC
 
   
 Services
 ======
-
-- Reviewer: ACL ARR 2023, EMNLP ARR 2024
 - ACL 2024 Volunteer
