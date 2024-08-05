@@ -35,7 +35,6 @@ Preprints
 ======
 
 - Thread: A Logic-Based Data Organization Paradigm for How-To Question Answering with Retrieval Augmented Generation \
-The 2024 Conference on Empirical Methods in Natural Language Processing(EMNLP) 2024. \
 Kaikai An, Fangkai Yang, Liqun Li, Junting Lu, **Sitao Cheng**, Lu Wang, Pu Zhao, Lele Cao, Qingwei Lin, Saravan Rajmohan, Dongmei Zhang, Qi Zhang\
 [[paper](https://arxiv.org/abs/2406.13372)]  
 
