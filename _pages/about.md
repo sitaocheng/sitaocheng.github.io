@@ -9,9 +9,9 @@ redirect_from:
 ---
 
  Hi, I am Sitao Cheng(程思陶). I am a graduate student at [Websoft Lab](http://ws.nju.edu.cn/wiki/), Institude of Computer Science, Nanjing University, advised by Professor [Yuzhong Qu](http://ws.nju.edu.cn/~yzqu). 
- Currently, I am a visiting scholar at [UCSB NLP Group](http://nlp.cs.ucsb.edu/), advised by Professor [William Wang](https://sites.cs.ucsb.edu/~william/index.html).
- Previously, I worked as an intern at [Microsoft DKI Group](https://www.microsoft.com/en-us/research/group/data-knowledge-intelligence/).
- 
+Previously, I worked as an intern at [Microsoft DKI Group](https://www.microsoft.com/en-us/research/group/data-knowledge-intelligence/).
+Currently, I am a visiting scholar at [UCSB NLP Group](http://nlp.cs.ucsb.edu/), advised by Professor [William Wang](https://sites.cs.ucsb.edu/~william/index.html).
+
 
  My research mainly focuses on adopting language models (LMs) to reason over real-world environments(e.g. Knowledge Base, Tables, DBs). My interests include LLM-agents, RAG and neural-symblic grounding. Currently, I am doing research on the following topics:
 
