@@ -14,16 +14,15 @@ redirect_from:
  
 
  My research mainly focuses on adopting language models (LMs) to reason over real-world environments(e.g. Knowledge Base, Tables, DBs). My interests include LLM-agents, RAG and neural-symblic grounding. Currently, I am doing research on the following topics:
-        
-1. LLMs interaction with structured environments (e.g. reasoning on KB).
-2. Retrieval Augmented Generation (e.g. retrieval of information by LLMs).
-3. Semantic parsing (Translate a natural language utterance to executable queries for precise reasoning).
-4. Grounded language models (Ground a plan to real-world environments, e.g. KB, Tables, etc).
+
+1. Understanding and Application of Retrieval Augmented Generation (e.g. the machanism and usage of RAG).        
+2. LLMs interaction with structured environments (e.g. reasoning on KB).
+3. Neural-symbolic Reasoning (Translate a natural language utterance to executable queries for precise reasoning).
+4. Grounded Language Models (Ground a plan to real-world environments, e.g. KB, Tables, etc).
           
-I'm seeking for Ph.D. opportunities for 25Fall! Feel free to reach out to me if you’re interested in my research!
+I'm seeking for 25 Fall Ph.D. opportunities! Feel free to reach out to me if you’re interested in my research!
 
 I go to gym almost every day. I love body building (power lifting, crossfit, nutritions, etc). Let's be friends!
-
 
 Recent News
 ======
@@ -45,7 +44,7 @@ Publications
 ======
 
 - Call Me When Necessary: LLMs can Efficiently and Faithfully Reason over Structured Environments\
-The 62nd Annual Meeting of the Association for Computational Linguistics(Findings of ACL), in Bangkok, Thailand, 2024.\
+The 62nd Annual Meeting of the Association for Computational Linguistics(ACL Findings), in Bangkok, Thailand, 2024.\
 **Sitao Cheng**, Ziyuan Zhuang, Yong Xu, Fangkai Yang, Chaoyun Zhang, Xiaoting Qin, Xiang Huang, Ling Chen, Qingwei Lin, Dongmei Zhang, Saravan Rajmohan, Qi Zhang\
 [[paper](https://arxiv.org/abs/2403.08593)] [[code](https://github.com/microsoft/Readi)]  
 
@@ -67,15 +66,13 @@ Xiang Huang, **Sitao Cheng**, Yuheng Bao, Shanshan Huang, Yuzhong Qu\
 
 - Question Decomposition Tree for Answering Complex Questions over Knowledge Bases\
 Thirty-Seventh AAAI Conference on Artificial Intelligence(AAAI), in Washington, DC, USA, 2023. \
-Xiang Huang, Sitao Cheng, Yiheng Shu, Yuheng Bao, Yuzhong Qu \
+Xiang Huang, **Sitao Cheng**, Yiheng Shu, Yuheng Bao, Yuzhong Qu \
 [[paper](https://arxiv.org/abs/2306.07597)] [[code](https://github.com/cdhx/QDTQA)]
-
 
 
 
 Academic Services
 ======
 
-- Reviewer: ACL ARR 2023, EMNLP ARR 2024
 - ACL 2024 Volunteer
 
