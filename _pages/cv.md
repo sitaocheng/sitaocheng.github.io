@@ -14,7 +14,7 @@ See also my [RESUME](../files/Sitao_Cheng.pdf), my [Personal Statements](../file
 Education
 ======
 * M.S. in Computer Science, Nanjing University, advised by Professor Yuzhong Qu, 2024
-* B.S. in Software Engineering, University of Electronic Science and Technology of China, advised by Professor Yi Ding, 2021
+* B.E. in Software Engineering, University of Electronic Science and Technology of China, advised by Professor Yi Ding, 2021
 
 Work experience
 ======
