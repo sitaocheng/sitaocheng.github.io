@@ -9,7 +9,7 @@ redirect_from:
 
 {% include base_path %}
 
-See also my [RESUME](../files/Sitao_Cheng.pdf), my [Personal Statements](../files/stcheng_PS.pdf), and [Slides of my works](../files/stcheng_research_slides.pdf)
+See also my [RESUME](../files/Academic_CV.pdf), my [Personal Statements](../files/stcheng_PS.pdf), and [Slides of my works](../files/stcheng_research_slides.pdf)
                                 
 Education
 ======
@@ -26,6 +26,11 @@ Work experience
   * DKI(Data, Knowledge, Intelligence) Group, Microsoft Research
   * Supervisor: Yong Xu, Fangkai Yang, Chaoyun Zhang
 
+  
+* 06.2021 - 06.2024 : Student Researcher
+  * Websoft Lab, Nanjing University
+  * Supervisor: Professor Yuzhong Qu
+
 * 06.2023 - 09.2023 : Research Intern
   * Data Management Intelligence Departiment, Ant Group
   
@@ -33,10 +38,13 @@ Work experience
 Preprints
 ======
 
+- EfficientRAG: Efficient Retriever for Multi-Hop Question Answering \
+Ziyuan Zhuang, Zhiyang Zhang, **Sitao Cheng**, Fangkai Yang, Jia Liu, Shujian Huang, Qingwei Lin, Saravan Rajmohan, Dongmei Zhang, Qi Zhang \
+[[paper](https://www.arxiv.org/abs/2408.04259)]  
+
 - Thread: A Logic-Based Data Organization Paradigm for How-To Question Answering with Retrieval Augmented Generation \
 Kaikai An, Fangkai Yang, Liqun Li, Junting Lu, **Sitao Cheng**, Lu Wang, Pu Zhao, Lele Cao, Qingwei Lin, Saravan Rajmohan, Dongmei Zhang, Qi Zhang\
 [[paper](https://arxiv.org/abs/2406.13372)]  
-
 
 Publications
 ======
