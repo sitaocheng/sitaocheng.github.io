@@ -8,16 +8,16 @@ redirect_from:
   - /about.html
 ---
 
- Hi, I am Sitao Cheng(程思陶). I am a graduate student at [Websoft Lab](http://ws.nju.edu.cn/wiki/), Institude of Computer Science, Nanjing University, fortunated to be advised by Professor [Yuzhong Qu](http://ws.nju.edu.cn/~yzqu). 
+ Hi, I am Sitao Cheng(程思陶). I am a graduate student at [Websoft Lab](http://ws.nju.edu.cn/wiki/), Nanjing University, fortunated to be advised by Professor [Yuzhong Qu](http://ws.nju.edu.cn/~yzqu). 
 Previously, I worked as a research intern at [Microsoft DKI Group](https://www.microsoft.com/en-us/research/group/data-knowledge-intelligence/).
 Currently, I am a visiting scholar at [UCSB NLP Group](http://nlp.cs.ucsb.edu/), fortunated to be advised by Professor [William Wang](https://sites.cs.ucsb.edu/~william/index.html).
 
- My research mainly focuses on adopting language models (LMs) to reason over real-world environments(e.g. Knowledge Base, Tables, DBs). My interests include LM-agents, RAG and neural-symbolic grounding. Currently, I am doing research on the following topics:
+ My research mainly focuses on adopting language models (LMs) to reason over real-world environments (e.g., RAG, Knowledge Based systems). My interests include LM-agents, RAG and neural-symbolic grounding. Currently, I am doing research on the following topics:
 
-1. Understanding and Application of Retrieval Augmented Generation (e.g. the mechanism and usage of RAG).        
-2. LLMs interaction with structured environments (e.g. reasoning on KB).
-3. Neural-symbolic Reasoning (Translate a natural language utterance to executable queries for precise reasoning).
-4. Grounded Language Models (Ground a plan to real-world environments, e.g. KB, Tables, etc).
+1. The interplay between the internal and external knowledge of large language models
+2. Understanding and Application of Retrieval Augmented Generation (e.g. efficient retrieval and better data organization paradigm).        
+3. LLMs interaction with structured environments (e.g. reasoning on KB by semantic parsing or information retrieval).
+3. Grounded Language Models (Ground a plan to real-world environments, e.g. KB, Tables).
           
 I'm seeking for 25 Fall Ph.D. opportunities! Feel free to reach out to me if you’re interested in my research!
 
@@ -26,6 +26,7 @@ I go to gym almost every day. I love body building (power lifting, swimming, cro
 Recent News
 ======
 
+- 2024-09: One paper accepted by EMNLP 2024.
 - 2024-05: Two papers accepted by ACL 2024 (one Main + one Findings).
 - 2023-10: One paper accepted by EMNLP 2023.
 - 2022-11: One paper accepted by AAAI 2023.  
@@ -33,9 +34,6 @@ Recent News
 Preprints
 ======
 
-- EfficientRAG: Efficient Retriever for Multi-Hop Question Answering \
-Ziyuan Zhuang, Zhiyang Zhang, **Sitao Cheng**, Fangkai Yang, Jia Liu, Shujian Huang, Qingwei Lin, Saravan Rajmohan, Dongmei Zhang, Qi Zhang \
-[[paper](https://www.arxiv.org/abs/2408.04259)]  
 
 - Thread: A Logic-Based Data Organization Paradigm for How-To Question Answering with Retrieval Augmented Generation \
 Kaikai An, Fangkai Yang, Liqun Li, Junting Lu, **Sitao Cheng**, Lu Wang, Pu Zhao, Lele Cao, Qingwei Lin, Saravan Rajmohan, Dongmei Zhang, Qi Zhang\
@@ -44,6 +42,7 @@ Kaikai An, Fangkai Yang, Liqun Li, Junting Lu, **Sitao Cheng**, Lu Wang, Pu Zhao
 
 Publications
 ======
+
 
 - Call Me When Necessary: LLMs can Efficiently and Faithfully Reason over Structured Environments\
 The 62nd Annual Meeting of the Association for Computational Linguistics(ACL Findings), in Bangkok, Thailand, 2024.\
@@ -57,6 +56,11 @@ The 62nd Annual Meeting of the Association for Computational Linguistics(ACL), i
 Xiang Huang*, **Sitao Cheng\***, Shanshan Huang, Jiayu Shen, Yong Xu, Chaoyun Zhang, Yuzhong Qu\
 [[paper](https://arxiv.org/abs/2403.11886)] [[code](https://github.com/cdhx/QueryAgent)]
 
+
+- EfficientRAG: Efficient Retriever for Multi-Hop Question Answering \
+The 2024 Conference on Empirical Methods in Natural Language Processing(EMNLP), in Miami, Florida, 2024 \
+Ziyuan Zhuang, Zhiyang Zhang, **Sitao Cheng**, Fangkai Yang, Jia Liu, Shujian Huang, Qingwei Lin, Saravan Rajmohan, Dongmei Zhang, Qi Zhang \
+[[paper](https://www.arxiv.org/abs/2408.04259)]  
 
 
 - MarkQA: A Large Scale KBQA Dataset with Numerical Reasoning\
