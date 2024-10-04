@@ -14,10 +14,9 @@ Currently, I am a visiting scholar at [UCSB NLP Group](http://nlp.cs.ucsb.edu/),
 
  My research mainly focuses on adopting language models (LMs) to reason over real-world environments (e.g., RAG, Knowledge Based systems). My interests include LM-agents, RAG and neural-symbolic grounding. Currently, I am doing research on the following topics:
 
-1. The interplay between the internal and external knowledge of large language models
+1. The interplay between the internal and external knowledge for large language models
 2. Understanding and Application of Retrieval Augmented Generation (e.g. efficient retrieval and better data organization paradigm).        
-3. LLMs interaction with structured environments (e.g. reasoning on KB by semantic parsing or information retrieval).
-3. Grounded Language Models (Ground a plan to real-world environments, e.g. KB, Tables).
+3. LLMs interaction with structured environments (e.g. Semantic Parsing or Information Retrieval).
           
 I'm seeking for 25 Fall Ph.D. opportunities! Feel free to reach out to me if you’re interested in my research!
 

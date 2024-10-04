@@ -14,6 +14,8 @@ author_profile: true
 Preprints
 ======
 
+- Understanding the Interplay between Parametric and Contextual Knowledge \
+**Sitao Cheng**, Liangming Pan, Xunjian Yin, Xinyi Wang, William Yang Wang\
 
 - Thread: A Logic-Based Data Organization Paradigm for How-To Question Answering with Retrieval Augmented Generation \
 Kaikai An, Fangkai Yang, Liqun Li, Junting Lu, **Sitao Cheng**, Lu Wang, Pu Zhao, Lele Cao, Qingwei Lin, Saravan Rajmohan, Dongmei Zhang, Qi Zhang\
@@ -28,7 +30,6 @@ Publications
 The 62nd Annual Meeting of the Association for Computational Linguistics(ACL Findings), in Bangkok, Thailand, 2024.\
 **Sitao Cheng**, Ziyuan Zhuang, Yong Xu, Fangkai Yang, Chaoyun Zhang, Xiaoting Qin, Xiang Huang, Ling Chen, Qingwei Lin, Dongmei Zhang, Saravan Rajmohan, Qi Zhang\
 [[paper](https://arxiv.org/abs/2403.08593)] [[code](https://github.com/microsoft/Readi)]  
-
 
 
 - QueryAgent: A Reliable and Efficient Reasoning Framework with Environmental Feedback based Self-Correction\
