@@ -16,7 +16,7 @@ Preprints
 
 - Understanding the Interplay between Parametric and Contextual Knowledge for Large Language Models \
 **Sitao Cheng**, Liangming Pan, Xunjian Yin, Xinyi Wang, William Yang Wang \
-arxiv comming soon... 
+[[paper](https://arxiv.org/abs/2410.08414)]  
 
 - Thread: A Logic-Based Data Organization Paradigm for How-To Question Answering with Retrieval Augmented Generation \
 Kaikai An, Fangkai Yang, Liqun Li, Junting Lu, **Sitao Cheng**, Lu Wang, Pu Zhao, Lele Cao, Qingwei Lin, Saravan Rajmohan, Dongmei Zhang, Qi Zhang\
