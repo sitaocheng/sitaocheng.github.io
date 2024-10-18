@@ -8,15 +8,15 @@ redirect_from:
   - /about.html
 ---
 
- Hi, I am Sitao Cheng(程思陶). I am a graduate student at [Websoft Lab](http://ws.nju.edu.cn/wiki/), Nanjing University, fortunated to be advised by Professor [Yuzhong Qu](http://ws.nju.edu.cn/~yzqu). 
+ Hi, I am Sitao Cheng(程思陶). I am a computer science graduate student at Nanjing University, fortunated to be advised by Professor [Yuzhong Qu](http://ws.nju.edu.cn/~yzqu). 
 Previously, I worked as a research intern at [Microsoft DKI Group](https://www.microsoft.com/en-us/research/group/data-knowledge-intelligence/).
-Currently, I am a visiting scholar at [UCSB NLP Group](http://nlp.cs.ucsb.edu/), fortunated to be advised by Professor [William Wang](https://sites.cs.ucsb.edu/~william/index.html).
+Currently, I am a visiting scholar at [UCSB NLP Group](http://nlp.cs.ucsb.edu/), fortunated to be advised by Professor [William Wang](https://sites.cs.ucsb.edu/~william/index.html). I also closely work with Professor [Liangming Pan](https://liangmingpan.bio/). Please check my [CV](https://sitaocheng.github.io/files/Academic_CV.pdf).
 
- My research mainly focuses on adopting language models (LMs) to reason over real-world environments (e.g., RAG, Knowledge Based systems). My interests include LM-agents, RAG and neural-symbolic grounding. Currently, I am doing research on the following topics:
+ My research mainly focuses on adopting language models (LMs) to reason with knowledge (e.g., structured knowledge, documents, parametric knowledge). My interests include LM-agents, RAG and neural-symbolic grounding. Currently, I am doing research on the following topics:
 
-1. The interplay between the internal and external knowledge for large language models
-2. Understanding and Application of Retrieval Augmented Generation (e.g. efficient retrieval and better data organization paradigm).        
-3. LLMs interaction with structured environments (e.g. Semantic Parsing or Information Retrieval).
+1. The interplay between the parametric and contextual knowledge for large language models.
+2. Understanding and Application of Retrieval Augmented Generation (e.g. reasoning over large-scaled knowledge graphs, efficient retrieval and better data organization paradigm).        
+3. LLMs interaction with structured environments (e.g. Language Agent, Semantic Parsing and Information Retrieval).
           
 I'm seeking for 25 Fall Ph.D. opportunities! Feel free to reach out to me if you’re interested in my research!
 
