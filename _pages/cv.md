@@ -38,9 +38,9 @@ Work experience
 Preprints
 ======
 
-- EfficientRAG: Efficient Retriever for Multi-Hop Question Answering \
-Ziyuan Zhuang, Zhiyang Zhang, **Sitao Cheng**, Fangkai Yang, Jia Liu, Shujian Huang, Qingwei Lin, Saravan Rajmohan, Dongmei Zhang, Qi Zhang \
-[[paper](https://www.arxiv.org/abs/2408.04259)]  
+- Understanding the Interplay between Parametric and Contextual Knowledge for Large Language Models \
+**Sitao Cheng**, Liangming Pan, Xunjian Yin, Xinyi Wang, William Yang Wang \
+[[paper](https://arxiv.org/abs/2410.08414)]  
 
 - Thread: A Logic-Based Data Organization Paradigm for How-To Question Answering with Retrieval Augmented Generation \
 Kaikai An, Fangkai Yang, Liqun Li, Junting Lu, **Sitao Cheng**, Lu Wang, Pu Zhao, Lele Cao, Qingwei Lin, Saravan Rajmohan, Dongmei Zhang, Qi Zhang\
@@ -48,6 +48,12 @@ Kaikai An, Fangkai Yang, Liqun Li, Junting Lu, **Sitao Cheng**, Lu Wang, Pu Zhao
 
 Publications
 ======
+
+- EfficientRAG: Efficient Retriever for Multi-Hop Question Answering \
+The 2024 Conference on Empirical Methods in Natural Language Processing, in Miami, Florida, 2024
+Ziyuan Zhuang*, Zhiyang Zhang*, **Sitao Cheng**, Fangkai Yang, Jia Liu, Shujian Huang, Qingwei Lin, Saravan Rajmohan, Dongmei Zhang, Qi Zhang \
+[[paper](https://www.arxiv.org/abs/2408.04259)]  
+
 
 - Call Me When Necessary: LLMs can Efficiently and Faithfully Reason over Structured Environments\
 The 62nd Annual Meeting of the Association for Computational Linguistics(ACL Findings), in Bangkok, Thailand, 2024.\
@@ -85,4 +91,5 @@ Selected Awards
   
 Services
 ======
+- ARR Reviewer
 - ACL 2024 Volunteer
