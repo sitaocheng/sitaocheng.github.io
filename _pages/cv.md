@@ -9,7 +9,7 @@ redirect_from:
 
 {% include base_path %}
 
-See also my [RESUME](../files/Academic_CV.pdf), my [Personal Statements](../files/stcheng_PS.pdf), and [Slides of my works](../files/stcheng_research_slides.pdf)
+See also my [RESUME](../files/SitaoCheng_Academic_CV.pdf), my [Personal Statements](../files/stcheng_PS.pdf), and [Slides of my works](../files/stcheng_research_slides.pdf)
                                 
 Education
 ======
@@ -41,6 +41,10 @@ Preprints
 - Understanding the Interplay between Parametric and Contextual Knowledge for Large Language Models \
 **Sitao Cheng**, Liangming Pan, Xunjian Yin, Xinyi Wang, William Yang Wang \
 [[paper](https://arxiv.org/abs/2410.08414)]  
+
+- Disentangling Memory and Reasoning Ability in Large Language Models \
+Mingyu Jin, Weidi Luo, **Sitao Cheng**, Xinyi Wang, Wenyue Hua, Ruixiang Tang, William Yang Wang, Yongfeng Zhang \
+[[paper](https://arxiv.org/abs/2411.13504)]  
 
 - Thread: A Logic-Based Data Organization Paradigm for How-To Question Answering with Retrieval Augmented Generation \
 Kaikai An, Fangkai Yang, Liqun Li, Junting Lu, **Sitao Cheng**, Lu Wang, Pu Zhao, Lele Cao, Qingwei Lin, Saravan Rajmohan, Dongmei Zhang, Qi Zhang\
