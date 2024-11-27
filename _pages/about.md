@@ -8,14 +8,15 @@ redirect_from:
   - /about.html
 ---
 
- Hi, I am Sitao Cheng (程思陶). I am a computer science graduate student at Nanjing University, fortunated to be advised by Professor [Yuzhong Qu](http://ws.nju.edu.cn/~yzqu). 
-Previously, I worked as a research intern at [Microsoft DKI Group](https://www.microsoft.com/en-us/research/group/data-knowledge-intelligence/).
-Currently, I am a visiting scholar at [UCSB NLP Group](http://nlp.cs.ucsb.edu/), fortunated to be advised by Professor [William Wang](https://sites.cs.ucsb.edu/~william/index.html). I also closely work with Professor [Liangming Pan](https://liangmingpan.bio/). Please check out my [CV](https://sitaocheng.github.io/files/Academic_CV.pdf).
+ Hi, I am Sitao Cheng (程思陶). I am a visiting research scholar at [UCSB NLP Group](http://nlp.cs.ucsb.edu/), fortunated to be advised by Professor [William Wang](https://sites.cs.ucsb.edu/~william/index.html). I also closely work with Professor [Liangming Pan](https://liangmingpan.bio/). Please check out my [CV](https://sitaocheng.github.io/files/Academic_CV.pdf).
+ 
+Previously, I am a computer science graduate student at Nanjing University, fortunated to be advised by Professor [Yuzhong Qu](http://ws.nju.edu.cn/~yzqu). 
+Also, I worked as a research intern at [Microsoft DKI Group](https://www.microsoft.com/en-us/research/group/data-knowledge-intelligence/).
 
- My research mainly focuses on adopting language models (LMs) to reason with knowledge (e.g., structured knowledge, documents, parametric knowledge). My interests include LM-agents, RAG and neural-symbolic grounding. Currently, I am doing research on the following topics:
+ My research mainly focuses on adopting language models (LMs) to reason with knowledge (e.g., structured knowledge, documents, parametric knowledge). I have some experience on LM-agents, RAG and neural-symbolic grounding. Currently, I am doing research on the following topics:
 
 1. Understanding and improving LLMs reasoning with knowledge (the parametric and contextual knowledge).
-2. Understanding and Application of Retrieval-Augmented Generation (e.g. reasoning over large-scaled knowledge graphs, efficient retrieval and better data organization paradigm).        
+2. Reasoning by Retrieval-Augmented Generation (e.g. reasoning over large-scaled knowledge graphs, efficient retrieval and better data organization paradigm).        
 3. LLMs interaction with structured environments (e.g. Language Agents, Semantic Parsing and Information Retrieval).
           
 I'm seeking for 25 Fall Ph.D. opportunities! Please feel free to reach out to me if you’re interested in my research!
@@ -25,6 +26,7 @@ I go to gym almost every day. I love body building (power lifting, swimming, cro
 Recent News
 ======
 
+- 2024-11: Attending SoCal NLP 2024, San Diego.
 - 2024-11: Attending EMNLP 2024, Miami.
 - 2024-09: One paper accepted by EMNLP 2024.
 - 2024-08: Attending and volunteering at ACL 2024, Bangkok.
