@@ -40,7 +40,7 @@ Preprints
 
 - Understanding the Interplay between Parametric and Contextual Knowledge for Large Language Models \
 **Sitao Cheng**, Liangming Pan, Xunjian Yin, Xinyi Wang, William Yang Wang \
-[[paper](https://arxiv.org/abs/2410.08414)]  
+[[paper](https://arxiv.org/abs/2410.08414)] [[homepage](https://sitaocheng.github.io/knowledge_interplay.github.io/)] 
 
 - Disentangling Memory and Reasoning Ability in Large Language Models \
 Mingyu Jin, Weidi Luo, **Sitao Cheng**, Xinyi Wang, Wenyue Hua, Ruixiang Tang, William Yang Wang, Yongfeng Zhang \
