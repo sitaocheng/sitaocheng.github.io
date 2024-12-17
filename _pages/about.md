@@ -47,6 +47,10 @@ Preprints
 Mingyu Jin, Weidi Luo, **Sitao Cheng**, Xinyi Wang, Wenyue Hua, Ruixiang Tang, William Yang Wang, Yongfeng Zhang \
 [[paper](https://arxiv.org/abs/2411.13504)]  
 
+- RuleArena: A Benchmark for Rule-Guided Reasoning with LLMs in Real-World Scenarios \
+Ruiwen Zhou, Wenyue Hua, Liangming Pan, **Sitao Cheng**, Xiaobao Wu, En Yu, William Yang Wang
+[[paper](https://arxiv.org/abs/2412.08972)]  
+
 - Thread: A Logic-Based Data Organization Paradigm for How-To Question Answering with Retrieval Augmented Generation \
 Kaikai An, Fangkai Yang, Liqun Li, Junting Lu, **Sitao Cheng**, Lu Wang, Pu Zhao, Lele Cao, Qingwei Lin, Saravan Rajmohan, Dongmei Zhang, Qi Zhang\
 [[paper](https://arxiv.org/abs/2406.13372)]  
