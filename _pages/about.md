@@ -8,33 +8,20 @@ redirect_from:
   - /about.html
 ---
 
- Hi, I am Sitao Cheng (程思陶). I am a visiting research scholar at [UCSB NLP Group](http://nlp.cs.ucsb.edu/), fortunated to be advised by Professor [William Wang](https://sites.cs.ucsb.edu/~william/index.html). I also closely work with Professor [Liangming Pan](https://liangmingpan.bio/). Please check out my [CV](https://sitaocheng.github.io/files/Academic_CV.pdf).
- 
-Previously, I was a computer science graduate student at Nanjing University, fortunated to be advised by Professor [Yuzhong Qu](http://ws.nju.edu.cn/~yzqu). 
+ Hi, I am Sitao Cheng (程思陶). I am a visiting research scholar at [UCSB NLP Group](http://nlp.cs.ucsb.edu/), fortunated to be advised by Professor [William Wang](https://sites.cs.ucsb.edu/~william/index.html). I also closely work with Professor [Liangming Pan](https://liangmingpan.bio/). 
+ Previously, I was a computer science graduate student at Nanjing University, fortunated to be advised by Professor [Yuzhong Qu](http://ws.nju.edu.cn/~yzqu). 
 Also, I worked as a research intern at [Microsoft DKI Group](https://www.microsoft.com/en-us/research/group/data-knowledge-intelligence/).
 
- My research interests lie in advancing the knowledge-intensive reasoning capabilities of language models (LMs), including structured knowledge (e.g., knowledge graphs, tables), documents, parametric knowledge. I have experience on LM-agents, RAG and neural-symbolic reasoning. Currently, I am doing research on the following topics:
+ My research interests lie in advancing the knowledge-intensive **reasoning capabilities** of language models (LMs), including structured knowledge (e.g., knowledge graphs, tables), documents, parametric knowledge. I have experience on LM-agents, RAG and neural-symbolic reasoning. Currently, I am doing research on the following topics:
 
 1. Understanding and improving LLMs reasoning with knowledge (both the parametric and contextual knowledge).
 2. Reasoning by Retrieval-Augmented Generation (e.g. reasoning over large-scaled knowledge graphs, efficient retrieval and better data organization paradigm).        
 3. LLMs interaction with structured environments (e.g. language agents, semantic parsing and information retrieval).
           
-I'm seeking for 25 Fall Ph.D. opportunities! Please feel free to reach out if you’re interested in my research!
+**I'm seeking for 25 Fall Ph.D. opportunities!** Please feel free to reach out if you’re interested in my research! Please check out my [CV](https://sitaocheng.github.io/files/Academic_CV.pdf).
 
 I go to gym almost every day. I love body building (power lifting, swimming, crossfit, nutritions, etc). Let's be friends!
 
-Recent News
-======
-
-- 2024-11: Attending SoCal NLP 2024, San Diego.
-- 2024-11: Attending EMNLP 2024, Miami.
-- 2024-09: One paper accepted by EMNLP 2024.
-- 2024-08: Attending and volunteering at ACL 2024, Bangkok.
-- 2024-08: Attending EMNLP23 2024, Singapore.
-- 2024-07: Joining UC Santa Barbara, NLP Group.
-- 2024-05: Two papers accepted by ACL 2024 (one Main + one Findings).
-- 2023-10: One paper accepted by EMNLP 2023.
-- 2022-11: One paper accepted by AAAI 2023.  
 
 Preprints
 ======
@@ -93,9 +80,23 @@ Xiang Huang, **Sitao Cheng**, Yiheng Shu, Yuheng Bao, Yuzhong Qu \
 
 
 
+Recent News
+======
+
+- 2024-11: Attending SoCal NLP 2024, San Diego.
+- 2024-11: Attending EMNLP 2024, Miami.
+- 2024-09: One paper accepted by EMNLP 2024.
+- 2024-08: Attending and volunteering at ACL 2024, Bangkok.
+- 2024-08: Attending EMNLP23 2024, Singapore.
+- 2024-07: Joining UC Santa Barbara, NLP Group.
+- 2024-05: Two papers accepted by ACL 2024 (one Main + one Findings).
+- 2023-10: One paper accepted by EMNLP 2023.
+- 2022-11: One paper accepted by AAAI 2023.  
+
+
 Academic Services
 ======
 
-- ARR Reviewer
+- Reviewer: ARR, ICLR 2024
 - ACL 2024 Volunteer
 

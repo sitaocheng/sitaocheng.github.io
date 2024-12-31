@@ -10,7 +10,7 @@ locale                   : "en-US"
 title                    : "Sitao Cheng"
 title_separator          : "-"
 name                     : &name "Sitao Cheng"
-description              : &description "Master student at Peking University working on NLP"
+description              : &description "Master student at Nanjing University working on NLP"
 url                      : https://sitaocheng.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "sitaocheng/sitaocheng.github.io"
@@ -82,7 +82,7 @@ analytics:
 author:
   name             : "Sitao Cheng"
   avatar           : "front_img.jpg"
-  bio              : "Master at Nanjing University.\n Seeking for NLP Ph.D. position(25Fall)."
+  bio              : "Visiting Scholar at UCSB NLP Group.\n Seeking for NLP Ph.D. 25Fall."
   location         : "Santa Barbara, USA"
   employer         :
   pubmed           : # "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
