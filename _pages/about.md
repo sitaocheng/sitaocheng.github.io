@@ -48,35 +48,30 @@ Publications
 
 
 - Call Me When Necessary: LLMs can Efficiently and Faithfully Reason over Structured Environments\
-ACL 2024 (findings) \
-**Sitao Cheng**, Ziyuan Zhuang, Yong Xu, Fangkai Yang, Chaoyun Zhang, Xiaoting Qin, Xiang Huang, Ling Chen, Qingwei Lin, Dongmei Zhang, Saravan Rajmohan, Qi Zhang\
-[[paper](https://arxiv.org/abs/2403.08593)] [[code](https://github.com/microsoft/Readi)]  
+**Sitao Cheng**, Ziyuan Zhuang, Yong Xu, Fangkai Yang, Chaoyun Zhang, Xiaoting Qin, Xiang Huang, Ling Chen, Qingwei Lin, Dongmei Zhang, Saravan Rajmohan, Qi Zhang \
+ACL 2024 (findings) [[paper](https://arxiv.org/abs/2403.08593)] [[code](https://github.com/microsoft/Readi)]  
 
 
 
-- QueryAgent: A Reliable and Efficient Reasoning Framework with Environmental Feedback based Self-Correction\
-ACL 2024 (Oral) \
+- QueryAgent: A Reliable and Efficient Reasoning Framework with Environmental Feedback based Self-Correction \
 Xiang Huang*, **Sitao Cheng\***, Shanshan Huang, Jiayu Shen, Yong Xu, Chaoyun Zhang, Yuzhong Qu\
-[[paper](https://arxiv.org/abs/2403.11886)] [[code](https://github.com/cdhx/QueryAgent)]
+ACL 2024 (Oral) [[paper](https://arxiv.org/abs/2403.11886)] [[code](https://github.com/cdhx/QueryAgent)]
 
 
 - EfficientRAG: Efficient Retriever for Multi-Hop Question Answering \
-EMNLP 2024 \
 Ziyuan Zhuang, Zhiyang Zhang, **Sitao Cheng**, Fangkai Yang, Jia Liu, Shujian Huang, Qingwei Lin, Saravan Rajmohan, Dongmei Zhang, Qi Zhang \
-[[paper](https://www.arxiv.org/abs/2408.04259)]  
+EMNLP 2024 [[paper](https://www.arxiv.org/abs/2408.04259)]  
 
 
 - MarkQA: A Large Scale KBQA Dataset with Numerical Reasoning\
-EMNLP 2023 \
 Xiang Huang, **Sitao Cheng**, Yuheng Bao, Shanshan Huang, Yuzhong Qu\
-[[paper](https://arxiv.org/abs/2310.15517)] [[code](https://github.com/cdhx/MarkQA)] [[homepage](http://ws.nju.edu.cn/MarkQA)]
+EMNLP 2023 [[paper](https://arxiv.org/abs/2310.15517)] [[code](https://github.com/cdhx/MarkQA)] [[homepage](http://ws.nju.edu.cn/MarkQA)]
 
 
 
 - Question Decomposition Tree for Answering Complex Questions over Knowledge Bases\
-AAAI 2023 (Oral) \
 Xiang Huang, **Sitao Cheng**, Yiheng Shu, Yuheng Bao, Yuzhong Qu \
-[[paper](https://arxiv.org/abs/2306.07597)] [[code](https://github.com/cdhx/QDTQA)]
+AAAI 2023 (Oral) [[paper](https://arxiv.org/abs/2306.07597)] [[code](https://github.com/cdhx/QDTQA)]
 
 
 
