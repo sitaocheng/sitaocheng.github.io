@@ -9,7 +9,7 @@ redirect_from:
 
 {% include base_path %}
 
-See also my [RESUME](../files/SitaoCheng_Academic_CV.pdf)
+See also my [RESUME](../files/SitaoCheng_Academic_CV.pdf) ([Transcripts](../files/transcript_NJU.pdf))
 <!-- , my [Personal Statements](../files/stcheng_PS.pdf), and [Slides of my works](../files/stcheng_research_slides.pdf) -->
                                 
 Education
