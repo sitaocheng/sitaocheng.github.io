@@ -18,7 +18,7 @@ Also, I worked as a research intern at [Microsoft DKI Group](https://www.microso
 2. Reasoning by Retrieval-Augmented Generation (e.g. reasoning over large-scaled knowledge graphs, efficient retrieval and better data organization paradigm).        
 3. LLMs interaction with structured environments (e.g. language agents, semantic parsing and information retrieval).
           
-**I'm seeking for 25 Fall Ph.D. opportunities!** Please feel free to reach out if you’re interested in my research! Please check out my [CV](https://sitaocheng.github.io/files/Academic_CV.pdf).
+**I'm seeking for 25 Fall Ph.D. opportunities!** Please feel free to reach out if you’re interested in my research! Please check out my [CV](https://sitaocheng.github.io/files/SitaoCheng_Academic_CV.pdf).
 
 I go to gym almost every day. I love body building (power lifting, swimming, crossfit, nutritions, etc). Let's be friends!
 
