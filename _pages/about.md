@@ -7,8 +7,6 @@ redirect_from:
   - /about.html
 ---
 
-## About Me
-
 Hi, I am Sitao Cheng. I am a visiting research scholar at [UCSB NLP Group](http://nlp.cs.ucsb.edu/), advised by Professor [William Wang](https://sites.cs.ucsb.edu/~william/index.html). I also closely work with Professor [Liangming Pan](https://liangmingpan.bio/). 
  I obtained my Master degree from Nanjing University, advised by Professor [Yuzhong Qu](http://ws.nju.edu.cn/~yzqu). 
 I also worked as a research intern at [Microsoft DKI Group](https://www.microsoft.com/en-us/research/group/data-knowledge-intelligence/).
@@ -40,9 +38,13 @@ Ruiwen Zhou, Wenyue Hua, Liangming Pan, **Sitao Cheng**, Xiaobao Wu, En Yu, Will
 Kaikai An, Fangkai Yang, Liqun Li, Junting Lu, **Sitao Cheng**, Shuzheng Si, Lu Wang, Pu Zhao, Lele Cao, Qingwei Lin, Saravan Rajmohan, Dongmei Zhang, Qi Zhang, Baobao Chang \
 [[paper](https://arxiv.org/abs/2406.13372)]  
 
+- TARGA: Targeted Synthetic Data Generation for Practical Reasoning over Structured Data \
+Xiang Huang, Jiayu Shen, Shanshan Huang, **Sitao Cheng**, Xiaxia Wang, Yuzhong Qu \
+[[paper](https://arxiv.org/abs/2412.19544)]  
+
 ## Publications
 
-- **[ACL'24 Findings]**Call Me When Necessary: LLMs can Efficiently and Faithfully Reason over Structured Environments\
+- **[ACL'24 Findings]** Call Me When Necessary: LLMs can Efficiently and Faithfully Reason over Structured Environments\
 **Sitao Cheng**, Ziyuan Zhuang, Yong Xu, Fangkai Yang, Chaoyun Zhang, Xiaoting Qin, Xiang Huang, Ling Chen, Qingwei Lin, Dongmei Zhang, Saravan Rajmohan, Qi Zhang \
 ACL 2024 (findings) [[paper](https://arxiv.org/abs/2403.08593)] [[code](https://github.com/microsoft/Readi)]  
 
@@ -63,7 +65,7 @@ Xiang Huang, **Sitao Cheng**, Yuheng Bao, Shanshan Huang, Yuzhong Qu\
 [[paper](https://arxiv.org/abs/2310.15517)] [[code](https://github.com/cdhx/MarkQA)] [[homepage](http://ws.nju.edu.cn/MarkQA)]
 
 
-- **[AAAI'23 Oral]**Question Decomposition Tree for Answering Complex Questions over Knowledge Bases\
+- **[AAAI'23 Oral]** Question Decomposition Tree for Answering Complex Questions over Knowledge Bases\
 Xiang Huang, **Sitao Cheng**, Yiheng Shu, Yuheng Bao, Yuzhong Qu \
 [[paper](https://arxiv.org/abs/2306.07597)] [[code](https://github.com/cdhx/QDTQA)]
 
