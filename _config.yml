@@ -57,11 +57,7 @@ yandex_site_verification :
 
 # Social Sharing
 twitter:
-<<<<<<< HEAD
-  username               : &twitter
-=======
   username               : &twitter "SitaoCheng"
->>>>>>> main
 facebook:
   username               :
   app_id                 :
