@@ -1,3 +1,3 @@
-# yihengshu.github.io
+# sitaocheng.github.io
 
-[Yiheng Shu - Homepage](http://yihengshu.github.io)
+[Sitao Cheng - Homepage](http://sitaocheng.github.io)
