@@ -16,7 +16,11 @@ baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "sitaocheng/sitaocheng.github.io"
 teaser                   :  # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
 breadcrumbs              : false # true, false (default)
+<<<<<<< HEAD
 words_per_minute         : 300
+=======
+words_per_minute         : 160
+>>>>>>> main
 future                   : true
 read_more                : "disabled" # if enabled, adds "Read more" links to excerpts
 talkmap_link             : false #change to true to add link to talkmap on talks page
@@ -57,7 +61,11 @@ yandex_site_verification :
 
 # Social Sharing
 twitter:
+<<<<<<< HEAD
   username               : &twitter
+=======
+  username               : &twitter "SitaoCheng"
+>>>>>>> main
 facebook:
   username               :
   app_id                 :
@@ -73,16 +81,26 @@ social:
 
 # Analytics
 analytics:
+<<<<<<< HEAD
   provider               :  "google-universal" # false (default), "google", "google-universal", "custom"
   google:
     tracking_id          :
+=======
+  provider               :  "google" # false (default), "google", "google-universal", "custom"
+  google:
+    tracking_id          : G-JJ1LG8D7V5
+>>>>>>> main
 
 
 # Site Author
 author:
   name             : "Sitao Cheng"
   avatar           : "front_img.jpg"
+<<<<<<< HEAD
   bio              : "Visiting Scholar at UCSB NLP Group.\nSeeking for NLP Ph.D. 25Fall."
+=======
+  bio              : "Visiting Scholar at UCSB NLP Group.\nSeeking NLP Ph.D. 25Fall."
+>>>>>>> main
   location         : "Santa Barbara, USA"
   employer         :
   pubmed           : # "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
@@ -115,6 +133,11 @@ author:
   xing             :
   youtube          :
   wikipedia        :
+<<<<<<< HEAD
+=======
+  cv               : "https://sitaocheng.github.io/files/SitaoCheng_Academic_CV.pdf"
+
+>>>>>>> main
 
 
 # Reading Files

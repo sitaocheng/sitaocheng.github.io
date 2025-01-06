@@ -1,14 +1,23 @@
 ---
 layout: archive
+<<<<<<< HEAD
 # title: "Publications"
 permalink: /publications/
 author_profile: true
 ---
 <!-- 
+=======
+title: "Publications"
+permalink: /publications/
+author_profile: true
+---
+
+>>>>>>> main
 {% if author.googlescholar %}
   You can also find my articles on <u><a href="{{author.googlescholar}}">my Google Scholar profile</a>.</u>
 {% endif %}
 
+<<<<<<< HEAD
 {% include base_path %} -->
 
 Preprints
@@ -69,3 +78,10 @@ Xiang Huang, **Sitao Cheng**, Yiheng Shu, Yuheng Bao, Yuzhong Qu \
 <!-- {% for post in site.publications reversed %}
   {% include archive-single.html %}
 {% endfor %} -->
+=======
+{% include base_path %}
+
+{% for post in site.publications reversed %}
+  {% include archive-single.html %}
+{% endfor %}
+>>>>>>> main
