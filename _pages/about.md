@@ -12,11 +12,11 @@ redirect_from:
  Previously, I was a computer science graduate student at Nanjing University, fortunated to be advised by Professor [Yuzhong Qu](http://ws.nju.edu.cn/~yzqu). 
 Also, I worked as a research intern at [Microsoft DKI Group](https://www.microsoft.com/en-us/research/group/data-knowledge-intelligence/).
 
- My research interests lie in advancing the knowledge-intensive **reasoning capabilities** of language models (LMs), including structured knowledge (e.g., knowledge graphs, tables), documents, parametric knowledge. I have experience on LM-agents, RAG and neural-symbolic reasoning. Currently, I am doing research on the following topics:
+ My research interests lie in advancing the knowledge-intensive **reasoning capabilities** of language models (LMs), including structured knowledge (e.g., knowledge graphs, tables), documents and parametric knowledge. I have experience on Language Agent, RAG and Neural-Symbolic Reasoning. Currently, I am doing research on the following topics:
 
-1. Understanding and improving LLMs reasoning with knowledge (both the parametric and contextual knowledge).
-2. Reasoning by Retrieval-Augmented Generation (e.g. reasoning over large-scaled knowledge graphs, efficient retrieval and better data organization paradigm).        
-3. LLMs interaction with structured environments (e.g. language agents, semantic parsing and information retrieval).
+1. Understanding and improving LLMs reasoning capabilities (e.g., how LLMs adopts knowledge for reasoning).
+2. Reasoning by Retrieval-Augmented Generation (e.g., reasoning over large-scaled knowledge graphs, efficient retrieval and better data organization paradigm).        
+3. Language Agents (e.g., reasoning on real-world environments by information retrieval and semantic parsing).
           
 **I'm seeking for 25 Fall Ph.D. opportunities!** Please feel free to reach out if you’re interested in my research! Please check out my [CV](https://sitaocheng.github.io/files/SitaoCheng_Academic_CV.pdf).
 

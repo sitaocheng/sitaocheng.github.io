@@ -16,7 +16,7 @@ baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "sitaocheng/sitaocheng.github.io"
 teaser                   :  # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
 breadcrumbs              : false # true, false (default)
-words_per_minute         : 160
+words_per_minute         : 200
 future                   : true
 read_more                : "disabled" # if enabled, adds "Read more" links to excerpts
 talkmap_link             : false #change to true to add link to talkmap on talks page
@@ -82,7 +82,7 @@ analytics:
 author:
   name             : "Sitao Cheng"
   avatar           : "front_img.jpg"
-  bio              : "Visiting Scholar at UCSB NLP Group.\n Seeking for NLP Ph.D. 25Fall."
+  bio              : "Visiting Scholar at UCSB NLP Group.\nSeeking for NLP Ph.D. 25Fall."
   location         : "Santa Barbara, USA"
   employer         :
   pubmed           : # "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
