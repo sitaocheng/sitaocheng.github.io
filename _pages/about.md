@@ -8,9 +8,9 @@ redirect_from:
   - /about.html
 ---
 
- Hi, I am Sitao Cheng (程思陶). I am a visiting research scholar at [UCSB NLP Group](http://nlp.cs.ucsb.edu/), fortunated to be advised by Professor [William Wang](https://sites.cs.ucsb.edu/~william/index.html). I also closely work with Professor [Liangming Pan](https://liangmingpan.bio/). 
- Previously, I was a computer science graduate student at Nanjing University, fortunated to be advised by Professor [Yuzhong Qu](http://ws.nju.edu.cn/~yzqu). 
-Also, I worked as a research intern at [Microsoft DKI Group](https://www.microsoft.com/en-us/research/group/data-knowledge-intelligence/).
+ Hi, I am Sitao Cheng. I am a visiting research scholar at [UCSB NLP Group](http://nlp.cs.ucsb.edu/), advised by Professor [William Wang](https://sites.cs.ucsb.edu/~william/index.html). I also closely work with Professor [Liangming Pan](https://liangmingpan.bio/). 
+ Previously, I was a computer science graduate student at Nanjing University, advised by Professor [Yuzhong Qu](http://ws.nju.edu.cn/~yzqu). 
+I also worked as a research intern at [Microsoft DKI Group](https://www.microsoft.com/en-us/research/group/data-knowledge-intelligence/).
 
  My research interests lie in advancing the knowledge-intensive **reasoning capabilities** of language models (LMs), including structured knowledge (e.g., knowledge graphs, tables), documents and parametric knowledge. I have experience on Language Agent, RAG and Neural-Symbolic Reasoning. Currently, I am doing research on the following topics:
 
@@ -20,7 +20,7 @@ Also, I worked as a research intern at [Microsoft DKI Group](https://www.microso
           
 **I'm seeking for 25 Fall Ph.D. opportunities!** Please feel free to reach out if you’re interested in my research! Please check out my [CV](https://sitaocheng.github.io/files/SitaoCheng_Academic_CV.pdf).
 
-I go to gym almost every day. I love body building (power lifting, swimming, crossfit, nutritions, etc). Let's be friends!
+I go to gym almost every day. I love body building (power lifting, swimming, crossfit, nutritions, etc).
 
 
 Preprints
