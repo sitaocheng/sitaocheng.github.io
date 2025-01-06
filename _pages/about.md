@@ -46,7 +46,7 @@ Xiang Huang, Jiayu Shen, Shanshan Huang, **Sitao Cheng**, Xiaxia Wang, Yuzhong Q
 
 - **[ACL'24 Findings]** Call Me When Necessary: LLMs can Efficiently and Faithfully Reason over Structured Environments\
 **Sitao Cheng**, Ziyuan Zhuang, Yong Xu, Fangkai Yang, Chaoyun Zhang, Xiaoting Qin, Xiang Huang, Ling Chen, Qingwei Lin, Dongmei Zhang, Saravan Rajmohan, Qi Zhang \
-ACL 2024 (findings) [[paper](https://arxiv.org/abs/2403.08593)] [[code](https://github.com/microsoft/Readi)]  
+[[paper](https://arxiv.org/abs/2403.08593)] [[code](https://github.com/microsoft/Readi)]  
 
 
 
@@ -57,7 +57,7 @@ Xiang Huang*, **Sitao Cheng\***, Shanshan Huang, Jiayu Shen, Yong Xu, Chaoyun Zh
 
 - **[EMNLP'24]** EfficientRAG: Efficient Retriever for Multi-Hop Question Answering \
 Ziyuan Zhuang, Zhiyang Zhang, **Sitao Cheng**, Fangkai Yang, Jia Liu, Shujian Huang, Qingwei Lin, Saravan Rajmohan, Dongmei Zhang, Qi Zhang \
-EMNLP 2024 [[paper](https://www.arxiv.org/abs/2408.04259)]  
+[[paper](https://www.arxiv.org/abs/2408.04259)]  
 
 
 - **[EMNLP'23]** MarkQA: A Large Scale KBQA Dataset with Numerical Reasoning\
