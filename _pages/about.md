@@ -20,7 +20,7 @@ I also worked as a research intern at [Microsoft DKI Group](https://www.microsof
           
 **I'm seeking for 25 Fall Ph.D. opportunities!** Please feel free to reach out if you’re interested in my research! Please check out my [CV](https://sitaocheng.github.io/files/SitaoCheng_Academic_CV.pdf).
 
-I go to gym almost every day. I love body building (power lifting, swimming, crossfit, nutritions, etc).
+<!-- I go to gym almost every day. I love body building (power lifting, swimming, crossfit, nutritions, etc). -->
 
 
 Preprints
