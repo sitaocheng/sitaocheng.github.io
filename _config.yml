@@ -81,26 +81,16 @@ social:
 
 # Analytics
 analytics:
-<<<<<<< HEAD
   provider               :  "google-universal" # false (default), "google", "google-universal", "custom"
   google:
     tracking_id          :
-=======
-  provider               :  "google" # false (default), "google", "google-universal", "custom"
-  google:
-    tracking_id          : G-JJ1LG8D7V5
->>>>>>> main
 
 
 # Site Author
 author:
   name             : "Sitao Cheng"
   avatar           : "front_img.jpg"
-<<<<<<< HEAD
-  bio              : "Visiting Scholar at UCSB NLP Group.\nSeeking for NLP Ph.D. 25Fall."
-=======
   bio              : "Visiting Scholar at UCSB NLP Group.\nSeeking NLP Ph.D. 25Fall."
->>>>>>> main
   location         : "Santa Barbara, USA"
   employer         :
   pubmed           : # "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
@@ -133,11 +123,8 @@ author:
   xing             :
   youtube          :
   wikipedia        :
-<<<<<<< HEAD
-=======
   cv               : "https://sitaocheng.github.io/files/SitaoCheng_Academic_CV.pdf"
 
->>>>>>> main
 
 
 # Reading Files
