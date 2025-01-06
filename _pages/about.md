@@ -9,98 +9,80 @@ redirect_from:
 
 ## About Me
 
-I'm a second-year doctoral student at [The Ohio State University](https://cse.osu.edu/), advised by [Prof. Yu Su](https://ysu1989.github.io/).
-My research explores retrieval-augmented generation (RAG) and advanced language systems. Specifically, I focus on: 1) developing efficient information retrieval approaches to enhance reasoning and long-term memory capabilities, and 2) integrating these models with complex external environments such as the Web, knowledge graphs, and databases.
+Hi, I am Sitao Cheng. I am a visiting research scholar at [UCSB NLP Group](http://nlp.cs.ucsb.edu/), advised by Professor [William Wang](https://sites.cs.ucsb.edu/~william/index.html). I also closely work with Professor [Liangming Pan](https://liangmingpan.bio/). 
+ I obtained my Master degree from Nanjing University, advised by Professor [Yuzhong Qu](http://ws.nju.edu.cn/~yzqu). 
+I also worked as a research intern at [Microsoft DKI Group](https://www.microsoft.com/en-us/research/group/data-knowledge-intelligence/).
 
-I received my Master degree from [Nanjing University](https://www.nju.edu.cn/en/) in 2023 and Bachelor degree from [Northeastern University (CN)](http://sc.neu.edu.cn/english/main.htm) in 2020. 
-I was research intern at [MSRA](https://www.msra.cn/) in 2022.
+ My research interests lie in advancing the knowledge-intensive **reasoning capabilities** of language models (LMs). I have experience on Language Agents, RAG and Neural-Symbolic Reasoning. Currently, I am doing research on the following topics:
 
+1. Understanding and improving reasoning capabilities (e.g., how LLMs adopts parametric and contextual knowledge for reasoning).
+2. Language Agents (e.g., reasoning on real-world environments by information retrieval and semantic parsing).
+3. Retrieval-Augmented Generation (e.g., reasoning over knowledge graphs, efficient retrieval and better data organization paradigm).        
+          
+**I'm seeking for 25 Fall Ph.D. opportunities!** Please feel free to reach out if you’re interested in my research! Please check out my [CV](https://sitaocheng.github.io/files/SitaoCheng_Academic_CV.pdf).
 
-Feel free to reach out to me if you're interested in my research. I'm looking for summer internship opportunities.
-
-<!-- - Master in Computer Technology, [Nanjing University](https://www.nju.edu.cn/en/), 2020.09-2023.06, advised by [Prof. Yuzhong Qu](http://ws.nju.edu.cn/~yzqu)
-- Bachelor in Software Engineering, [Northeastern University (CN)](http://english.neu.edu.cn/), 2016.09-2020.06, advised by [Prof. Guibing Guo](https://guoguibing.github.io/) and [Prof. Gang Wu](http://faculty.neu.edu.cn/wugang/)
-- Full-time Research Intern, [Microsoft Research Asia](https://www.msra.cn/), 2022.02-2023.02, advised by researcher [Zhiwei Yu](https://www.microsoft.com/en-us/research/people/zhiwyu/) -->
 
 ## Preprints
 
-- **[arXiv]** Navigating the Digital World as Humans Do: Universal Visual Grounding for GUI Agents  
-Boyu Gou, Ruohan Wang, Boyuan Zheng, Yanan Xie, Cheng Chang, **Yiheng Shu**, Huan Sun, Yu Su  
-[[paper](https://arxiv.org/abs/2410.05243)]
-[[code](https://github.com/OSU-NLP-Group/UGround)]
-[[home](https://osu-nlp-group.github.io/UGround/)]
+- Understanding the Interplay between Parametric and Contextual Knowledge for Large Language Models \
+**Sitao Cheng**, Liangming Pan, Xunjian Yin, Xinyi Wang, William Yang Wang \
+[[paper](https://arxiv.org/abs/2410.08414)] [[homepage](https://sitaocheng.github.io/PK_CK_interplay/)] 
+
+- Disentangling Memory and Reasoning Ability in Large Language Models \
+Mingyu Jin, Weidi Luo, **Sitao Cheng**, Xinyi Wang, Wenyue Hua, Ruixiang Tang, William Yang Wang, Yongfeng Zhang \
+[[paper](https://arxiv.org/abs/2411.13504)]  
+
+- RuleArena: A Benchmark for Rule-Guided Reasoning with LLMs in Real-World Scenarios \
+Ruiwen Zhou, Wenyue Hua, Liangming Pan, **Sitao Cheng**, Xiaobao Wu, En Yu, William Yang Wang \
+[[paper](https://arxiv.org/abs/2412.08972)]  
+
+- Thread: A Logic-Based Data Organization Paradigm for How-To Question Answering with Retrieval Augmented Generation \
+Kaikai An, Fangkai Yang, Liqun Li, Junting Lu, **Sitao Cheng**, Shuzheng Si, Lu Wang, Pu Zhao, Lele Cao, Qingwei Lin, Saravan Rajmohan, Dongmei Zhang, Qi Zhang, Baobao Chang \
+[[paper](https://arxiv.org/abs/2406.13372)]  
 
 ## Publications
 
-- **[NeurIPS'24]** HippoRAG: Neurobiologically Inspired Long-Term Memory for Large Language Models  
-Bernal Jiménez Gutiérrez, **Yiheng Shu**, Yu Gu, Michihiro Yasunaga, Yu Su  
-[[paper](https://arxiv.org/abs/2405.14831)]
-[[code (>1.4k stars)](https://github.com/OSU-NLP-Group/HippoRAG)]
-- **[EMNLP'24]** Middleware for LLMs: Tools Are Instrumental for Language Agents in Complex Environments  
-Yu Gu, **Yiheng Shu**, Hao Yu, Xiao Liu, Yuxiao Dong, Jie Tang, Jayanth Srinivasa, Hugo Latapie, Yu Su  
-[[paper](https://arxiv.org/abs/2402.14672)]
-[[code](https://github.com/OSU-NLP-Group/Fuxi)]
-[[benchmark](https://huggingface.co/datasets/osunlp/KBQA-Agent)]
-[[proceedings](https://aclanthology.org/2024.emnlp-main.436/)]
-[[BibTeX](https://aclanthology.org/2024.emnlp-main.436.bib)]
-- **[EACL'24 SRW]** Distribution Shifts Are Bottlenecks: Extensive Evaluation for Grounding Language Models to Knowledge Bases  
-**Yiheng Shu**, Zhiwei Yu  
-[[paper](https://arxiv.org/abs/2309.08345)]
-[[code](https://github.com/yhshu/Distribution-Shifts-for-KBQA)]
-[[data](https://huggingface.co/datasets/yhshu/TIARA-GAIN/tree/main)]
-[[poster](https://s3.amazonaws.com/pf-user-files-01/u-59356/uploads/2024-02-11/4f13myd/EACL%202024%20SRW%20poster.pdf)]
-[[video](https://s3.amazonaws.com/pf-user-files-01/u-59356/uploads/2024-02-11/6103mrr/EACL%202024%20SRW%20slides.mp4)]
-[[proceedings](https://aclanthology.org/2024.eacl-srw.7/)]
-[[BibTeX](https://aclanthology.org/2024.eacl-srw.7.bib)]
-- **[AAAI’23]** Question Decomposition Tree for Answering Complex Questions over Knowledge Bases  
-Xiang Huang, Sitao Cheng, **Yiheng Shu**, Yuheng Bao, Yuzhong Qu  
-[[paper](https://arxiv.org/abs/2306.07597)]
-[[code](https://github.com/cdhx/QDTQA)]
-[[proceedings](https://ojs.aaai.org/index.php/AAAI/article/view/26519/26291)]
-[[BibTeX](https://dblp.org/rec/conf/aaai/HuangCSBQ23.html?view=bibtex)]
-- **[EMNLP’22]** TIARA: Multi-grained Retrieval for Robust Question Answering over Large Knowledge Base  
-**Yiheng Shu**, Zhiwei Yu, Yuhan Li, Börje F. Karlsson, Tingting Ma, Yuzhong Qu, Chin-Yew Lin  
-[[paper](https://arxiv.org/abs/2210.12925)]
-[[code](https://github.com/microsoft/KC/tree/main/papers/TIARA)]
-[[data](https://drive.google.com/file/d/171vTwW-tO4_5DdEzlYljj2-M3YHvegYF/view?usp=sharing)]
-[[poster](https://yihengshu.github.io/files/EMNLP22poster.pdf)]
-[[slides](https://yihengshu.github.io/files/EMNLP22slides.pdf)]
-[[video](https://s3.amazonaws.com/pf-user-files-01/u-59356/uploads/2022-11-04/fr03tjr/EMNLP22.mp4)] 
-[[proceedings](https://aclanthology.org/2022.emnlp-main.555/)]
-[[BibTeX](https://aclanthology.org/2022.emnlp-main.555.bib)]
-- **[COLING’22]** Logical Form Generation via Multi-task Learning for Complex Question Answering over Knowledge Bases  
-Xixin Hu, Xuan Wu, **Yiheng Shu**, Yuzhong Qu  
-[[paper](https://aclanthology.org/2022.coling-1.145.pdf)] 
-[[code](https://github.com/HXX97/GMT-KBQA)] 
-[[slides](https://s3.amazonaws.com/pf-user-files-01/u-59356/uploads/2022-09-23/ff53s0y/1216_GMTKBQA_presentation.pdf)] 
-[[video](https://s3.amazonaws.com/pf-user-files-01/u-59356/uploads/2022-09-23/8y23sus/1216_GMTKBQA_video.mp4)] 
-[[proceedings](https://aclanthology.org/2022.coling-1.145/)] 
-[[BibTeX](https://aclanthology.org/2022.coling-1.145.bib)]
-- **[ISWC’21]** EDG-based Question Decomposition for Complex Question Answering over Knowledge Bases  
-Xixin Hu, **Yiheng Shu**, Xiang Huang, Yuzhong Qu  
-[[paper](https://www.researchgate.net/profile/Xixin-Hu/publication/354925951_EDG-Based_Question_Decomposition_for_Complex_Question_Answering_over_Knowledge_Bases/links/63023efae3c7de4c3472860d/EDG-Based-Question-Decomposition-for-Complex-Question-Answering-over-Knowledge-Bases.pdf)] 
-[[code](http://github.com/HXX97/EDGQA)] 
-[[home](http://edgqa.github.io)] 
-[[video](http://videolectures.net/iswc2021_1a_question_decomposition/)] 
-[[proceedings](https://link.springer.com/chapter/10.1007/978-3-030-88361-4_8)] 
-[[BibTeX](https://dblp.org/rec/conf/semweb/HuSHQ21.html?view=bibtex)]
-- **[TOIS’20]** Deep Learning for Sequential Recommendation: Algorithms, Influential Factors, and Evaluations  
-Hui Fang, Danning Zhang, **Yiheng Shu**, Guibing Guo  
-[[paper](https://arxiv.org/abs/1905.01997)] 
-[[code](https://github.com/sttich/dl-recommendation)] 
-[[ACM Library](https://dl.acm.org/doi/10.1145/3426723)] 
-[[BibTeX](https://dblp.org/rec/journals/tois/FangZSG20.html?view=bibtex)]
-- **[ICWE’19 tutorial]** Deep Learning-based Sequential Recommender Systems: Concepts, Algorithms, and Evaluations  
-Hui Fang, Danning Zhang, Guibing Guo, **Yiheng Shu**  
-[[slides](http://web.geni-pco.com/icwe2019/tutorial2_DL-based_rs.pdf)] 
-[[intro](https://icwe2019.webengineering.org/program_tutorials/)] 
-[[Springer Link](https://link.springer.com/chapter/10.1007/978-3-030-19274-7_47)] 
-[[BibTeX](https://dblp.org/rec/conf/icwe/0002GZS19.html?view=bibtex)]
+- **[ACL'24 Findings]**Call Me When Necessary: LLMs can Efficiently and Faithfully Reason over Structured Environments\
+**Sitao Cheng**, Ziyuan Zhuang, Yong Xu, Fangkai Yang, Chaoyun Zhang, Xiaoting Qin, Xiang Huang, Ling Chen, Qingwei Lin, Dongmei Zhang, Saravan Rajmohan, Qi Zhang \
+ACL 2024 (findings) [[paper](https://arxiv.org/abs/2403.08593)] [[code](https://github.com/microsoft/Readi)]  
+
+
+
+- **[ACL'24 Oral]** QueryAgent: A Reliable and Efficient Reasoning Framework with Environmental Feedback based Self-Correction \
+Xiang Huang*, **Sitao Cheng\***, Shanshan Huang, Jiayu Shen, Yong Xu, Chaoyun Zhang, Yuzhong Qu\
+[[paper](https://arxiv.org/abs/2403.11886)] [[code](https://github.com/cdhx/QueryAgent)]
+
+
+- **[EMNLP'24]** EfficientRAG: Efficient Retriever for Multi-Hop Question Answering \
+Ziyuan Zhuang, Zhiyang Zhang, **Sitao Cheng**, Fangkai Yang, Jia Liu, Shujian Huang, Qingwei Lin, Saravan Rajmohan, Dongmei Zhang, Qi Zhang \
+EMNLP 2024 [[paper](https://www.arxiv.org/abs/2408.04259)]  
+
+
+- **[EMNLP'23]** MarkQA: A Large Scale KBQA Dataset with Numerical Reasoning\
+Xiang Huang, **Sitao Cheng**, Yuheng Bao, Shanshan Huang, Yuzhong Qu\
+[[paper](https://arxiv.org/abs/2310.15517)] [[code](https://github.com/cdhx/MarkQA)] [[homepage](http://ws.nju.edu.cn/MarkQA)]
+
+
+- **[AAAI'23 Oral]**Question Decomposition Tree for Answering Complex Questions over Knowledge Bases\
+Xiang Huang, **Sitao Cheng**, Yiheng Shu, Yuheng Bao, Yuzhong Qu \
+[[paper](https://arxiv.org/abs/2306.07597)] [[code](https://github.com/cdhx/QDTQA)]
+
+
+
+## Recent News
+
+- 2024-11: Attending SoCal NLP 2024, San Diego.
+- 2024-11: Attending EMNLP 2024, Miami.
+- 2024-09: One paper accepted by EMNLP 2024.
+- 2024-08: Attending and volunteering at ACL 2024, Bangkok.
+- 2024-08: Attending EMNLP23 2024, Singapore.
+- 2024-07: Joining UC Santa Barbara, NLP Group.
+- 2024-05: Two papers accepted by ACL 2024 (one Main + one Findings).
+- 2023-10: One paper accepted by EMNLP 2023.
+- 2022-11: One paper accepted by AAAI 2023.  
+
 
 ## Services
 
-- Conference reviewer: [ARR 2024](https://aclrollingreview.org/) ([ACL 2024](https://2024.aclweb.org/), [EMNLP 2024](https://2024.emnlp.org/), [NAACL 2025](https://2025.naacl.org)), [WiNLP 2024](https://www.winlp.org/winlp-2024-workshop/)
-- Journal reviewer: [IEEE Trans. Big Data](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=6687317)
-
-
-Update: 12/03/2024
+- Reviewer: ARR, ICLR 2024
+- ACL 2024 Volunteer

@@ -6,14 +6,14 @@
 # `jekyll serve`. If you change this file, please restart the server process.
 
 # Site Settings
-locale                   : "zh-CN"
-title                    : "Yiheng Shu"
+locale                   : "en-US"
+title                    : "Sitao Cheng"
 title_separator          : "-"
-name                     : &name "Yiheng Shu"
-description              : &description "PhD student @ OSU"
-url                      : https://yihengshu.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+name                     : &name "Sitao Cheng"
+description              : &description "Master student at Nanjing University working on NLP"
+url                      : https://sitaocheng.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
-repository               : "yihengshu/yihengshu.github.io"
+repository               : "sitaocheng/sitaocheng.github.io"
 teaser                   :  # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
 breadcrumbs              : false # true, false (default)
 words_per_minute         : 160
@@ -57,7 +57,7 @@ yandex_site_verification :
 
 # Social Sharing
 twitter:
-  username               : &twitter "YihengShu"
+  username               : &twitter
 facebook:
   username               :
   app_id                 :
@@ -73,22 +73,22 @@ social:
 
 # Analytics
 analytics:
-  provider               :  "google" # false (default), "google", "google-universal", "custom"
+  provider               :  "google-universal" # false (default), "google", "google-universal", "custom"
   google:
-    tracking_id          : G-JJ1LG8D7V5
+    tracking_id          :
 
 
 # Site Author
 author:
-  name             : "Yiheng Shu"
-  avatar           : "https://yihengshu.github.io/files/homepage.jpeg"
-  bio              : "PhD Student @ Ohio State"
-  location         : "Columbus, OH"
+  name             : "Sitao Cheng"
+  avatar           : "front_img.jpg"
+  bio              : "Visiting Scholar at UCSB NLP Group.\nSeeking NLP Ph.D. 25Fall."
+  location         : "Santa Barbara, USA"
   employer         :
-  pubmed           : 
-  googlescholar    : "https://scholar.google.com/citations?user=H63aXLcAAAAJ&hl"
-  email            : "shu.251@osu.edu"
-  researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
+  pubmed           : # "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
+  googlescholar    : "https://scholar.google.com/citations?user=e4U43aYAAAAJ"
+  email            : "sitaotonycheng@foxmail.com"
+  researchgate     : # "https://www.researchgate.net/profile/Sitao-Cheng"
   uri              :
   bitbucket        :
   codepen          :
@@ -96,29 +96,26 @@ author:
   flickr           :
   facebook         :
   foursquare       :
-  github           : "yhshu"
+  github           : "sitaocheng"
   google_plus      :
   keybase          :
   instagram        :
   impactstory      : #"https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
   lastfm           :
-  linkedin         : "shuyh"
-  orcid            : "http://orcid.org/0000-0002-7536-2503"
+  linkedin         : # "sitao-cheng-1a557a175/"
+  orcid            : # "http://orcid.org/yourorcidurl"
   pinterest        :
   soundcloud       :
   stackoverflow    : # http://stackoverflow.com/users/123456/username
   steam            :
   tumblr           :
-  twitter          : "YihengShu"
+  twitter          : "TonyCheng990417"
   vine             :
   weibo            :
   xing             :
   youtube          :
   wikipedia        :
-  huggingface      : "yhshu"
-  dblp             : "https://dblp.org/pid/239/6116.html"
-  cv               : "https://yihengshu.github.io/files/C.V.pdf"
-  semanticscholar  : "https://www.semanticscholar.org/author/Yiheng-Shu/1406331721"
+  cv               : "https://sitaocheng.github.io/files/SitaoCheng_Academic_CV.pdf"
 
 
 

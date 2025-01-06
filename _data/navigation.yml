@@ -5,14 +5,14 @@ main:
   - title: "Homepage"
     url: /about
 
-  - title: "Awards"
-    url: /awards_honors/
+  # - title: "Awards"
+  #   url: /awards_honors/
   
-  - title: "Resources"
-    url: /resources/
+  # - title: "Resources"
+  #   url: /resources/
 
-  # - title: "CV"
-  #   url: /cv/
+  - title: "CV"
+    url: /cv/
       
   # - title: "Talks"
   #   url: /talks/    
