@@ -7,15 +7,16 @@ redirect_from:
   - /about.html
 ---
 
-Hi, I am Sitao Cheng. I am an incoming Ph.D. Student at University of Waterloo, advised by Prof. [Victor Zhong](https://www.victorzhong.com/). Previously, I was a visiting research scholar at [UCSB NLP Group](http://nlp.cs.ucsb.edu/), advised by Prof.[William Wang](https://sites.cs.ucsb.edu/~william/index.html). I also closely work with Prof. [Liangming Pan](https://liangmingpan.bio/) and Prof. [Jie Fu](https://bigaidream.github.io/). 
+Hi, I am Sitao Cheng. I am an incoming Ph.D. Student at [R2L Lab](https://r2llab.com/), University of Waterloo, advised by Prof. [Victor Zhong](https://www.victorzhong.com/). Previously, I was a research scholar at [UCSB NLP Group](http://nlp.cs.ucsb.edu/), advised by Prof.[William Wang](https://sites.cs.ucsb.edu/~william/index.html). I also closely work with Prof. [Liangming Pan](https://liangmingpan.bio/) and Prof. [Jie Fu](https://bigaidream.github.io/). 
 I obtained my Master's degree from Nanjing University, advised by Prof. [Yuzhong Qu](http://ws.nju.edu.cn/~yzqu). 
 I also worked as a research intern at [Microsoft DKI Group](https://www.microsoft.com/en-us/research/group/data-knowledge-intelligence/).
 
+
  My research interests lie in advancing the knowledge-intensive **reasoning capabilities** of language models (LMs). I have experience on Language Agents, RAG and Neural-Symbolic Reasoning. Currently, I am doing research on the following topics:
 
-1. Understanding and improving reasoning capabilities (e.g., how LLMs adopts parametric and contextual knowledge for reasoning).
-2. Language Agents (e.g., reasoning on real-world environments by information retrieval and semantic parsing).
-3. Retrieval-Augmented Generation (e.g., reasoning over knowledge graphs, efficient retrieval and better data organization paradigm).        
+1. Reward modeling and model generalizability (e.g., exploration of reward functioning or reasoning framework by Reinforcement Learnining)
+2. Understanding and improving reasoning capabilities (e.g., how LLMs adopts parametric and contextual knowledge for reasoning).
+3. Language Agents (e.g., reasoning on real-world environments by information retrieval and semantic parsing).
           
 Please feel free to reach out to discuss research! Please check out my [CV](https://sitaocheng.github.io/files/SitaoCheng_Academic_CV.pdf).
 
