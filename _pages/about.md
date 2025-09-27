@@ -23,7 +23,7 @@ Please feel free to reach out and discuss research! Please check out my [CV](htt
 
 ## Preprints
 
-LEDOM: An Open and Fundamental Reverse Language Model \
+- LEDOM: An Open and Fundamental Reverse Language Model \
 Xunjian Yin, **Sitao Cheng**, Yuxi Xie, Xinyu Hu, Li Lin, Xinyi Wang, Liangming Pan, William Yang Wang, Xiaojun Wan \
 [[paper](https://arxiv.org/abs/2507.01335)]
 
