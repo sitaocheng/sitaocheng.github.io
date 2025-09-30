@@ -12,19 +12,25 @@ redirect_from:
 See also my [RESUME](../files/SitaoCheng_Academic_CV.pdf) ([Transcripts](../files/transcript_NJU.pdf))
 <!-- , my [Personal Statements](../files/stcheng_PS.pdf), and [Slides of my works](../files/stcheng_research_slides.pdf) -->
                                 
-Education
-======
-* M.S. in Computer Science, Nanjing University, advised by Professor Yuzhong Qu, 2024
-* B.E. in Software Engineering, University of Electronic Science and Technology of China, advised by Professor Yi Ding, 2021
 
 Work experience
 ======
-* 07.2024 - Now : Visiting Research Scholar
+
+* 09.2025 - Now : Ph.D. student
+  * University of Waterloo
+  * Supervisor: Professor [Victor Zhong](https://www.victorzhong.com/)
+
+* 06.2025 - 09.2025 : Researcher
+  * Pujiang AI Lab
+  * Supervisor: Professor [Jie Fu](https://bigaidream.github.io)
+
+
+* 07.2024 - 06.2025 : Visiting Research Scholar
   * University of California, Santa Barbara
   * Supervisor: Professor [William Wang](https://sites.cs.ucsb.edu/~william/index.html)
 
 * 10.2023 - 06.2024 : Research Intern
-  * DKI(Data, Knowledge, Intelligence) Group, Microsoft Research
+  * DKI (Data, Knowledge, Intelligence) Group, Microsoft Research
   * Supervisor: Yong Xu, Fangkai Yang, Chaoyun Zhang
 
   
@@ -34,61 +40,80 @@ Work experience
 
 * 06.2023 - 09.2023 : Research Intern
   * Data Management Intelligence Departiment, Ant Group
-  
+
+Education
+======
+* Ph.D. in Computer Science, University of Waterloo, advised by Professor Victor Zhong, 2024-Now
+* M.S. in Computer Science, Nanjing University, advised by Professor Yuzhong Qu, 2021-2024
+* B.E. in Software Engineering, University of Electronic Science and Technology of China, advised by Professor Yi Ding, 2017-2021
+
 
 Preprints
 ======
 
-- Understanding the Interplay between Parametric and Contextual Knowledge for Large Language Models \
-**Sitao Cheng**, Liangming Pan, Xunjian Yin, Xinyi Wang, William Yang Wang \
-[[paper](https://arxiv.org/abs/2410.08414)] [[homepage](https://sitaocheng.github.io/PK_CK_interplay/)] 
+- **[In progress]** LEDOM: An Open and Fundamental Reverse Language Model \
+Xunjian Yin, **Sitao Cheng**, Yuxi Xie, Xinyu Hu, Li Lin, Xinyi Wang, Liangming Pan, William Yang Wang, Xiaojun Wan \
+[[paper](https://arxiv.org/abs/2507.01335)]
 
-- Disentangling Memory and Reasoning Ability in Large Language Models \
-Mingyu Jin, Weidi Luo, **Sitao Cheng**, Xinyi Wang, Wenyue Hua, Ruixiang Tang, William Yang Wang, Yongfeng Zhang \
-[[paper](https://arxiv.org/abs/2411.13504)]  
-
-- RuleArena: A Benchmark for Rule-Guided Reasoning with LLMs in Real-World Scenarios \
-Ruiwen Zhou, Wenyue Hua, Liangming Pan, **Sitao Cheng**, Xiaobao Wu, En Yu, William Yang Wang \
-[[paper](https://arxiv.org/abs/2412.08972)]  
-
-- Thread: A Logic-Based Data Organization Paradigm for How-To Question Answering with Retrieval Augmented Generation \
-Kaikai An, Fangkai Yang, Liqun Li, Junting Lu, **Sitao Cheng**, Lu Wang, Pu Zhao, Lele Cao, Qingwei Lin, Saravan Rajmohan, Dongmei Zhang, Qi Zhang\
-[[paper](https://arxiv.org/abs/2406.13372)]  
+ 
 
 Publications
 ======
 
-- EfficientRAG: Efficient Retriever for Multi-Hop Question Answering \
-The 2024 Conference on Empirical Methods in Natural Language Processing, in Miami, Florida, 2024
-Ziyuan Zhuang*, Zhiyang Zhang*, **Sitao Cheng**, Fangkai Yang, Jia Liu, Shujian Huang, Qingwei Lin, Saravan Rajmohan, Dongmei Zhang, Qi Zhang \
-[[paper](https://www.arxiv.org/abs/2408.04259)]  
+- **[ACL'25 Workshop]** Understanding the Interplay between Parametric and Contextual Knowledge for Large Language Models \
+**Sitao Cheng**, Liangming Pan, Xunjian Yin, Xinyi Wang, William Yang Wang \
+[[paper](https://arxiv.org/abs/2410.08414)] [[code](https://github.com/sitaocheng/Knowledge_Interplay)] [[homepage](https://sitaocheng.github.io/PK_CK_interplay/)] 
 
 
-- Call Me When Necessary: LLMs can Efficiently and Faithfully Reason over Structured Environments\
-The 62nd Annual Meeting of the Association for Computational Linguistics(ACL Findings), in Bangkok, Thailand, 2024.\
-**Sitao Cheng**, Ziyuan Zhuang, Yong Xu, Fangkai Yang, Chaoyun Zhang, Xiaoting Qin, Xiang Huang, Ling Chen, Qingwei Lin, Dongmei Zhang, Saravan Rajmohan, Qi Zhang\
+- **[ACL'24 Findings]** Call Me When Necessary: LLMs can Efficiently and Faithfully Reason over Structured Environments \
+**Sitao Cheng**, Ziyuan Zhuang, Yong Xu, Fangkai Yang, Chaoyun Zhang, Xiaoting Qin, Xiang Huang, Ling Chen, Qingwei Lin, Dongmei Zhang, Saravan Rajmohan, Qi Zhang \
 [[paper](https://arxiv.org/abs/2403.08593)] [[code](https://github.com/microsoft/Readi)]  
 
 
 
-- QueryAgent: A Reliable and Efficient Reasoning Framework with Environmental Feedback based Self-Correction\
-The 62nd Annual Meeting of the Association for Computational Linguistics(ACL), in Bangkok, Thailand, 2024.\
+- **[ACL'24 Oral]** QueryAgent: A Reliable and Efficient Reasoning Framework with Environmental Feedback based Self-Correction \
 Xiang Huang*, **Sitao Cheng\***, Shanshan Huang, Jiayu Shen, Yong Xu, Chaoyun Zhang, Yuzhong Qu\
 [[paper](https://arxiv.org/abs/2403.11886)] [[code](https://github.com/cdhx/QueryAgent)]
 
 
 
-- MarkQA: A Large Scale KBQA Dataset with Numerical Reasoning\
-The 2023 Conference on Empirical Methods in Natural Language Processing(EMNLP), in Singapore, 2023.\
+- **[EMNLP'23]** MarkQA: A Large Scale KBQA Dataset with Numerical Reasoning\
 Xiang Huang, **Sitao Cheng**, Yuheng Bao, Shanshan Huang, Yuzhong Qu\
 [[paper](https://arxiv.org/abs/2310.15517)] [[code](https://github.com/cdhx/MarkQA)] [[homepage](http://ws.nju.edu.cn/MarkQA)]
 
 
 
-- Question Decomposition Tree for Answering Complex Questions over Knowledge Bases\
-Thirty-Seventh AAAI Conference on Artificial Intelligence(AAAI), in Washington, DC, USA, 2023. \
+- **[AAAI'23 Oral]** Question Decomposition Tree for Answering Complex Questions over Knowledge Bases\
 Xiang Huang, **Sitao Cheng**, Yiheng Shu, Yuheng Bao, Yuzhong Qu \
 [[paper](https://arxiv.org/abs/2306.07597)] [[code](https://github.com/cdhx/QDTQA)]
+
+
+- **[ACL'25]** Disentangling Memory and Reasoning Ability in Large Language Models \
+Mingyu Jin, Weidi Luo, **Sitao Cheng**, Xinyi Wang, Wenyue Hua, Ruixiang Tang, William Yang Wang, Yongfeng Zhang \
+[[paper](https://arxiv.org/abs/2411.13504)]  [[code](https://github.com/MingyuJ666/Disentangling-Memory-and-Reasoning)]
+
+
+
+- **[EMNLP'24]** EfficientRAG: Efficient Retriever for Multi-Hop Question Answering \
+Ziyuan Zhuang, Zhiyang Zhang, **Sitao Cheng**, Fangkai Yang, Jia Liu, Shujian Huang, Qingwei Lin, Saravan Rajmohan, Dongmei Zhang, Qi Zhang \
+[[paper](https://www.arxiv.org/abs/2408.04259)]  [[code](https://github.com/NIL-zhuang/EfficientRAG-official)]
+
+
+
+- **[ACL'25]** RuleArena: A Benchmark for Rule-Guided Reasoning with LLMs in Real-World Scenarios \
+Ruiwen Zhou, Wenyue Hua, Liangming Pan, **Sitao Cheng**, Xiaobao Wu, En Yu, William Yang Wang \
+[[paper](https://arxiv.org/abs/2412.08972)] [[code](https://github.com/skyriver-2000/RuleArena)]
+
+
+
+- **[ACL'25]** TARGA: Targeted Synthetic Data Generation for Practical Reasoning over Structured Data \
+Xiang Huang*, Jiayu Shen*, Shanshan Huang, **Sitao Cheng**, Xiaxia Wang, Yuzhong Qu \
+[[paper](https://arxiv.org/abs/2412.19544)]  
+
+
+- **[EMNLP'25]** Thread: A Logic-Based Data Organization Paradigm for How-To Question Answering with Retrieval Augmented Generation \
+Kaikai An, Fangkai Yang, Liqun Li, Junting Lu, **Sitao Cheng**, Shuzheng Si, Lu Wang, Pu Zhao, Lele Cao, Qingwei Lin, Saravan Rajmohan, Dongmei Zhang, Qi Zhang, Baobao Chang \
+[[paper](https://arxiv.org/abs/2406.13372)]  
 
 
 Selected Awards
