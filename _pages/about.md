@@ -13,7 +13,7 @@ I also worked as a research intern at [Microsoft DKI Group](https://www.microsof
 
  My research interest lies in advancing the reasoning capabilities of language models (LMs). I have experience on Language Agents, RAG and Neural-Symbolic Reasoning. Currently, I am doing research on the following topics:
 
-1. Reward modeling for generalizability (e.g., exploration of reward functioning by Reinforcement Learnining)
+1. Reward modeling for generalizability (e.g., exploration of differentiable evolution by Reinforcement Learnining)
 2. Understanding and improving the multi-hop reasoning capabilities (e.g., how LLMs adopts parametric and contextual knowledge for reasoning).
 3. Language Agents (e.g., reasoning on real-world environments).
           
