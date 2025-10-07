@@ -46,7 +46,7 @@ Xiang Huang*, **Sitao Cheng\***, Shanshan Huang, Jiayu Shen, Yong Xu, Chaoyun Zh
 
 
 - **[EMNLP'25 Findings]** Dynamic Evaluation for Oversensitivity in LLMs\
-Sophia Xiao Pu, **Sitao Cheng**, Xin Eric Wang, William Yang Wang\
+Sophia Xiao Pu, **Sitao Cheng**, Xin Eric Wang, William Yang Wang
 
 
 - **[EMNLP'23]** MarkQA: A Large Scale KBQA Dataset with Numerical Reasoning\
@@ -89,15 +89,17 @@ Kaikai An, Fangkai Yang, Liqun Li, Junting Lu, **Sitao Cheng**, Shuzheng Si, Lu 
 
 
 ## Recent News
-- 2025-09: Arriving at Waterloo, Canada.
+- 2025-09: Arriving at Waterloo and starting my PhD, Canada.
 - 2025-05: Joining Shanghai AI Lab as a Researcher.
+- 2025-06: Two papers accepted by EMNLP 2025.
+- 2025-03: Three papers accepted by ACL 2025.
 - 2024-11: Attending SoCal NLP 2024, San Diego.
 - 2024-11: Attending EMNLP 2024, Miami.
 - 2024-09: One paper accepted by EMNLP 2024.
 - 2024-08: Attending and volunteering at ACL 2024, Bangkok.
 - 2024-08: Attending EMNLP23 2024, Singapore.
 - 2024-07: Joining UC Santa Barbara, NLP Group.
-- 2024-05: Two papers accepted by ACL 2024 (one Main + one Findings).
+- 2024-05: Two papers accepted by ACL 2024.
 - 2023-10: One paper accepted by EMNLP 2023.
 - 2022-11: One paper accepted by AAAI 2023.  
 
