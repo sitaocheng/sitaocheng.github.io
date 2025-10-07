@@ -76,6 +76,9 @@ Xiang Huang*, **Sitao Cheng\***, Shanshan Huang, Jiayu Shen, Yong Xu, Chaoyun Zh
 [[paper](https://arxiv.org/abs/2403.11886)] [[code](https://github.com/cdhx/QueryAgent)]
 
 
+- **[EMNLP'25 Findings]** Dynamic Evaluation for Oversensitivity in LLMs\
+Sophia Xiao Pu, **Sitao Cheng**, Xin Eric Wang, William Yang Wang\
+
 
 - **[EMNLP'23]** MarkQA: A Large Scale KBQA Dataset with Numerical Reasoning\
 Xiang Huang, **Sitao Cheng**, Yuheng Bao, Shanshan Huang, Yuzhong Qu\
