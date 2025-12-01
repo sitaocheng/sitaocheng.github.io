@@ -11,6 +11,7 @@ Hi, I am Sitao Cheng. I am a first-year Ph.D. Student at University of Waterloo,
 I also worked as a research intern at [Microsoft Research Asia](https://www.microsoft.com/en-us/research/group/data-knowledge-intelligence/).
 
 
+
 My research interest lies in advancing the reasoning capabilities of language models (LMs). I have experience on Language Agents, Reinforcement Learning, RAG and Neural-Symbolic Reasoning. Currently, I am doing research on the following topics:
 
 1. Automatic Reward Modeling (e.g., exploration of differentiable evolutionary meta-reward).
@@ -26,7 +27,7 @@ Please feel free to reach out and discuss research! Please check out my [CV](htt
 **Sitao Cheng**, Xunjian Yin, Ruiwen Zhou, Yuxuan Li, Xinyi Wang, Liangming Pan, William Yang Wang, Victor Zhong
 
 -  DERL: Differentiable Evolutionary Reinforcement Learning.\
-**Sitao Cheng\***, Tianle Li*, Xuhan Huang*, Xunjian Yin, Difan Zou, Jie Fu
+**Sitao Cheng\***, Tianle Li\*, Xuhan Huang\*, Xunjian Yin, Difan Zou, Jie Fu
 
 -  LEDOM: An Open and Fundamental Reverse Language Model \
 Xunjian Yin, **Sitao Cheng**, Yuxi Xie, Xinyu Hu, Li Lin, Xinyi Wang, Liangming Pan, William Yang Wang, Xiaojun Wan \
