@@ -7,11 +7,11 @@ redirect_from:
   - /about.html
 ---
 
-Hi, I am Sitao Cheng. I am a first-year Ph.D. Student at University of Waterloo, fortunate to be advised by Prof. [Victor Zhong](https://www.victorzhong.com/). I closely work with Prof. [Liangming Pan](https://liangmingpan.bio/) and Prof. [Jie Fu](https://bigaidream.github.io/). Previously, I was a research scholar at [UCSB NLP Group](http://nlp.cs.ucsb.edu/), advised by Prof. [William Wang](https://sites.cs.ucsb.edu/~william/index.html). I obtained my Master's degree from Nanjing University. 
+Hi, I am Sitao Cheng. I am a first-year Ph.D. Student at University of Waterloo, fortunate to be advised by Prof. [Victor Zhong](https://www.victorzhong.com/). I closely work with Prof. [Liangming Pan](https://liangmingpan.bio/) and Prof. [Jie Fu](https://bigaidream.github.io/). Previously, I was a research scholar at UCSB NLP Group, advised by Prof. [William Wang](https://sites.cs.ucsb.edu/~william/index.html). I obtained my Master's degree from Nanjing University. 
 I also worked as a research intern at [Microsoft Research Asia](https://www.microsoft.com/en-us/research/group/data-knowledge-intelligence/).
 
 
- My research interest lies in advancing the reasoning capabilities of language models (LMs). I have experience on Language Agents, RAG and Neural-Symbolic Reasoning. Currently, I am doing research on the following topics:
+My research interest lies in advancing the reasoning capabilities of language models (LMs). I have experience on Language Agents, Reinforcement Learning, RAG and Neural-Symbolic Reasoning. Currently, I am doing research on the following topics:
 
 1. Automatic Reward Modeling (e.g., exploration of differentiable evolutionary meta-reward).
 2. Understanding the Role of RL and Generalization to Compositional Reasoning (e.g., how training strategies might affect generalizability, does RL really incentives new skills or merely amplifies).
@@ -22,10 +22,10 @@ Please feel free to reach out and discuss research! Please check out my [CV](htt
 
 ## Preprints
 
--  From Atomic to Composite: Reinforcement Learning Enables Generalization in Complementary Reasoning.
+-  From Atomic to Composite: Reinforcement Learning Enables Generalization in Complementary Reasoning.\
 **Sitao Cheng**, Xunjian Yin, Ruiwen Zhou, Yuxuan Li, Xinyi Wang, Liangming Pan, William Yang Wang, Victor Zhong
 
--  DERL: Differentiable Evolutionary Reinforcement Learning.
+-  DERL: Differentiable Evolutionary Reinforcement Learning.\
 **Sitao Cheng\***, Tianle Li*, Xuhan Huang*, Xunjian Yin, Difan Zou, Jie Fu
 
 -  LEDOM: An Open and Fundamental Reverse Language Model \
