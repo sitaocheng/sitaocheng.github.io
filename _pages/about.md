@@ -7,14 +7,14 @@ redirect_from:
   - /about.html
 ---
 
-Hi, I am Sitao Cheng. I am a first-year Ph.D. Student at University of Waterloo, advised by Prof. [Victor Zhong](https://www.victorzhong.com/). I closely work with Prof. [Liangming Pan](https://liangmingpan.bio/) and Prof. [Jie Fu](https://bigaidream.github.io/). Previously, I was a research scholar at [UCSB NLP Group](http://nlp.cs.ucsb.edu/), advised by Prof. [William Wang](https://sites.cs.ucsb.edu/~william/index.html). I obtained my Master's degree from Nanjing University. 
-I also worked as a research intern at [Microsoft DKI Group](https://www.microsoft.com/en-us/research/group/data-knowledge-intelligence/).
+Hi, I am Sitao Cheng. I am a first-year Ph.D. Student at University of Waterloo, fortunate to be advised by Prof. [Victor Zhong](https://www.victorzhong.com/). I closely work with Prof. [Liangming Pan](https://liangmingpan.bio/) and Prof. [Jie Fu](https://bigaidream.github.io/). Previously, I was a research scholar at [UCSB NLP Group](http://nlp.cs.ucsb.edu/), advised by Prof. [William Wang](https://sites.cs.ucsb.edu/~william/index.html). I obtained my Master's degree from Nanjing University. 
+I also worked as a research intern at [Microsoft Research Asia](https://www.microsoft.com/en-us/research/group/data-knowledge-intelligence/).
 
 
  My research interest lies in advancing the reasoning capabilities of language models (LMs). I have experience on Language Agents, RAG and Neural-Symbolic Reasoning. Currently, I am doing research on the following topics:
 
-1. Reward modeling for generalizability (e.g., exploration of differentiable evolution by Reinforcement Learnining)
-2. Understanding and improving the multi-hop reasoning capabilities (e.g., how LLMs adopts parametric and contextual knowledge for reasoning).
+1. Automatic Reward Modeling (e.g., exploration of differentiable evolutionary meta-reward).
+2. Understanding the Role of RL and Generalization to Compositional Reasoning (e.g., how training strategies might affect generalizability, does RL really incentives new skills or merely amplifies).
 3. Language Agents (e.g., reasoning on real-world environments).
           
 Please feel free to reach out and discuss research! Please check out my [CV](https://sitaocheng.github.io/files/SitaoCheng_Academic_CV.pdf).
@@ -22,14 +22,20 @@ Please feel free to reach out and discuss research! Please check out my [CV](htt
 
 ## Preprints
 
-- **[In progress]** LEDOM: An Open and Fundamental Reverse Language Model \
+-  From Atomic to Composite: Reinforcement Learning Enables Generalization in Complementary Reasoning.
+**Sitao Cheng**, Xunjian Yin, Ruiwen Zhou, Yuxuan Li, Xinyi Wang, Liangming Pan, William Yang Wang, Victor Zhong
+
+-  DERL: Differentiable Evolutionary Reinforcement Learning.
+**Sitao Cheng\***, Tianle Li*, Xuhan Huang*, Xunjian Yin, Difan Zou, Jie Fu
+
+-  LEDOM: An Open and Fundamental Reverse Language Model \
 Xunjian Yin, **Sitao Cheng**, Yuxi Xie, Xinyu Hu, Li Lin, Xinyi Wang, Liangming Pan, William Yang Wang, Xiaojun Wan \
 [[paper](https://arxiv.org/abs/2507.01335)]
 
 
 ## Publications
 
-- **[ACL'25 Workshop]** Understanding the Interplay between Parametric and Contextual Knowledge for Large Language Models \
+- **[KnowFM Workshop of ACL'25 (Oral)]** Understanding the Interplay between Parametric and Contextual Knowledge for Large Language Models \
 **Sitao Cheng**, Liangming Pan, Xunjian Yin, Xinyi Wang, William Yang Wang \
 [[paper](https://arxiv.org/abs/2410.08414)] [[code](https://github.com/sitaocheng/Knowledge_Interplay)] [[homepage](https://sitaocheng.github.io/PK_CK_interplay/)] 
 
@@ -89,6 +95,7 @@ Kaikai An, Fangkai Yang, Liqun Li, Junting Lu, **Sitao Cheng**, Shuzheng Si, Lu 
 
 
 ## Recent News
+- 2025-11: Fortunate to receive TD Layer 6 Graduate Scholarship in Data & AI for Fall 2025.
 - 2025-09: Arriving at Waterloo and starting my PhD, Canada.
 - 2025-05: Joining Shanghai AI Lab as a Researcher.
 - 2025-06: Two papers accepted by EMNLP 2025.
