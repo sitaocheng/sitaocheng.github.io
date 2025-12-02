@@ -24,14 +24,13 @@ Please feel free to reach out and discuss research! Please check out my [CV](htt
 ## Preprints
 
 -  From Atomic to Composite: Reinforcement Learning Enables Generalization in Complementary Reasoning.\
-**Sitao Cheng**, Xunjian Yin, Ruiwen Zhou, Yuxuan Li, Xinyi Wang, Liangming Pan, William Yang Wang, Victor Zhong
+**Sitao Cheng**, Xunjian Yin, Ruiwen Zhou, Yuxuan Li, Xinyi Wang, Liangming Pan, William Yang Wang, \ Victor Zhong [[paper](https://arxiv.org/pdf/2512.01970)]
 
 -  DERL: Differentiable Evolutionary Reinforcement Learning.\
 **Sitao Cheng\***, Tianle Li\*, Xuhan Huang\*, Xunjian Yin, Difan Zou, Jie Fu
 
 -  LEDOM: An Open and Fundamental Reverse Language Model \
-Xunjian Yin, **Sitao Cheng**, Yuxi Xie, Xinyu Hu, Li Lin, Xinyi Wang, Liangming Pan, William Yang Wang, Xiaojun Wan \
-[[paper](https://arxiv.org/abs/2507.01335)]
+Xunjian Yin, **Sitao Cheng**, Yuxi Xie, Xinyu Hu, Li Lin, Xinyi Wang, Liangming Pan, William Yang Wang, \ Xiaojun Wan  [[paper](https://arxiv.org/abs/2507.01335)]
 
 
 ## Publications
