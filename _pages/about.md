@@ -15,7 +15,7 @@ I also worked as a research intern at [Microsoft Research Asia](https://www.micr
 My research interest lies in advancing the reasoning capabilities of language models (LMs). I have experience on Language Agents, Reinforcement Learning, RAG and Neural-Symbolic Reasoning. Currently, I am doing research on the following topics:
 
 1. Automatic Reward Modeling (e.g., exploration of differentiable evolutionary meta-reward).
-2. Understanding the Role of RL and Generalization to Compositional Reasoning (e.g., how training strategies might affect generalizability, does RL really incentives new skills or merely amplifies).
+2. The Role of RL in Compositional Generalization (e.g., how training strategies might affect generalizability, does RL really incentives new skills or merely amplifies).
 3. Language Agents (e.g., reasoning on real-world environments).
           
 Please feel free to reach out and discuss research! Please check out my [CV](https://sitaocheng.github.io/files/SitaoCheng_Academic_CV.pdf).
