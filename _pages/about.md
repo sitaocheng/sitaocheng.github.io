@@ -24,20 +24,20 @@ Please feel free to reach out and discuss research! Please check out my [CV](htt
 ## Preprints
 
 -  From Atomic to Composite: Reinforcement Learning Enables Generalization in Complementary Reasoning.\
-**Sitao Cheng**, Xunjian Yin, Ruiwen Zhou, Yuxuan Li, Xinyi Wang, Liangming Pan, William Yang Wang, Victor Zhong [[paper](https://arxiv.org/pdf/2512.01970)]
+**Sitao Cheng**, Xunjian Yin, Ruiwen Zhou, Yuxuan Li, Xinyi Wang, Liangming Pan, William Yang Wang, Victor Zhong [[paper](https://arxiv.org/pdf/2512.01970)][[code](https://github.com/sitaocheng/from_atomic_to_composite)][[data](https://huggingface.co/datasets/sitao/From_atomic_to_composite)]
 
 -  Differentiable Evolutionary Reinforcement Learning.\
-**Sitao Cheng\***, Tianle Li\*, Xuhan Huang\*, Xunjian Yin, Difan Zou
+**Sitao Cheng\***, Tianle Li\*, Xuhan Huang\*, Xunjian Yin, Difan Zou [[paper](https://arxiv.org/abs/2512.13399)][[code](https://github.com/sitaocheng/DERL)][[model](https://huggingface.co/DifferentiableEvolutionaryRL)]
 
 -  LEDOM: An Open and Fundamental Reverse Language Model \
-Xunjian Yin, **Sitao Cheng**, Yuxi Xie, Xinyu Hu, Li Lin, Xinyi Wang, Liangming Pan, William Yang Wang, Xiaojun Wan  [[paper](https://arxiv.org/abs/2507.01335)]
+Xunjian Yin, **Sitao Cheng**, Yuxi Xie, Xinyu Hu, Li Lin, Xinyi Wang, Liangming Pan, William Yang Wang, Xiaojun Wan  [[paper](https://arxiv.org/abs/2507.01335)][[model](https://huggingface.co/Corning/Reverse-Model-7B-348B)]
 
 
 ## Publications
 
 - **[KnowFM Workshop of ACL'25 (Oral)]** Understanding the Interplay between Parametric and Contextual Knowledge for Large Language Models \
 **Sitao Cheng**, Liangming Pan, Xunjian Yin, Xinyi Wang, William Yang Wang \
-[[paper](https://arxiv.org/abs/2410.08414)] [[code](https://github.com/sitaocheng/Knowledge_Interplay)] [[homepage](https://sitaocheng.github.io/PK_CK_interplay/)] 
+[[paper](https://arxiv.org/abs/2410.08414)] [[code](https://github.com/sitaocheng/Knowledge_Interplay)] 
 
 
 - **[ACL'24 Findings]** Call Me When Necessary: LLMs can Efficiently and Faithfully Reason over Structured Environments \
@@ -45,14 +45,13 @@ Xunjian Yin, **Sitao Cheng**, Yuxi Xie, Xinyu Hu, Li Lin, Xinyi Wang, Liangming 
 [[paper](https://arxiv.org/abs/2403.08593)] [[code](https://github.com/microsoft/Readi)]  
 
 
-
 - **[ACL'24 Oral]** QueryAgent: A Reliable and Efficient Reasoning Framework with Environmental Feedback based Self-Correction \
 Xiang Huang*, **Sitao Cheng\***, Shanshan Huang, Jiayu Shen, Yong Xu, Chaoyun Zhang, Yuzhong Qu\
 [[paper](https://arxiv.org/abs/2403.11886)] [[code](https://github.com/cdhx/QueryAgent)]
 
 
-- **[EMNLP'25 Findings]** Dynamic Evaluation for Oversensitivity in LLMs\
-Sophia Xiao Pu, **Sitao Cheng**, Xin Eric Wang, William Yang Wang
+- **[EMNLP'25 Findings]** Dynamic Evaluation for Oversensitivity in LLMs \
+Sophia Xiao Pu, **Sitao Cheng**, Xin Eric Wang, William Yang Wang [[paper](https://arxiv.org/abs/2510.19005)] [[data](https://github.com/SophiaPx/Oversensitivity)]
 
 
 - **[EMNLP'23]** MarkQA: A Large Scale KBQA Dataset with Numerical Reasoning\

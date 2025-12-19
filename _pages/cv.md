@@ -20,12 +20,8 @@ Work experience
   * University of Waterloo
   * Supervisor: Professor [Victor Zhong](https://www.victorzhong.com/)
 
-* 06.2025 - 09.2025 : Researcher
-  * Pujiang AI Lab
-  * Supervisor: Professor [Jie Fu](https://bigaidream.github.io)
 
-
-* 07.2024 - 06.2025 : Visiting Research Scholar
+* 07.2024 - 08.2025 : Visiting Research Scholar
   * University of California, Santa Barbara
   * Supervisor: Professor [William Wang](https://sites.cs.ucsb.edu/~william/index.html)
 
@@ -52,15 +48,14 @@ Preprints
 ======
 
 -  From Atomic to Composite: Reinforcement Learning Enables Generalization in Complementary Reasoning.\
-**Sitao Cheng**, Xunjian Yin, Ruiwen Zhou, Yuxuan Li, Xinyi Wang, Liangming Pan, William Yang Wang, Victor Zhong [[paper](https://arxiv.org/pdf/2512.01970)]
+**Sitao Cheng**, Xunjian Yin, Ruiwen Zhou, Yuxuan Li, Xinyi Wang, Liangming Pan, William Yang Wang, Victor Zhong [[paper](https://arxiv.org/pdf/2512.01970)][[code](https://github.com/sitaocheng/from_atomic_to_composite)][[data](https://huggingface.co/datasets/sitao/From_atomic_to_composite)]
 
 -  Differentiable Evolutionary Reinforcement Learning.\
-**Sitao Cheng\***, Tianle Li\*, Xuhan Huang\*, Xunjian Yin, Difan Zou
+**Sitao Cheng\***, Tianle Li\*, Xuhan Huang\*, Xunjian Yin, Difan Zou [[paper](https://arxiv.org/abs/2512.13399)][[code](https://github.com/sitaocheng/DERL)][[model](https://huggingface.co/DifferentiableEvolutionaryRL)]
 
 -  LEDOM: An Open and Fundamental Reverse Language Model \
-Xunjian Yin, **Sitao Cheng**, Yuxi Xie, Xinyu Hu, Li Lin, Xinyi Wang, Liangming Pan, William Yang Wang, Xiaojun Wan  [[paper](https://arxiv.org/abs/2507.01335)]
+Xunjian Yin, **Sitao Cheng**, Yuxi Xie, Xinyu Hu, Li Lin, Xinyi Wang, Liangming Pan, William Yang Wang, Xiaojun Wan  [[paper](https://arxiv.org/abs/2507.01335)][[model](https://huggingface.co/Corning/Reverse-Model-7B-348B)]
 
- 
 
 Publications
 ======
@@ -81,8 +76,9 @@ Xiang Huang*, **Sitao Cheng\***, Shanshan Huang, Jiayu Shen, Yong Xu, Chaoyun Zh
 [[paper](https://arxiv.org/abs/2403.11886)] [[code](https://github.com/cdhx/QueryAgent)]
 
 
-- **[EMNLP'25 Findings]** Dynamic Evaluation for Oversensitivity in LLMs\
-Sophia Xiao Pu, **Sitao Cheng**, Xin Eric Wang, William Yang Wang\
+- **[EMNLP'25 Findings]** Dynamic Evaluation for Oversensitivity in LLMs \
+Sophia Xiao Pu, **Sitao Cheng**, Xin Eric Wang, William Yang Wang [[paper](https://arxiv.org/abs/2510.19005)] [[data](https://github.com/SophiaPx/Oversensitivity)]
+
 
 
 - **[EMNLP'23]** MarkQA: A Large Scale KBQA Dataset with Numerical Reasoning\
