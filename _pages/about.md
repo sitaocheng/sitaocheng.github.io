@@ -94,6 +94,7 @@ Kaikai An, Fangkai Yang, Liqun Li, Junting Lu, **Sitao Cheng**, Shuzheng Si, Lu 
 
 
 ## Recent News
+- 2025-12: Giving a talk about compositional generalization at Peking University and Nanjing University.
 - 2025-11: Fortunate to receive TD Layer 6 Graduate Scholarship in Data & AI for Fall 2025.
 - 2025-09: Arriving at Waterloo and starting my PhD, Canada.
 - 2025-05: Joining Shanghai AI Lab as a Researcher.
