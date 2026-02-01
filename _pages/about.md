@@ -18,7 +18,7 @@ My research interest lies in advancing the reasoning capabilities of language mo
 2. The Role of RL in Compositional Generalization (e.g., how training strategies might affect generalizability, does RL really incentives new skills or merely amplifies).
 3. Language Agents (e.g., reasoning on real-world environments).
           
-Please feel free to reach out and discuss research! Please check out my [CV](https://sitaocheng.github.io/files/SitaoCheng_Academic_CV.pdf).
+Please feel free to reach out and discuss research! Please check out my [CV](https://sitaocheng.github.io/files/cv-sitao-cheng-2026.pdf).
 
 
 ## Preprints
