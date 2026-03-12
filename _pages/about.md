@@ -15,7 +15,7 @@ I also worked as a research intern at [Microsoft Research Asia](https://www.micr
 My research interest lies in advancing the reasoning capabilities of language models (LMs). I have experience on Language Agents, Reinforcement Learning, RAG and Neural-Symbolic Reasoning. Currently, I am doing research on the following topics:
 
 1. Automatic Reward Modeling (e.g., exploration of differentiable evolutionary meta-reward).
-2. The Role of RL in Compositional Generalization (e.g., how training strategies might affect generalizability, does RL really incentives new skills or merely amplifies).
+2. RL in Compositional Generalization (e.g., building robust GUI Agents, how training strategies affect generalizability, the mechanism of RL).
 3. Language Agents (e.g., reasoning on real-world environments).
           
 Please feel free to reach out and discuss research! Please check out my [CV](https://sitaocheng.github.io/files/cv-sitao-cheng-2026.pdf).
@@ -28,6 +28,11 @@ Please feel free to reach out and discuss research! Please check out my [CV](htt
 
 -  Differentiable Evolutionary Reinforcement Learning.\
 **Sitao Cheng\***, Tianle Li\*, Xuhan Huang\*, Xunjian Yin, Difan Zou [[paper](https://arxiv.org/abs/2512.13399)][[code](https://github.com/sitaocheng/DERL)][[model](https://huggingface.co/DifferentiableEvolutionaryRL)]
+
+
+-  Epistemic Context Learning: Building Trust the Right Way in LLM-Based Multi-Agent Systems.\
+Ruiwen Zhou\*, Maojia Song\*, Xiaobao Wu, **Sitao Cheng**, Xunjian Yin, Yuxi Xie, Zoey Hao, Wenyue Hua, Liangming Pan, Soujanya Poria, Min-Yen Kan [[paper](https://arxiv.org/pdf/2601.21742)][[code](https://github.com/skyriver-2000/epistemic-context-learning)]
+
 
 -  LEDOM: An Open and Fundamental Reverse Language Model \
 Xunjian Yin, **Sitao Cheng**, Yuxi Xie, Xinyu Hu, Li Lin, Xinyi Wang, Liangming Pan, William Yang Wang, Xiaojun Wan  [[paper](https://arxiv.org/abs/2507.01335)][[model](https://huggingface.co/Corning/Reverse-Model-7B-348B)]
