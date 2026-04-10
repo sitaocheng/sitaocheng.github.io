@@ -34,10 +34,6 @@ Please feel free to reach out and discuss research! Please check out my [CV](htt
 Ruiwen Zhou\*, Maojia Song\*, Xiaobao Wu, **Sitao Cheng**, Xunjian Yin, Yuxi Xie, Zoey Hao, Wenyue Hua, Liangming Pan, Soujanya Poria, Min-Yen Kan [[paper](https://arxiv.org/pdf/2601.21742)][[code](https://github.com/skyriver-2000/epistemic-context-learning)]
 
 
--  LEDOM: An Open and Fundamental Reverse Language Model \
-Xunjian Yin, **Sitao Cheng**, Yuxi Xie, Xinyu Hu, Li Lin, Xinyi Wang, Liangming Pan, William Yang Wang, Xiaojun Wan  [[paper](https://arxiv.org/abs/2507.01335)][[model](https://huggingface.co/Corning/Reverse-Model-7B-348B)]
-
-
 ## Publications
 
 - **[KnowFM Workshop of ACL'25 (Oral)]** Understanding the Interplay between Parametric and Contextual Knowledge for Large Language Models \
@@ -48,6 +44,10 @@ Xunjian Yin, **Sitao Cheng**, Yuxi Xie, Xinyu Hu, Li Lin, Xinyi Wang, Liangming 
 - **[ACL'24 Findings]** Call Me When Necessary: LLMs can Efficiently and Faithfully Reason over Structured Environments \
 **Sitao Cheng**, Ziyuan Zhuang, Yong Xu, Fangkai Yang, Chaoyun Zhang, Xiaoting Qin, Xiang Huang, Ling Chen, Qingwei Lin, Dongmei Zhang, Saravan Rajmohan, Qi Zhang \
 [[paper](https://arxiv.org/abs/2403.08593)] [[code](https://github.com/microsoft/Readi)]  
+
+
+- **[ACL'26]** Reverse Language Model \
+Xunjian Yin, **Sitao Cheng**, Yuxi Xie, Xinyu Hu, Li Lin, Xinyi Wang, Liangming Pan, William Yang Wang, Xiaojun Wan  [[paper](https://arxiv.org/abs/2507.01335)][[model](https://huggingface.co/Corning/Reverse-Model-7B-348B)]
 
 
 - **[ACL'24 Oral]** QueryAgent: A Reliable and Efficient Reasoning Framework with Environmental Feedback based Self-Correction \
@@ -99,10 +99,10 @@ Kaikai An, Fangkai Yang, Liqun Li, Junting Lu, **Sitao Cheng**, Shuzheng Si, Lu 
 
 
 ## Recent News
+- 2025-12: One paper accepted by ACL26.
 - 2025-12: Giving a talk about compositional generalization at Peking University and Nanjing University.
 - 2025-11: Fortunate to receive TD Layer 6 Graduate Scholarship in Data & AI for Fall 2025.
-- 2025-09: Arriving at Waterloo and starting my PhD, Canada.
-- 2025-05: Joining Shanghai AI Lab as a Researcher.
+- 2025-09: Arriving at Waterloo and starting my PhD in Waterloo, Canada.
 - 2025-06: Two papers accepted by EMNLP 2025.
 - 2025-03: Three papers accepted by ACL 2025.
 - 2024-11: Attending SoCal NLP 2024, San Diego.
@@ -118,7 +118,7 @@ Kaikai An, Fangkai Yang, Liqun Li, Junting Lu, **Sitao Cheng**, Shuzheng Si, Lu 
 
 ## Services
 
-- Reviewer: ARR, ICLR 2024
+- Reviewer: ARR, ICLR 2024, 2025, ICML 2026
 - ACL 2024 Volunteer
 
 <script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=h7MkH5jignq61WZkxL70kFcYFmuzcuasBYgHCA70MaU&cl=ffffff&w=a"></script>

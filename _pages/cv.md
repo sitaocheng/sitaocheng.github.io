@@ -53,9 +53,6 @@ Preprints
 -  Differentiable Evolutionary Reinforcement Learning.\
 **Sitao Cheng\***, Tianle Li\*, Xuhan Huang\*, Xunjian Yin, Difan Zou [[paper](https://arxiv.org/abs/2512.13399)][[code](https://github.com/sitaocheng/DERL)][[model](https://huggingface.co/DifferentiableEvolutionaryRL)]
 
--  LEDOM: An Open and Fundamental Reverse Language Model \
-Xunjian Yin, **Sitao Cheng**, Yuxi Xie, Xinyu Hu, Li Lin, Xinyi Wang, Liangming Pan, William Yang Wang, Xiaojun Wan  [[paper](https://arxiv.org/abs/2507.01335)][[model](https://huggingface.co/Corning/Reverse-Model-7B-348B)]
-
 
 Publications
 ======
@@ -69,6 +66,9 @@ Publications
 **Sitao Cheng**, Ziyuan Zhuang, Yong Xu, Fangkai Yang, Chaoyun Zhang, Xiaoting Qin, Xiang Huang, Ling Chen, Qingwei Lin, Dongmei Zhang, Saravan Rajmohan, Qi Zhang \
 [[paper](https://arxiv.org/abs/2403.08593)] [[code](https://github.com/microsoft/Readi)]  
 
+
+- **[ACL'26]** Reverse Language Model \
+Xunjian Yin, **Sitao Cheng**, Yuxi Xie, Xinyu Hu, Li Lin, Xinyi Wang, Liangming Pan, William Yang Wang, Xiaojun Wan  [[paper](https://arxiv.org/abs/2507.01335)][[model](https://huggingface.co/Corning/Reverse-Model-7B-348B)]
 
 
 - **[ACL'24 Oral]** QueryAgent: A Reliable and Efficient Reasoning Framework with Environmental Feedback based Self-Correction \
