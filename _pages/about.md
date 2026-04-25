@@ -12,7 +12,7 @@ I also worked as a research intern at [Microsoft Research Asia](https://www.micr
 
 
 
-My research interest lies in advancing the reasoning capabilities of language models (LMs). I have experience on Language Agents, Reinforcement Learning, RAG and Neural-Symbolic Reasoning. Currently, I am doing research on the following topics:
+My research interest lies in the efficient generalization of reasoning capability for large language models (LLMs). I have experience on Language Agents, Reinforcement Learning, RAG and Neural-Symbolic Reasoning. Currently, I am doing research on the following topics:
 
 1. Automatic Reward Modeling (e.g., exploration of differentiable evolutionary meta-reward).
 2. RL in Compositional Generalization (e.g., building robust GUI Agents, how training strategies affect generalizability, the mechanism of RL).
@@ -99,7 +99,8 @@ Kaikai An, Fangkai Yang, Liqun Li, Junting Lu, **Sitao Cheng**, Shuzheng Si, Lu 
 
 
 ## Recent News
-- 2025-12: One paper accepted by ACL26.
+- 2026-04: Attending ICLR 2026, Rio de Janeiro.
+- 2026-04: One paper accepted by ACL26.
 - 2025-12: Giving a talk about compositional generalization at Peking University and Nanjing University.
 - 2025-11: Fortunate to receive TD Layer 6 Graduate Scholarship in Data & AI for Fall 2025.
 - 2025-09: Arriving at Waterloo and starting my PhD in Waterloo, Canada.
