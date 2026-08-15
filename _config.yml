@@ -79,9 +79,14 @@ social:
 
 # Analytics
 analytics:
-  provider               :  "google-universal" # false (default), "google", "google-universal", "custom"
+  provider               :  "goatcounter" # false (default), "google", "google-universal", "goatcounter", "custom"
   google:
     tracking_id          :
+  goatcounter:
+    # Your GoatCounter site code, i.e. the subdomain you pick at signup:
+    # for "sitaocheng.goatcounter.com" put "sitaocheng" here.
+    # Left blank, no analytics script is emitted at all.
+    code                 :
 
 
 # Site Author
