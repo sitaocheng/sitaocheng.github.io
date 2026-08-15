@@ -1,0 +1,247 @@
+/* ==========================================================================
+   CUSTOM SITE STYLES
+   Loaded last so it can refine the Minimal Mistakes / academicpages base.
+   ========================================================================== */
+
+$accent          : #2f6f9f;
+$accent-dark     : #24567f;
+$accent-tint     : #eef4f9;
+$accent-line     : #d6e4f0;
+$panel-bg        : #fcfcfd;
+$panel-border    : #e6e8ea;
+
+/* --------------------------------------------------------------------------
+   Intro paragraph
+   -------------------------------------------------------------------------- */
+
+/* Applied to both opening paragraphs so they share one type treatment.
+   Font size is inherited from the base theme (0.9em) on purpose. */
+.page__content .intro {
+  line-height: 1.7;
+  margin-bottom: 1.1em;
+}
+
+/* --------------------------------------------------------------------------
+   Research questions list
+   -------------------------------------------------------------------------- */
+
+.research-list {
+  margin: 0.75em 0 0;
+
+  li {
+    margin-bottom: 0.7em;
+    line-height: 1.6;
+  }
+
+  strong {
+    color: $accent-dark;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Recent news — fixed-height, scrollable panel
+   -------------------------------------------------------------------------- */
+
+.news-panel {
+  position: relative;
+  margin-bottom: 1.75em;
+
+  /* Fade the last visible row to signal that more content is below. */
+  &::after {
+    content: "";
+    position: absolute;
+    left: 1px;
+    right: 0.7em;
+    bottom: 1px;
+    height: 1.9em;
+    background: linear-gradient(to bottom, rgba(252, 252, 253, 0), $panel-bg 80%);
+    border-radius: 0 0 6px 6px;
+    pointer-events: none;
+  }
+}
+
+.news-feed {
+  max-height: 12.5em;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 0.55em 0.95em 1em;
+  background-color: $panel-bg;
+  border: 1px solid $panel-border;
+  border-radius: 6px;
+
+  /* Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: #c7ccd1 transparent;
+
+  &:focus-visible {
+    outline: 2px solid $accent;
+    outline-offset: 2px;
+  }
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #c7ccd1;
+    border-radius: 4px;
+    border: 2px solid $panel-bg;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: #a9b0b6;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    /* Hanging indent: the date sits in its own column and wrapped lines align
+       under the text, not under the date. The negative margin lets the hover
+       highlight bleed to the panel edge while the text stays put.
+       Keep in sync: padding-left = 0.5em gutter + strong width + its margin. */
+    margin: 0 -0.5em;
+    padding: 0.28em 0.5em 0.28em 5.9em;
+    text-indent: -5.4em;
+    font-size: 0.85em;
+    line-height: 1.5;
+    border-radius: 3px;
+    transition: background-color 0.12s ease;
+
+    &:hover {
+      background-color: rgba(47, 111, 159, 0.055);
+    }
+
+    > strong:first-child {
+      display: inline-block;
+      width: 4.6em;
+      margin-right: 0.8em;
+      text-indent: 0;
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: 0.01em;
+      color: $accent;
+      vertical-align: baseline;
+    }
+  }
+
+  @include breakpoint(max-width 600px) {
+    max-height: 11em;
+
+    li {
+      padding-left: 0.5em;
+      text-indent: 0;
+
+      > strong:first-child {
+        display: block;
+        width: auto;
+        margin-right: 0;
+        margin-bottom: 0.15em;
+      }
+    }
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Publication lists — venue badges and resource link pills
+   -------------------------------------------------------------------------- */
+
+.pub-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  > li {
+    padding: 0 0 0.8em;
+    margin: 0 0 0.8em;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    line-height: 1.5;
+
+    &:last-child {
+      border-bottom: 0;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    /* kramdown wraps loose-list item content in a <p>. The base theme sizes
+       both li and p at 0.9em, which would compound to 0.81em; reset the
+       inner <p> so entries match the rest of the page. */
+    > p {
+      margin: 0;
+      font-size: 1em;
+    }
+  }
+
+  /* Venue tag, e.g. **[ACL'24 Findings]** at the start of an entry.
+     Matched for both tight (<li><strong>) and loose (<li><p><strong>) lists. */
+  > li > strong:first-child,
+  > li > p:first-child > strong:first-child {
+    display: inline-block;
+    margin-right: 0.45em;
+    padding: 0.1em 0.5em;
+    font-size: 0.78em;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    color: $accent-dark;
+    background-color: $accent-tint;
+    border: 1px solid $accent-line;
+    border-radius: 3px;
+    vertical-align: 0.08em;
+  }
+
+  /* Author line: set smaller and lighter so titles lead each entry */
+  .authors {
+    display: inline-block;
+    font-size: 0.88em;
+    line-height: 1.45;
+    color: #6b7278;
+
+    strong {
+      color: $text-color;
+      font-weight: 600;
+    }
+  }
+
+  /* Resource links (paper / code / data / model) rendered as small pills */
+  a {
+    display: inline-block;
+    margin: 0.25em 0.3em 0 0;
+    padding: 0.12em 0.6em;
+    font-size: 0.8em;
+    line-height: 1.5;
+    color: #4a5257;
+    background-color: #f5f6f7;
+    border: 1px solid #e1e4e6;
+    border-radius: 3px;
+    text-decoration: none;
+    transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+
+    &:hover,
+    &:focus {
+      color: $accent-dark;
+      background-color: $accent-tint;
+      border-color: $accent-line;
+      text-decoration: none;
+    }
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Teaching / Services
+   -------------------------------------------------------------------------- */
+
+.plain-list li {
+  margin-bottom: 0.45em;
+  line-height: 1.6;
+
+  strong {
+    color: $accent-dark;
+  }
+}
