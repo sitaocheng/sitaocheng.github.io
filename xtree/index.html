@@ -194,6 +194,21 @@ figcaption b{color:var(--ink2)}
 .step p{margin-top:8px;color:var(--ink2);font-size:15.5px}
 .canon{margin-top:10px;font-family:var(--mono);font-size:12.5px;color:var(--ink2);background:var(--code);border-radius:8px;padding:8px 10px;overflow-x:auto;white-space:nowrap}
 
+/* result blocks */
+.res{margin-top:40px;max-width:760px}
+.res h3{font-size:21px;line-height:1.3}
+.res p{margin-top:8px;font-size:17px;color:var(--ink2)}
+.res+.tablewrap,.res+figure{margin-top:16px}
+/* trees */
+.trees{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:22px}
+@media (max-width:900px){.trees{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.trees{grid-template-columns:1fr}}
+.tcard{border:1px solid var(--line);border-radius:12px;background:var(--paper);padding:14px 16px;display:grid;gap:8px;align-content:start}
+.tcard h3{font-size:17px}
+.tcard dl{display:grid;grid-template-columns:auto 1fr;gap:3px 12px;margin:0;font-size:14px}
+.tcard dt{color:var(--mute)} .tcard dd{margin:0;font-variant-numeric:tabular-nums}
+.tcard a{font-family:var(--display);font-weight:600;font-size:14px;text-decoration:none}
+.fmt{margin-top:16px;font-family:var(--mono);font-size:12.5px;color:var(--ink2);background:var(--code);border:1px solid var(--line);border-radius:10px;padding:12px 14px;overflow-x:auto;white-space:pre}
 /* results table */
 .tablewrap{overflow-x:auto;margin-top:22px;border:1px solid var(--line);border-radius:12px;background:var(--paper)}
 table{border-collapse:collapse;width:100%;font-size:14.5px;font-variant-numeric:tabular-nums}
@@ -212,48 +227,75 @@ tr.ours td{background:var(--blue-band);color:var(--blue-ink);font-weight:700}
 footer{padding-block:36px 48px;border-top:1px solid var(--line);color:var(--mute);font-size:14px;text-align:center}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 /* integrations demo */
+:root{--k0:#2f5e99;--k1:#c0612b;--k2:#2e8b6e;--k3:#8a4fb3;--k4:#b8912a;--k5:#c2477a}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--k0:#7fa8de;--k1:#e39461;--k2:#5cc3a2;--k3:#b98ae0;--k4:#e0bf5e;--k5:#e882ad}}
+:root[data-theme="dark"]{--k0:#7fa8de;--k1:#e39461;--k2:#5cc3a2;--k3:#b98ae0;--k4:#e0bf5e;--k5:#e882ad}
 .integ{margin-top:26px;background:var(--paper);border:1px solid var(--line);border-radius:16px;overflow:hidden}
 .integ-top{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid var(--line)}
+.integ-ex{display:flex;flex-wrap:wrap;gap:6px;padding:10px 16px;border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--line2) 55%,transparent)}
+.integ-ex .env{font-family:var(--mono);font-size:10.5px;color:var(--mute);margin-right:4px}
 .ctrl{display:flex;gap:6px}
 .ctrl button{border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:8px;padding:5px 12px;font-size:13.5px;cursor:pointer;font-family:var(--body)}
 .ctrl button:disabled{opacity:.45;cursor:default}
-.integ-body{padding:18px 16px;display:grid;gap:16px}
-.integ-cap{font-size:15px;color:var(--ink2);min-height:48px}
+.integ-body{display:grid;grid-template-columns:minmax(0,1fr) 300px}
+@media (max-width:900px){.integ-body{grid-template-columns:1fr}}
+.integ-main{padding:16px;display:grid;gap:14px;align-content:start;min-width:0}
+.integ-hint{padding:16px;border-left:1px solid var(--line);display:grid;gap:10px;align-content:start;background:color-mix(in srgb,var(--line2) 35%,transparent)}
+@media (max-width:900px){.integ-hint{border-left:0;border-top:1px solid var(--line)}}
+.integ-hint h4{margin:0;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);font-weight:500}
+.integ-cap{font-size:15.5px;color:var(--ink2);min-height:46px;margin:0}
 .integ-cap b{color:var(--ink)}
-.lane{display:grid;grid-template-columns:120px minmax(0,1fr);gap:10px;align-items:start}
+.integ-task{font-size:14.5px;color:var(--ink);background:var(--line2);border-radius:8px;padding:8px 10px}
+.integ-task span{font-family:var(--mono);font-size:10.5px;color:var(--mute);display:block;margin-bottom:2px;letter-spacing:.06em;text-transform:uppercase}
+.lane{display:grid;grid-template-columns:96px minmax(0,1fr);gap:10px;align-items:start}
 @media (max-width:620px){.lane{grid-template-columns:1fr}}
-.lane>.lab{font-family:var(--mono);font-size:11.5px;color:var(--mute);padding-top:6px}
+.lane>.lab{font-family:var(--mono);font-size:11.5px;color:var(--mute);padding-top:5px}
 .acts{display:flex;flex-wrap:wrap;gap:6px}
-.act{font-family:var(--mono);font-size:12px;border:1px solid var(--line);border-radius:7px;padding:4px 8px;background:var(--prim-band);color:var(--ink2);transition:opacity .25s,background .25s,border-color .25s}
-.act.gold{background:var(--paper)}
-.act.node{background:var(--blue-band);border-color:color-mix(in srgb,var(--blue) 50%,transparent);color:var(--blue-ink)}
-.act.ok{background:#e6f4ea;border-color:#5aa469;color:#1e5b2c}
+.act{font-family:var(--mono);font-size:12px;border:1px solid var(--line);border-radius:7px;padding:4px 8px;background:var(--prim-band);color:var(--ink2)}
+.act.ctx{background:var(--paper);color:var(--mute)}
+.act.kc{background:color-mix(in srgb,var(--kc) 12%,var(--paper));border-color:color-mix(in srgb,var(--kc) 55%,transparent);color:var(--ink)}
 .act.bad{background:#fbe9e7;border-color:#d0674f;color:#8a2c19}
-.act.off{opacity:.25}
-.act.hidden{visibility:hidden}
-.mathline{font-family:var(--mono);font-size:13.5px;color:var(--ink);background:var(--code);border-radius:8px;padding:10px 12px;overflow-x:auto;white-space:nowrap}
-.mathline .hl{color:var(--blue-ink);font-weight:600}
-.rolls{display:grid;gap:8px}
-.roll{display:grid;grid-template-columns:28px minmax(0,1fr) 64px 150px;gap:10px;align-items:center;font-size:14px}
-@media (max-width:720px){.roll{grid-template-columns:28px minmax(0,1fr) 58px}.roll .bar{grid-column:2 / 4}}
+.act .mk{font-weight:700;margin-right:5px}
+.act.kc .mk{color:var(--kc)}
+.act.pend{opacity:.35}
+.hnode{border:1px solid var(--line);border-radius:10px;background:var(--paper);padding:10px 12px;display:grid;gap:6px}
+.hnode .nm{font-family:var(--mono);font-weight:700;font-size:13px;color:var(--ink);word-break:break-word}
+.hnode .meta{font-size:12.5px;color:var(--mute)}
+.hkid{display:grid;grid-template-columns:10px minmax(0,1fr);gap:8px;align-items:start;font-size:13px}
+.hkid i{width:10px;height:10px;border-radius:3px;margin-top:4px;background:var(--kc)}
+.hkid b{font-family:var(--mono);font-weight:600;font-size:12px;color:var(--ink);word-break:break-word}
+.hkid small{display:block;font-family:var(--mono);font-size:11px;color:var(--mute)}
+.strip{display:flex;flex-wrap:wrap;gap:4px;align-items:center}
+.seg{font-family:var(--mono);font-size:11px;border-radius:6px;padding:3px 7px;border:1px solid transparent;white-space:nowrap}
+.seg.kc{background:color-mix(in srgb,var(--kc) 14%,var(--paper));border-color:color-mix(in srgb,var(--kc) 60%,transparent);color:var(--ink)}
+.seg.kc em{font-style:normal;color:var(--mute);margin-left:4px}
+.seg.px{background:var(--prim-band);border-color:var(--line);color:var(--mute)}
+.rolls{display:grid;gap:10px}
+.roll{display:grid;grid-template-columns:24px minmax(0,1fr) 64px 130px;gap:10px;align-items:center}
+@media (max-width:720px){.roll{grid-template-columns:24px minmax(0,1fr) 58px}.roll .bar{grid-column:2 / 4}}
 .roll .rid{font-family:var(--mono);font-size:12px;color:var(--mute)}
-.roll .out{font-family:var(--mono);font-size:12px;text-align:center;border-radius:6px;padding:2px 0}
-.roll .out.win{background:#e6f4ea;color:#1e5b2c} .roll .out.lose{background:var(--prim-band);color:var(--mute)}
-.bar{position:relative;height:18px;background:var(--line2);border-radius:5px;overflow:hidden}
-.bar i{position:absolute;top:0;bottom:0;background:var(--blue);opacity:.8;transition:left .4s,width .4s}
+.out{font-family:var(--mono);font-size:11.5px;text-align:center;border-radius:6px;padding:2px 0}
+.out.win{background:#e6f4ea;color:#1e5b2c} .out.lose{background:var(--prim-band);color:var(--mute)}
+.bar{position:relative;height:16px;background:var(--line2);border-radius:5px;overflow:hidden}
+.bar i{position:absolute;top:0;bottom:0;background:var(--blue);opacity:.85;transition:left .4s,width .4s}
 .bar i.neg{background:var(--orange)}
-.bar span{position:absolute;right:6px;top:0;font-family:var(--mono);font-size:11px;line-height:18px;color:var(--ink)}
 .bar .zero{position:absolute;left:50%;top:0;bottom:0;width:1px;background:var(--mute)}
+.bar.one i{left:0}
 .scen{display:flex;flex-wrap:wrap;gap:6px}
-.card-ctx{font-family:var(--mono);font-size:11.5px;line-height:1.55;color:var(--ink2);background:var(--code);border:1px solid var(--line);border-radius:8px;padding:10px 12px;white-space:pre-wrap;max-height:210px;overflow:auto}
-.card-ctx.dim{opacity:.35}
-.toks{display:flex;flex-wrap:wrap;gap:6px;align-items:flex-end}
-.tk{display:grid;justify-items:center;gap:4px;font-family:var(--mono);font-size:12px}
-.tk .g{width:34px;background:var(--line2);border-radius:4px 4px 0 0;position:relative;height:56px;overflow:hidden}
-.tk .g i{position:absolute;left:0;right:0;bottom:0;background:var(--blue);transition:height .4s}
-.tk .w{border:1px solid var(--line);border-radius:6px;padding:2px 6px;background:var(--paper);color:var(--ink)}
-.tk small{font-size:10.5px;color:var(--mute)}
-.note{font-size:13px;color:var(--mute)}
+.pill{display:inline-block;font-family:var(--mono);font-size:11.5px;border-radius:999px;padding:2px 9px;border:1px solid var(--line)}
+.pill.on{background:#e6f4ea;border-color:#5aa469;color:#1e5b2c}
+.pill.mid{background:#fdf3dc;border-color:#d9b24a;color:#7a5a0c}
+.pill.off{background:var(--prim-band);color:var(--mute)}
+.card-ctx{font-family:var(--mono);font-size:11.3px;line-height:1.55;color:var(--ink2);background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:8px 10px;max-height:260px;overflow:auto}
+.card-ctx div{padding:1px 4px;border-radius:4px}
+.card-ctx .hit{background:color-mix(in srgb,var(--k0) 16%,var(--paper));outline:1px solid color-mix(in srgb,var(--k0) 55%,transparent);color:var(--ink)}
+.toks{display:flex;flex-wrap:wrap;gap:8px;align-items:flex-end}
+.tk{display:grid;justify-items:center;gap:4px;font-family:var(--mono);font-size:12.5px}
+.tk .g{width:36px;background:var(--line2);border-radius:4px 4px 0 0;position:relative;height:56px;overflow:hidden}
+.tk .g i{position:absolute;left:0;right:0;bottom:0;background:var(--k0);transition:height .4s}
+.tk .w{border:1px solid var(--line);border-radius:6px;padding:2px 7px;background:var(--paper);color:var(--ink)}
+.tk.inf .w{border-color:color-mix(in srgb,var(--k0) 60%,transparent);background:color-mix(in srgb,var(--k0) 12%,var(--paper))}
+.note{font-size:12.5px;color:var(--mute);margin:0}
 </style>
 </head>
 <body>
@@ -268,6 +310,7 @@ footer{padding-block:36px 48px;border-top:1px solid var(--line);color:var(--mute
       <a href="#integrations">Integrations</a>
       <a class="opt" href="#method">Method</a>
       <a href="#results">Results</a>
+      <a class="opt" href="#trees">Trees</a>
       <a class="opt" href="#bibtex">BibTeX</a>
     </nav>
   </div>
@@ -284,12 +327,12 @@ footer{padding-block:36px 48px;border-top:1px solid var(--line);color:var(--mute
     <div class="links">
       <span class="btn soon" aria-disabled="true"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 1.5h5l3 3v10H4z M9 1.5v3h3" fill="none" stroke="currentColor" stroke-width="1.3"/></svg>Paper <small>soon</small></span>
       <a class="btn ghost" href="https://github.com/sitaocheng/X-Tree"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5.5 4L2 8l3.5 4M10.5 4L14 8l-3.5 4" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>Code <small>in progress</small></a>
-      <span class="btn soon" aria-disabled="true"><svg viewBox="0 0 16 16" aria-hidden="true"><ellipse cx="8" cy="3.8" rx="5.2" ry="2" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M2.8 3.8v8.4c0 1.1 2.3 2 5.2 2s5.2-.9 5.2-2V3.8M2.8 8c0 1.1 2.3 2 5.2 2s5.2-.9 5.2-2" fill="none" stroke="currentColor" stroke-width="1.3"/></svg>Mined trees <small>in progress</small></span>
+      <a class="btn ghost" href="#trees"><svg viewBox="0 0 16 16" aria-hidden="true"><ellipse cx="8" cy="3.8" rx="5.2" ry="2" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M2.8 3.8v8.4c0 1.1 2.3 2 5.2 2s5.2-.9 5.2-2V3.8M2.8 8c0 1.1 2.3 2 5.2 2s5.2-.9 5.2-2" fill="none" stroke="currentColor" stroke-width="1.3"/></svg>Mined trees</a>
       <a class="btn" href="#explorer"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="3" r="1.8" fill="currentColor"/><circle cx="3.5" cy="12.5" r="1.8" fill="currentColor"/><circle cx="12.5" cy="12.5" r="1.8" fill="currentColor"/><path d="M8 5v3M8 8l-3.6 3M8 8l3.6 3" stroke="currentColor" stroke-width="1.3" fill="none"/></svg>Explore real trees</a>
     </div>
 
     <div class="tldr">
-      <p><b>TL;DR</b> X-Tree mines the routines that recur across agent trajectories into a tree of reusable skills, with zero LLM calls, and trains on it: as training instances for offline RL, as an adaptive bonus for online RLVR, and as the teacher's context for on-policy self-distillation.</p>
+      <p><b>TL;DR</b> X-Tree captures how a reusable skill is composed from sub-procedures. It is mined from agent trajectories with zero LLM calls, and it guides efficient training in three settings: as training instances for offline RL, as an adaptive bonus for online RLVR, and as privileged context of the self-teacher for OPSD.</p>
       <details class="abs">
         <summary>Read the abstract</summary>
         <div class="prose">
@@ -313,7 +356,7 @@ footer{padding-block:36px 48px;border-top:1px solid var(--line);color:var(--mute
   <div class="wrap">
     <div class="narrow" style="margin:0">
       <div class="eyebrow">Interactive</div>
-      <h2>Real trajectories, tokenized by their X-Tree</h2>
+      <h2>Real trajectories, tokenized by the X-Tree mined for each environment</h2>
       <p class="lead">Each example is a successful trajectory from a training corpus, with the tree mined from that corpus. Click a node to see the steps it covers and how often it recurs across the corpus. Drag the merge depth to replay the compression.</p>
     </div>
 
@@ -371,7 +414,11 @@ footer{padding-block:36px 48px;border-top:1px solid var(--line);color:var(--mute
           <button type="button" id="igPlay">Play</button>
         </div>
       </div>
-      <div class="integ-body" id="igBody"></div>
+      <div class="integ-ex" id="igEx" aria-label="Example"></div>
+      <div class="integ-body">
+        <div class="integ-main" id="igMain"></div>
+        <aside class="integ-hint" id="igHint"></aside>
+      </div>
     </div>
   </div>
 </section>
@@ -380,7 +427,7 @@ footer{padding-block:36px 48px;border-top:1px solid var(--line);color:var(--mute
   <div class="wrap">
     <div class="narrow" style="margin:0">
       <div class="eyebrow">Overview</div>
-      <h2>Train on the structure the data already has</h2>
+      <h2>Mine the hierarchy (X-Tree) latent in the data and guide training with X-Tree</h2>
     </div>
     <figure>
       <div class="img"><img src="img/concept.png" alt="Training with experience. (a) Prior training weights every token uniformly and harness systems keep LLM-written skills in context. (b) X-Tree mines reusable experience into a hierarchy with zero LLM calls and trains it into the weights as data, reward and context." width="1857" height="706"></div>
@@ -393,7 +440,7 @@ footer{padding-block:36px 48px;border-top:1px solid var(--line);color:var(--mute
   <div class="wrap">
     <div class="narrow" style="margin:0">
       <div class="eyebrow">Method</div>
-      <h2>Tokenizing experience</h2>
+      <h2>Tokenizing reusable experience</h2>
       <p class="lead">A text tokenizer merges co-occurring characters into a vocabulary. X-Tree applies the same idea to actions, with two changes: actions are first made comparable, and merges are chosen by how reusable the result is.</p>
     </div>
     <div class="steps3">
@@ -436,11 +483,14 @@ footer{padding-block:36px 48px;border-top:1px solid var(--line);color:var(--mute
     <div class="narrow" style="margin:0">
       <div class="eyebrow">Results</div>
       <h2>Same data, same budget, more from each trajectory</h2>
-      <p class="lead">Offline RL with X-Tree turns a fixed Go-Browse trajectory pool into +4.5 SR on WebArena with no environment at training time. Two extra SFT epochs at matched compute add only 0.4.</p>
+    </div>
+    <div class="res">
+      <h3>Offline RL on WebArena: the tree drives the gain, not extra compute</h3>
+      <p>With the same trajectories and no environment during training, offline RL on X-Tree nodes improves most on the procedure-heavy sites. Two more SFT epochs, random spans or an outcome-only reward recover little of it.</p>
     </div>
     <div class="tablewrap">
       <table>
-        <caption style="caption-side:bottom;text-align:left;padding:10px 12px;font-size:13.5px;color:var(--mute)">Per-site SR (%) on the 694 deterministic WebArena tasks, Qwen2.5-7B, 30-step cap. Go-Browse is our reproduction. Every RL row starts from SFT on half the pool.</caption>
+        <caption style="caption-side:bottom;text-align:left;padding:10px 12px;font-size:13.5px;color:var(--mute)">Per-site SR (%) on 694 WebArena tasks, Qwen2.5-7B. Go-Browse is our reproduction; every RL row starts from SFT on half the pool.</caption>
         <thead><tr><th>Method</th><th>gitlab</th><th>shopping</th><th>admin</th><th>reddit</th><th>map</th><th>wiki</th><th class="all">All</th></tr></thead>
         <tbody>
           <tr class="group"><td colspan="8">Without RL</td></tr>
@@ -458,14 +508,41 @@ footer{padding-block:36px 48px;border-top:1px solid var(--line);color:var(--mute
       </table>
     </div>
 
+    <div class="res">
+      <h3>Online RLVR: X-Tree helps at every scale, including held-out tasks</h3>
+      <p>The adaptive bonus improves outcome-only GRPO on seen and held-out ScienceWorld tasks and on WebShop success and graded score, at 1.5B, 3B and 7B. It helps most when the verifier signal is scarce.</p>
+    </div>
     <figure>
       <div class="img"><img src="img/rlvr.png" alt="Online RLVR bar chart: on ScienceWorld and WebShop, adding the X-Tree bonus to outcome-only GRPO improves every scale and fold." width="1210" height="313"></div>
-      <figcaption><b>Online RLVR on ScienceWorld and WebShop (1.5B, 3B, 7B).</b> Each pair of bars changes only the reward. The X-Tree bonus is ahead on every seen-task comparison (up to +4.9 SR) and leads on held-out tasks at every scale (up to +3.9). On WebShop it improves success by up to +3.6 and graded score by up to +4.6. Means over three seeds.</figcaption>
+      <figcaption>ScienceWorld SR on three generalization levels and WebShop success and graded score. Each pair of bars changes only the reward. Means over three seeds.</figcaption>
     </figure>
+    <div class="res">
+      <h3>OPSD: a mined tree teaches as well as an LLM-written skill bank</h3>
+      <p>As the self-teacher's privileged context, the X-Tree rendering performs on par with skill banks written by gpt-oss-120b and GPT-o3, with no LLM calls. Its gain over outcome-only RL grows with model scale.</p>
+    </div>
     <figure>
       <div class="img"><img src="img/opsd.png" alt="OPSD bar chart comparing outcome-only RLVR, the X-Tree bonus, OPSD with an LLM-written skill bank, and OPSD with the X-Tree bank." width="1210" height="330"></div>
-      <figcaption><b>X-Tree as privileged context for on-policy self-distillation.</b> Only the skill bank the self-teacher reads changes: written by an LLM (gpt-oss-120b on ScienceWorld, GPT-o3 on WebShop) or rendered from X-Tree with no LLM calls. X-Tree is comparable with the LLM-written bank, and at 7B OPSD with X-Tree reaches +5.8 SR on ScienceWorld over outcome-only RLVR.</figcaption>
+      <figcaption>Outcome-only RLVR, the X-Tree bonus, and OPSD with an LLM-written or an X-Tree skill bank. Only the skill bank the self-teacher reads changes. Means over three seeds.</figcaption>
     </figure>
+  </div>
+</section>
+
+<section id="trees">
+  <div class="wrap">
+    <div class="narrow" style="margin:0">
+      <div class="eyebrow">Release</div>
+      <h2>The mined trees</h2>
+      <p class="lead">The X-Trees used in the paper, one JSON file per environment. Each node lists its two children, its depth, its expansion into canonical actions, how often it was merged, and a recorded example where one exists.</p>
+    </div>
+    <div class="trees">
+      <div class="tcard"><h3>WebArena</h3><dl><dt>Nodes</dt><dd>256</dd><dt>Primitives</dt><dd>139</dd><dt>Max depth</dt><dd>4</dd><dt>Corpus</dt><dd>7,974 · Go-Browse</dd></dl><a href="trees/webarena.json" download>Download JSON · 66 KB</a></div>
+      <div class="tcard"><h3>ScienceWorld</h3><dl><dt>Nodes</dt><dd>80</dd><dt>Primitives</dt><dd>84</dd><dt>Max depth</dt><dd>6</dd><dt>Corpus</dt><dd>1,673 · AgentTraj-L</dd></dl><a href="trees/scienceworld.json" download>Download JSON · 33 KB</a></div>
+      <div class="tcard"><h3>WebShop</h3><dl><dt>Nodes</dt><dd>48</dd><dt>Primitives</dt><dd>17</dd><dt>Max depth</dt><dd>4</dd><dt>Corpus</dt><dd>1,824 · ETO</dd></dl><a href="trees/webshop.json" download>Download JSON · 19 KB</a></div>
+      <div class="tcard"><h3>MiniWoB++</h3><dl><dt>Nodes</dt><dd>90</dd><dt>Primitives</dt><dd>32</dd><dt>Max depth</dt><dd>6</dd><dt>Corpus</dt><dd>2,125 · Qwen2.5-7B rollouts</dd></dl><a href="trees/miniwob.json" download>Download JSON · 36 KB</a></div>
+    </div>
+    <div class="fmt">{"id": "S3", "children": ["type&lt;text_input&gt;", "S1"], "depth": 2, "length": 3,
+ "expansion": ["type&lt;text_input&gt;", "type&lt;text_input&gt;", "click&lt;button&gt;"],
+ "count": 411, "success": null, "example": null}</div>
   </div>
 </section>
 
@@ -679,137 +756,142 @@ footer{padding-block:36px 48px;border-top:1px solid var(--line);color:var(--mute
   renderTabs(); load();
 })();
 </script>
+<script src="integ_data.js"></script>
 <script>
 (function(){
+  const D = window.XTREE_INTEG; if (!D) return;
   const $ = id => document.getElementById(id);
   const esc = s => String(s).replace(/[&<>"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-  const sig = x => 1/(1+Math.exp(-x));
-  let tab = 'off', step = 0, timer = null;
+  const K = i => `--kc:var(--k${i%6})`;
+  let tab = 'off', exi = 0, step = 0, scen = 0, timer = null;
 
-  // (a) Offline RL: WebArena node S3 (fill_two_and_submit, depth 2, 3 actions), task webarena::13907.
-  const PREFIX = ['click "CUSTOMERS"','click "All Customers"','click "Filters"'];
-  const GOLD = ['fill "from" 03/01/2023','fill "to" 04/01/2023','click "Apply Filters"'];
-  const R0 = GOLD.slice();
-  const R1 = ['fill "from" 03/01/2023','click "Apply Filters"'];
-  const A = 0.3, G = 0.5, D = 2, L = 3;
-  const offSteps = [
-    {cap:'<b>Offline RL.</b> There is no environment, only a trajectory. The X-Tree node <b>S3 fill_two_and_submit</b> (depth 2, 3 actions) occurs after three navigation steps. That node becomes one training instance.', r:-1},
-    {cap:'The policy sees the gold prefix before the node and writes the next actions. Rollout τ<sub>0</sub> starts.', r:1},
-    {cap:'Each step is compared with the gold action. τ<sub>0</sub> reproduces all three, so the node is completed.', r:3},
-    {cap:'Rollout τ<sub>1</sub> clicks Apply too early. The rollout stops at the first mismatch.', r:5},
-    {cap:'<b>Reward.</b> r = (1−α)·(step matches / ℓ) + α·(1+γ·d)·[completed], with α=0.3, γ=0.5, d=2. The completion bonus grows with depth, so harder compositions earn more.', r:6},
-  ];
-  function offRender(){
-    const st = offSteps[step], k = st.r;
-    const pre = PREFIX.map(a=>`<span class="act gold">${esc(a)}</span>`).join('');
-    const gold = GOLD.map(a=>`<span class="act node">${esc(a)}</span>`).join('');
-    const show = (arr, n, okN) => GOLD.map((g,i)=>{
-      if (i >= arr.length) return `<span class="act hidden">·</span>`;
-      if (i >= n) return `<span class="act off">${esc(arr[i])}</span>`;
-      const ok = arr[i] === g; return `<span class="act ${ok?'ok':'bad'}">${ok?'✓':'✗'} ${esc(arr[i])}</span>`;
-    }).join('');
-    const n0 = k<0?0:Math.min(3, k), n1 = k<4?0:Math.min(2, k-3);
-    const m0 = 3, m1 = 1;
-    const r0 = (1-A)*m0/L + A*(1+G*D)*1, r1 = (1-A)*m1/L;
-    $('igBody').innerHTML = `<p class="integ-cap">${st.cap}</p>
-      <div class="lane"><div class="lab">gold prefix</div><div class="acts">${pre}</div></div>
-      <div class="lane"><div class="lab">node S3 (gold)</div><div class="acts">${gold}</div></div>
-      ${k>=1?`<div class="lane"><div class="lab">rollout τ₀</div><div class="acts">${show(R0,n0)}</div></div>`:''}
-      ${k>=4?`<div class="lane"><div class="lab">rollout τ₁</div><div class="acts">${show(R1,n1)}</div></div>`:''}
-      ${k>=6?`<div class="mathline">τ₀: 0.7·3/3 + 0.3·(1+0.5·2)·1 = <span class="hl">${r0.toFixed(2)}</span> &nbsp;&nbsp; τ₁: 0.7·1/3 + 0 = <span class="hl">${r1.toFixed(2)}</span></div>`:''}
+  // ---- offline RL: one X-Tree node is one training instance
+  function offSteps(e){
+    const n = e.node, L = e.gold.length;
+    return [
+      `<b>Offline RL.</b> No environment, only the trajectory. The node <b>${esc(n.name)}</b> (right) is one training instance: the policy sees the steps before it and must continue.`,
+      `Rollout τ<sub>1</sub> reproduces each step of the node, so the node is completed. Colors show which part of the node each step belongs to.`,
+      `Rollout τ<sub>2</sub> goes wrong at step ${e.wrong.length}: it ${L>=3?'submits before filling every field':'repeats an earlier action'}. The rollout stops at the first mismatch.`,
+      `<b>Reward.</b> Credit for every matched step, plus a completion bonus that grows with the node's depth. Only τ<sub>1</sub> earns the bonus.`];
+  }
+  function offRender(e){
+    const k = step, L = e.gold.length;
+    const ok1 = e.gold.map(g=>`<span class="act kc" style="${K(g.child)}"><span class="mk">✓</span>${esc(g.g)}</span>`).join('');
+    let firstBad = e.wrong.findIndex((w,i)=>w !== e.gold[i].g); if (firstBad < 0) firstBad = e.wrong.length - 1;
+    const ok2 = e.wrong.slice(0, firstBad+1).map((w,i)=> i < firstBad ? `<span class="act kc" style="${K(e.gold[i].child)}"><span class="mk">✓</span>${esc(w)}</span>` : `<span class="act bad"><span class="mk">✗</span>${esc(w)}</span>`).join('');
+    const r1 = 0.7 + 0.3*(1+0.5*e.node.depth), r2 = 0.7*firstBad/L, R = Math.max(r1, 1e-9);
+    const main = `<p class="integ-cap">${offSteps(e)[k]}</p>
+      <div class="integ-task"><span>Task · WebArena</span>${esc(e.task)}</div>
+      <div class="lane"><div class="lab">steps before</div><div class="acts">${e.prefix_skipped?'<span class="act ctx">…</span>':''}${e.prefix.map(p=>`<span class="act ctx">${esc(p)}</span>`).join('')}</div></div>
+      ${k>=1?`<div class="lane"><div class="lab">rollout τ₁</div><div class="acts">${ok1}</div></div>`:''}
+      ${k>=2?`<div class="lane"><div class="lab">rollout τ₂</div><div class="acts">${ok2}</div></div>`:''}
+      ${k>=3?`<div class="lane"><div class="lab">reward</div><div style="display:grid;gap:6px">
+          <div class="roll" style="grid-template-columns:24px minmax(0,1fr)"><span class="rid">τ₁</span><div class="bar one"><i style="width:${(r1/R*100).toFixed(0)}%"></i></div></div>
+          <div class="roll" style="grid-template-columns:24px minmax(0,1fr)"><span class="rid">τ₂</span><div class="bar one"><i style="width:${(r2/R*100).toFixed(0)}%"></i></div></div></div></div>`:''}
       <p class="note">Real node and trajectory from WebArena; the two rollouts are illustrative.</p>`;
+    const hint = `<h4>X-Tree hint</h4>
+      <div class="hnode"><div class="nm">${esc(e.node.name)}</div><div class="meta">${esc(e.node.id)} · depth ${e.node.depth} · ${L} actions</div>
+      ${e.node.children.map((c,i)=>`<div class="hkid" style="${K(i)}"><i></i><div><b>${esc(c.leaf?c.tokens[0]:c.name)}</b><small>${esc(c.tokens.join(' → '))}</small></div></div>`).join('')}</div>
+      <p class="note">The node the rollout must reproduce, with the part each step belongs to.</p>`;
+    return [main, hint];
   }
 
-  // (b) Online RLVR: ScienceWorld use-thermometer, real nodes from the mined tree. b_v = 1 + 0.5·d_v.
-  const NODES = {S21:['fetch_instrument',6], S29:['survey_bedroom',4], S22:['take_and_focus',1], S11:['place_and_wait',1]};
-  const bv = id => 1 + 0.5*NODES[id][1];
-  const ROLLS = [['S21','S29','S22','S11'], ['S21','S29'], ['S21'], []];
-  const SCEN = [
-    {name:'No rollout succeeds', out:[0,0,0,0]},
-    {name:'One succeeds', out:[1,0,0,0]},
-    {name:'Two succeed', out:[1,1,0,0]},
-  ];
-  let scen = 0;
-  const L0 = 0.75, WREF = 0.4;
-  const rlvrSteps = [
-    {cap:'<b>Online RLVR.</b> GRPO samples a group of rollouts for one task: measure a substance with a thermometer. Each rollout is matched against the X-Tree.', ph:0},
-    {cap:'Every node a rollout executes earns b<sub>v</sub> = 1 + 0.5·d<sub>v</sub>, once per episode. Nested nodes pay only their largest member: S21 already contains S20 → S19 → S8 → S2 → S1.', ph:1},
-    {cap:'The verifier scores each rollout. λ<sub>g</sub> = λ<sub>0</sub>·clip(1 − w<sub>g</sub>/w<sub>ref</sub>, 0, 1) depends on the group’s win rate w<sub>g</sub>. Pick a scenario below.', ph:2},
-    {cap:'Reward r = R<sub>out</sub> + λ<sub>g</sub>·Σ b<sub>v</sub>, and the GRPO advantage normalizes it within the group. When no rollout succeeds, the outcome terms cancel and only X-Tree separates the rollouts. As more rollouts succeed, λ<sub>g</sub> shrinks, and it reaches 0 once the win rate reaches w<sub>ref</sub> = 0.4.', ph:3},
-  ];
-  function rlvrRender(){
-    const st = rlvrSteps[step], ph = st.ph, sc = SCEN[scen];
-    const w = sc.out.reduce((a,b)=>a+b,0)/sc.out.length;
-    const lam = L0*Math.min(1, Math.max(0, 1 - w/WREF));
-    const bon = ROLLS.map(r=>r.reduce((s,id)=>s+bv(id),0));
-    const r = sc.out.map((o,i)=>o + lam*bon[i]);
-    const mu = r.reduce((a,b)=>a+b,0)/r.length, sd = Math.sqrt(r.reduce((a,b)=>a+(b-mu)**2,0)/r.length);
+  // ---- online RLVR: a GRPO group, matched against the X-Tree
+  const SCEN = [{name:'No rollout succeeds', out:[0,0,0,0]}, {name:'Only τ₁ succeeds', out:[1,0,0,0]}, {name:'τ₁ and τ₂ succeed', out:[1,1,0,0]}];
+  function rlvrSteps(e){
+    return [
+      `<b>Online RLVR.</b> GRPO samples a group of rollouts for one ${e.env} task. Each rollout is matched against the X-Tree (right): a colored block is a mined skill the rollout executed.`,
+      `Each executed skill earns a bonus. ${e.env==='ScienceWorld'?'Deeper skills earn more.':'Skills that more often lead to success earn more.'} τ<sub>1</sub> follows the full routine, τ<sub>4</sub> wanders.`,
+      `The verifier scores the group. The bonus is weighted by how rarely the group succeeds: full when nothing succeeds, and it fades as successes appear. Try the three cases.`,
+      `<b>Advantage.</b> When no rollout succeeds, the outcome rewards are all equal and only the X-Tree bonus separates the rollouts, so training still gets a signal.`];
+  }
+  function rlvrRender(e){
+    const k = step, sc = SCEN[scen], ids = e.nodes.map(n=>n.id);
+    const w = sc.out.reduce((a,b)=>a+b,0)/4, lam = 0.75*Math.min(1, Math.max(0, 1 - w/0.4));
+    const bmax = Math.max(...e.group.map(g=>g.bonus), 1e-9);
+    const r = e.group.map((g,i)=> sc.out[i] + lam * g.bonus / bmax * 2);
+    const mu = r.reduce((a,b)=>a+b,0)/4, sd = Math.sqrt(r.reduce((a,b)=>a+(b-mu)**2,0)/4);
     const adv = r.map(x=> sd>1e-9 ? (x-mu)/sd : 0);
-    const rows = ROLLS.map((ids,i)=>{
-      const chips = ids.length ? ids.map(id=>`<span class="act ${ph>=1?'node':''}">${id} ${NODES[id][0]}${ph>=1?` · b=${bv(id)}`:''}</span>`).join('') : '<span class="act off">no mined node executed</span>';
-      const out = ph>=2 ? `<span class="out ${sc.out[i]?'win':'lose'}">${sc.out[i]?'success':'fail'}</span>` : '<span></span>';
+    const rows = e.group.map((g,i)=>{
+      const segs = []; let j = 0;
+      while (j < g.steps.length){
+        const s = g.steps[j];
+        if (s.node){ let q=j; while (q+1<g.steps.length && g.steps[q+1].node===s.node) q++;
+          const ni = ids.indexOf(s.node);
+          segs.push(`<span class="seg kc" style="${K(ni)}" title="${esc(g.steps.slice(j,q+1).map(x=>x.g).join(' → '))}">${esc(e.nodes[ni].name)}<em>${q-j+1}</em></span>`); j=q+1; }
+        else { segs.push(`<span class="seg px" title="${esc(s.g)}">${esc(s.g.length>22?s.g.slice(0,21)+'…':s.g)}</span>`); j++; }
+      }
+      const out = k>=2 ? `<span class="out ${sc.out[i]?'win':'lose'}">${sc.out[i]?'success':'fail'}</span>` : '<span></span>';
       const a = adv[i], wd = Math.min(50, Math.abs(a)*22);
-      const bar = ph>=3 ? `<div class="bar" title="advantage"><div class="zero"></div><i class="${a<0?'neg':''}" style="left:${a<0?50-wd:50}%;width:${wd}%"></i><span>A=${a.toFixed(2)}</span></div>` : '<span></span>';
-      return `<div class="roll"><span class="rid">τ${i+1}</span><div class="acts">${chips}</div>${out}${bar}</div>`;
+      const bar = k>=3 ? `<div class="bar"><div class="zero"></div><i class="${a<0?'neg':''}" style="left:${a<0?50-wd:50}%;width:${wd}%"></i></div>` : (k>=1 ? `<div class="bar one"><i style="width:${(g.bonus/bmax*100).toFixed(0)}%"></i></div>` : '<span></span>');
+      return `<div class="roll"><span class="rid">τ${i+1}</span><div class="strip">${segs.join('')}</div>${out}${bar}</div>`;
     }).join('');
-    $('igBody').innerHTML = `<p class="integ-cap">${st.cap}</p>
-      ${ph>=2?`<div class="scen" role="group" aria-label="Scenario">${SCEN.map((s,i)=>`<button type="button" class="chip" aria-pressed="${i===scen}" data-s="${i}">${s.name}</button>`).join('')}</div>`:''}
+    const lamTxt = lam >= 0.749 ? '<span class="pill on">bonus weight: full</span>' : lam > 0 ? '<span class="pill mid">bonus weight: reduced</span>' : '<span class="pill off">bonus weight: off</span>';
+    const main = `<p class="integ-cap">${rlvrSteps(e)[k]}</p>
+      <div class="integ-task"><span>Task · ${esc(e.env)}</span>${esc(e.task)}</div>
+      ${k>=2?`<div class="scen">${SCEN.map((s,i)=>`<button type="button" class="chip" aria-pressed="${i===scen}" data-s="${i}">${s.name}</button>`).join('')}</div>`:''}
+      <div class="roll" style="margin-bottom:-4px"><span></span><span class="note">rollout</span><span class="note" style="text-align:center">${k>=2?'verifier':''}</span><span class="note">${k>=3?'advantage':k>=1?'X-Tree bonus':''}</span></div>
       <div class="rolls">${rows}</div>
-      ${ph>=2?`<div class="mathline">w<sub>g</sub> = ${w.toFixed(2)} &nbsp; λ<sub>g</sub> = 0.75·clip(1 − ${w.toFixed(2)}/0.4) = <span class="hl">${lam.toFixed(2)}</span>${ph>=3?` &nbsp; rewards = [${r.map(x=>x.toFixed(2)).join(', ')}]`:''}</div>`:''}
-      <p class="note">Real nodes and depths from the ScienceWorld tree; the four rollouts are illustrative, and R<sub>out</sub> is shown as 0 or 1 for readability.</p>`;
-    $('igBody').querySelectorAll('[data-s]').forEach(b=>b.onclick=()=>{ scen=+b.dataset.s; stop(); rlvrRender(); });
+      ${k>=2?`<div>${lamTxt}</div>`:''}
+      <p class="note">Real task and mined skills; τ₁ is the real trajectory, τ₂ and τ₃ stop early, τ₄ goes off-path. Outcomes are illustrative. Hover a block to see its actions.</p>`;
+    const hint = `<h4>X-Tree hint</h4>${e.nodes.map((n,i)=>`<div class="hkid" style="${K(i)}"><i></i><div><b>${esc(n.name)}</b><small>${esc(n.id)} · depth ${n.depth} · ${n.length} actions${n.success!=null?` · ${Math.round(n.success*100)}% success`:''}</small></div></div>`).join('')}
+      <p class="note">The mined skills this group executes, in the colors used on the left.</p>`;
+    return [main, hint];
   }
 
-  // (c) OPSD: ScienceWorld use-thermometer. The teacher is the same model with the rendered X-Tree card in context.
-  const CARD = `### TASK TYPE: use thermometer ###
-Mined from the 270 expert episodes of this task type. Chains below are what those experts executed, most standard first:
-- look around -> pick up thermometer -> focus on thermometer in inventory  [S78, depth 2, 270 expert episodes, 2 task types]
-- open door to kitchen -> go to kitchen -> look around -> pick up thermometer -> focus on thermometer in inventory  [S34, depth 4, 242 expert episodes, 2 task types]
-- open door to hallway -> go to hallway -> open door to bedroom -> go to bedroom -> look around  [S29, depth 4, 142 expert episodes, 2 task types]
-  … three more chains
-Plan: reproduce the standard chain for this task type, substituting the object the instruction names; commit with \`focus on\` only once the target is identified.`;
-  const TOKS = [['Thought',-0.3],[':',-0.4],[' the',-0.2],[' thermometer',0.7],[' is',-0.3],[' here',-0.5],['.',-0.4],[' Action',-0.3],[':',-0.4],[' pick',1.1],[' up',0.3],[' thermometer',0.9]];
-  const BETA = 5;
-  const opsdSteps = [
-    {cap:'<b>OPSD.</b> The student is the policy. It reads only the task and writes its next response. Here it is in the kitchen, looking for the thermometer.', ph:0},
-    {cap:'The teacher is the <b>same weights</b>, with the X-Tree card for this task type prepended. The card is rendered from the mined tree with no LLM call.', ph:1},
-    {cap:'For each response token, δ<sub>t</sub> = log π(y<sub>t</sub> | teacher prompt) − log π(y<sub>t</sub> | student prompt). The card makes the skill tokens “pick”, “thermometer” more likely.', ph:2},
-    {cap:'The gate g<sub>t</sub> = σ(β·δ<sub>t</sub>), β = 5, is near 1 where the teacher leads and near 0 where the student is already more confident. The student is pulled toward the teacher only on the tokens the skills inform, with weight c = 0.01 against the RL loss.', ph:3},
-  ];
-  function opsdRender(){
-    const st = opsdSteps[step], ph = st.ph;
-    const task = 'Your task is to measure the temperature of unknown substance B… First, focus on the thermometer.';
-    const toks = TOKS.map(([w,d])=>{
-      const g = sig(BETA*d);
-      const hgt = ph>=3 ? g*100 : (ph>=2 ? Math.min(100, Math.max(0,(d+0.6)/1.8*100)) : 0);
-      const lab = ph>=3 ? `g=${g.toFixed(2)}` : (ph>=2 ? `δ=${d>0?'+':''}${d.toFixed(1)}` : '');
-      return `<div class="tk"><div class="g"><i style="height:${hgt}%;${ph===2?'background:var(--orange)':''}"></i></div><span class="w">${esc(w.trim())}</span><small>${lab}</small></div>`;
+  // ---- OPSD: the rendered X-Tree card is the teacher's privileged context
+  function opsdSteps(e){
+    return [
+      `<b>OPSD.</b> The student is the policy. It reads the task and the steps so far, and writes its next action.`,
+      `The teacher is the <b>same model</b> with the X-Tree card for this task type added to its prompt (right). The card is rendered from the mined tree, with no LLM call. The highlighted chain is the routine this episode is following.`,
+      `On each token of the response, the student is pulled toward the teacher where the card makes the token more likely. Tokens the card names are pulled; the object named by the task comes from the task, so the student keeps it.`];
+  }
+  function opsdRender(e){
+    const k = step;
+    const toks = e.response.map(t=>{
+      const h = k>=2 ? (t.inf ? 92 : 14) : 0;
+      return `<div class="tk${k>=2&&t.inf?' inf':''}"><div class="g"><i style="height:${h}%"></i></div><span class="w">${esc(t.t)}</span></div>`;
     }).join('');
-    $('igBody').innerHTML = `<p class="integ-cap">${st.cap}</p>
-      <div class="lane"><div class="lab">student prompt</div><div class="card-ctx">${esc(task)}</div></div>
-      <div class="lane"><div class="lab">teacher prompt</div><div class="card-ctx ${ph>=1?'':'dim'}">${ph>=1?esc(CARD)+'\n\n'+esc(task):'(same prompt + X-Tree card)'}</div></div>
-      <div class="lane"><div class="lab">response</div><div class="toks">${toks}</div></div>
-      <p class="note">The card is the real X-Tree rendering shipped for this task type; the per-token values are illustrative.</p>`;
+    const main = `<p class="integ-cap">${opsdSteps(e)[k]}</p>
+      <div class="integ-task"><span>Task · ${esc(e.env)}</span>${esc(e.task)}</div>
+      <div class="lane"><div class="lab">steps so far</div><div class="acts">${e.context.map(c=>`<span class="act ctx">${esc(c)}</span>`).join('') || '<span class="act ctx">(start)</span>'}</div></div>
+      <div class="lane"><div class="lab">student prompt</div><div class="acts"><span class="act">task + steps so far</span></div></div>
+      <div class="lane"><div class="lab">teacher prompt</div><div class="acts">${k>=1?'<span class="act kc" style="'+K(0)+'">X-Tree card</span><span class="act">+ task + steps so far</span>':'<span class="act pend">same prompt + X-Tree card</span>'}</div></div>
+      <div class="lane"><div class="lab">next action</div><div class="toks">${toks}</div></div>
+      <p class="note">Real task, real card and the real next action; the bars show which tokens the card informs, not measured values.</p>`;
+    const hint = `<h4>X-Tree card · teacher context</h4>
+      <div class="card-ctx">${e.card.map((l,i)=>`<div class="${k>=1&&i===e.hit?'hit':''}">${esc(l)}</div>`).join('')}</div>
+      <p class="note">${k>=1?`Highlighted: <b>${esc(e.node.name)}</b>${e.node.depth?` (depth ${e.node.depth})`:''}.`:'The card appears in the teacher prompt only.'}</p>`;
+    return [main, hint];
   }
 
-  const PANELS = {off:[offSteps, offRender], rlvr:[rlvrSteps, rlvrRender], opsd:[opsdSteps, opsdRender]};
+  const P = {off:[D.offline, offSteps, offRender], rlvr:[D.rlvr, rlvrSteps, rlvrRender], opsd:[D.opsd, opsdSteps, opsdRender]};
+  function renderChips(){
+    const list = P[tab][0];
+    $('igEx').innerHTML = list.map((e,i)=>`<button type="button" class="chip" aria-pressed="${i===exi}" data-i="${i}">${list.some(x=>x.env&&x.env!==list[0].env)?`<span class="env">${esc(e.env)}</span>`:''}${esc(e.label)}</button>`).join('');
+    $('igEx').querySelectorAll('.chip').forEach(b=>b.onclick=()=>{ stop(); exi=+b.dataset.i; step=0; renderChips(); render(); });
+  }
   function render(){
-    const [steps, fn] = PANELS[tab]; fn();
-    $('igPrev').disabled = step === 0; $('igNext').disabled = step === steps.length-1;
+    const [list, stepsOf, fn] = P[tab], e = list[exi], n = stepsOf(e).length;
+    const [main, hint] = fn(e);
+    $('igMain').innerHTML = main; $('igHint').innerHTML = hint;
+    $('igMain').querySelectorAll('[data-s]').forEach(b=>b.onclick=()=>{ scen=+b.dataset.s; stop(); render(); });
+    const hit = $('igHint').querySelector('.card-ctx .hit'); if (hit) hit.parentNode.scrollTop = hit.offsetTop - hit.parentNode.offsetTop - 40;
+    $('igPrev').disabled = step === 0; $('igNext').disabled = step === n-1;
   }
   function stop(){ if (timer){ clearInterval(timer); timer=null; $('igPlay').textContent='Play'; } }
   $('igTabs').querySelectorAll('.tab').forEach(b=>b.onclick=()=>{
-    stop(); tab=b.dataset.k; step=0;
-    $('igTabs').querySelectorAll('.tab').forEach(x=>x.setAttribute('aria-selected', x===b)); render();
+    stop(); tab=b.dataset.k; exi=0; step=0; scen=0;
+    $('igTabs').querySelectorAll('.tab').forEach(x=>x.setAttribute('aria-selected', x===b)); renderChips(); render();
   });
   $('igPrev').onclick=()=>{ stop(); if(step>0){step--; render();} };
-  $('igNext').onclick=()=>{ stop(); if(step<PANELS[tab][0].length-1){step++; render();} };
+  $('igNext').onclick=()=>{ stop(); const n=P[tab][1](P[tab][0][exi]).length; if(step<n-1){step++; render();} };
   $('igPlay').onclick=()=>{
     if (timer){ stop(); return; }
     step = 0; render(); $('igPlay').textContent='Pause';
-    timer = setInterval(()=>{ const n = PANELS[tab][0].length; if (step >= n-1){ stop(); return; } step++; render(); }, 2600);
+    timer = setInterval(()=>{ const n=P[tab][1](P[tab][0][exi]).length; if (step >= n-1){ stop(); return; } step++; render(); }, 3000);
   };
-  render();
+  renderChips(); render();
 })();
 </script>
 </body>
