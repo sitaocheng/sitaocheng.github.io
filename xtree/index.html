@@ -329,7 +329,6 @@ footer{padding-block:36px 48px;border-top:1px solid var(--line);color:var(--mute
       <a href="#integrations">Integrations</a>
       <a class="opt" href="#method">Method</a>
       <a href="#results">Results</a>
-      <a class="opt" href="#trees">Trees</a>
       <a class="opt" href="#bibtex">BibTeX</a>
     </nav>
   </div>
@@ -346,7 +345,7 @@ footer{padding-block:36px 48px;border-top:1px solid var(--line);color:var(--mute
     <div class="links">
       <span class="btn soon" aria-disabled="true"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 1.5h5l3 3v10H4z M9 1.5v3h3" fill="none" stroke="currentColor" stroke-width="1.3"/></svg>Paper <small>soon</small></span>
       <a class="btn ghost" href="https://github.com/sitaocheng/X-Tree"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5.5 4L2 8l3.5 4M10.5 4L14 8l-3.5 4" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>Code <small>in progress</small></a>
-      <a class="btn ghost" href="#trees"><svg viewBox="0 0 16 16" aria-hidden="true"><ellipse cx="8" cy="3.8" rx="5.2" ry="2" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M2.8 3.8v8.4c0 1.1 2.3 2 5.2 2s5.2-.9 5.2-2V3.8M2.8 8c0 1.1 2.3 2 5.2 2s5.2-.9 5.2-2" fill="none" stroke="currentColor" stroke-width="1.3"/></svg>Mined trees</a>
+      <span class="btn soon" aria-disabled="true"><svg viewBox="0 0 16 16" aria-hidden="true"><ellipse cx="8" cy="3.8" rx="5.2" ry="2" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M2.8 3.8v8.4c0 1.1 2.3 2 5.2 2s5.2-.9 5.2-2V3.8M2.8 8c0 1.1 2.3 2 5.2 2s5.2-.9 5.2-2" fill="none" stroke="currentColor" stroke-width="1.3"/></svg>Mined trees <small>in progress</small></span>
       <a class="btn" href="#explorer"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="3" r="1.8" fill="currentColor"/><circle cx="3.5" cy="12.5" r="1.8" fill="currentColor"/><circle cx="12.5" cy="12.5" r="1.8" fill="currentColor"/><path d="M8 5v3M8 8l-3.6 3M8 8l3.6 3" stroke="currentColor" stroke-width="1.3" fill="none"/></svg>Explore real trees</a>
     </div>
 
@@ -543,25 +542,6 @@ footer{padding-block:36px 48px;border-top:1px solid var(--line);color:var(--mute
       <div class="img"><img src="img/opsd.png" alt="OPSD bar chart comparing outcome-only RLVR, the X-Tree bonus, OPSD with an LLM-written skill bank, and OPSD with the X-Tree bank." width="1210" height="330"></div>
       <figcaption>Outcome-only RLVR, the X-Tree bonus, and OPSD with an LLM-written or an X-Tree skill bank. Only the skill bank the self-teacher reads changes. Means over three seeds.</figcaption>
     </figure>
-  </div>
-</section>
-
-<section id="trees">
-  <div class="wrap">
-    <div class="narrow" style="margin:0">
-      <div class="eyebrow">Release</div>
-      <h2>The mined trees</h2>
-      <p class="lead">The X-Trees used in the paper, one JSON file per environment. Each node lists its two children, its depth, its expansion into canonical actions, how often it was merged, and a recorded example where one exists.</p>
-    </div>
-    <div class="trees">
-      <div class="tcard"><h3>WebArena</h3><dl><dt>Nodes</dt><dd>256</dd><dt>Primitives</dt><dd>139</dd><dt>Max depth</dt><dd>4</dd><dt>Corpus</dt><dd>7,974 · Go-Browse</dd></dl><a href="trees/webarena.json" download>Download JSON · 66 KB</a></div>
-      <div class="tcard"><h3>ScienceWorld</h3><dl><dt>Nodes</dt><dd>80</dd><dt>Primitives</dt><dd>84</dd><dt>Max depth</dt><dd>6</dd><dt>Corpus</dt><dd>1,673 · AgentTraj-L</dd></dl><a href="trees/scienceworld.json" download>Download JSON · 33 KB</a></div>
-      <div class="tcard"><h3>WebShop</h3><dl><dt>Nodes</dt><dd>48</dd><dt>Primitives</dt><dd>17</dd><dt>Max depth</dt><dd>4</dd><dt>Corpus</dt><dd>1,824 · ETO</dd></dl><a href="trees/webshop.json" download>Download JSON · 19 KB</a></div>
-      <div class="tcard"><h3>MiniWoB++</h3><dl><dt>Nodes</dt><dd>90</dd><dt>Primitives</dt><dd>32</dd><dt>Max depth</dt><dd>6</dd><dt>Corpus</dt><dd>2,125 · Qwen2.5-7B rollouts</dd></dl><a href="trees/miniwob.json" download>Download JSON · 36 KB</a></div>
-    </div>
-    <div class="fmt">{"id": "S3", "children": ["type&lt;text_input&gt;", "S1"], "depth": 2, "length": 3,
- "expansion": ["type&lt;text_input&gt;", "type&lt;text_input&gt;", "click&lt;button&gt;"],
- "count": 411, "success": null, "example": null}</div>
   </div>
 </section>
 
