@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tokenizing Experience · X-Tree</title>
+<meta name="description" content="Blog post: X-Tree mines the routines that recur across agent trajectories into a tree of skills with no LLM calls, then trains on it.">
+<link rel="canonical" href="https://sitaocheng.github.io/xtree/blog.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Ccircle cx='10' cy='3.5' r='2.6' fill='%232f5e99'/%3E%3Ccircle cx='4' cy='15.5' r='2.6' fill='%23c0612b'/%3E%3Ccircle cx='16' cy='15.5' r='2.6' fill='%232f5e99'/%3E%3Cpath d='M10 6v4M10 10L4.8 13.4M10 10l5.2 3.4' stroke='%233f4a5a' stroke-width='1.6' fill='none'/%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Tokenizing Experience · X-Tree">
+<meta property="og:description" content="Blog post: X-Tree mines the routines that recur across agent trajectories into a tree of skills with no LLM calls, then trains on it.">
+<meta property="og:url" content="https://sitaocheng.github.io/xtree/blog.html">
+<meta property="og:image" content="https://sitaocheng.github.io/xtree/img/concept.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Tokenizing Experience · X-Tree">
+<meta name="twitter:description" content="Blog post: X-Tree mines the routines that recur across agent trajectories into a tree of skills with no LLM calls, then trains on it.">
+<meta name="twitter:image" content="https://sitaocheng.github.io/xtree/img/concept.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;600;700;800&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>html{color-scheme:light}body{margin:0}[hidden]{display:none!important}img{max-width:100%}</style>
+<style>
+:root{
+  --bg:#fbfcfd; --paper:#ffffff; --ink:#18202c; --ink2:#3f4a5a; --mute:#6b7686; --line:#dfe4ea; --line2:#eef1f5;
+  --blue:#2f5e99; --blue-ink:#23497a; --blue-band:#eaf1f9; --orange:#c0612b; --orange-band:#fcf0e3;
+  --btn:#18202c; --btn-ink:#ffffff; --code:#f4f6f9; --figbg:#ffffff;
+  --display:"Schibsted Grotesk",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --body:"Source Sans 3",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#10141b; --paper:#161b24; --ink:#e8ecf2; --ink2:#c2cad6; --mute:#8d98a8; --line:#2a323f; --line2:#1d2430;
+    --blue:#7fa8de; --blue-ink:#a9c6ee; --blue-band:#1a2638; --orange:#e39461; --orange-band:#2e2119;
+    --btn:#e8ecf2; --btn-ink:#10141b; --code:#1b212b; --figbg:#f7f8fa;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#10141b; --paper:#161b24; --ink:#e8ecf2; --ink2:#c2cad6; --mute:#8d98a8; --line:#2a323f; --line2:#1d2430;
+  --blue:#7fa8de; --blue-ink:#a9c6ee; --blue-band:#1a2638; --orange:#e39461; --orange-band:#2e2119;
+  --btn:#e8ecf2; --btn-ink:#10141b; --code:#1b212b; --figbg:#f7f8fa;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:18.5px;line-height:1.7;padding-inline:16px}
+a{color:var(--blue)}
+a:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);margin-inline:-16px;padding-inline:16px}
+.nav .in{max-width:1040px;margin:0 auto;display:flex;align-items:center;gap:20px;height:52px}
+.brand{font-family:var(--display);font-weight:800;font-size:18px;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:8px;white-space:nowrap;flex:none}
+.brand svg{width:20px;height:20px}
+.nav nav{display:flex;gap:18px;margin-left:auto;overflow-x:auto}
+.nav nav a{color:var(--ink2);text-decoration:none;font-size:15px;white-space:nowrap}
+.nav nav a:hover{color:var(--ink)}
+@media (max-width:620px){.nav nav{gap:12px}.nav nav a{font-size:13.5px}}
+article{max-width:720px;margin:0 auto;padding-block:56px 72px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue)}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(34px,6vw,52px);line-height:1.08;letter-spacing:-.02em;margin:12px 0 0;text-wrap:balance}
+.dek{font-size:21px;line-height:1.5;color:var(--ink2);margin:16px 0 0}
+.byline{margin-top:22px;padding-bottom:26px;border-bottom:1px solid var(--line);display:grid;gap:3px}
+.byline .who{font-size:16px;color:var(--ink2)}
+.byline .aff,.byline .mail{font-size:14.5px;color:var(--mute)}
+.byline .mail a{font-family:var(--mono);font-size:13px}
+h2{font-family:var(--display);font-weight:700;font-size:27px;line-height:1.2;letter-spacing:-.01em;margin:52px 0 0;text-wrap:balance}
+p{margin:16px 0 0;color:var(--ink2)}
+p strong,li strong{color:var(--ink)}
+code{font-family:var(--mono);font-size:.8em;background:var(--code);padding:1px 5px;border-radius:4px;color:var(--ink)}
+figure{margin:30px 0 0}
+figure .img{background:var(--figbg);border:1px solid var(--line);border-radius:12px;padding:12px}
+figure img{display:block;width:100%;height:auto}
+figcaption{font-size:14.5px;color:var(--mute);margin-top:10px;line-height:1.5}
+figcaption b{color:var(--ink2)}
+blockquote{margin:30px 0 0;padding:18px 20px;border:1px solid var(--line);border-radius:12px;background:var(--paper);font-family:var(--display);font-weight:600;font-size:20px;line-height:1.45;color:var(--ink)}
+ul{margin:16px 0 0;padding-left:22px;color:var(--ink2)}
+li{margin-top:10px}
+.node{margin-top:26px;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:16px 16px 12px;overflow-x:auto}
+.node svg{display:block;min-width:560px;width:100%;height:auto}
+.node text{font-family:var(--mono)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);margin-top:26px;border:1px solid var(--line);border-radius:14px;background:var(--paper);overflow:hidden}
+.stat{padding:16px 16px 14px;border-left:1px solid var(--line)}
+.stat:first-child{border-left:0}
+.stat b{display:block;font-family:var(--display);font-size:32px;font-weight:800;letter-spacing:-.02em;color:var(--ink);font-variant-numeric:tabular-nums}
+.stat span{display:block;font-size:14px;color:var(--ink2);line-height:1.35}
+@media (max-width:560px){.stats{grid-template-columns:1fr}.stat{border-left:0;border-top:1px solid var(--line)}.stat:first-child{border-top:0}}
+.end{margin-top:48px;padding-top:24px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--btn);color:var(--btn-ink);border-radius:999px;padding:9px 18px;font-family:var(--display);font-weight:600;font-size:15px;text-decoration:none}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.btn.ghost small{font-family:var(--mono);font-size:11px;color:var(--mute)}
+.btn.soon{background:transparent;color:var(--mute);border:1px dashed var(--line)}
+.btn.soon small{font-family:var(--mono);font-size:11px}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="in">
+    <a class="brand" href="index.html" aria-label="X-Tree project page">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="3.5" r="2.4" fill="var(--blue)"/><circle cx="4" cy="15.5" r="2.4" fill="var(--orange)"/><circle cx="16" cy="15.5" r="2.4" fill="var(--blue)"/><path d="M10 6v4M10 10L4.8 13.4M10 10l5.2 3.4" stroke="var(--ink2)" stroke-width="1.6" fill="none"/></svg>
+      X-Tree
+    </a>
+    <nav aria-label="Project">
+      <a href="index.html">Project page</a>
+      <a href="index.html#explorer">Explorer</a>
+      <a href="index.html#integrations">Integrations</a>
+    </nav>
+  </div>
+</header>
+
+<article>
+  <div class="eyebrow">Blog · X-Tree</div>
+  <h1>Tokenizing experience</h1>
+  <p class="dek">Agent trajectories are full of routines that repeat across tasks. We mine them into a tree of skills by counting alone, then train the model on that tree.</p>
+  <div class="byline">
+    <span class="who">Sitao Cheng<sup>1</sup>, Xunjian Yin<sup>2</sup>, Zhiyuan Sun<sup>1</sup>, Yuxuan Li<sup>1</sup>, Ruiwen Zhou<sup>3</sup>, Xiangru Jian<sup>1</sup>, Victor Zhong<sup>1</sup></span>
+    <span class="aff"><sup>1</sup>University of Waterloo · <sup>2</sup>Duke University · <sup>3</sup>National University of Singapore</span>
+    <span class="mail">Contact: <a href="mailto:sitao.cheng@uwaterloo.ca">sitao.cheng@uwaterloo.ca</a> · <a href="mailto:victor.zhong@uwaterloo.ca">victor.zhong@uwaterloo.ca</a></span>
+  </div>
+
+  <p>Training data for agents is expensive. Every trajectory needs an environment, a task and a verifier that can be trusted, and none of that scales the way web text does. Yet a trajectory enters training as a flat stream of actions. SFT and RL weight every token the same, so a model learns “fill a date, fill a date, click apply” from scratch each time it sees it, on every site where it appears.</p>
+  <p>People do not learn this way. We notice that a sequence of steps recurs, give it a name, and plan with it. The hierarchy is already in the data. The training objective ignores it.</p>
+  <p>Recent agent systems do use this structure, but only by asking an LLM to write skills in natural language and retrieving them into the prompt. Nothing enters the weights, and the library cannot be rebuilt from the data. We wanted the structure to come from the trajectories themselves, and to train on it.</p>
+
+  <h2>Counting, not prompting</h2>
+  <p>Language models already solve a version of this problem before training starts. A tokenizer turns characters into a vocabulary by repeatedly merging the pair that co-occurs most often. We apply the same idea to actions, with two changes.</p>
+  <p>First, actions are made comparable. Each raw action becomes a typed token such as <code>type⟨date⟩</code> or <code>click⟨button⟩</code>, and the element ids and values move into slots. Two date filters on different pages now read as the same symbol.</p>
+  <p>Second, merges are chosen by reusability, not frequency alone. We score an adjacent pair by how often it recurs, how long the merged span is, and how often it appears in successful episodes. A merge must also shorten the corpus by more than it costs. The merges stack, and the result is a tree: a reusable experience tree, or X-Tree.</p>
+
+  <figure>
+    <div class="img"><img src="img/concept.png" alt="Diagram: flat training weights every token equally, while X-Tree mines recurring successful spans into a hierarchy and trains it into the weights as data, reward and context." width="1857" height="706"></div>
+    <figcaption>Flat training versus training with X-Tree. The tree is built with zero LLM calls.</figcaption>
+  </figure>
+
+  <h2>What a node looks like</h2>
+  <p>Here is one node from the WebArena tree, drawn from a real trajectory in which the agent finds customers who registered in March 2023. The depth-2 node <code>S3</code> fills two fields and submits: one text input, then the node <code>S1</code>, which fills a field and clicks a button. It occurs 411 times across 7,974 trajectories, as a date filter on the admin panel and as a route query on the map. Combined with the navigation node above it, it forms <code>S127</code>, which filters a table by a date range.</p>
+
+  <div class="node" role="img" aria-label="Tree for a WebArena task. S127, filter by date range, depth 3, is composed of S12, two link clicks then a button, and S3, fill two fields and submit. S12 is S0, two link clicks, followed by a button click. S3 is a text input followed by S1, a text input and a button click.">
+    <svg viewBox="0 0 730 250">
+      <g font-size="12">
+        <text x="12" y="30" fill="var(--mute)">1</text><text x="34" y="30" fill="var(--ink)">click "CUSTOMERS"</text>
+        <text x="12" y="66" fill="var(--mute)">2</text><text x="34" y="66" fill="var(--ink)">click "All Customers"</text>
+        <text x="12" y="102" fill="var(--mute)">3</text><text x="34" y="102" fill="var(--ink)">click "Filters"</text>
+        <text x="12" y="138" fill="var(--mute)">4</text><text x="34" y="138" fill="var(--ink)">fill "from" 03/01/2023</text>
+        <text x="12" y="174" fill="var(--mute)">5</text><text x="34" y="174" fill="var(--ink)">fill "to" 04/01/2023</text>
+        <text x="12" y="210" fill="var(--mute)">6</text><text x="34" y="210" fill="var(--ink)">click "Apply Filters"</text>
+      </g>
+      <g font-size="11" fill="var(--ink2)">
+        <text x="236" y="30">click⟨link⟩</text><text x="236" y="66">click⟨link⟩</text><text x="236" y="102">click⟨button⟩</text>
+        <text x="236" y="138">type⟨text_input⟩</text><text x="236" y="174">type⟨text_input⟩</text><text x="236" y="210">click⟨button⟩</text>
+      </g>
+      <g fill="none" stroke-width="1.6">
+        <path d="M372,26 H430 M372,62 H430 M430,26 V62" stroke="var(--orange)"/>
+        <path d="M430,44 H470 M372,98 H470 M470,44 V98" stroke="var(--orange)"/>
+        <path d="M372,170 H430 M372,206 H430 M430,170 V206" stroke="var(--blue)"/>
+        <path d="M372,134 H470 M430,188 H470 M470,134 V188" stroke="var(--blue)"/>
+        <path d="M470,71 H530 M470,161 H530 M530,71 V161" stroke="var(--ink2)"/>
+      </g>
+      <g fill="var(--paper)" stroke-width="1.8">
+        <circle cx="430" cy="44" r="4" stroke="var(--orange)"/><circle cx="430" cy="188" r="4" stroke="var(--blue)"/><circle cx="470" cy="71" r="5.5" stroke="var(--orange)"/><circle cx="470" cy="161" r="5.5" stroke="var(--blue)"/><circle cx="530" cy="116" r="7" stroke="var(--ink2)"/>
+      </g>
+      <g font-size="11.5" font-weight="600">
+        <text x="480" y="62" fill="var(--orange)">S12 two_links_then_button</text>
+        <text x="480" y="182" fill="var(--blue)">S3 fill_two_and_submit</text>
+        <text x="542" y="112" fill="var(--ink)">S127 filter_by_date_range</text>
+        <text x="542" y="128" fill="var(--mute)" font-weight="400">depth 3</text>
+      </g>
+    </svg>
+  </div>
+  <p>Every node in the tree is like this: a routine found by counting, with its depth, length and corpus count. The IDs come from the miner, and the names are ours. The <a href="index.html#explorer">interactive explorer</a> on the project page shows fourteen such trajectories from WebArena, ScienceWorld, WebShop and MiniWoB++.</p>
+
+  <h2>Three ways to train on a tree</h2>
+  <p>A tree is only useful if training can use it. We built one integration for each setting an agent developer is likely to be in.</p>
+  <ul>
+    <li><strong>Only trajectories, no environment.</strong> Each node becomes an RL instance. The policy continues from the gold prefix before the node and is rewarded for matching each step and for completing the node, with a bonus that grows with depth.</li>
+    <li><strong>An environment with a verifier.</strong> Each rollout earns a bonus for every mined skill it executes. The bonus is at full strength when no rollout in a group succeeds, and fades as the verifier starts to separate good rollouts from bad ones.</li>
+    <li><strong>On-policy self-distillation.</strong> The model reads a rendered X-Tree as privileged context and acts as its own teacher. The tree replaces the LLM-written skill bank that such methods normally use.</li>
+  </ul>
+
+  <figure>
+    <div class="img"><img src="gif/xtree_integrations.gif" alt="Animation of the three integrations: an offline RL node instance with two rollouts, an RLVR group where the X-Tree bonus separates failing rollouts, and OPSD where the X-Tree card raises the teacher's gate on skill tokens." width="1200" height="675"></div>
+    <figcaption><b>The three integrations, step by step.</b> Real X-Tree nodes and skill card; the rollouts and token values are illustrative. The <a href="index.html#integrations">interactive version</a> is on the project page.</figcaption>
+  </figure>
+
+  <h2>What we found</h2>
+  <div class="stats">
+    <div class="stat"><b>+4.5</b><span>SR on WebArena from offline RL on the same trajectories</span></div>
+    <div class="stat"><b>+4.9</b><span>SR on ScienceWorld seen tasks from the RLVR bonus</span></div>
+    <div class="stat"><b>0</b><span>LLM calls to match an LLM-written skill bank</span></div>
+  </div>
+  <p>On WebArena, with the same Go-Browse trajectories and no environment during training, offline RL with X-Tree raises success from 18.4% to 22.9%, a 24% relative gain. Two extra SFT epochs at the same compute add only 0.4 points. When we keep the RL stage and swap the tree for a random one with the same number of merges, the score falls below SFT. The gain comes from the structure, not from extra optimization.</p>
+  <p>With a verifier, the adaptive bonus improves outcome-only GRPO at 1.5B, 3B and 7B: by up to 4.9 points on ScienceWorld tasks seen in training and up to 3.9 on held-out task types, and by up to 3.6 points of success and 4.6 of graded score on WebShop. The bonus helps most when reward is scarce. On ScienceWorld the gap is largest at four rollouts per prompt and narrows at sixteen, where the verifier already provides enough signal.</p>
+  <p>As privileged context for self-distillation, the mined tree performs on par with a skill bank written by gpt-oss-120b on ScienceWorld and GPT-o3 on WebShop. At 7B it reaches 5.8 points over outcome-only RL on ScienceWorld.</p>
+  <blockquote>The tree does not need much data. One mined from 100 WebShop trajectories already beats the outcome-only baseline.</blockquote>
+
+  <figure>
+    <div class="img"><img src="img/rlvr.png" alt="Bar chart: the X-Tree bonus improves outcome-only GRPO at every scale on ScienceWorld and WebShop." width="1210" height="313"></div>
+    <figcaption>Online RLVR with and without the X-Tree bonus. Means over three seeds.</figcaption>
+  </figure>
+
+  <h2>What is next</h2>
+  <p>We mine the tree once from a fixed pool. Mining from the policy's own trajectories would let the tree and the policy improve together. We also use each integration on its own. Combining nodes as data, the bonus and distillation in one model is the obvious next step. And because the tree records which routines recur and which succeed, it also shows where a corpus is thin, which is where new trajectories are worth collecting.</p>
+
+  <div class="end">
+    <a class="btn" href="index.html#explorer">Explore real trees</a>
+    <a class="btn ghost" href="index.html">Project page</a>
+    <span class="btn soon">Paper <small>soon</small></span>
+    <a class="btn ghost" href="https://github.com/sitaocheng/X-Tree">Code <small>in progress</small></a>
+  </div>
+</article>
+</body>
+</html>
