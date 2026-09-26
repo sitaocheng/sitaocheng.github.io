@@ -71,7 +71,8 @@ code,.mono{font-family:var(--mono);font-size:.86em}
 /* hero */
 .hero{padding-block:64px 36px;text-align:center}
 .venue{display:inline-block;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);border:1px solid var(--line);border-radius:999px;padding:4px 12px;margin-bottom:20px}
-.hero h1{font-size:clamp(30px,5.2vw,52px);font-weight:800;letter-spacing:-.02em;max-width:900px;margin:0 auto}
+.hero h1{font-size:clamp(28px,4.3vw,46px);font-weight:800;letter-spacing:-.02em;line-height:1.15;margin:0 auto}
+@media (max-width:760px){.hero h1 .br2{display:none}}
 .hero h1 .x{color:var(--blue)}
 .authors{margin-top:18px;color:var(--ink2);font-size:18px}
 .affil{color:var(--mute);font-size:15px;margin-top:2px}
@@ -83,6 +84,16 @@ code,.mono{font-family:var(--mono);font-size:.86em}
 .btn.soon{background:transparent;color:var(--mute);border:1px dashed var(--line);cursor:default}
 .btn.soon small{font-family:var(--mono);font-size:11px}
 
+/* TL;DR and abstract */
+.tldr{max-width:780px;margin:30px auto 0;text-align:left;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 22px}
+.tldr>p{margin:0;font-size:18.5px;line-height:1.55;color:var(--ink)}
+.tldr>p b{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--blue);margin-right:8px;vertical-align:2px}
+.abs{margin-top:12px;border-top:1px solid var(--line2);padding-top:10px}
+.abs summary{cursor:pointer;font-family:var(--display);font-weight:600;font-size:14.5px;color:var(--blue);list-style:none}
+.abs summary::-webkit-details-marker{display:none}
+.abs summary::before{content:"+ ";font-family:var(--mono)}
+.abs[open] summary::before{content:"− "}
+.abs .prose{margin-top:10px;font-size:16px}
 /* key numbers */
 .nums{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:14px;background:var(--paper);margin-top:40px;overflow:hidden}
 .num{padding:18px 18px 16px;border-left:1px solid var(--line)}
@@ -131,14 +142,20 @@ figcaption b{color:var(--ink2)}
 .row.hl .tok{border-color:var(--hl-line)}
 .tree{display:block}
 .tree text{font-family:var(--mono);font-size:10.5px}
-.tree .lbl{font-size:11px;font-weight:600}
 .tree .edge{fill:none;stroke-width:1.4}
 .tree .node{cursor:pointer}
 .tree .node circle{stroke-width:1.6}
 .tree .dim{opacity:.22}
+.tree .leader{fill:none;stroke-width:1;stroke-dasharray:2 3;opacity:.55}
+.tree .leader.on{opacity:1;stroke-dasharray:none}
+.tree .nlabel{font-size:11px;cursor:pointer}
+.tree .nlabel.top{font-weight:700;font-size:11.5px}
+.tree .nlabel .sid{fill:var(--mute);font-weight:400;font-size:9.5px}
+.tree .nlabel.on{text-decoration:underline;text-underline-offset:3px}
+.tree .nlabel:focus-visible{outline:2px solid var(--blue)}
 .side{padding:16px;display:grid;gap:16px;align-content:start}
 .side h4{margin:0;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);font-weight:500}
-.card-node .name{font-family:var(--display);font-weight:700;font-size:20px;line-height:1.2;word-break:break-word}
+.card-node .name{font-family:var(--display);font-weight:700;font-size:20px;line-height:1.2;overflow-wrap:normal}
 .card-node .id{font-family:var(--mono);font-size:12px;color:var(--mute)}
 .kv{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;font-size:14.5px;margin-top:10px}
 .kv dt{color:var(--mute)} .kv dd{margin:0;font-variant-numeric:tabular-nums;color:var(--ink)}
@@ -248,8 +265,8 @@ footer{padding-block:36px 48px;border-top:1px solid var(--line);color:var(--mute
     </a>
     <nav aria-label="Sections">
       <a href="#explorer">Explorer</a>
-      <a class="opt" href="#method">Method</a>
       <a href="#integrations">Integrations</a>
+      <a class="opt" href="#method">Method</a>
       <a href="#results">Results</a>
       <a class="opt" href="#bibtex">BibTeX</a>
     </nav>
@@ -260,7 +277,7 @@ footer{padding-block:36px 48px;border-top:1px solid var(--line);color:var(--mute
 <div class="wrap">
   <div class="hero">
     <div class="venue">Preprint · 2026</div>
-    <h1><span class="x">X-Tree</span>: Tokenizing Reusable Experience for Efficient Agent Generalization</h1>
+    <h1><span class="x">X-Tree</span>: Tokenizing Reusable Experience<br class="br2"> for Efficient Agent Generalization</h1>
     <p class="authors">Sitao Cheng<sup>1</sup>, Xunjian Yin<sup>2</sup>, Zhiyuan Sun<sup>1</sup>, Yuxuan Li<sup>1</sup>, Ruiwen Zhou<sup>3</sup>, Xiangru Jian<sup>1</sup>, Victor Zhong<sup>1</sup></p>
     <p class="affil"><sup>1</sup>University of Waterloo &nbsp;·&nbsp; <sup>2</sup>Duke University &nbsp;·&nbsp; <sup>3</sup>National University of Singapore</p>
     <p class="affil">Contact: <a class="mono" href="mailto:sitao.cheng@uwaterloo.ca">sitao.cheng@uwaterloo.ca</a> · <a class="mono" href="mailto:victor.zhong@uwaterloo.ca">victor.zhong@uwaterloo.ca</a></p>
@@ -271,31 +288,26 @@ footer{padding-block:36px 48px;border-top:1px solid var(--line);color:var(--mute
       <a class="btn" href="#explorer"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="3" r="1.8" fill="currentColor"/><circle cx="3.5" cy="12.5" r="1.8" fill="currentColor"/><circle cx="12.5" cy="12.5" r="1.8" fill="currentColor"/><path d="M8 5v3M8 8l-3.6 3M8 8l3.6 3" stroke="currentColor" stroke-width="1.3" fill="none"/></svg>Explore real trees</a>
     </div>
 
-    <div class="nums" role="list">
-      <div class="num" role="listitem"><em>WebArena · offline RL</em><b>+4.5</b><span>SR over full-data SFT (18.4 → 22.9), Qwen2.5-7B</span></div>
-      <div class="num" role="listitem"><em>ScienceWorld · RLVR</em><b>+4.9</b><span>SR over outcome-only GRPO, 7B seen tasks</span></div>
-      <div class="num" role="listitem"><em>WebShop · RLVR</em><b>+3.6</b><span>success, +4.6 graded score at 7B</span></div>
-      <div class="num" role="listitem"><em>Building the tree</em><b>0</b><span>LLM calls: X-Tree is mined by counting alone</span></div>
-    </div>
-  </div>
-</div>
-
-<section id="abstract">
-  <div class="wrap">
-    <figure style="margin-top:0">
-      <div class="img"><img src="img/concept.png" alt="Training with experience. (a) Prior training weights every token uniformly and harness systems keep LLM-written skills in context. (b) X-Tree mines reusable experience into a hierarchy with zero LLM calls and trains it into the weights as data, reward and context." width="1857" height="706"></div>
-      <figcaption><b>Training with experience.</b> (a) Prior training weights every token uniformly, and harness systems keep LLM-written skills in context, never in the weights. (b) X-Tree mines reusable experience by X-Score into a hierarchy with zero LLM calls, and trains it into the weights as data (offline RL), as reward (online RLVR) and as context (OPSD).</figcaption>
-    </figure>
-    <div class="narrow" style="margin-top:36px">
-      <div class="eyebrow">Abstract</div>
-      <div class="prose">
+    <div class="tldr">
+      <p><b>TL;DR</b> X-Tree mines the routines that recur across agent trajectories into a tree of reusable skills, with zero LLM calls, and trains on it: as training instances for offline RL, as an adaptive bonus for online RLVR, and as the teacher's context for on-policy self-distillation.</p>
+      <details class="abs">
+        <summary>Read the abstract</summary>
+        <div class="prose">
         <p>Multi-step agents are trained on flat action streams. SFT and RLVR weight every token uniformly and ignore the sub-procedures that recur across tasks, the hierarchy that lets humans plan top-down from reusable routines. This structure sits unused, and flat training uses each scarce trajectory less fully than its content allows. Recent agents do use that structure, but only as LLM-written skills in context, never in the weights, so their gains do not generalize beyond retrieval.</p>
         <p>We instead recover this hierarchy from the data itself and train on it, with no LLM calls. Following text tokenizers, which build a vocabulary by counting alone, we score action spans by reusability and merge canonicalized actions into a <strong>reusable eXperience tree (X-Tree)</strong>. Each X-Tree node captures how a frequent and success-bearing skill is composed from sub-skills, guiding efficient generalization.</p>
         <p>We integrate X-Tree into three training settings: offline RL, with each node as a training instance; online RLVR, with an adaptive skill bonus; and on-policy self-distillation, with X-Tree as the self-teacher's privileged context. Across WebArena, ScienceWorld and WebShop at three model scales, X-Tree improves over standard recipes at matched data and budget by up to 4.5% SR on WebArena, 5.8% SR on ScienceWorld and 4.1% success on WebShop.</p>
-      </div>
+        </div>
+      </details>
+    </div>
+
+    <div class="nums" role="list">
+      <div class="num" role="listitem"><em>WebArena · offline RL</em><b>+4.5</b><span>SR over full-data SFT on the same trajectories</span></div>
+      <div class="num" role="listitem"><em>ScienceWorld · RLVR</em><b>+4.9</b><span>SR over outcome-only GRPO</span></div>
+      <div class="num" role="listitem"><em>ScienceWorld · OPSD</em><b>+5.8</b><span>SR over outcome-only RL, with X-Tree as the teacher's context</span></div>
+      <div class="num" role="listitem"><em>Building the tree</em><b>0</b><span>LLM calls: X-Tree is mined by deterministically measuring reusability</span></div>
     </div>
   </div>
-</section>
+</div>
 
 <section id="explorer">
   <div class="wrap">
@@ -339,6 +351,44 @@ footer{padding-block:36px 48px;border-top:1px solid var(--line);color:var(--mute
   </div>
 </section>
 
+<section id="integrations">
+  <div class="wrap">
+    <div class="narrow" style="margin:0">
+      <div class="eyebrow">Interactive</div>
+      <h2>Where X-Tree enters training</h2>
+      <p class="lead">The same tree is used three ways. Step through each one to see when a node is triggered and what it changes.</p>
+    </div>
+    <div class="integ" id="ig">
+      <div class="integ-top">
+        <div class="tabs" role="tablist" aria-label="Integration" id="igTabs">
+          <button class="tab" role="tab" type="button" aria-selected="true" data-k="off">Offline RL</button>
+          <button class="tab" role="tab" type="button" aria-selected="false" data-k="rlvr">Online RLVR</button>
+          <button class="tab" role="tab" type="button" aria-selected="false" data-k="opsd">OPSD</button>
+        </div>
+        <div class="ctrl">
+          <button type="button" id="igPrev">Back</button>
+          <button type="button" id="igNext">Next</button>
+          <button type="button" id="igPlay">Play</button>
+        </div>
+      </div>
+      <div class="integ-body" id="igBody"></div>
+    </div>
+  </div>
+</section>
+
+<section id="overview">
+  <div class="wrap">
+    <div class="narrow" style="margin:0">
+      <div class="eyebrow">Overview</div>
+      <h2>Train on the structure the data already has</h2>
+    </div>
+    <figure>
+      <div class="img"><img src="img/concept.png" alt="Training with experience. (a) Prior training weights every token uniformly and harness systems keep LLM-written skills in context. (b) X-Tree mines reusable experience into a hierarchy with zero LLM calls and trains it into the weights as data, reward and context." width="1857" height="706"></div>
+      <figcaption><b>Training with experience.</b> (a) Prior training weights every token uniformly, and harness systems keep LLM-written skills in context, never in the weights. (b) X-Tree mines reusable experience by X-Score into a hierarchy with zero LLM calls, and trains it into the weights as data (offline RL), as reward (online RLVR) and as context (OPSD).</figcaption>
+    </figure>
+  </div>
+</section>
+
 <section id="method">
   <div class="wrap">
     <div class="narrow" style="margin:0">
@@ -378,31 +428,6 @@ footer{padding-block:36px 48px;border-top:1px solid var(--line);color:var(--mute
       <div class="img"><img src="img/integrations.png" alt="Three training integrations with X-Tree: offline RL with nodes as RL instances, online RLVR with an adaptive node bonus, and OPSD with retrieved X-Tree skills as the self-teacher's privileged context." width="1987" height="749"></div>
       <figcaption><b>Three training integrations.</b> (a) Offline RL: each node is one RL instance, rolled out from the gold prefix and rewarded for step matching and node completion scaled by depth. (b) Online RLVR: a bonus for every node a rollout executes, weighted by λ<sub>g</sub>, which is at full strength when no rollout in the group succeeds and fades as the verifier becomes informative. (c) OPSD: the same weights read the rendered X-Tree as privileged context for the self-teacher.</figcaption>
     </figure>
-  </div>
-</section>
-
-<section id="integrations">
-  <div class="wrap">
-    <div class="narrow" style="margin:0">
-      <div class="eyebrow">Interactive</div>
-      <h2>Where X-Tree enters training</h2>
-      <p class="lead">The same tree is used three ways. Step through each one to see when a node is triggered and what it changes.</p>
-    </div>
-    <div class="integ" id="ig">
-      <div class="integ-top">
-        <div class="tabs" role="tablist" aria-label="Integration" id="igTabs">
-          <button class="tab" role="tab" type="button" aria-selected="true" data-k="off">Offline RL</button>
-          <button class="tab" role="tab" type="button" aria-selected="false" data-k="rlvr">Online RLVR</button>
-          <button class="tab" role="tab" type="button" aria-selected="false" data-k="opsd">OPSD</button>
-        </div>
-        <div class="ctrl">
-          <button type="button" id="igPrev">Back</button>
-          <button type="button" id="igNext">Next</button>
-          <button type="button" id="igPlay">Play</button>
-        </div>
-      </div>
-      <div class="integ-body" id="igBody"></div>
-    </div>
   </div>
 </section>
 
@@ -534,9 +559,7 @@ footer{padding-block:36px 48px;border-top:1px solid var(--line);color:var(--mute
 
   function renderTraj(ex){
     const m = model, H = m.n*ROW;
-    LABELW = Math.max(90, ...m.tops.filter(t=>!t.leaf).map(t=>nameOf(t).length*6.9+22));
-    SVGW = 150 + 34*m.maxLevel + LABELW;
-    const x = L => 14 + L*((SVGW - LABELW - 24)/m.maxLevel);
+    const STEP = 30, x = L => 12 + L*STEP, TW = x(m.maxLevel) + 10, LX = TW + 34;
     let rows = '';
     let tileOf = new Array(m.n);
     m.tops.forEach((t,ti)=>{ for(let i=t.start;i<=t.end;i++) tileOf[i]=tileClass(ti,t); });
@@ -544,22 +567,33 @@ footer{padding-block:36px 48px;border-top:1px solid var(--line);color:var(--mute
       const cmd = (ex.grounded && ex.grounded[i]) || ex.commands[i] || '';
       rows += `<div class="row ${tileOf[i]}" data-leaf="${i}" title="${esc(ex.commands[i]||'')}"><span class="i">${i+1}</span><span class="cmd">${esc(cmd)}</span><span class="tok">${esc(ex.tokens[i]||m.leaves[i].id)}</span></div>`;
     }
-    // svg
-    let edges = '', nodes = '', labels = '';
+    // svg: compact dendrogram on the left, every merged node named in a label column on the right
+    let edges = '', nodes = '', leaders = '', labels = '';
     const colorOf = top => top.leaf ? 'var(--prim)' : (m.tops.indexOf(top)%2 ? 'var(--orange)' : 'var(--blue)');
     const topOf = mm => { let t=mm; while(t.parent) t=t.parent; return t; };
     m.leaves.forEach(l=>{ nodes += `<circle cx="${x(0)}" cy="${l.y}" r="3" fill="${colorOf(topOf(l))}" data-leaf="${l.start}"/>`; });
     m.inst.forEach(n=>{
-      const c = colorOf(topOf(n));
-      const ys = n.kids.map(k=>k.y);
-      n.kids.forEach(k=>{ edges += `<path class="edge" data-i="${m.inst.indexOf(n)}" d="M${x(k.level)},${k.y} H${x(n.level)}" stroke="${c}"/>`; });
-      edges += `<path class="edge" data-i="${m.inst.indexOf(n)}" d="M${x(n.level)},${Math.min(...ys)} V${Math.max(...ys)}" stroke="${c}"/>`;
-      const reused = m.count[n.id] > 1;
-      nodes += `<g class="node" tabindex="0" role="button" aria-label="${esc(nameOf(n))}, depth ${n.level}" data-i="${m.inst.indexOf(n)}"><circle cx="${x(n.level)}" cy="${n.y}" r="${n.parent?5:6.5}" fill="var(--paper)" stroke="${c}"/>${reused?`<circle cx="${x(n.level)}" cy="${n.y}" r="${(n.parent?5:6.5)+3.2}" fill="none" stroke="var(--reuse)" stroke-width="1.6"/>`:''}<text x="${x(n.level)}" y="${n.y-9}" text-anchor="middle" fill="var(--mute)">${esc(n.id)}</text></g>`;
-      if (!n.parent) labels += `<text class="lbl" x="${x(m.maxLevel)+14}" y="${n.y+4}" fill="${c}">${esc(nameOf(n))}</text><path d="M${x(n.level)+7},${n.y} H${x(m.maxLevel)+10}" stroke="${c}" stroke-dasharray="2 3" fill="none" opacity=".6"/>`;
+      const c = colorOf(topOf(n)), i = m.inst.indexOf(n), ys = n.kids.map(k=>k.y);
+      n.kids.forEach(k=>{ edges += `<path class="edge" data-i="${i}" d="M${x(k.level)},${k.y} H${x(n.level)}" stroke="${c}"/>`; });
+      edges += `<path class="edge" data-i="${i}" d="M${x(n.level)},${Math.min(...ys)} V${Math.max(...ys)}" stroke="${c}"/>`;
+      const r = n.parent ? 5 : 6.5, reused = m.count[n.id] > 1;
+      nodes += `<g class="node" tabindex="0" role="button" aria-label="${esc(nameOf(n))}, depth ${n.level}" data-i="${i}"><circle cx="${x(n.level)}" cy="${n.y}" r="${r}" fill="var(--paper)" stroke="${c}"/>${reused?`<circle cx="${x(n.level)}" cy="${n.y}" r="${r+3.2}" fill="none" stroke="var(--reuse)" stroke-width="1.6"/>`:''}</g>`;
     });
-    $('traj').innerHTML = `<div class="grid"><div class="rows">${rows}</div><svg class="tree" width="${SVGW}" height="${H}" viewBox="0 0 ${SVGW} ${H}" role="img" aria-label="X-Tree over this trajectory">${edges}${labels}${nodes}</svg></div>`;
-    $('traj').querySelectorAll('.node').forEach(g=>{
+    // label positions: in node order by y, at least GAP apart, kept inside the drawing
+    const GAP = 16, lab = m.inst.slice().sort((p,q)=>p.y-q.y || q.level-p.level).map(n=>({n, y:n.y}));
+    for (let k=1;k<lab.length;k++) lab[k].y = Math.max(lab[k].y, lab[k-1].y + GAP);
+    const maxY = H - 8; if (lab.length && lab[lab.length-1].y > maxY){ lab[lab.length-1].y = maxY; for (let k=lab.length-2;k>=0;k--) lab[k].y = Math.min(lab[k].y, lab[k+1].y - GAP); }
+    if (lab.length && lab[0].y < 10){ lab[0].y = 10; for (let k=1;k<lab.length;k++) lab[k].y = Math.max(lab[k].y, lab[k-1].y + GAP); }
+    let maxChars = 0;
+    lab.forEach(({n, y})=>{
+      const c = colorOf(topOf(n)), i = m.inst.indexOf(n), top = !n.parent, nm = nameOf(n);
+      maxChars = Math.max(maxChars, nm.length + n.id.length + 2);
+      leaders += `<path class="leader" data-i="${i}" d="M${x(n.level)+7},${n.y} H${LX-18} L${LX-6},${y}" stroke="${c}"/>`;
+      labels += `<text class="nlabel${top?' top':''}" data-i="${i}" x="${LX}" y="${y+3.8}" fill="${top?c:'var(--ink2)'}" tabindex="0" role="button">${esc(nm)}<tspan class="sid" dx="6">${esc(n.id)}</tspan></text>`;
+    });
+    SVGW = LX + maxChars*6.7 + 16;
+    $('traj').innerHTML = `<div class="grid"><div class="rows">${rows}</div><svg class="tree" width="${SVGW}" height="${H}" viewBox="0 0 ${SVGW} ${H}" role="img" aria-label="X-Tree over this trajectory">${leaders}${edges}${nodes}${labels}</svg></div>`;
+    $('traj').querySelectorAll('.node, .nlabel').forEach(g=>{
       const pick = ()=>{ sel = m.inst[+g.dataset.i]; paintSel(); renderCard(DATA[env].examples[exi]); };
       g.addEventListener('click', pick);
       g.addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); pick(); }});
@@ -576,6 +610,7 @@ footer{padding-block:36px 48px;border-top:1px solid var(--line);color:var(--mute
     // dim nodes deeper than the merge depth
     document.querySelectorAll('#traj .node').forEach(g=>{ const n=m.inst[+g.dataset.i]; g.classList.toggle('dim', n.level>depth); });
     document.querySelectorAll('#traj .edge').forEach(p=>{ const n=m.inst[+p.dataset.i]; p.classList.toggle('dim', n.level>depth); });
+    document.querySelectorAll('#traj .leader, #traj .nlabel').forEach(p=>{ const n=m.inst[+p.dataset.i]; p.classList.toggle('dim', n.level>depth); p.classList.toggle('on', n===sel); });
     document.querySelectorAll('#traj .node circle:first-child').forEach(c=>c.setAttribute('fill','var(--paper)'));
     if (sel && !sel.leaf){
       const g = document.querySelector(`#traj .node[data-i="${m.inst.indexOf(sel)}"] circle`);
@@ -611,7 +646,7 @@ footer{padding-block:36px 48px;border-top:1px solid var(--line);color:var(--mute
     }).join('');
     const uses = model.count[sel.id];
     card.innerHTML = `<h4>Selected node</h4>
-      <div class="name">${esc(nameOf(sel))}</div><div class="id">${esc(sel.id)} · steps ${sel.start+1}–${sel.end+1}</div>
+      <div class="name">${esc(nameOf(sel)).replace(/_/g,"_<wbr>")}</div><div class="id">${esc(sel.id)} · steps ${sel.start+1}–${sel.end+1}</div>
       <dl class="kv"><dt>Depth</dt><dd>${n.level}</dd><dt>Length</dt><dd>${n.length ?? leaves.length} actions</dd><dt>Corpus occurrences</dt><dd>${n.support!=null ? Number(n.support).toLocaleString('en-US') : '—'}</dd>${(n.succ!=null)?`<dt>Success in corpus</dt><dd>${fmtPct(n.succ)}</dd>`:''}<dt>In this trajectory</dt><dd>${uses} ${uses>1?'times':'time'}</dd></dl>
       <div class="compose">${kids}</div>
       <div class="expand">${leaves.map(esc).join(' → ')}</div>
