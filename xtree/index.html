@@ -85,7 +85,7 @@ code,.mono{font-family:var(--mono);font-size:.86em}
 .btn.soon small{font-family:var(--mono);font-size:11px}
 
 /* TL;DR and abstract */
-.tldr{max-width:1000px;margin:30px auto 0;text-align:left;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 22px}
+.tldr{max-width:860px;margin:30px auto 0;text-align:left;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 22px}
 .tldr>p{margin:0;font-size:18.5px;line-height:1.55;color:var(--ink)}
 .tldr>p b{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--blue);margin-right:8px;vertical-align:2px}
 .abs{margin-top:12px;border-top:1px solid var(--line2);padding-top:10px}
@@ -195,6 +195,8 @@ figcaption b{color:var(--ink2)}
 .step p{margin-top:8px;color:var(--ink2);font-size:15.5px}
 .canon{margin-top:10px;font-family:var(--mono);font-size:12.5px;color:var(--ink2);background:var(--code);border-radius:8px;padding:8px 10px;overflow-x:auto;white-space:nowrap}
 
+/* one-line section heading on desktop */
+@media (min-width:1000px){.h2-one{font-size:26.5px;white-space:nowrap}}
 /* result blocks */
 .res{margin-top:40px;max-width:760px}
 .res h3{font-size:21px;line-height:1.3}
@@ -228,6 +230,22 @@ tr.ours td{background:var(--blue-band);color:var(--blue-ink);font-weight:700}
 footer{padding-block:36px 48px;border-top:1px solid var(--line);color:var(--mute);font-size:14px;text-align:center}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 /* integrations demo */
+.xt{list-style:none;margin:0;padding:0}
+.xt ul{list-style:none;margin:0;padding-left:14px}
+.xt li{position:relative;padding:3px 0 3px 14px}
+.xt ul>li::before{content:"";position:absolute;left:0;top:0;bottom:0;border-left:1px solid var(--line)}
+.xt ul>li:last-child::before{bottom:auto;height:14px}
+.xt ul>li::after{content:"";position:absolute;left:0;top:14px;width:10px;border-top:1px solid var(--line)}
+.xt.root>li{padding-left:0}
+.xn{display:inline-grid}
+.xn b{font-family:var(--mono);font-size:12.5px;color:var(--ink)}
+.xn small{font-size:11px;color:var(--mute)}
+.xl{display:inline-grid;gap:1px;border-left:3px solid var(--kc);padding:2px 0 2px 7px;background:color-mix(in srgb,var(--kc) 9%,transparent);border-radius:0 6px 6px 0}
+.xl i{font-style:normal;font-family:var(--mono);font-size:10.5px;color:var(--mute)}
+.xl span{font-family:var(--mono);font-size:11.5px;color:var(--ink)}
+.legend2{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;font-size:12.5px;color:var(--mute)}
+.legend2 .sw{display:inline-block;width:12px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+.legend2 .sw.pos{background:var(--blue)} .legend2 .sw.neg{background:var(--orange)}
 :root{--k0:#2f5e99;--k1:#c0612b;--k2:#2e8b6e;--k3:#8a4fb3;--k4:#b8912a;--k5:#c2477a}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--k0:#7fa8de;--k1:#e39461;--k2:#5cc3a2;--k3:#b98ae0;--k4:#e0bf5e;--k5:#e882ad}}
 :root[data-theme="dark"]{--k0:#7fa8de;--k1:#e39461;--k2:#5cc3a2;--k3:#b98ae0;--k4:#e0bf5e;--k5:#e882ad}
@@ -248,7 +266,7 @@ footer{padding-block:36px 48px;border-top:1px solid var(--line);color:var(--mute
 .integ-cap b{color:var(--ink)}
 .integ-task{font-size:14.5px;color:var(--ink);background:var(--line2);border-radius:8px;padding:8px 10px}
 .integ-task span{font-family:var(--mono);font-size:10.5px;color:var(--mute);display:block;margin-bottom:2px;letter-spacing:.06em;text-transform:uppercase}
-.lane{display:grid;grid-template-columns:96px minmax(0,1fr);gap:10px;align-items:start}
+.lane{display:grid;grid-template-columns:112px minmax(0,1fr);gap:10px;align-items:start}
 @media (max-width:620px){.lane{grid-template-columns:1fr}}
 .lane>.lab{font-family:var(--mono);font-size:11.5px;color:var(--mute);padding-top:5px}
 .acts{display:flex;flex-wrap:wrap;gap:6px}
@@ -426,9 +444,9 @@ footer{padding-block:36px 48px;border-top:1px solid var(--line);color:var(--mute
 
 <section id="overview">
   <div class="wrap">
-    <div class="narrow" style="margin:0">
+    <div style="margin:0">
       <div class="eyebrow">Overview</div>
-      <h2>Mine the hierarchy (X&#8209;Tree) latent in the data and guide training with X&#8209;Tree</h2>
+      <h2 class="h2-one">Mine the hierarchy (X&#8209;Tree) latent in the data and guide training with X&#8209;Tree</h2>
     </div>
     <figure>
       <div class="img"><img src="img/concept.png" alt="Training with experience. (a) Prior training weights every token uniformly and harness systems keep LLM-written skills in context. (b) X-Tree mines reusable experience into a hierarchy with zero LLM calls and trains it into the weights as data, reward and context." width="1857" height="706"></div>
@@ -768,6 +786,12 @@ footer{padding-block:36px 48px;border-top:1px solid var(--line);color:var(--mute
   const K = i => `--kc:var(--k${i%6})`;
   let tab = 'off', exi = 0, step = 0, scen = 0, timer = null;
 
+  // nested node structure; leaves show the concrete action the rollout must produce
+  function xtree(t, ci){
+    if (t.leaf) return `<li><span class="xl" style="${K(ci)}"><i>${esc(t.tok)}</i><span>${esc(t.act)}</span></span></li>`;
+    const kids = t.kids.map((k,i)=> xtree(k, ci === null ? i : ci)).join('');
+    return `<li><span class="xn"><b>${esc(t.name)}</b><small>${esc(t.id)} · depth ${t.depth}</small></span><ul>${kids}</ul></li>`;
+  }
   // ---- offline RL: one X-Tree node is one training instance
   function offSteps(e){
     const n = e.node, L = e.gold.length;
@@ -785,7 +809,7 @@ footer{padding-block:36px 48px;border-top:1px solid var(--line);color:var(--mute
     const r1 = 0.7 + 0.3*(1+0.5*e.node.depth), r2 = 0.7*firstBad/L, R = Math.max(r1, 1e-9);
     const main = `<p class="integ-cap">${offSteps(e)[k]}</p>
       <div class="integ-task"><span>Task · WebArena</span>${esc(e.task)}</div>
-      <div class="lane"><div class="lab">steps before</div><div class="acts">${e.prefix_skipped?'<span class="act ctx">…</span>':''}${e.prefix.map(p=>`<span class="act ctx">${esc(p)}</span>`).join('')}</div></div>
+      <div class="lane"><div class="lab">previous gold steps</div><div class="acts">${e.prefix_skipped?'<span class="act ctx">…</span>':''}${e.prefix.map(p=>`<span class="act ctx">${esc(p)}</span>`).join('')}</div></div>
       ${k>=1?`<div class="lane"><div class="lab">rollout τ₁</div><div class="acts">${ok1}</div></div>`:''}
       ${k>=2?`<div class="lane"><div class="lab">rollout τ₂</div><div class="acts">${ok2}</div></div>`:''}
       ${k>=3?`<div class="lane"><div class="lab">reward</div><div style="display:grid;gap:6px">
@@ -793,9 +817,8 @@ footer{padding-block:36px 48px;border-top:1px solid var(--line);color:var(--mute
           <div class="roll" style="grid-template-columns:24px minmax(0,1fr)"><span class="rid">τ₂</span><div class="bar one"><i style="width:${(r2/R*100).toFixed(0)}%"></i></div></div></div></div>`:''}
       <p class="note">Real node and trajectory from WebArena; the two rollouts are illustrative.</p>`;
     const hint = `<h4>X-Tree hint</h4>
-      <div class="hnode"><div class="nm">${esc(e.node.name)}</div><div class="meta">${esc(e.node.id)} · depth ${e.node.depth} · ${L} actions</div>
-      ${e.node.children.map((c,i)=>`<div class="hkid" style="${K(i)}"><i></i><div><b>${esc(c.leaf?c.tokens[0]:c.name)}</b><small>${esc(c.tokens.join(' → '))}</small></div></div>`).join('')}</div>
-      <p class="note">The node the rollout must reproduce, with the part each step belongs to.</p>`;
+      <ul class="xt root">${xtree(e.tree, null)}</ul>
+      <p class="note">The node's structure down to its leaves. Each leaf shows the canonical action and the concrete step the rollout must produce.</p>`;
     return [main, hint];
   }
 
@@ -835,7 +858,7 @@ footer{padding-block:36px 48px;border-top:1px solid var(--line);color:var(--mute
       ${k>=2?`<div class="scen">${SCEN.map((s,i)=>`<button type="button" class="chip" aria-pressed="${i===scen}" data-s="${i}">${s.name}</button>`).join('')}</div>`:''}
       <div class="roll" style="margin-bottom:-4px"><span></span><span class="note">rollout</span><span class="note" style="text-align:center">${k>=2?'verifier':''}</span><span class="note">${k>=3?'advantage':k>=1?'X-Tree bonus':''}</span></div>
       <div class="rolls">${rows}</div>
-      ${k>=2?`<div>${lamTxt}</div>`:''}
+      ${k>=2?`<div class="legend2">${lamTxt}${k>=3?'<span><i class="sw pos"></i>above the group average: reinforced</span><span><i class="sw neg"></i>below the group average: discouraged</span>':''}</div>`:''}
       <p class="note">Real task and mined skills; τ₁ is the real trajectory, τ₂ and τ₃ stop early, τ₄ goes off-path. Outcomes are illustrative. Hover a block to see its actions.</p>`;
     const hint = `<h4>X-Tree hint</h4>${e.nodes.map((n,i)=>`<div class="hkid" style="${K(i)}"><i></i><div><b>${esc(n.name)}</b><small>${esc(n.id)} · depth ${n.depth} · ${n.length} actions${n.success!=null?` · ${Math.round(n.success*100)}% success`:''}</small></div></div>`).join('')}
       <p class="note">The mined skills this group executes, in the colors used on the left.</p>`;
