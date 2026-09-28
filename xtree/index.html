@@ -86,7 +86,7 @@ code,.mono{font-family:var(--mono);font-size:.86em}
 .btn.soon small{font-family:var(--mono);font-size:11px}
 
 /* TL;DR and abstract */
-.tldr{max-width:980px;margin:30px auto 0;text-align:left;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 22px}
+.tldr{max-width:780px;margin:30px auto 0;text-align:left;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 22px}
 .tldr>p{margin:0;font-size:18.5px;line-height:1.55;color:var(--ink)}
 .tldr>p b{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--blue);margin-right:8px;vertical-align:2px}
 .abs{margin-top:12px;border-top:1px solid var(--line2);padding-top:10px}
@@ -351,7 +351,7 @@ footer{padding-block:36px 48px;border-top:1px solid var(--line);color:var(--mute
     </div>
 
     <div class="tldr">
-      <p><b>TL;DR</b> Instead of training agents on flat action sequences (SFT, RLVR), we mine the reusable hierarchy (X-Tree) latent in existing trajectories with zero LLM calls, and use it to guide training in three settings: as training instances for offline RL, as an adaptive bonus for online RLVR, and as the self-teacher's privileged context for on-policy self-distillation (OPSD).</p>
+      <p><b>TL;DR</b> Instead of training agents on flat action sequences (SFT, RLVR), we mine the reusable hierarchy (X-Tree) latent in existing trajectories with zero LLM calls, and use it to guide training as data (offline RL), as reward (online RLVR) and as context (on-policy self-distillation).</p>
       <details class="abs">
         <summary>Read the abstract</summary>
         <div class="prose">
