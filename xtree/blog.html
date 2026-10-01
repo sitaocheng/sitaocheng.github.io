@@ -3,17 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Tokenizing Experience · X-Tree</title>
+<title>Tokenizing Reusable Experience · X-Tree</title>
 <meta name="description" content="Blog post: X-Tree mines the routines that recur across agent trajectories into a tree of skills with no LLM calls, then trains on it.">
 <link rel="canonical" href="https://sitaocheng.github.io/xtree/blog.html">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Ccircle cx='10' cy='3.5' r='2.6' fill='%232f5e99'/%3E%3Ccircle cx='4' cy='15.5' r='2.6' fill='%23c0612b'/%3E%3Ccircle cx='16' cy='15.5' r='2.6' fill='%232f5e99'/%3E%3Cpath d='M10 6v4M10 10L4.8 13.4M10 10l5.2 3.4' stroke='%233f4a5a' stroke-width='1.6' fill='none'/%3E%3C/svg%3E">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Tokenizing Experience · X-Tree">
+<meta property="og:title" content="Tokenizing Reusable Experience · X-Tree">
 <meta property="og:description" content="Blog post: X-Tree mines the routines that recur across agent trajectories into a tree of skills with no LLM calls, then trains on it.">
 <meta property="og:url" content="https://sitaocheng.github.io/xtree/blog.html">
 <meta property="og:image" content="https://sitaocheng.github.io/xtree/img/concept.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Tokenizing Experience · X-Tree">
+<meta name="twitter:title" content="Tokenizing Reusable Experience · X-Tree">
 <meta name="twitter:description" content="Blog post: X-Tree mines the routines that recur across agent trajectories into a tree of skills with no LLM calls, then trains on it.">
 <meta name="twitter:image" content="https://sitaocheng.github.io/xtree/img/concept.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -78,9 +78,10 @@ li{margin-top:10px}
 .node{margin-top:26px;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:16px 16px 12px;overflow-x:auto}
 .node svg{display:block;min-width:560px;width:100%;height:auto}
 .node text{font-family:var(--mono)}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);margin-top:26px;border:1px solid var(--line);border-radius:14px;background:var(--paper);overflow:hidden}
-.stat{padding:16px 16px 14px;border-left:1px solid var(--line)}
-.stat:first-child{border-left:0}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);margin-top:26px;border:1px solid var(--line);border-radius:14px;background:var(--paper);overflow:hidden}
+.stat{padding:16px 16px 14px;border-left:1px solid var(--line);border-top:1px solid var(--line)}
+.stat:nth-child(odd){border-left:0}
+.stat:nth-child(-n+2){border-top:0}
 .stat b{display:block;font-family:var(--display);font-size:32px;font-weight:800;letter-spacing:-.02em;color:var(--ink);font-variant-numeric:tabular-nums}
 .stat span{display:block;font-size:14px;color:var(--ink2);line-height:1.35}
 @media (max-width:560px){.stats{grid-template-columns:1fr}.stat{border-left:0;border-top:1px solid var(--line)}.stat:first-child{border-top:0}}
@@ -109,8 +110,8 @@ li{margin-top:10px}
 
 <article>
   <div class="eyebrow">Blog · X-Tree</div>
-  <h1>Tokenizing experience</h1>
-  <p class="dek">Agent trajectories are full of routines that repeat across tasks. We mine them into a tree of skills by counting alone, then train the model on that tree.</p>
+  <h1>Tokenizing reusable experience</h1>
+  <p class="dek">Instead of training agents on flat action sequences, we mine the reusable hierarchy latent in existing trajectories, with zero LLM calls, and use it to guide training as data, as reward and as context.</p>
   <div class="byline">
     <span class="who">Sitao Cheng<sup>1</sup>, Xunjian Yin<sup>2</sup>, Zhiyuan Sun<sup>1</sup>, Yuxuan Li<sup>1</sup>, Ruiwen Zhou<sup>3</sup>, Xiangru Jian<sup>1</sup>, Victor Zhong<sup>1</sup></span>
     <span class="aff"><sup>1</sup>University of Waterloo · <sup>2</sup>Duke University · <sup>3</sup>National University of Singapore</span>
@@ -124,7 +125,7 @@ li{margin-top:10px}
   <h2>Counting, not prompting</h2>
   <p>Language models already solve a version of this problem before training starts. A tokenizer turns characters into a vocabulary by repeatedly merging the pair that co-occurs most often. We apply the same idea to actions, with two changes.</p>
   <p>First, actions are made comparable. Each raw action becomes a typed token such as <code>type⟨date⟩</code> or <code>click⟨button⟩</code>, and the element ids and values move into slots. Two date filters on different pages now read as the same symbol.</p>
-  <p>Second, merges are chosen by reusability, not frequency alone. We score an adjacent pair by how often it recurs, how long the merged span is, and how often it appears in successful episodes. A merge must also shorten the corpus by more than it costs. The merges stack, and the result is a tree: a reusable experience tree, or X-Tree.</p>
+  <p>Second, merges are chosen by reusability, not frequency alone. We score an adjacent pair by how often it recurs, how long the merged span is, and how often it appears in successful episodes. We call this score X-Score. A merge must also shorten the corpus by more than it costs. The merges stack, and the result is a tree: a reusable experience tree, or X-Tree.</p>
 
   <figure>
     <div class="img"><img src="img/concept.png" alt="Diagram: flat training weights every token equally, while X-Tree mines recurring successful spans into a hierarchy and trains it into the weights as data, reward and context." width="1857" height="706"></div>
@@ -168,12 +169,12 @@ li{margin-top:10px}
   </div>
   <p>Every node in the tree is like this: a routine found by counting, with its depth, length and corpus count. The IDs come from the miner, and the names are ours. The <a href="index.html#explorer">interactive explorer</a> on the project page shows fourteen such trajectories from WebArena, ScienceWorld, WebShop and MiniWoB++.</p>
 
-  <h2>Three ways to train on a tree</h2>
+  <h2>Training with the tree: as data, reward and context</h2>
   <p>A tree is only useful if training can use it. We built one integration for each setting an agent developer is likely to be in.</p>
   <ul>
-    <li><strong>Only trajectories, no environment.</strong> Each node becomes an RL instance. The policy continues from the gold prefix before the node and is rewarded for matching each step and for completing the node, with a bonus that grows with depth.</li>
-    <li><strong>An environment with a verifier.</strong> Each rollout earns a bonus for every mined skill it executes. The bonus is at full strength when no rollout in a group succeeds, and fades as the verifier starts to separate good rollouts from bad ones.</li>
-    <li><strong>On-policy self-distillation.</strong> The model reads a rendered X-Tree as privileged context and acts as its own teacher. The tree replaces the LLM-written skill bank that such methods normally use.</li>
+    <li><strong>As data (offline RL): only trajectories, no environment.</strong> Each node becomes an RL instance. The policy continues from the gold prefix before the node and is rewarded for matching each step and for completing the node, with a bonus that grows with depth.</li>
+    <li><strong>As reward (online RLVR): an environment with a verifier.</strong> Each rollout earns a bonus for every mined skill it executes. The bonus is at full strength when no rollout in a group succeeds, and fades as successes appear.</li>
+    <li><strong>As context (on-policy self-distillation).</strong> The model reads a rendered X-Tree as privileged context and acts as its own teacher. The tree replaces the LLM-written skill bank that such methods normally use.</li>
   </ul>
 
   <figure>
@@ -183,18 +184,23 @@ li{margin-top:10px}
 
   <h2>What we found</h2>
   <div class="stats">
-    <div class="stat"><b>+4.5</b><span>SR on WebArena from offline RL on the same trajectories</span></div>
-    <div class="stat"><b>+4.9</b><span>SR on ScienceWorld seen tasks from the RLVR bonus</span></div>
-    <div class="stat"><b>0</b><span>LLM calls to match an LLM-written skill bank</span></div>
+    <div class="stat"><b>+4.5</b><span>SR on WebArena from offline RL, over full-data SFT on the same trajectories</span></div>
+    <div class="stat"><b>+4.9</b><span>SR on ScienceWorld from the RLVR bonus, over outcome-only GRPO</span></div>
+    <div class="stat"><b>+5.8</b><span>SR on ScienceWorld from OPSD, with X-Tree as the teacher's context</span></div>
+    <div class="stat"><b>0</b><span>LLM calls: X-Tree is mined by deterministically measuring reusability</span></div>
   </div>
-  <p>On WebArena, with the same Go-Browse trajectories and no environment during training, offline RL with X-Tree raises success from 18.4% to 22.9%, a 24% relative gain. Two extra SFT epochs at the same compute add only 0.4 points. When we keep the RL stage and swap the tree for a random one with the same number of merges, the score falls below SFT. The gain comes from the structure, not from extra optimization.</p>
-  <p>With a verifier, the adaptive bonus improves outcome-only GRPO at 1.5B, 3B and 7B: by up to 4.9 points on ScienceWorld tasks seen in training and up to 3.9 on held-out task types, and by up to 3.6 points of success and 4.6 of graded score on WebShop. The bonus helps most when reward is scarce. On ScienceWorld the gap is largest at four rollouts per prompt and narrows at sixteen, where the verifier already provides enough signal.</p>
-  <p>As privileged context for self-distillation, the mined tree performs on par with a skill bank written by gpt-oss-120b on ScienceWorld and GPT-o3 on WebShop. At 7B it reaches 5.8 points over outcome-only RL on ScienceWorld.</p>
+  <p><strong>Offline RL: the tree drives the gain, not extra compute.</strong> On WebArena, with the same Go-Browse trajectories and no environment during training, offline RL with X-Tree raises success from 18.4% to 22.9%, a 24% relative gain. Two extra SFT epochs at the same compute add only 0.4 points. When we keep the RL stage and swap the tree for a random one with the same number of merges, the score falls below SFT. The gain comes from the structure, not from extra optimization.</p>
+  <p><strong>Online RLVR: X-Tree helps at every scale, including held-out tasks.</strong> With a verifier, the adaptive bonus improves outcome-only GRPO at 1.5B, 3B and 7B: by up to 4.9 points on ScienceWorld tasks seen in training and up to 3.9 on held-out task types, and by up to 3.6 points of success and 4.6 of graded score on WebShop. The bonus helps most when reward is scarce. On ScienceWorld the gap is largest at four rollouts per prompt and narrows at sixteen, where the verifier already provides enough signal.</p>
+  <p><strong>OPSD: a mined tree teaches as well as an LLM-written skill bank.</strong> As privileged context for self-distillation, the mined tree performs on par with a skill bank written by gpt-oss-120b on ScienceWorld and GPT-o3 on WebShop. At 7B it reaches 5.8 points over outcome-only RL on ScienceWorld, and its gain grows with model scale.</p>
   <blockquote>The tree does not need much data. One mined from 100 WebShop trajectories already beats the outcome-only baseline.</blockquote>
 
   <figure>
     <div class="img"><img src="img/rlvr.png" alt="Bar chart: the X-Tree bonus improves outcome-only GRPO at every scale on ScienceWorld and WebShop." width="1210" height="313"></div>
     <figcaption>Online RLVR with and without the X-Tree bonus. Means over three seeds.</figcaption>
+  </figure>
+  <figure>
+    <div class="img"><img src="img/opsd.png" alt="Bar chart: OPSD with the X-Tree skill bank is comparable with OPSD using an LLM-written bank, on ScienceWorld and WebShop." width="1210" height="330"></div>
+    <figcaption>Outcome-only RLVR, the X-Tree bonus, and OPSD with an LLM-written or an X-Tree skill bank. Means over three seeds.</figcaption>
   </figure>
 
   <h2>What is next</h2>
