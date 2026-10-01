@@ -748,7 +748,7 @@ footer{padding-block:36px 48px;border-top:1px solid var(--line);color:var(--mute
     timer = setInterval(()=>{ if (depth >= model.maxLevel){ stop(); return; } depth++; $('depth').value=depth; renderDepth(); }, reduce ? 1400 : 800);
   });
 
-  $('copyBib').addEventListener('click', ()=>{
+  if ($('copyBib')) $('copyBib').addEventListener('click', ()=>{
     const t = $('bibText').textContent, b = $('copyBib');
     const done = ok => { b.textContent = ok ? 'Copied' : 'Select the text to copy'; setTimeout(()=>b.textContent='Copy', 1800); };
     if (navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(t).then(()=>done(true), ()=>{ selectPre(); done(false); }); }
