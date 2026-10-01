@@ -13,9 +13,9 @@ Hi, I am Sitao Cheng, a Ph.D. student at the University of Waterloo, fortunate t
 My research asks how reasoning in large language models can generalize *efficiently*: how a model can autonomously compose the skills it already has (parametric) with newly acquired ones (contextual), and recursively improve itself. I work across language agents, reinforcement learning, retrieval-augmented generation (RAG), and neural-symbolic reasoning. Three questions drive my current work:
 {: .intro}
 
-1. **Language agents.** What makes reasoning transfer to open, real-world environments rather than to curated benchmarks?
-2. **Automatic reward modeling.** Can reward functions be *discovered* rather than hand-designed, through differentiable evolutionary meta-rewards?
-3. **RL and compositional generalization.** Which training strategies produce models that compose skills they were never explicitly taught, and what does that reveal about how RL works? I study this concretely by building robust GUI agents.
+1. **Efficient generalization of language agents.** How can an agent build a reusable hierarchy of skills from its own experience, and how can training teach it to capture how those skills compose? ([X-Tree](https://sitaocheng.github.io/xtree/))
+2. **RL and compositional generalization.** Which training strategies produce models that compose skills they were never explicitly taught, and what does that reveal about how RL works?
+3. **Automatic reward modeling.** Can reward functions be *discovered* rather than hand-designed, through differentiable evolutionary meta-rewards?
 {: .research-list}
 
 I am always glad to talk about research, so please feel free to [reach out](mailto:sitao.cheng@uwaterloo.ca). You can also read my [CV](https://sitaocheng.github.io/files/sitao_cheng_cv_2026_04.pdf).
@@ -49,6 +49,10 @@ I am always glad to talk about research, so please feel free to [reach out](mail
 
 
 ## Preprints
+
+- X-Tree: Tokenizing Reusable Experience for Efficient Agent Generalization\
+<span class="authors">**Sitao Cheng**, Xunjian Yin, Zhiyuan Sun, Yuxuan Li, Ruiwen Zhou, Xiangru Jian, Victor Zhong</span>\
+[paper](https://arxiv.org/abs/2609.32993) [project](https://sitaocheng.github.io/xtree/) [code](https://github.com/sitaocheng/X-Tree)
 
 - From Atomic to Composite: Reinforcement Learning Enables Generalization in Complementary Reasoning\
 <span class="authors">**Sitao Cheng**, Xunjian Yin, Ruiwen Zhou, Yuxuan Li, Xinyi Wang, Liangming Pan, William Yang Wang, Victor Zhong</span>\
