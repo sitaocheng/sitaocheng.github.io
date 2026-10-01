@@ -259,6 +259,56 @@ li{margin-top:10px}
 .takeaways ol{margin:8px 0 0;padding-left:22px;color:var(--ink2);font-size:16.5px;line-height:1.55}
 .takeaways li{margin-top:5px}
 .takeaways strong{color:var(--ink)}
+/* compact interactive figures in the blog */
+.wide .card-node .expand{display:none}
+.wide .integ-hint>.note{display:none}
+.wide .integ-hint{overflow:hidden}
+.wide .xt ul{padding-left:9px}
+.wide .xt li{padding:2px 0 2px 10px}
+.wide .xt ul>li::after{width:7px;top:12px}
+.wide .xt ul>li:last-child::before{height:12px}
+.wide .xl{display:grid;max-width:100%;min-width:0}
+.wide .xl span,.wide .xl i{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wide .xn small{font-size:10.5px}
+.wide.fig{width:min(900px,calc(100vw - 32px))}
+.wide .ex-top,.wide .integ-top{padding:9px 12px;gap:8px 12px}
+.wide .tab{padding:5px 10px;font-size:13px}
+.wide .chip{font-size:12px;padding:3px 9px}
+.wide .task{padding:8px 12px;gap:3px}
+.wide .task .utt{font-size:14px;line-height:1.45;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.wide .merge{padding:7px 12px;gap:6px}
+.wide .merge-row{gap:6px 10px}
+.wide .ratio{font-size:12.5px} .wide .ratio b{font-size:15px}
+.wide .sym{font-size:10.5px;padding:1px 5px}
+.wide .traj{max-height:360px;overflow:auto}
+.wide .row .cmd{font-size:11.8px}
+.wide .tok{font-size:10.8px;padding:1px 6px}
+.wide .ex-body{grid-template-columns:minmax(0,1fr) 250px}
+.wide .side{padding:10px 12px;gap:8px}
+.wide .card-node .name{font-size:16px}
+.wide .kv{font-size:13px;margin-top:6px}
+.wide .compose,.wide .expand{margin-top:6px}
+.wide .legend{padding:7px 12px;font-size:11.5px;gap:4px 12px}
+.wide .legend span:last-child{display:none}
+.wide .narrow-note{padding:7px 12px}
+.wide .integ-ex{padding:7px 12px}
+.wide .integ-body{grid-template-columns:minmax(0,1fr) 250px}
+.wide .integ-main{padding:11px 12px;gap:9px}
+.wide .integ-cap{font-size:14px;min-height:0;line-height:1.5}
+.wide .integ-task{font-size:13px;padding:6px 9px;line-height:1.45}
+.wide .integ-task .tt{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.wide .integ-hint{padding:11px 12px;gap:7px}
+.wide .integ-main>.note{display:none}
+.wide .act{font-size:11.3px;padding:3px 7px}
+.wide .lane{grid-template-columns:96px minmax(0,1fr);gap:8px}
+.wide .lane>.lab{font-size:11px;padding-top:4px}
+.wide .seg{font-size:10.5px;padding:2px 6px}
+.wide .roll{grid-template-columns:22px minmax(0,1fr) 56px 110px;gap:8px}
+.wide .rolls{gap:7px}
+.wide .card-ctx{max-height:190px;font-size:10.8px}
+.wide .tk .g{height:40px;width:32px}
+.wide .xn b{font-size:12px} .wide .xl span{font-size:11px}
+@media (max-width:900px){.wide .ex-body,.wide .integ-body{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -298,7 +348,7 @@ li{margin-top:10px}
   <h2>The same routines, again and again</h2>
   <p><strong>Flat training relearns every routine from scratch.</strong> SFT and RL weight every action the same, so a model learns “fill a date, fill a date, click apply” anew each time it sees it, on every site where it appears. Experience is expensive: every trajectory needs an environment, a task and a verifier that can be trusted, and none of that scales the way web text does.</p>
   <p><strong>The structure is already in the data.</strong> Below is a real WebArena trajectory with the tree mined from 7,974 Go-Browse trajectories. Its last three steps form the node <code>S3</code>, fill two fields and submit, which occurs 411 times in the corpus: as a date filter on the admin panel and as a route query on the map. With the navigation node before it, it forms <code>S127</code>, which filters a table by a date range. Switch to ScienceWorld to see one node cover the whole trip to fetch the thermometer.</p>
-  <figure class="wide">
+  <figure class="wide fig">
     <div class="explorer" id="xp">
       <div class="ex-top">
         <div class="tabs" role="tablist" aria-label="Environment" id="envTabs"></div>
@@ -346,7 +396,7 @@ li{margin-top:10px}
   <p><strong>As data, a node is a dense, graded target.</strong> With only trajectories and no environment, each node becomes an RL instance. The policy continues from the gold steps before the node and earns credit for every matched step, plus a completion bonus that grows with depth, instead of a single reward at the end of the episode.</p>
   <p><strong>As reward, the tree gives a signal when the verifier is silent.</strong> Early in RL, a group of rollouts often has no success, so outcome rewards are all equal and GRPO learns nothing. Every mined skill a rollout executes earns a bonus, which separates the rollouts. The bonus fades as successes appear.</p>
   <p><strong>As context, the tree tells the teacher which routine to follow.</strong> In on-policy self-distillation the model is its own teacher. Given a rendered X-Tree card, the teacher raises the tokens of the next routine step, and the student is pulled toward it on exactly those tokens. The card replaces the LLM-written skill bank such methods normally use.</p>
-  <figure class="wide">
+  <figure class="wide fig">
     <div class="integ" id="ig">
       <div class="integ-top">
         <div class="tabs" role="tablist" aria-label="Integration" id="igTabs">
@@ -454,12 +504,12 @@ li{margin-top:10px}
   function load(){
     stop();
     const ex = DATA[env].examples[exi];
-    ROW = ex.commands.length <= 6 ? 44 : ex.commands.length <= 9 ? 38 : 32;
+    ROW = ex.commands.length <= 6 ? 34 : 28;   // compact rows in the blog
     $('traj').style.setProperty('--row', ROW + 'px');
     model = buildModel(ex);
     depth = model.maxLevel;
     const d = $('depth'); d.max = model.maxLevel; d.value = depth;
-    $('task').innerHTML = `<div class="meta"><span>${esc(ex.env)}</span><span>${esc(ex.task_id||'')}</span><span>${model.n} actions</span><span>${model.inst.length} node instances</span><span>max depth ${model.maxLevel}</span></div><div class="utt">${esc(ex.utterance||'')}</div>`;
+    $('task').innerHTML = `<div class="meta"><span>${esc(ex.env)}</span><span>${esc(ex.task_id||'')}</span><span>${model.n} actions</span><span>${model.inst.length} node instances</span><span>max depth ${model.maxLevel}</span></div><div class="utt" title="${esc(ex.utterance||'')}">${esc(ex.utterance||'')}</div>`;
     // default selection: deepest top-level node
     const tops = model.tops.filter(t=>!t.leaf);
     sel = tops.length ? tops.reduce((a,b)=> b.level > a.level ? b : a) : null;
@@ -599,7 +649,7 @@ li{margin-top:10px}
 
   // nested node structure; leaves show the concrete action the rollout must produce
   function xtree(t, ci){
-    if (t.leaf) return `<li><span class="xl" style="${K(ci)}"><i>${esc(t.tok)}</i><span>${esc(t.act)}</span></span></li>`;
+    if (t.leaf) return `<li><span class="xl" style="${K(ci)}" title="${esc(t.act)}"><i>${esc(t.tok)}</i><span>${esc(t.act)}</span></span></li>`;
     const kids = t.kids.map((k,i)=> xtree(k, ci === null ? i : ci)).join('');
     return `<li><span class="xn"><b>${esc(t.name)}</b><small>${esc(t.id)} · depth ${t.depth}</small></span><ul>${kids}</ul></li>`;
   }
@@ -619,7 +669,7 @@ li{margin-top:10px}
     const ok2 = e.wrong.slice(0, firstBad+1).map((w,i)=> i < firstBad ? `<span class="act kc" style="${K(e.gold[i].child)}"><span class="mk">✓</span>${esc(w)}</span>` : `<span class="act bad"><span class="mk">✗</span>${esc(w)}</span>`).join('');
     const r1 = 0.7 + 0.3*(1+0.5*e.node.depth), r2 = 0.7*firstBad/L, R = Math.max(r1, 1e-9);
     const main = `<p class="integ-cap">${offSteps(e)[k]}</p>
-      <div class="integ-task"><span>Task · WebArena</span>${esc(e.task)}</div>
+      <div class="integ-task"><span>Task · WebArena</span><div class="tt" title="${esc(e.task)}">${esc(e.task)}</div></div>
       <div class="lane"><div class="lab">previous gold steps</div><div class="acts">${e.prefix_skipped?'<span class="act ctx">…</span>':''}${e.prefix.map(p=>`<span class="act ctx">${esc(p)}</span>`).join('')}</div></div>
       ${k>=1?`<div class="lane"><div class="lab">rollout τ₁</div><div class="acts">${ok1}</div></div>`:''}
       ${k>=2?`<div class="lane"><div class="lab">rollout τ₂</div><div class="acts">${ok2}</div></div>`:''}
@@ -665,7 +715,7 @@ li{margin-top:10px}
     }).join('');
     const lamTxt = lam >= 0.749 ? '<span class="pill on">bonus weight: full</span>' : lam > 0 ? '<span class="pill mid">bonus weight: reduced</span>' : '<span class="pill off">bonus weight: off</span>';
     const main = `<p class="integ-cap">${rlvrSteps(e)[k]}</p>
-      <div class="integ-task"><span>Task · ${esc(e.env)}</span>${esc(e.task)}</div>
+      <div class="integ-task"><span>Task · ${esc(e.env)}</span><div class="tt" title="${esc(e.task)}">${esc(e.task)}</div></div>
       ${k>=2?`<div class="scen">${SCEN.map((s,i)=>`<button type="button" class="chip" aria-pressed="${i===scen}" data-s="${i}">${s.name}</button>`).join('')}</div>`:''}
       <div class="roll" style="margin-bottom:-4px"><span></span><span class="note">rollout</span><span class="note" style="text-align:center">${k>=2?'verifier':''}</span><span class="note">${k>=3?'advantage':k>=1?'X-Tree bonus':''}</span></div>
       <div class="rolls">${rows}</div>
@@ -690,7 +740,7 @@ li{margin-top:10px}
       return `<div class="tk${k>=2&&t.inf?' inf':''}"><div class="g"><i style="height:${h}%"></i></div><span class="w">${esc(t.t)}</span></div>`;
     }).join('');
     const main = `<p class="integ-cap">${opsdSteps(e)[k]}</p>
-      <div class="integ-task"><span>Task · ${esc(e.env)}</span>${esc(e.task)}</div>
+      <div class="integ-task"><span>Task · ${esc(e.env)}</span><div class="tt" title="${esc(e.task)}">${esc(e.task)}</div></div>
       <div class="lane"><div class="lab">steps so far</div><div class="acts">${e.context.map(c=>`<span class="act ctx">${esc(c)}</span>`).join('') || '<span class="act ctx">(start)</span>'}</div></div>
       <div class="lane"><div class="lab">student prompt</div><div class="acts"><span class="act">task + steps so far</span></div></div>
       <div class="lane"><div class="lab">teacher prompt</div><div class="acts">${k>=1?'<span class="act kc" style="'+K(0)+'">X-Tree card</span><span class="act">+ task + steps so far</span>':'<span class="act pend">same prompt + X-Tree card</span>'}</div></div>
