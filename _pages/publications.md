@@ -16,7 +16,7 @@ Preprints
 
 - X-Tree: Tokenizing Reusable Experience for Efficient Agent Generalization \
 **Sitao Cheng**, Xunjian Yin, Zhiyuan Sun, Yuxuan Li, Ruiwen Zhou, Xiangru Jian, Victor Zhong \
-[[paper](https://arxiv.org/abs/2609.32993)] [[project](https://sitaocheng.github.io/xtree/)]  
+[[paper](https://arxiv.org/abs/2609.32993)] [[homepage](https://sitaocheng.github.io/xtree/)]  
 
 - Understanding the Interplay between Parametric and Contextual Knowledge for Large Language Models \
 **Sitao Cheng**, Liangming Pan, Xunjian Yin, Xinyi Wang, William Yang Wang \

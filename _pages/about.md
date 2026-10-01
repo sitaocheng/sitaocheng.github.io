@@ -52,7 +52,7 @@ I am always glad to talk about research, so please feel free to [reach out](mail
 
 - X-Tree: Tokenizing Reusable Experience for Efficient Agent Generalization\
 <span class="authors">**Sitao Cheng**, Xunjian Yin, Zhiyuan Sun, Yuxuan Li, Ruiwen Zhou, Xiangru Jian, Victor Zhong</span>\
-[paper](https://arxiv.org/abs/2609.32993) [project](https://sitaocheng.github.io/xtree/) [code](https://github.com/sitaocheng/X-Tree)
+[paper](https://arxiv.org/abs/2609.32993) [homepage](https://sitaocheng.github.io/xtree/) [code](https://github.com/sitaocheng/X-Tree)
 
 - From Atomic to Composite: Reinforcement Learning Enables Generalization in Complementary Reasoning\
 <span class="authors">**Sitao Cheng**, Xunjian Yin, Ruiwen Zhou, Yuxuan Li, Xinyi Wang, Liangming Pan, William Yang Wang, Victor Zhong</span>\
