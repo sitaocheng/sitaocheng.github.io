@@ -66,7 +66,7 @@ h1{font-family:var(--display);font-weight:800;font-size:clamp(28px,4.2vw,40px);l
 .byline .who{font-size:16px;color:var(--ink2)}
 .byline .aff,.byline .mail{font-size:14.5px;color:var(--mute)}
 .byline .mail a{font-family:var(--mono);font-size:13px}
-h2{font-family:var(--display);font-weight:700;font-size:27px;line-height:1.2;letter-spacing:-.01em;margin:52px 0 0;text-wrap:balance}
+h2{scroll-margin-top:70px;font-family:var(--display);font-weight:700;font-size:27px;line-height:1.2;letter-spacing:-.01em;margin:52px 0 0;text-wrap:balance}
 p{margin:16px 0 0;color:var(--ink2)}
 p strong,li strong{color:var(--ink)}
 code{font-family:var(--mono);font-size:.8em;background:var(--code);padding:1px 5px;border-radius:4px;color:var(--ink)}
@@ -319,10 +319,11 @@ li{margin-top:10px}
       <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="3.5" r="2.4" fill="var(--blue)"/><circle cx="4" cy="15.5" r="2.4" fill="var(--orange)"/><circle cx="16" cy="15.5" r="2.4" fill="var(--blue)"/><path d="M10 6v4M10 10L4.8 13.4M10 10l5.2 3.4" stroke="var(--ink2)" stroke-width="1.6" fill="none"/></svg>
       X-Tree
     </a>
-    <nav aria-label="Project">
+    <nav aria-label="Sections">
+      <a href="#tree">The tree</a>
+      <a href="#training">Training</a>
+      <a href="#results">Results</a>
       <a href="index.html">Project page</a>
-      <a href="index.html#explorer">Explorer</a>
-      <a href="index.html#integrations">Integrations</a>
     </nav>
   </div>
 </header>
@@ -346,9 +347,9 @@ li{margin-top:10px}
     </ol>
   </div>
 
-  <h2>The same routines, again and again</h2>
+  <h2 id="tree">The same routines, again and again</h2>
   <p><strong>Flat training relearns every routine from scratch.</strong> SFT and RL weight every action the same, so a model learns “fill a date, fill a date, click apply” anew each time it sees it, on every site where it appears. Experience is expensive: every trajectory needs an environment, a task and a verifier that can be trusted, and none of that scales the way web text does.</p>
-  <p><strong>The structure is already in the data.</strong> Below is a real WebArena trajectory with the tree mined from 7,974 Go-Browse trajectories. Its last three steps form the node <code>S3</code>, fill two fields and submit, which occurs 411 times in the corpus: as a date filter on the admin panel and as a route query on the map. With the navigation node before it, it forms <code>S127</code>, which filters a table by a date range. Switch to ScienceWorld to see one node cover the whole trip to fetch the thermometer.</p>
+  <p><strong>The structure is already in the data.</strong> Below is a real WebArena trajectory with the tree mined from 7,974 Go-Browse trajectories. Its last three steps form the node <code>S3</code>, fill two fields and submit, which occurs 411 times in the corpus: as a date filter on the admin panel and as a route query on the map. With the navigation node before it, it forms <code>S127</code>, which filters a table by a date range. The explorer below opens on this trajectory with <code>S127</code> selected: click <code>fill_two_and_submit</code> in the tree to highlight its three steps, or switch to ScienceWorld to see one node cover the whole trip to fetch the thermometer.</p>
   <figure class="wide fig">
     <div class="explorer" id="xp">
       <div class="ex-top">
@@ -381,10 +382,10 @@ li{margin-top:10px}
         <span>Node names are glosses written from each node's actions; the miner assigns only IDs.</span>
       </div>
     </div>
-    <figcaption>Click a node to see the steps it covers; drag the merge depth to replay the compression. The explorer opens on the date-filter trajectory above, and the tabs hold thirteen more from WebArena, ScienceWorld, WebShop and MiniWoB++.</figcaption>
+    <figcaption>Click a node or its name to highlight the steps it covers and see how often it recurs in the corpus; drag the merge depth or press Replay to watch the trajectory compress. Long trajectories scroll inside the tree. The tabs hold thirteen more real trajectories from WebArena, ScienceWorld, WebShop and MiniWoB++. Node names are our glosses; the miner assigns only IDs.</figcaption>
   </figure>
 
-  <h2>Counting, not prompting</h2>
+  <h2 id="method">Counting, not prompting</h2>
   <p><strong>A tokenizer for actions.</strong> Language models already solve a version of this problem before training starts: a tokenizer builds a vocabulary by repeatedly merging the pair that co-occurs most often. We apply the same idea to actions, with two changes.</p>
   <p>First, actions are made comparable. Each raw action becomes a typed token such as <code>type⟨date⟩</code> or <code>click⟨button⟩</code>, and the element ids and values move into slots, so two date filters on different pages read as the same symbol. Second, merges are chosen by reusability, not frequency alone. We score an adjacent pair by how often it recurs, how long the merged span is, and how often it appears in successful episodes. We call this score X-Score. A merge must also shorten the corpus by more than it costs. The merges stack into a tree: a reusable experience tree, or X-Tree.</p>
   <p><strong>Other agent systems ask an LLM to write skills instead.</strong> Those skills stay in the prompt, never enter the weights, and cannot be rebuilt from the data. X-Tree is deterministic, auditable, and trained into the model.</p>
@@ -393,10 +394,11 @@ li{margin-top:10px}
     <figcaption>Flat training versus training with X-Tree. The tree is built with zero LLM calls.</figcaption>
   </figure>
 
-  <h2>Why the tree helps training</h2>
+  <h2 id="training">Why the tree helps training</h2>
   <p><strong>As data, a node is a dense, graded target.</strong> With only trajectories and no environment, each node becomes an RL instance. The policy continues from the gold steps before the node and earns credit for every matched step, plus a completion bonus that grows with depth, instead of a single reward at the end of the episode.</p>
   <p><strong>As reward, the tree gives a signal when the verifier is silent.</strong> Early in RL, a group of rollouts often has no success, so outcome rewards are all equal and GRPO learns nothing. Every mined skill a rollout executes earns a bonus, which separates the rollouts. The bonus fades as successes appear.</p>
   <p><strong>As context, the tree tells the teacher which routine to follow.</strong> In on-policy self-distillation the model is its own teacher. Given a rendered X-Tree card, the teacher raises the tokens of the next routine step, and the student is pulled toward it on exactly those tokens. The card replaces the LLM-written skill bank such methods normally use.</p>
+  <p>The demo below walks through each integration on real tasks. The panel on the right is the hint: the part of the X-Tree the rollouts are matched against, in the same colors.</p>
   <figure class="wide fig">
     <div class="integ" id="ig">
       <div class="integ-top">
@@ -417,10 +419,10 @@ li{margin-top:10px}
         <aside class="integ-hint" id="igHint"></aside>
       </div>
     </div>
-    <figcaption>Step through each integration, or press Play. Real X-Tree nodes, skill cards and tasks; the rollouts and token values are illustrative.</figcaption>
+    <figcaption>Choose an integration and a task, then press Next to step through it or Play to run it. Real X-Tree nodes, skill cards and tasks; the rollouts, outcomes and token values are illustrative.</figcaption>
   </figure>
 
-  <h2>What we found</h2>
+  <h2 id="results">What we found</h2>
   <div class="stats">
     <div class="stat"><b>+4.5</b><span>SR on WebArena from offline RL, over full-data SFT on the same trajectories</span></div>
     <div class="stat"><b>+4.9</b><span>SR on ScienceWorld from the RLVR bonus, over outcome-only GRPO</span></div>
@@ -445,9 +447,8 @@ li{margin-top:10px}
   <p>We mine the tree once from a fixed pool. Mining from the policy's own trajectories would let the tree and the policy improve together. We also use each integration on its own. Combining nodes as data, the bonus and distillation in one model is the obvious next step. And because the tree records which routines recur and which succeed, it also shows where a corpus is thin, which is where new trajectories are worth collecting.</p>
 
   <div class="end">
-    <a class="btn" href="index.html#explorer">Explore real trees</a>
+    <a class="btn" href="https://arxiv.org/abs/2609.32993">Paper</a>
     <a class="btn ghost" href="index.html">Project page</a>
-    <a class="btn ghost" href="https://arxiv.org/abs/2609.32993">Paper</a>
     <a class="btn ghost" href="https://github.com/sitaocheng/X-Tree">Code</a>
   </div>
 </article>
