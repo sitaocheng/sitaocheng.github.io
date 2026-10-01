@@ -13,7 +13,7 @@ Hi, I am Sitao Cheng, a Ph.D. student at the University of Waterloo, fortunate t
 My research asks how reasoning in large language models can generalize *efficiently*: how a model can autonomously compose the skills it already has (parametric) with newly acquired ones (contextual), and recursively improve itself. I work across language agents, reinforcement learning, retrieval-augmented generation (RAG), and neural-symbolic reasoning. Three questions drive my current work:
 {: .intro}
 
-1. **Efficient generalization of language agents.** How can an agent build a reusable hierarchy of skills from its own experience, and how can training teach it to capture how those skills compose? ([X-Tree](https://sitaocheng.github.io/xtree/))
+1. **Efficient generalization of language agents.** How can an agent build a reusable hierarchy of skills from its own experience, and how can training teach it to capture how those skills compose?
 2. **RL and compositional generalization.** Which training strategies produce models that compose skills they were never explicitly taught, and what does that reveal about how RL works?
 3. **Automatic reward modeling.** Can reward functions be *discovered* rather than hand-designed, through differentiable evolutionary meta-rewards?
 {: .research-list}
