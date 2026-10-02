@@ -93,8 +93,8 @@ analytics:
 author:
   name             : "Sitao Cheng"
   avatar           : "front_img.jpg"
-  bio              : "PhD Student at UWaterloo.\nWorking on NLP."
-  location         : "Waterloo, Canada"
+  bio              : "PhD Student at UWaterloo.\nWorking on LLMs."
+  location         : "Mountain View, USA"
   employer         :
   pubmed           : # "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
   googlescholar    : "https://scholar.google.com/citations?user=e4U43aYAAAAJ"
@@ -127,7 +127,7 @@ author:
   xing             :
   youtube          :
   wikipedia        :
-  cv               : "https://sitaocheng.github.io/files/sitao_cheng_cv_2026_04.pdf"
+  cv               : "https://sitaocheng.github.io/files/sitao_cheng_cv_2026_10.pdf"
 
 
 

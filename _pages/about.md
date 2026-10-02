@@ -18,7 +18,7 @@ My research asks how reasoning in large language models can generalize *efficien
 3. **Automatic reward modeling.** Can reward functions be *discovered* rather than hand-designed, through differentiable evolutionary meta-rewards?
 {: .research-list}
 
-I am always glad to talk about research, so please feel free to [reach out](mailto:sitao.cheng@uwaterloo.ca). You can also read my [CV](https://sitaocheng.github.io/files/sitao_cheng_cv_2026_04.pdf).
+I am always glad to talk about research, so please feel free to [reach out](mailto:sitao.cheng@uwaterloo.ca). You can also read my [CV](https://sitaocheng.github.io/files/sitao_cheng_cv_2026_10.pdf).
 
 
 ## Recent News
