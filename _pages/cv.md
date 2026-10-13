@@ -15,7 +15,7 @@ Download my [CV (PDF)](../files/sitao_cheng_cv_2026_10.pdf) ([Transcripts](../fi
 
 Education
 ======
-* Ph.D. in Computer Science, University of Waterloo, advised by Professor [Victor Zhong](https://www.victorzhong.com/), 09.2025 - Now (expected 06.2029)
+* Ph.D. in Computer Science, University of Waterloo, advised by Professor [Victor Zhong](https://www.victorzhong.com/), 09.2025 - Now (expected 06.2028)
 * M.S. in Computer Science and Technology, Nanjing University, advised by Professor Yuzhong Qu, 09.2021 - 06.2024
 * B.E. in Software Engineering, University of Electronic Science and Technology of China, advised by Professor Yi Ding, GPA 3.98 / 4.00 (Top 3), 09.2017 - 06.2021
 

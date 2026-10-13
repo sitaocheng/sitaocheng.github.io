@@ -26,6 +26,7 @@ I am always glad to talk about research, so please feel free to [reach out](mail
 <div class="news-panel">
 <div class="news-feed" markdown="1" tabindex="0" role="region" aria-label="Recent news">
 
+- **2026-10** Attended COLM 2026 in San Francisco.
 - **2026-08** Joined Samaya AI as a Student Researcher.
 - **2026-04** Attended ICLR 2026 in Rio de Janeiro.
 - **2026-04** One paper accepted to ACL 2026.
