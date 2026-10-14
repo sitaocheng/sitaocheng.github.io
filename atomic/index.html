@@ -444,7 +444,7 @@ thead tr+tr th:first-child{text-align:right}
       <a class="btn" href="#data"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="4" cy="4" r="2" fill="currentColor"/><circle cx="4" cy="12" r="2" fill="currentColor"/><circle cx="12" cy="8" r="2.4" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M6 5l4 2M6 11l4-2" stroke="currentColor" stroke-width="1.3"/></svg>See how the data is built</a>
     </div>
     <div class="tldr">
-      <p><b>TL;DR</b> Does RL synthesize new reasoning skills, or only amplify ones the model already has? On a contamination-free benchmark of synthetic biographies, SFT on composite questions memorizes the seen reasoning paths and fails on unseen relations. RL generalizes to these unseen compositions, but only when the model has first learned the two atomic skills: recalling facts from its weights and reading facts from the context.</p>
+      <p><b>TL;DR</b> We build a contamination-free benchmark of synthetic biographies and find two things. (1) SFT on composite questions memorizes the seen reasoning paths and fails on unseen relations. (2) RL generalizes to unseen compositions, but only after the model learns the atomic skills: recalling facts from its weights and reading facts from the context.</p>
       <details class="abs">
         <summary>Read the abstract</summary>
         <div class="prose">
