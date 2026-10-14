@@ -245,3 +245,151 @@ $panel-border    : #e6e8ea;
     color: $accent-dark;
   }
 }
+
+/* --------------------------------------------------------------------------
+   Publication and project cards: thumbnail on the left, details on the right
+   -------------------------------------------------------------------------- */
+
+.pub-cards {
+  margin: 0.3em 0 0.5em;
+}
+
+.pub-card {
+  display: grid;
+  grid-template-columns: 230px minmax(0, 1fr);
+  gap: 1.35em;
+  align-items: center;
+  padding: 1.1em 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.pub-card:last-child {
+  border-bottom: 0;
+}
+
+.pub-thumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 150px;
+  padding: 8px;
+  background: #fff;
+  border: 1px solid $panel-border;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+a.pub-thumb:hover {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  transform: translateY(-1px);
+}
+
+.pub-thumb img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.pub-body {
+  min-width: 0;
+  font-size: 0.9em;
+  line-height: 1.5;
+}
+
+.page__content a.pub-title,
+.pub-title {
+  font-weight: 600;
+  font-size: 1.04em;
+  line-height: 1.38;
+  color: $accent-dark;
+  text-decoration: none;
+}
+
+.page__content a.pub-title:hover,
+.page__content a.pub-title:focus {
+  color: $accent;
+  text-decoration: underline;
+}
+
+.pub-authors {
+  margin-top: 0.3em;
+  font-size: 0.9em;
+  color: #6b7278;
+
+  strong {
+    color: $text-color;
+    font-weight: 600;
+  }
+}
+
+.pub-note {
+  font-size: 0.78em;
+  color: #8a9196;
+}
+
+.pub-venue {
+  margin-top: 0.15em;
+  font-size: 0.9em;
+  font-style: italic;
+  color: #4a5257;
+}
+
+.pub-badge {
+  display: inline-block;
+  margin-left: 0.45em;
+  padding: 0 0.45em;
+  font-size: 0.82em;
+  font-style: normal;
+  font-weight: 600;
+  color: $accent-dark;
+  background-color: $accent-tint;
+  border: 1px solid $accent-line;
+  border-radius: 3px;
+  vertical-align: 0.06em;
+}
+
+.pub-desc {
+  margin: 0.4em 0 0;
+  font-size: 0.95em;
+  line-height: 1.55;
+  color: #4a5257;
+}
+
+.pub-links {
+  margin-top: 0.4em;
+
+  a {
+    display: inline-block;
+    margin: 0.2em 0.3em 0 0;
+    padding: 0.1em 0.65em;
+    font-size: 0.86em;
+    line-height: 1.55;
+    color: #3d4549;
+    background-color: #fff;
+    border: 1px solid #cfd5d9;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+
+    &:hover,
+    &:focus {
+      color: $accent-dark;
+      background-color: $accent-tint;
+      border-color: $accent-line;
+      text-decoration: none;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .pub-card {
+    grid-template-columns: 1fr;
+    gap: 0.75em;
+  }
+
+  .pub-thumb {
+    height: 170px;
+  }
+}

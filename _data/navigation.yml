@@ -14,11 +14,8 @@ main:
   - title: "CV"
     url: /cv/
 
-  - title: "X-Tree"
-    url: /xtree/
-
-  - title: "DERL"
-    url: /derl/
+  - title: "Projects"
+    url: /projects/
       
   # - title: "Talks"
   #   url: /talks/    

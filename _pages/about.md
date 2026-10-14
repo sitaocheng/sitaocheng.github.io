@@ -51,54 +51,113 @@ I am always glad to talk about research, so please feel free to [reach out](mail
 
 ## Preprints
 
-- X-Tree: Tokenizing Reusable Experience for Efficient Agent Generalization\
-<span class="authors">**Sitao Cheng**, Xunjian Yin, Zhiyuan Sun, Yuxuan Li, Ruiwen Zhou, Xiangru Jian, Victor Zhong</span>\
-[paper](https://arxiv.org/abs/2609.32993) [homepage](https://sitaocheng.github.io/xtree/) [code](https://github.com/sitaocheng/X-Tree)
-
-- From Atomic to Composite: Reinforcement Learning Enables Generalization in Complementary Reasoning\
-<span class="authors">**Sitao Cheng**, Xunjian Yin, Ruiwen Zhou, Yuxuan Li, Xinyi Wang, Liangming Pan, William Yang Wang, Victor Zhong</span>\
-[paper](https://arxiv.org/pdf/2512.01970) [code](https://github.com/sitaocheng/from_atomic_to_composite) [data](https://huggingface.co/datasets/sitao/From_atomic_to_composite)
-
-- Differentiable Evolutionary Reinforcement Learning\
-<span class="authors">**Sitao Cheng\***, Tianle Li\*, Xuhan Huang\*, Xunjian Yin, Difan Zou</span>\
-[paper](https://arxiv.org/abs/2512.13399) [code](https://github.com/sitaocheng/DERL) [model](https://huggingface.co/DifferentiableEvolutionaryRL)
-
-- Epistemic Context Learning: Building Trust the Right Way in LLM-Based Multi-Agent Systems\
-<span class="authors">Ruiwen Zhou\*, Maojia Song\*, Xiaobao Wu, **Sitao Cheng**, Xunjian Yin, Yuxi Xie, Zoey Hao, Wenyue Hua, Liangming Pan, Soujanya Poria, Min-Yen Kan</span>\
-[paper](https://arxiv.org/pdf/2601.21742) [code](https://github.com/skyriver-2000/epistemic-context-learning)
-{: .pub-list}
+<div class="pub-cards">
+<div class="pub-card">
+  <a class="pub-thumb" href="https://sitaocheng.github.io/xtree/" aria-hidden="true" tabindex="-1"><img src="/images/pubs/xtree.png" alt="" loading="lazy"></a>
+  <div class="pub-body">
+    <a class="pub-title" href="https://sitaocheng.github.io/xtree/">X-Tree: Tokenizing Reusable Experience for Efficient Agent Generalization</a>
+    <div class="pub-authors"><strong>Sitao Cheng</strong>, Xunjian Yin, Zhiyuan Sun, Yuxuan Li, Ruiwen Zhou, Xiangru Jian, Victor Zhong</div>
+    <div class="pub-venue">Preprint, 2026</div>
+    <div class="pub-links"><a href="https://arxiv.org/abs/2609.32993">Paper</a> <a href="https://sitaocheng.github.io/xtree/">Project page</a> <a href="https://sitaocheng.github.io/xtree/blog.html">Blog</a> <a href="https://github.com/sitaocheng/X-Tree">Code</a></div>
+  </div>
+</div>
+<div class="pub-card">
+  <a class="pub-thumb" href="https://arxiv.org/pdf/2512.01970" aria-hidden="true" tabindex="-1"><img src="/images/pubs/atomic.png" alt="" loading="lazy"></a>
+  <div class="pub-body">
+    <a class="pub-title" href="https://arxiv.org/pdf/2512.01970">From Atomic to Composite: Reinforcement Learning Enables Generalization in Complementary Reasoning</a>
+    <div class="pub-authors"><strong>Sitao Cheng</strong>, Xunjian Yin, Ruiwen Zhou, Yuxuan Li, Xinyi Wang, Liangming Pan, William Yang Wang, Victor Zhong</div>
+    <div class="pub-venue">Preprint, 2025</div>
+    <div class="pub-links"><a href="https://arxiv.org/pdf/2512.01970">Paper</a> <a href="https://github.com/sitaocheng/from_atomic_to_composite">Code</a> <a href="https://huggingface.co/datasets/sitao/From_atomic_to_composite">Data</a></div>
+  </div>
+</div>
+<div class="pub-card">
+  <a class="pub-thumb" href="https://sitaocheng.github.io/derl/" aria-hidden="true" tabindex="-1"><img src="/images/pubs/derl.png" alt="" loading="lazy"></a>
+  <div class="pub-body">
+    <a class="pub-title" href="https://sitaocheng.github.io/derl/">Differentiable Evolutionary Reinforcement Learning</a>
+    <div class="pub-authors"><strong>Sitao Cheng*</strong>, Tianle Li*, Xuhan Huang*, Xunjian Yin, Difan Zou</div>
+    <div class="pub-note">* Equal contribution</div><div class="pub-venue">Preprint, 2025</div>
+    <div class="pub-links"><a href="https://arxiv.org/abs/2512.13399">Paper</a> <a href="https://sitaocheng.github.io/derl/">Project page</a> <a href="https://github.com/sitaocheng/DERL">Code</a> <a href="https://huggingface.co/DifferentiableEvolutionaryRL">Models</a></div>
+  </div>
+</div>
+<div class="pub-card">
+  <a class="pub-thumb" href="https://arxiv.org/pdf/2601.21742" aria-hidden="true" tabindex="-1"><img src="/images/pubs/ecl.png" alt="" loading="lazy"></a>
+  <div class="pub-body">
+    <a class="pub-title" href="https://arxiv.org/pdf/2601.21742">Epistemic Context Learning: Building Trust the Right Way in LLM-Based Multi-Agent Systems</a>
+    <div class="pub-authors">Ruiwen Zhou*, Maojia Song*, Xiaobao Wu, <strong>Sitao Cheng</strong>, Xunjian Yin, Yuxi Xie, Zoey Hao, Wenyue Hua, Liangming Pan, Soujanya Poria, Min-Yen Kan</div>
+    <div class="pub-note">* Equal contribution</div><div class="pub-venue">Preprint, 2026</div>
+    <div class="pub-links"><a href="https://arxiv.org/pdf/2601.21742">Paper</a> <a href="https://github.com/skyriver-2000/epistemic-context-learning">Code</a></div>
+  </div>
+</div>
+</div>
 
 
 ## Selected Publications
 
-- **[KnowFM @ ACL'25 Oral]** Understanding the Interplay between Parametric and Contextual Knowledge for Large Language Models\
-<span class="authors">**Sitao Cheng**, Liangming Pan, Xunjian Yin, Xinyi Wang, William Yang Wang</span>\
-[paper](https://arxiv.org/abs/2410.08414) [code](https://github.com/sitaocheng/Knowledge_Interplay)
-
-- **[ACL'24 Findings]** Call Me When Necessary: LLMs can Efficiently and Faithfully Reason over Structured Environments\
-<span class="authors">**Sitao Cheng**, Ziyuan Zhuang, Yong Xu, Fangkai Yang, Chaoyun Zhang, Xiaoting Qin, Xiang Huang, Ling Chen, Qingwei Lin, Dongmei Zhang, Saravan Rajmohan, Qi Zhang</span>\
-[paper](https://arxiv.org/abs/2403.08593) [code](https://github.com/microsoft/Readi)
-
-- **[ACL'26 Oral]** LEDOM: Reverse Language Model\
-<span class="authors">Xunjian Yin, **Sitao Cheng**, Yuxi Xie, Xinyu Hu, Li Lin, Xinyi Wang, Liangming Pan, William Yang Wang, Xiaojun Wan</span>\
-[paper](https://arxiv.org/abs/2507.01335) [model](https://huggingface.co/Corning/Reverse-Model-7B-348B)
-
-- **[ACL'24 Oral]** QueryAgent: A Reliable and Efficient Reasoning Framework with Environmental Feedback based Self-Correction\
-<span class="authors">Xiang Huang\*, **Sitao Cheng\***, Shanshan Huang, Jiayu Shen, Yong Xu, Chaoyun Zhang, Yuzhong Qu</span>\
-[paper](https://arxiv.org/abs/2403.11886) [code](https://github.com/cdhx/QueryAgent)
-
-- **[ACL'25]** Disentangling Memory and Reasoning Ability in Large Language Models\
-<span class="authors">Mingyu Jin, Weidi Luo, **Sitao Cheng**, Xinyi Wang, Wenyue Hua, Ruixiang Tang, William Yang Wang, Yongfeng Zhang</span>\
-[paper](https://arxiv.org/abs/2411.13504) [code](https://github.com/MingyuJ666/Disentangling-Memory-and-Reasoning)
-
-- **[EMNLP'24]** EfficientRAG: Efficient Retriever for Multi-Hop Question Answering\
-<span class="authors">Ziyuan Zhuang, Zhiyang Zhang, **Sitao Cheng**, Fangkai Yang, Jia Liu, Shujian Huang, Qingwei Lin, Saravan Rajmohan, Dongmei Zhang, Qi Zhang</span>\
-[paper](https://www.arxiv.org/abs/2408.04259) [code](https://github.com/NIL-zhuang/EfficientRAG-official)
-
-- **[ACL'25]** RuleArena: A Benchmark for Rule-Guided Reasoning with LLMs in Real-World Scenarios\
-<span class="authors">Ruiwen Zhou, Wenyue Hua, Liangming Pan, **Sitao Cheng**, Xiaobao Wu, En Yu, William Yang Wang</span>\
-[paper](https://arxiv.org/abs/2412.08972) [code](https://github.com/skyriver-2000/RuleArena)
-{: .pub-list}
+<div class="pub-cards">
+<div class="pub-card">
+  <a class="pub-thumb" href="https://arxiv.org/abs/2410.08414" aria-hidden="true" tabindex="-1"><img src="/images/pubs/interplay.png" alt="" loading="lazy"></a>
+  <div class="pub-body">
+    <a class="pub-title" href="https://arxiv.org/abs/2410.08414">Understanding the Interplay between Parametric and Contextual Knowledge for Large Language Models</a>
+    <div class="pub-authors"><strong>Sitao Cheng</strong>, Liangming Pan, Xunjian Yin, Xinyi Wang, William Yang Wang</div>
+    <div class="pub-venue">KnowFM Workshop @ ACL 2025 <span class="pub-badge">Oral</span></div>
+    <div class="pub-links"><a href="https://arxiv.org/abs/2410.08414">Paper</a> <a href="https://github.com/sitaocheng/Knowledge_Interplay">Code</a></div>
+  </div>
+</div>
+<div class="pub-card">
+  <a class="pub-thumb" href="https://arxiv.org/abs/2403.08593" aria-hidden="true" tabindex="-1"><img src="/images/pubs/readi.png" alt="" loading="lazy"></a>
+  <div class="pub-body">
+    <a class="pub-title" href="https://arxiv.org/abs/2403.08593">Call Me When Necessary: LLMs can Efficiently and Faithfully Reason over Structured Environments</a>
+    <div class="pub-authors"><strong>Sitao Cheng</strong>, Ziyuan Zhuang, Yong Xu, Fangkai Yang, Chaoyun Zhang, Xiaoting Qin, Xiang Huang, Ling Chen, Qingwei Lin, Dongmei Zhang, Saravan Rajmohan, Qi Zhang</div>
+    <div class="pub-venue">Findings of ACL 2024</div>
+    <div class="pub-links"><a href="https://arxiv.org/abs/2403.08593">Paper</a> <a href="https://github.com/microsoft/Readi">Code</a></div>
+  </div>
+</div>
+<div class="pub-card">
+  <a class="pub-thumb" href="https://arxiv.org/abs/2507.01335" aria-hidden="true" tabindex="-1"><img src="/images/pubs/ledom.png" alt="" loading="lazy"></a>
+  <div class="pub-body">
+    <a class="pub-title" href="https://arxiv.org/abs/2507.01335">LEDOM: Reverse Language Model</a>
+    <div class="pub-authors">Xunjian Yin, <strong>Sitao Cheng</strong>, Yuxi Xie, Xinyu Hu, Li Lin, Xinyi Wang, Liangming Pan, William Yang Wang, Xiaojun Wan</div>
+    <div class="pub-venue">ACL 2026 <span class="pub-badge">Oral</span></div>
+    <div class="pub-links"><a href="https://arxiv.org/abs/2507.01335">Paper</a> <a href="https://huggingface.co/Corning/Reverse-Model-7B-348B">Model</a></div>
+  </div>
+</div>
+<div class="pub-card">
+  <a class="pub-thumb" href="https://arxiv.org/abs/2403.11886" aria-hidden="true" tabindex="-1"><img src="/images/pubs/queryagent.png" alt="" loading="lazy"></a>
+  <div class="pub-body">
+    <a class="pub-title" href="https://arxiv.org/abs/2403.11886">QueryAgent: A Reliable and Efficient Reasoning Framework with Environmental Feedback based Self-Correction</a>
+    <div class="pub-authors">Xiang Huang*, <strong>Sitao Cheng*</strong>, Shanshan Huang, Jiayu Shen, Yong Xu, Chaoyun Zhang, Yuzhong Qu</div>
+    <div class="pub-note">* Equal contribution</div><div class="pub-venue">ACL 2024 <span class="pub-badge">Oral</span></div>
+    <div class="pub-links"><a href="https://arxiv.org/abs/2403.11886">Paper</a> <a href="https://github.com/cdhx/QueryAgent">Code</a></div>
+  </div>
+</div>
+<div class="pub-card">
+  <a class="pub-thumb" href="https://arxiv.org/abs/2411.13504" aria-hidden="true" tabindex="-1"><img src="/images/pubs/disentangle.png" alt="" loading="lazy"></a>
+  <div class="pub-body">
+    <a class="pub-title" href="https://arxiv.org/abs/2411.13504">Disentangling Memory and Reasoning Ability in Large Language Models</a>
+    <div class="pub-authors">Mingyu Jin, Weidi Luo, <strong>Sitao Cheng</strong>, Xinyi Wang, Wenyue Hua, Ruixiang Tang, William Yang Wang, Yongfeng Zhang</div>
+    <div class="pub-venue">ACL 2025</div>
+    <div class="pub-links"><a href="https://arxiv.org/abs/2411.13504">Paper</a> <a href="https://github.com/MingyuJ666/Disentangling-Memory-and-Reasoning">Code</a></div>
+  </div>
+</div>
+<div class="pub-card">
+  <a class="pub-thumb" href="https://www.arxiv.org/abs/2408.04259" aria-hidden="true" tabindex="-1"><img src="/images/pubs/efficientrag.png" alt="" loading="lazy"></a>
+  <div class="pub-body">
+    <a class="pub-title" href="https://www.arxiv.org/abs/2408.04259">EfficientRAG: Efficient Retriever for Multi-Hop Question Answering</a>
+    <div class="pub-authors">Ziyuan Zhuang, Zhiyang Zhang, <strong>Sitao Cheng</strong>, Fangkai Yang, Jia Liu, Shujian Huang, Qingwei Lin, Saravan Rajmohan, Dongmei Zhang, Qi Zhang</div>
+    <div class="pub-venue">EMNLP 2024</div>
+    <div class="pub-links"><a href="https://www.arxiv.org/abs/2408.04259">Paper</a> <a href="https://github.com/NIL-zhuang/EfficientRAG-official">Code</a></div>
+  </div>
+</div>
+<div class="pub-card">
+  <a class="pub-thumb" href="https://arxiv.org/abs/2412.08972" aria-hidden="true" tabindex="-1"><img src="/images/pubs/rulearena.png" alt="" loading="lazy"></a>
+  <div class="pub-body">
+    <a class="pub-title" href="https://arxiv.org/abs/2412.08972">RuleArena: A Benchmark for Rule-Guided Reasoning with LLMs in Real-World Scenarios</a>
+    <div class="pub-authors">Ruiwen Zhou, Wenyue Hua, Liangming Pan, <strong>Sitao Cheng</strong>, Xiaobao Wu, En Yu, William Yang Wang</div>
+    <div class="pub-venue">ACL 2025</div>
+    <div class="pub-links"><a href="https://arxiv.org/abs/2412.08972">Paper</a> <a href="https://github.com/skyriver-2000/RuleArena">Code</a></div>
+  </div>
+</div>
+</div>
 
 
 ## Teaching
