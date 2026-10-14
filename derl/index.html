@@ -1,0 +1,566 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>DERL: Dual-Evolving Reinforcement Learning for Automated Reward Design</title>
+<meta name="description" content="DERL trains the reward proposer itself: a small model composes rewards from task primitives and learns by policy gradient from the validation performance of the policies its rewards train.">
+<link rel="canonical" href="https://sitaocheng.github.io/derl/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Ccircle cx='7' cy='10' r='5' fill='none' stroke='%232f5e99' stroke-width='2'/%3E%3Ccircle cx='13' cy='10' r='5' fill='none' stroke='%23c0612b' stroke-width='2'/%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:title" content="DERL: Dual-Evolving Reinforcement Learning for Automated Reward Design">
+<meta property="og:description" content="DERL trains the reward proposer itself: a small model composes rewards from task primitives and learns by policy gradient from the validation performance of the policies its rewards train.">
+<meta property="og:url" content="https://sitaocheng.github.io/derl/">
+<meta property="og:image" content="https://sitaocheng.github.io/derl/img/frameworks_last.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="DERL: Dual-Evolving Reinforcement Learning for Automated Reward Design">
+<meta name="twitter:description" content="DERL trains the reward proposer itself: a small model composes rewards from task primitives and learns by policy gradient from the validation performance of the policies its rewards train.">
+<meta name="twitter:image" content="https://sitaocheng.github.io/derl/img/frameworks_last.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;600;700;800&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>html{color-scheme:light}body{margin:0}[hidden]{display:none!important}img{max-width:100%}</style>
+<style>
+:root{
+  --bg:#fbfcfd; --paper:#ffffff; --ink:#18202c; --ink2:#3f4a5a; --mute:#6b7686; --line:#dfe4ea; --line2:#eef1f5;
+  --blue:#2f5e99; --blue-ink:#23497a; --blue-band:#eaf1f9; --orange:#c0612b; --orange-ink:#8c431c; --orange-band:#fcf0e3;
+  --prim-band:#f3f4f6; --prim:#8a93a0; --reuse:#7a3e9d; --hl:#fff4c2; --hl-line:#e0b400;
+  --btn:#18202c; --btn-ink:#ffffff; --code:#f4f6f9; --figbg:#ffffff;
+  --display:"Schibsted Grotesk",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --body:"Source Sans 3",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#10141b; --paper:#161b24; --ink:#e8ecf2; --ink2:#c2cad6; --mute:#8d98a8; --line:#2a323f; --line2:#1d2430;
+    --blue:#7fa8de; --blue-ink:#a9c6ee; --blue-band:#1a2638; --orange:#e39461; --orange-ink:#f0b58c; --orange-band:#2e2119;
+    --prim-band:#1c222c; --prim:#8791a0; --reuse:#c48ce6; --hl:#3a3316; --hl-line:#d8b23a;
+    --btn:#e8ecf2; --btn-ink:#10141b; --code:#1b212b; --figbg:#f7f8fa;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#10141b; --paper:#161b24; --ink:#e8ecf2; --ink2:#c2cad6; --mute:#8d98a8; --line:#2a323f; --line2:#1d2430;
+  --blue:#7fa8de; --blue-ink:#a9c6ee; --blue-band:#1a2638; --orange:#e39461; --orange-ink:#f0b58c; --orange-band:#2e2119;
+  --prim-band:#1c222c; --prim:#8791a0; --reuse:#c48ce6; --hl:#3a3316; --hl-line:#d8b23a;
+  --btn:#e8ecf2; --btn-ink:#10141b; --code:#1b212b; --figbg:#f7f8fa;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;padding-inline:16px}
+a{color:var(--blue)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.wrap{max-width:1040px;margin:0 auto}
+.narrow{max-width:760px;margin:0 auto}
+.intro{max-width:none;margin:0}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;line-height:1.18;margin:0}
+h2{font-size:30px;font-weight:700;letter-spacing:-.01em}
+h3{font-size:19px;font-weight:700}
+p{margin:0}
+code,.mono{font-family:var(--mono);font-size:.86em}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);margin-inline:-16px;padding-inline:16px}
+.nav .wrap{display:flex;align-items:center;gap:20px;height:52px}
+.brand{font-family:var(--display);font-weight:800;font-size:18px;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:8px;white-space:nowrap;flex:none}
+.brand svg{width:20px;height:20px}
+.nav nav{display:flex;gap:18px;margin-left:auto;overflow-x:auto}
+.nav nav a{color:var(--ink2);text-decoration:none;font-size:15px;white-space:nowrap}
+@media (max-width:620px){.nav nav{gap:12px}.nav nav a{font-size:13.5px}.nav nav a.opt{display:none}}
+.nav nav a:hover{color:var(--ink)}
+
+/* hero */
+.hero{padding-block:64px 36px;text-align:center}
+.venue{display:inline-block;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);border:1px solid var(--line);border-radius:999px;padding:4px 12px;margin-bottom:20px}
+.hero h1{font-size:clamp(28px,4.3vw,46px);font-weight:800;letter-spacing:-.02em;line-height:1.15;margin:0 auto}
+@media (max-width:760px){.hero h1 .br2{display:none}}
+.hero h1 .x{color:var(--blue)}
+.authors{margin-top:18px;color:var(--ink2);font-size:18px}
+.affil{color:var(--mute);font-size:15px;margin-top:2px}
+.links{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:26px}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--btn);color:var(--btn-ink);border:0;border-radius:999px;padding:9px 18px;font-family:var(--display);font-weight:600;font-size:15px;text-decoration:none;cursor:pointer}
+.btn svg{width:16px;height:16px}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.btn.ghost small{font-family:var(--mono);font-size:11px;color:var(--mute)}
+.btn.soon{background:transparent;color:var(--mute);border:1px dashed var(--line);cursor:default}
+.btn.soon small{font-family:var(--mono);font-size:11px}
+
+/* TL;DR and abstract */
+.tldr{max-width:780px;margin:30px auto 0;text-align:left;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 22px}
+.tldr>p{margin:0;font-size:18.5px;line-height:1.55;color:var(--ink)}
+.tldr>p b{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--blue);margin-right:8px;vertical-align:2px}
+.abs{margin-top:12px;border-top:1px solid var(--line2);padding-top:10px}
+.abs summary{cursor:pointer;font-family:var(--display);font-weight:600;font-size:14.5px;color:var(--blue);list-style:none}
+.abs summary::-webkit-details-marker{display:none}
+.abs summary::before{content:"+ ";font-family:var(--mono)}
+.abs[open] summary::before{content:"− "}
+.abs .prose{margin-top:10px;font-size:16px}
+/* key numbers */
+.nums{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:14px;background:var(--paper);margin-top:40px;overflow:hidden}
+.num{padding:18px 18px 16px;border-left:1px solid var(--line)}
+.num:first-child{border-left:0}
+.num b{display:block;font-family:var(--display);font-size:34px;font-weight:800;letter-spacing:-.02em;color:var(--ink);font-variant-numeric:tabular-nums}
+.num span{display:block;font-size:14px;color:var(--ink2);line-height:1.35}
+.num em{font-style:normal;font-family:var(--mono);font-size:11px;color:var(--mute);letter-spacing:.04em;text-transform:uppercase;display:block;margin-bottom:6px}
+@media (max-width:760px){.nums{grid-template-columns:repeat(2,1fr)}.num:nth-child(3){border-left:0}.num:nth-child(n+3){border-top:1px solid var(--line)}}
+
+section{padding-block:56px}
+section+section{border-top:1px solid var(--line2)}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:10px}
+.lead{font-size:19px;color:var(--ink2);margin-top:14px}
+.prose{display:grid;gap:14px;margin-top:18px;color:var(--ink2)}
+.prose strong{color:var(--ink)}
+figure{margin:28px 0 0}
+figure .img{background:var(--figbg);border:1px solid var(--line);border-radius:12px;padding:14px}
+figure img{display:block;width:100%;height:auto}
+figcaption{font-size:14.5px;color:var(--mute);margin-top:10px;line-height:1.5}
+figcaption b{color:var(--ink2)}
+
+/* explorer */
+.explorer{margin-top:26px;background:var(--paper);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.ex-top{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;padding:14px 16px;border-bottom:1px solid var(--line)}
+.tabs{display:flex;gap:4px;background:var(--line2);border-radius:10px;padding:3px;flex-wrap:wrap}
+.tab{border:0;background:transparent;color:var(--ink2);font-family:var(--display);font-weight:600;font-size:14.5px;padding:7px 13px;border-radius:8px;cursor:pointer}
+.tab[aria-selected="true"]{background:var(--paper);color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.08)}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{border:1px solid var(--line);background:transparent;color:var(--ink2);font-size:13.5px;padding:5px 11px;border-radius:999px;cursor:pointer;font-family:var(--body)}
+.chip[aria-pressed="true"]{border-color:var(--blue);color:var(--blue-ink);background:var(--blue-band)}
+.task{padding:14px 16px;border-bottom:1px solid var(--line);display:grid;gap:6px}
+.task .meta{font-family:var(--mono);font-size:12px;color:var(--mute);display:flex;gap:14px;flex-wrap:wrap}
+.task .utt{font-size:16px;color:var(--ink)}
+.ex-body{display:grid;grid-template-columns:minmax(0,1fr) 290px;align-items:stretch}
+@media (max-width:900px){.ex-body{grid-template-columns:1fr}}
+.traj{overflow-x:auto;align-self:start}
+@media (max-width:900px){.traj{border-right:0;border-bottom:1px solid var(--line)}}
+.grid{position:relative;display:grid;grid-template-columns:minmax(260px,1fr) auto;min-width:640px}
+.rows{position:relative}
+.row{height:var(--row,32px);display:grid;grid-template-columns:30px minmax(0,1fr) auto;align-items:center;gap:8px;padding-inline:10px 8px;border-bottom:1px solid transparent;cursor:pointer}
+.row .i{font-family:var(--mono);font-size:11px;color:var(--mute);text-align:right;font-variant-numeric:tabular-nums}
+.row .cmd{font-family:var(--mono);font-size:12.5px;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tok{font-family:var(--mono);font-size:11.5px;padding:2px 7px;border-radius:6px;background:var(--paper);border:1px solid var(--line);color:var(--ink2);white-space:nowrap}
+.row.b0{background:var(--blue-band)} .row.b1{background:var(--orange-band)} .row.bp{background:var(--prim-band)}
+.row.hl{background:var(--hl)!important;box-shadow:inset 3px 0 0 var(--hl-line)}
+.row.hl .tok{border-color:var(--hl-line)}
+.tree{display:block}
+.tree text{font-family:var(--mono);font-size:10.5px}
+.tree .edge{fill:none;stroke-width:1.4}
+.tree .node{cursor:pointer}
+.tree .node circle{stroke-width:1.6}
+.tree .dim{opacity:.22}
+.tree .leader{fill:none;stroke-width:1;stroke-dasharray:2 3;opacity:.55}
+.tree .leader.on{opacity:1;stroke-dasharray:none}
+.tree .nlabel{font-size:11px;cursor:pointer}
+.tree .nlabel.top{font-weight:700;font-size:11.5px}
+.tree .nlabel .sid{fill:var(--mute);font-weight:400;font-size:9.5px}
+.tree .nlabel.on{text-decoration:underline;text-underline-offset:3px}
+.tree .nlabel:focus-visible{outline:2px solid var(--blue)}
+.side{padding:16px;display:grid;gap:16px;align-content:start;border-left:1px solid var(--line)}
+@media (max-width:900px){.side{border-left:0;border-top:1px solid var(--line)}}
+.side h4{margin:0;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);font-weight:500}
+.card-node .name{font-family:var(--display);font-weight:700;font-size:20px;line-height:1.2;overflow-wrap:normal}
+.card-node .id{font-family:var(--mono);font-size:12px;color:var(--mute)}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;font-size:14.5px;margin-top:10px}
+.kv dt{color:var(--mute)} .kv dd{margin:0;font-variant-numeric:tabular-nums;color:var(--ink)}
+.compose{display:flex;flex-wrap:wrap;gap:5px;align-items:center;margin-top:10px;font-size:13px;color:var(--mute)}
+.compose button{font-family:var(--mono);font-size:11.5px;border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:6px;padding:2px 7px;cursor:pointer}
+.compose button.prim{cursor:default;color:var(--ink2)}
+.expand{margin-top:10px;font-family:var(--mono);font-size:11.5px;color:var(--ink2);line-height:1.7}
+.merge{display:grid;gap:10px;padding:12px 16px;border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--line2) 55%,transparent)}
+.merge-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+.merge-row h4{margin:0}
+.merge input{flex:0 1 220px;min-width:120px;accent-color:var(--blue)}
+.merge .ratio{margin-left:auto}
+.narrow-note{display:none;margin:0;padding:10px 16px;font-size:13px;color:var(--mute);border-top:1px solid var(--line)}
+@media (max-width:620px){.tree{display:none!important}.grid{min-width:0!important;grid-template-columns:1fr!important}.narrow-note{display:block}.merge .ratio{margin-left:0}}
+.merge .val{font-family:var(--mono);font-size:12px;color:var(--ink2);min-width:64px;text-align:right}
+.play{border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:8px;padding:4px 10px;font-size:13px;cursor:pointer;font-family:var(--body)}
+.stream{display:flex;flex-wrap:wrap;gap:4px}
+.sym{font-family:var(--mono);font-size:11px;padding:2px 6px;border-radius:5px;border:1px solid var(--line);background:var(--prim-band);color:var(--ink2);cursor:pointer}
+.sym.n0{background:var(--blue-band);border-color:color-mix(in srgb,var(--blue) 45%,transparent);color:var(--blue-ink)}
+.sym.n1{background:var(--orange-band);border-color:color-mix(in srgb,var(--orange) 45%,transparent);color:var(--orange-ink)}
+.ratio{font-size:13.5px;color:var(--ink2)}
+.ratio b{font-family:var(--display);font-size:18px;color:var(--ink)}
+.legend{display:flex;flex-wrap:wrap;gap:14px;padding:10px 16px;border-top:1px solid var(--line);font-size:13px;color:var(--mute)}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:-1px;margin-right:6px}
+
+/* method */
+.formula{margin-top:22px;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:18px 20px;overflow-x:auto}
+.formula .eq{font-family:var(--mono);font-size:16px;color:var(--ink);white-space:nowrap}
+.formula .eq .t{display:inline-block;text-align:center;vertical-align:top;margin-inline:2px}
+.formula .eq .t small{display:block;font-family:var(--body);font-size:12px;color:var(--mute);border-top:1px solid var(--line);margin-top:4px;padding-top:2px}
+.steps3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
+@media (max-width:760px){.steps3{grid-template-columns:1fr}}
+.step{border:1px solid var(--line);border-radius:12px;padding:16px;background:var(--paper)}
+.step .k{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.step h3{margin-top:6px}
+.step p{margin-top:8px;color:var(--ink2);font-size:15.5px}
+.canon{margin-top:10px;font-family:var(--mono);font-size:12.5px;color:var(--ink2);background:var(--code);border-radius:8px;padding:8px 10px;overflow-x:auto;white-space:nowrap}
+
+/* one-line section heading on desktop */
+@media (min-width:1000px){.h2-one{font-size:26.5px;white-space:nowrap}}
+/* result blocks */
+.res{margin-top:40px}
+.res h3{font-size:21px;line-height:1.3}
+.res p{margin-top:8px;font-size:17px;color:var(--ink2)}
+.res+.tablewrap,.res+figure{margin-top:16px}
+/* trees */
+.trees{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:22px}
+@media (max-width:900px){.trees{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.trees{grid-template-columns:1fr}}
+.tcard{border:1px solid var(--line);border-radius:12px;background:var(--paper);padding:14px 16px;display:grid;gap:8px;align-content:start}
+.tcard h3{font-size:17px}
+.tcard dl{display:grid;grid-template-columns:auto 1fr;gap:3px 12px;margin:0;font-size:14px}
+.tcard dt{color:var(--mute)} .tcard dd{margin:0;font-variant-numeric:tabular-nums}
+.tcard a{font-family:var(--display);font-weight:600;font-size:14px;text-decoration:none}
+.fmt{margin-top:16px;font-family:var(--mono);font-size:12.5px;color:var(--ink2);background:var(--code);border:1px solid var(--line);border-radius:10px;padding:12px 14px;overflow-x:auto;white-space:pre}
+/* results table */
+.tablewrap{overflow-x:auto;margin-top:22px;border:1px solid var(--line);border-radius:12px;background:var(--paper)}
+table{border-collapse:collapse;width:100%;font-size:14.5px;font-variant-numeric:tabular-nums}
+th,td{padding:8px 12px;text-align:right;white-space:nowrap;border-bottom:1px solid var(--line2)}
+th:first-child,td:first-child{text-align:left}
+thead th{font-family:var(--display);font-weight:600;color:var(--ink2);font-size:13.5px;background:var(--line2)}
+td.all,th.all{border-left:1px solid var(--line);font-weight:700}
+tr.group td{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);text-align:left;background:transparent;padding-top:12px}
+tr.ours td{background:var(--blue-band);color:var(--blue-ink);font-weight:700}
+.results-grid{display:grid;grid-template-columns:1fr;gap:10px}
+
+/* bibtex */
+.bib{position:relative;margin-top:18px}
+.bib pre{margin:0;background:var(--code);border:1px solid var(--line);border-radius:12px;padding:16px;font-family:var(--mono);font-size:13px;line-height:1.55;overflow-x:auto;color:var(--ink)}
+.copy{position:absolute;top:10px;right:10px;border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:8px;padding:4px 10px;font-size:13px;cursor:pointer;font-family:var(--body)}
+footer{padding-block:36px 48px;border-top:1px solid var(--line);color:var(--mute);font-size:14px;text-align:center}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+/* integrations demo */
+.xt{list-style:none;margin:0;padding:0}
+.xt ul{list-style:none;margin:0;padding-left:14px}
+.xt li{position:relative;padding:3px 0 3px 14px}
+.xt ul>li::before{content:"";position:absolute;left:0;top:0;bottom:0;border-left:1px solid var(--line)}
+.xt ul>li:last-child::before{bottom:auto;height:14px}
+.xt ul>li::after{content:"";position:absolute;left:0;top:14px;width:10px;border-top:1px solid var(--line)}
+.xt.root>li{padding-left:0}
+.xn{display:inline-grid}
+.xn b{font-family:var(--mono);font-size:12.5px;color:var(--ink)}
+.xn small{font-size:11px;color:var(--mute)}
+.xl{display:inline-grid;gap:1px;border-left:3px solid var(--kc);padding:2px 0 2px 7px;background:color-mix(in srgb,var(--kc) 9%,transparent);border-radius:0 6px 6px 0}
+.xl i{font-style:normal;font-family:var(--mono);font-size:10.5px;color:var(--mute)}
+.xl span{font-family:var(--mono);font-size:11.5px;color:var(--ink)}
+.legend2{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;font-size:12.5px;color:var(--mute)}
+.legend2 .sw{display:inline-block;width:12px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+.legend2 .sw.pos{background:var(--blue)} .legend2 .sw.neg{background:var(--orange)}
+:root{--k0:#2f5e99;--k1:#c0612b;--k2:#2e8b6e;--k3:#8a4fb3;--k4:#b8912a;--k5:#c2477a}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--k0:#7fa8de;--k1:#e39461;--k2:#5cc3a2;--k3:#b98ae0;--k4:#e0bf5e;--k5:#e882ad}}
+:root[data-theme="dark"]{--k0:#7fa8de;--k1:#e39461;--k2:#5cc3a2;--k3:#b98ae0;--k4:#e0bf5e;--k5:#e882ad}
+.integ{margin-top:26px;background:var(--paper);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.integ-top{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid var(--line)}
+.integ-ex{display:flex;flex-wrap:wrap;gap:6px;padding:10px 16px;border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--line2) 55%,transparent)}
+.integ-ex .env{font-family:var(--mono);font-size:10.5px;color:var(--mute);margin-right:4px}
+.ctrl{display:flex;gap:6px}
+.ctrl button{border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:8px;padding:5px 12px;font-size:13.5px;cursor:pointer;font-family:var(--body)}
+.ctrl button:disabled{opacity:.45;cursor:default}
+.integ-body{display:grid;grid-template-columns:minmax(0,1fr) 300px}
+@media (max-width:900px){.integ-body{grid-template-columns:1fr}}
+.integ-main{padding:16px;display:grid;gap:14px;align-content:start;min-width:0}
+.integ-hint{padding:16px;border-left:1px solid var(--line);display:grid;gap:10px;align-content:start;background:color-mix(in srgb,var(--line2) 35%,transparent)}
+@media (max-width:900px){.integ-hint{border-left:0;border-top:1px solid var(--line)}}
+.integ-hint h4{margin:0;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);font-weight:500}
+.integ-cap{font-size:15.5px;color:var(--ink2);min-height:46px;margin:0}
+.integ-cap b{color:var(--ink)}
+.integ-task{font-size:14.5px;color:var(--ink);background:var(--line2);border-radius:8px;padding:8px 10px}
+.integ-task span{font-family:var(--mono);font-size:10.5px;color:var(--mute);display:block;margin-bottom:2px;letter-spacing:.06em;text-transform:uppercase}
+.lane{display:grid;grid-template-columns:112px minmax(0,1fr);gap:10px;align-items:start}
+@media (max-width:620px){.lane{grid-template-columns:1fr}}
+.lane>.lab{font-family:var(--mono);font-size:11.5px;color:var(--mute);padding-top:5px}
+.acts{display:flex;flex-wrap:wrap;gap:6px}
+.act{font-family:var(--mono);font-size:12px;border:1px solid var(--line);border-radius:7px;padding:4px 8px;background:var(--prim-band);color:var(--ink2)}
+.act.ctx{background:var(--paper);color:var(--mute)}
+.act.kc{background:color-mix(in srgb,var(--kc) 12%,var(--paper));border-color:color-mix(in srgb,var(--kc) 55%,transparent);color:var(--ink)}
+.act.bad{background:#fbe9e7;border-color:#d0674f;color:#8a2c19}
+.act .mk{font-weight:700;margin-right:5px}
+.act.kc .mk{color:var(--kc)}
+.act.pend{opacity:.35}
+.hnode{border:1px solid var(--line);border-radius:10px;background:var(--paper);padding:10px 12px;display:grid;gap:6px}
+.hnode .nm{font-family:var(--mono);font-weight:700;font-size:13px;color:var(--ink);word-break:break-word}
+.hnode .meta{font-size:12.5px;color:var(--mute)}
+.hkid{display:grid;grid-template-columns:10px minmax(0,1fr);gap:8px;align-items:start;font-size:13px}
+.hkid i{width:10px;height:10px;border-radius:3px;margin-top:4px;background:var(--kc)}
+.hkid b{font-family:var(--mono);font-weight:600;font-size:12px;color:var(--ink);word-break:break-word}
+.hkid small{display:block;font-family:var(--mono);font-size:11px;color:var(--mute)}
+.strip{display:flex;flex-wrap:wrap;gap:4px;align-items:center}
+.seg{font-family:var(--mono);font-size:11px;border-radius:6px;padding:3px 7px;border:1px solid transparent;white-space:nowrap}
+.seg.kc{background:color-mix(in srgb,var(--kc) 14%,var(--paper));border-color:color-mix(in srgb,var(--kc) 60%,transparent);color:var(--ink)}
+.seg.kc em{font-style:normal;color:var(--mute);margin-left:4px}
+.seg.px{background:var(--prim-band);border-color:var(--line);color:var(--mute)}
+.rolls{display:grid;gap:10px}
+.roll{display:grid;grid-template-columns:24px minmax(0,1fr) 64px 130px;gap:10px;align-items:center}
+@media (max-width:720px){.roll{grid-template-columns:24px minmax(0,1fr) 58px}.roll .bar{grid-column:2 / 4}}
+.roll .rid{font-family:var(--mono);font-size:12px;color:var(--mute)}
+.out{font-family:var(--mono);font-size:11.5px;text-align:center;border-radius:6px;padding:2px 0}
+.out.win{background:#e6f4ea;color:#1e5b2c} .out.lose{background:var(--prim-band);color:var(--mute)}
+.bar{position:relative;height:16px;background:var(--line2);border-radius:5px;overflow:hidden}
+.bar i{position:absolute;top:0;bottom:0;background:var(--blue);opacity:.85;transition:left .4s,width .4s}
+.bar i.neg{background:var(--orange)}
+.bar .zero{position:absolute;left:50%;top:0;bottom:0;width:1px;background:var(--mute)}
+.bar.one i{left:0}
+.scen{display:flex;flex-wrap:wrap;gap:6px}
+.pill{display:inline-block;font-family:var(--mono);font-size:11.5px;border-radius:999px;padding:2px 9px;border:1px solid var(--line)}
+.pill.on{background:#e6f4ea;border-color:#5aa469;color:#1e5b2c}
+.pill.mid{background:#fdf3dc;border-color:#d9b24a;color:#7a5a0c}
+.pill.off{background:var(--prim-band);color:var(--mute)}
+.card-ctx{font-family:var(--mono);font-size:11.3px;line-height:1.55;color:var(--ink2);background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:8px 10px;max-height:260px;overflow:auto}
+.card-ctx div{padding:1px 4px;border-radius:4px}
+.card-ctx .hit{background:color-mix(in srgb,var(--k0) 16%,var(--paper));outline:1px solid color-mix(in srgb,var(--k0) 55%,transparent);color:var(--ink)}
+.toks{display:flex;flex-wrap:wrap;gap:8px;align-items:flex-end}
+.tk{display:grid;justify-items:center;gap:4px;font-family:var(--mono);font-size:12.5px}
+.tk .g{width:36px;background:var(--line2);border-radius:4px 4px 0 0;position:relative;height:56px;overflow:hidden}
+.tk .g i{position:absolute;left:0;right:0;bottom:0;background:var(--k0);transition:height .4s}
+.tk .w{border:1px solid var(--line);border-radius:6px;padding:2px 7px;background:var(--paper);color:var(--ink)}
+.tk.inf .w{border-color:color-mix(in srgb,var(--k0) 60%,transparent);background:color-mix(in srgb,var(--k0) 12%,var(--paper))}
+.note{font-size:12.5px;color:var(--mute);margin:0}
+</style>
+<style>
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+@media (max-width:860px){.grid2{grid-template-columns:1fr}}
+td.sep{border-left:1px solid var(--line)}
+th[rowspan]{vertical-align:bottom}
+thead tr+tr th:first-child{text-align:right}
+.steps3 .step .canon sub{font-size:.75em}
+@media (max-width:760px){.steps3{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="DERL home">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="7" cy="10" r="5" fill="none" stroke="var(--blue)" stroke-width="2"/><circle cx="13" cy="10" r="5" fill="none" stroke="var(--orange)" stroke-width="2"/></svg>
+      DERL
+    </a>
+    <nav aria-label="Sections">
+      <a href="#frameworks">Frameworks</a>
+      <a href="#method">Method</a>
+      <a href="#results">Results</a>
+      <a class="opt" href="#analysis">Analysis</a>
+      <a class="opt" href="#bibtex">BibTeX</a>
+    </nav>
+  </div>
+</header>
+<main id="top">
+<div class="wrap">
+  <div class="hero">
+    <div class="venue">Preprint · 2026</div>
+    <h1><span class="x">DERL</span>: Dual-Evolving Reinforcement Learning<br class="br2"> for Automated Reward Design</h1>
+    <p class="authors">Sitao Cheng<sup>1</sup>, Tianle Li<sup>2</sup>, Xuhan Huang<sup>3</sup>, Xunjian Yin<sup>4</sup>, Difan Zou<sup>2</sup></p>
+    <p class="affil"><sup>1</sup>University of Waterloo &nbsp;·&nbsp; <sup>2</sup>The University of Hong Kong &nbsp;·&nbsp; <sup>3</sup>The Chinese University of Hong Kong, Shenzhen &nbsp;·&nbsp; <sup>4</sup>Duke University</p>
+    <p class="affil">Contact: <a class="mono" href="mailto:sitao.cheng@uwaterloo.ca">sitao.cheng@uwaterloo.ca</a></p>
+    <div class="links">
+      <a class="btn" href="https://arxiv.org/abs/2512.13399"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 1.5h5l3 3v10H4z M9 1.5v3h3" fill="none" stroke="currentColor" stroke-width="1.3"/></svg>Paper</a>
+      <a class="btn ghost" href="https://github.com/sitaocheng/DERL"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5.5 4L2 8l3.5 4M10.5 4L14 8l-3.5 4" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>Code</a>
+      <a class="btn" href="#frameworks"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="5.5" cy="8" r="3.6" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="10.5" cy="8" r="3.6" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>See the frameworks</a>
+    </div>
+    <div class="tldr">
+      <p><b>TL;DR</b> Automated reward design usually searches with a proposer that never learns: a mutation operator or a frozen LLM. DERL trains the proposer itself. A small model composes a reward from task primitives, an inner policy trains with that reward, and the inner policy's validation score is the proposer's reward, so the proposer keeps what earlier trials taught it.</p>
+      <details class="abs">
+        <summary>Read the abstract</summary>
+        <div class="prose">
+          <p>Crafting effective reward signals remains a central challenge in reinforcement learning (RL) for complex reasoning. Existing methods for automated reward optimization search with a fixed proposer which never learns from its costly trials. We present <strong>Dual-Evolving Reinforcement Learning (DERL)</strong>, a dual-training framework for autonomous discovery of reward structures. An outer-loop <em>proposer</em> composes a reward from task primitives, and an inner policy trains with this reward. The proposer itself learns by policy gradient from the validation performance of the inner policy. Thus, DERL utilizes past-trial feedback to shape its reward-proposal distribution, an empirical meta-gradient of task success. We validate DERL on embodied (ALFWorld), scientific (ScienceWorld), and mathematical (GSM8K, MATH) reasoning. On multi-turn agent benchmarks, DERL outperforms strong baselines, significantly on out-of-distribution tasks. In mathematics, DERL improves on the outcome reward where directly added primitives hurt. Further analyses under matched compute show that our proposer effectively captures the meta-gradient to discover useful reward signals.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+  <div class="nums" role="list">
+    <div class="num" role="listitem"><em>ALFWorld · L2 (OOD)</em><b>+8.7</b><span>success rate over RLVMR, the strongest published method</span></div>
+    <div class="num" role="listitem"><em>ScienceWorld · L1</em><b>+8.6</b><span>success rate over RLVMR, with no extra human labor</span></div>
+    <div class="num" role="listitem"><em>Unseen tasks</em><b>&gt;2&times;</b><span>the success rate of the outcome reward at L2 on both agent benchmarks</span></div>
+    <div class="num" role="listitem"><em>GSM8K · same compute</em><b>79.2</b><span>with a trained 0.5B proposer, against 77.2 for prompted GPT-4o</span></div>
+  </div>
+</div>
+<section id="frameworks">
+  <div class="wrap">
+    <div class="intro">
+      <div class="eyebrow">Reward design frameworks</div>
+      <h2>From hand-written rewards to a proposer that learns</h2>
+      <p class="lead">Every framework repeats one costly trial: write a reward, train a policy with it, look at the result. They differ in who writes the next reward and where the result goes.</p>
+    </div>
+    <figure>
+      <div class="img"><img src="img/frameworks.gif" alt="Animation of three reward design frameworks over seven trials. Traditional: a human revises the reward by hand after each RL run. Static proposer: a frozen LLM proposes rewards and reads earlier scores in its prompt, and the accuracy of its proposals stays flat near 76 to 77 percent. DERL: a trained proposer is updated by policy gradient on each validation score, and the accuracy of its proposals rises from 75.1 to 78.3 percent." width="1200" height="590" loading="lazy"></div>
+      <figcaption><b>Three ways to design a reward.</b> A human revises the reward after every RL run. A static proposer (a frozen LLM) reads earlier scores in its prompt, but its weights never change. In DERL, every validation score updates the proposer by policy gradient. Curves: mean GSM8K test accuracy of the inner policies trained from each outer step's proposals (Qwen2.5-1.5B inner policy), for the prompted GPT-4o proposer and for DERL-base, from the paper. The reward programs in the animation are illustrative.</figcaption>
+    </figure>
+    <div class="steps3">
+      <div class="step">
+        <div class="k">Traditional</div>
+        <h3>Human labor in every trial</h3>
+        <p>An expert writes a dense reward or trains a reward model. Each revision needs the expert again, and hand-designed terms invite reward hacking.</p>
+      </div>
+      <div class="step">
+        <div class="k">Static proposer</div>
+        <h3>Search without learning</h3>
+        <p>Evolution or a prompted LLM writes and refines rewards. The proposer itself never changes, so a trial's outcome acts only through selection or the prompt.</p>
+      </div>
+      <div class="step">
+        <div class="k">DERL</div>
+        <h3>The proposer evolves too</h3>
+        <p>The proposer is trained by policy gradient on the validation score of the policies its rewards produce. Its weights keep the feedback of all past trials.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="method">
+  <div class="wrap">
+    <div class="intro">
+      <div class="eyebrow">Method</div>
+      <h2>Two learners in two loops</h2>
+      <p class="lead">An inner loop trains a policy with a proposed reward. An outer loop trains the proposer, with the validation performance of the inner policy as its reward. The two learners co-evolve.</p>
+    </div>
+    <figure>
+      <div class="img"><img src="img/method.png" alt="DERL framework. The proposer reads a fixed task instruction and samples n reward programs. Each program trains one inner policy with GRPO, whose validation score is the reward of the program. Group-normalized advantages update the proposer with GRPO." width="2434" height="729" loading="lazy"></div>
+      <figcaption><b>The DERL framework.</b> The proposer reads a fixed task instruction and samples <i>n</i> reward programs. Each program trains one inner policy with GRPO, and the policy's validation score is the reward of that program. The group-normalized scores update the proposer with GRPO.</figcaption>
+    </figure>
+    <div class="steps3">
+      <div class="step">
+        <div class="k">Step 1</div>
+        <h3>Compose primitives</h3>
+        <p>The proposer writes an arithmetic expression over executable primitives, such as task success, answer format, or the mean step score over one third of an agent trajectory. A logit mask keeps the output in this grammar.</p>
+        <div class="canon">R = g1 + (g2 · (g3 / 2)) − (g4 / 3)</div>
+      </div>
+      <div class="step">
+        <div class="k">Step 2</div>
+        <h3>Train an inner policy</h3>
+        <p>Each program is a reward. An inner policy trains with it by GRPO on an inner-training split, and is then scored on a held-out validation split.</p>
+        <div class="canon">v<sub>i</sub> = Perf(θ<sub>i</sub>; D<sub>val</sub>)</div>
+      </div>
+      <div class="step">
+        <div class="k">Step 3</div>
+        <h3>Update the proposer</h3>
+        <p>The validation scores of one step are group-normalized and update the proposer by policy gradient. Nothing is differentiated through inner training.</p>
+        <div class="canon">Â<sub>i</sub> = (v<sub>i</sub> − v̄) / σ<sub>v</sub></div>
+      </div>
+    </div>
+    <div class="prose narrow" style="margin-inline:0;max-width:820px">
+      <p><strong>Two variants.</strong> DERL-base starts every inner policy from the base model. DERL-full divides the training budget into rounds, and the best policy of each round starts the next one.</p>
+      <p><strong>Fair evaluation.</strong> The search never sees the test set. After the search, a fresh policy trains on the full training set with the found reward, with the same data and no more epochs than the baselines, and is evaluated once.</p>
+    </div>
+  </div>
+</section>
+<section id="results">
+  <div class="wrap">
+    <div class="intro">
+      <div class="eyebrow">Results</div>
+      <h2>Better rewards, largest gains on unseen tasks</h2>
+    </div>
+    <div class="res">
+      <h3>Embodied and scientific agents</h3>
+      <p>DERL-base beats every baseline at every level on ALFWorld and ScienceWorld, including RLVMR, which adds a hand-designed process reward. The uniform average of the same primitives helps on seen tasks but transfers poorly, while the found rewards more than double the outcome reward on out-of-distribution tasks.</p>
+    </div>
+    <div class="tablewrap">
+      <table>
+        <caption style="caption-side:bottom;text-align:left;padding:10px 12px;font-size:13.5px;color:var(--mute)">Success rate (%) with Qwen2.5-1.5B-Instruct, mean over four seeds. L0: seen tasks. L1: unseen variants. L2: held-out task types (OOD). GiGPO and RLVMR results are from RLVMR (Zhang et al., 2025).</caption>
+        <thead><tr><th rowspan="2">Method</th><th colspan="3" style="text-align:center">ALFWorld</th><th colspan="3" style="text-align:center;border-left:1px solid var(--line)">ScienceWorld</th></tr>
+        <tr><th>L0</th><th>L1</th><th>L2</th><th style="border-left:1px solid var(--line)">L0</th><th>L1</th><th>L2</th></tr></thead>
+        <tbody>
+          <tr><td>GRPO w/ Outcome</td><td>76.6</td><td>71.1</td><td>29.7</td><td class="sep">21.1</td><td>13.7</td><td>10.9</td></tr>
+          <tr><td>GRPO w/ Average(primitives)</td><td>88.1</td><td>85.4</td><td>30.5</td><td class="sep">37.9</td><td>31.3</td><td>18.0</td></tr>
+          <tr><td>GiGPO</td><td>86.7</td><td>83.2</td><td>48.0</td><td class="sep">25.8</td><td>15.2</td><td>4.7</td></tr>
+          <tr><td>RLVMR</td><td>89.1</td><td>87.9</td><td>56.3</td><td class="sep">46.9</td><td>34.4</td><td>26.5</td></tr>
+          <tr class="ours"><td>DERL-base</td><td>91.0</td><td>89.1</td><td>65.0</td><td class="sep">47.7</td><td>43.0</td><td>30.1</td></tr>
+          <tr class="ours"><td>DERL-full</td><td>91.8</td><td>88.3</td><td>76.4</td><td class="sep">98.2</td><td>95.3</td><td>31.3</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="res">
+      <h3>Mathematical reasoning</h3>
+      <p>The outcome reward is already a reliable signal here. Adding format and averaged primitives directly raises GSM8K but lowers MATH by up to 4.2%. The rewards found by DERL avoid this trade-off and improve on the outcome reward in both training settings.</p>
+    </div>
+    <div class="tablewrap" style="max-width:620px">
+      <table>
+        <caption style="caption-side:bottom;text-align:left;padding:10px 12px;font-size:13.5px;color:var(--mute)">Exact match (%) with Qwen2.5-3B, mean over three seeds.</caption>
+        <thead><tr><th>Reward function</th><th>GSM8K</th><th>MATH</th></tr></thead>
+        <tbody>
+          <tr class="group"><td colspan="3">Trained on MATH</td></tr>
+          <tr><td>Outcome</td><td>82.9</td><td>59.1</td></tr>
+          <tr><td>Outcome + Format</td><td>83.9</td><td>56.8</td></tr>
+          <tr><td>Average(primitives)</td><td>83.6</td><td>54.9</td></tr>
+          <tr class="ours"><td>DERL-base</td><td>83.2</td><td>60.5</td></tr>
+          <tr class="ours"><td>DERL-full</td><td>84.1</td><td>60.9</td></tr>
+          <tr class="group"><td colspan="3">Trained on MATH and GSM8K</td></tr>
+          <tr><td>Outcome</td><td>82.6</td><td>58.8</td></tr>
+          <tr><td>Outcome + Format</td><td>86.4</td><td>55.9</td></tr>
+          <tr><td>Average(primitives)</td><td>86.5</td><td>55.8</td></tr>
+          <tr class="ours"><td>DERL-base</td><td>87.0</td><td>60.2</td></tr>
+          <tr class="ours"><td>DERL-full</td><td>87.6</td><td>60.2</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+<section id="analysis">
+  <div class="wrap">
+    <div class="intro">
+      <div class="eyebrow">Analysis</div>
+      <h2>The gain comes from training the proposer</h2>
+    </div>
+    <div class="grid2">
+      <div>
+        <div class="res" style="margin-top:28px">
+          <h3>Same reward space, same compute: only the trained proposer improves</h3>
+          <p>A frozen proposer (random search) and prompted GPT-4o get the same reward space and number of inner runs. Their proposals do not improve over steps. The proposals of the 0.5B DERL proposer rise from 75.1% to 78.3%, and its final policy reaches 79.2%, against 77.2% for GPT-4o and 76.5% for random search.</p>
+        </div>
+        <figure><div class="img"><img src="img/proposers.png" alt="Mean GSM8K test accuracy of inner policies per outer step for DERL-base, random search and RLAIF. DERL-base rises from 75.1 to 78.3, RLAIF stays near 76 to 77, random search fluctuates and collapses to 54.6 at step 3." width="912" height="525" loading="lazy"></div></figure>
+      </div>
+      <div>
+        <div class="res" style="margin-top:28px">
+          <h3>Robust to removed or corrupted primitives</h3>
+          <p>Removing one primitive costs at most 1.3%, and every reduced vocabulary still beats both GRPO baselines. When the format primitive is flipped to penalize correct formatting, the proposer learns a negative coefficient for it and recovers the useful direction.</p>
+        </div>
+        <figure><div class="img"><img src="img/vocab.png" alt="GSM8K exact match when a primitive is removed or flipped: outcome 75.8, average 76.1, flip g2 77.8, no g2 78.4, no g3 78.9, no g4 77.9, full vocabulary 79.2." width="912" height="315" loading="lazy"></div></figure>
+      </div>
+    </div>
+    <div class="res">
+      <h3>Validation and test rise together</h3>
+      <p>Over outer steps, the mean validation score of the inner policies, which is the proposer's reward, rises together with their test score on held-out data. The proposer does not overfit the validation split that supplies its reward.</p>
+    </div>
+    <figure>
+      <div class="img"><img src="img/dynamics.png" alt="Outer-loop dynamics on ALFWorld L2, GSM8K and MATH: validation and test performance of the inner policies rise over outer steps, with linear trends." width="1638" height="411" loading="lazy"></div>
+      <figcaption>Each point is the mean over the <i>n</i> inner policies trained from one outer step's proposals, scored on the validation split (blue, the outer-loop reward) and on the test set (orange, never used for training).</figcaption>
+    </figure>
+    <div class="grid2" style="align-items:center">
+      <div class="res">
+        <h3>The proposer learns stable reward structures</h3>
+        <p>The proposer receives only a scalar score and no structural supervision. Over an ALFWorld L2 run, unstable programs (for example, ones that can penalize success) become rare, and bounded, linear or normalized structures become dominant.</p>
+      </div>
+      <figure><div class="img"><img src="img/structures.png" alt="Share of stable and unstable structures among the eight programs proposed at each outer step of an ALFWorld L2 run: stable structures rise from about 60 to 88 percent, unstable ones fall." width="912" height="510" loading="lazy"></div></figure>
+    </div>
+  </div>
+</section>
+<section id="bibtex">
+  <div class="wrap narrow" style="margin-inline:auto">
+    <div class="eyebrow">Cite</div>
+    <h2>BibTeX</h2>
+    <div class="bib">
+      <button class="copy" id="copyBib" type="button">Copy</button>
+<pre id="bibText">@article{cheng2025derl,
+  title   = {Differentiable Evolutionary Reinforcement Learning},
+  author  = {Cheng, Sitao and Li, Tianle and Huang, Xuhan and
+             Yin, Xunjian and Zou, Difan},
+  journal = {arXiv preprint arXiv:2512.13399},
+  year    = {2025}
+}</pre>
+    </div>
+  </div>
+</section>
+</main>
+<footer>
+  <div class="wrap">DERL project page. All numbers are from the paper.</div>
+</footer>
+<script>
+(function(){
+  const $ = id => document.getElementById(id);
+  function selectPre(){ const r=document.createRange(); r.selectNodeContents($('bibText')); const s=getSelection(); s.removeAllRanges(); s.addRange(r); }
+  $('copyBib').addEventListener('click', ()=>{
+    const t = $('bibText').textContent, b = $('copyBib');
+    const done = ok => { b.textContent = ok ? 'Copied' : 'Select the text to copy'; setTimeout(()=>b.textContent='Copy', 1800); };
+    if (navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(t).then(()=>done(true), ()=>{ selectPre(); done(false); }); }
+    else { selectPre(); done(false); }
+  });
+})();
+</script>
+</body>
+</html>
