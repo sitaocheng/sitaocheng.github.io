@@ -357,7 +357,7 @@ thead tr+tr th:first-child{text-align:right}
       <a class="btn" href="#frameworks"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="5.5" cy="8" r="3.6" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="10.5" cy="8" r="3.6" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>See the frameworks</a>
     </div>
     <div class="tldr">
-      <p><b>TL;DR</b> Automated reward design usually searches with a proposer that never learns: a mutation operator or a frozen LLM. DERL trains the proposer itself. A small model composes a reward from task primitives, an inner policy trains with that reward, and the inner policy's validation score is the proposer's reward, so the proposer keeps what earlier trials taught it.</p>
+      <p><b>TL;DR</b> Automated reward design usually searches with a proposer that never learns: a mutation operator or a frozen LLM. We propose to tune the proposer itself with its trials and their scores, so the proposer accumulates the feedback of the whole search. A small proposer composes a reward from task primitives, an inner policy trains with that reward, and the inner policy's validation score updates the proposer by policy gradient.</p>
       <details class="abs">
         <summary>Read the abstract</summary>
         <div class="prose">
