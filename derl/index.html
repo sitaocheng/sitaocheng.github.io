@@ -395,6 +395,9 @@ thead tr+tr th:first-child{text-align:right}
 .tables3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
 @media (max-width:860px){.tables3{grid-template-columns:1fr}}
 .ch-glab{font-family:var(--mono);font-size:11px;letter-spacing:.06em;fill:var(--mute)}
+.tldr{max-width:1040px;padding:14px 22px}
+.tldr>p{font-size:18px;line-height:1.5}
+.tldr .abs{margin-top:8px;padding-top:8px}
 
 </style>
 </head>
@@ -442,7 +445,7 @@ thead tr+tr th:first-child{text-align:right}
       <a class="btn" href="#frameworks"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="5.5" cy="8" r="3.6" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="10.5" cy="8" r="3.6" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>See the frameworks</a>
     </div>
     <div class="tldr">
-      <p><b>TL;DR</b> Automated reward design usually searches with a proposer that never learns: a mutation operator or a frozen LLM. We propose to tune the proposer itself with its trials and their scores, so the proposer accumulates the feedback of the whole search. A small proposer composes a reward from task primitives, an inner policy trains with that reward, and the inner policy's validation score updates the proposer by policy gradient.</p>
+      <p><b>TL;DR</b> Automated reward design usually searches with a proposer that never learns: a mutation operator or a frozen LLM. We propose to tune the proposer itself with its trials and their scores. A small proposer composes a reward from task primitives, an inner policy trains with that reward, and the inner policy's validation score updates the proposer by policy gradient.</p>
       <details class="abs">
         <summary>Read the abstract</summary>
         <div class="prose">
