@@ -27,12 +27,12 @@ Each project has its own page with the method, the results, and interactive figu
   </div>
 </div>
 <div class="pub-card">
-  <a class="pub-thumb" href="https://github.com/sitaocheng/from_atomic_to_composite" aria-hidden="true" tabindex="-1"><img src="/images/pubs/atomic.png" alt="" loading="lazy"></a>
+  <a class="pub-thumb" href="https://sitaocheng.github.io/atomic/" aria-hidden="true" tabindex="-1"><img src="/images/pubs/atomic.png" alt="" loading="lazy"></a>
   <div class="pub-body">
-    <a class="pub-title" href="https://github.com/sitaocheng/from_atomic_to_composite">From Atomic to Composite: Reinforcement Learning Enables Generalization in Complementary Reasoning</a>
+    <a class="pub-title" href="https://sitaocheng.github.io/atomic/">From Atomic to Composite: Reinforcement Learning Enables Generalization in Complementary Reasoning</a>
     <div class="pub-authors"><strong>Sitao Cheng</strong>, Xunjian Yin, Ruiwen Zhou, Yuxuan Li, Xinyi Wang, Liangming Pan, William Yang Wang, Victor Zhong</div>
     <div class="pub-venue">Preprint, 2025</div>
-    <p class="pub-desc">Does RL synthesize new reasoning skills or only amplify existing ones? On a controlled synthetic benchmark, SFT memorizes the composite task, while RL generalizes to unseen compositions once the base model has the atomic skills.</p><div class="pub-links"><a href="https://arxiv.org/pdf/2512.01970">Paper</a> <a href="https://github.com/sitaocheng/from_atomic_to_composite">Code</a> <a href="https://huggingface.co/datasets/sitao/From_atomic_to_composite">Data</a></div>
+    <p class="pub-desc">Does RL synthesize new reasoning skills or only amplify existing ones? On a controlled synthetic benchmark, SFT memorizes the composite task, while RL generalizes to unseen compositions once the base model has the atomic skills.</p><div class="pub-links"><a href="https://arxiv.org/pdf/2512.01970">Paper</a> <a href="https://sitaocheng.github.io/atomic/">Project page</a> <a href="https://github.com/sitaocheng/from_atomic_to_composite">Code</a> <a href="https://huggingface.co/datasets/sitao/From_atomic_to_composite">Data</a></div>
   </div>
 </div>
 </div>

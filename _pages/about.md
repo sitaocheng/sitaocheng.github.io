@@ -62,12 +62,12 @@ I am always glad to talk about research, so please feel free to [reach out](mail
   </div>
 </div>
 <div class="pub-card">
-  <a class="pub-thumb" href="https://arxiv.org/pdf/2512.01970" aria-hidden="true" tabindex="-1"><img src="/images/pubs/atomic.png" alt="" loading="lazy"></a>
+  <a class="pub-thumb" href="https://sitaocheng.github.io/atomic/" aria-hidden="true" tabindex="-1"><img src="/images/pubs/atomic.png" alt="" loading="lazy"></a>
   <div class="pub-body">
-    <a class="pub-title" href="https://arxiv.org/pdf/2512.01970">From Atomic to Composite: Reinforcement Learning Enables Generalization in Complementary Reasoning</a>
+    <a class="pub-title" href="https://sitaocheng.github.io/atomic/">From Atomic to Composite: Reinforcement Learning Enables Generalization in Complementary Reasoning</a>
     <div class="pub-authors"><strong>Sitao Cheng</strong>, Xunjian Yin, Ruiwen Zhou, Yuxuan Li, Xinyi Wang, Liangming Pan, William Yang Wang, Victor Zhong</div>
     <div class="pub-venue">Preprint, 2025</div>
-    <div class="pub-links"><a href="https://arxiv.org/pdf/2512.01970">Paper</a> <a href="https://github.com/sitaocheng/from_atomic_to_composite">Code</a> <a href="https://huggingface.co/datasets/sitao/From_atomic_to_composite">Data</a></div>
+    <div class="pub-links"><a href="https://arxiv.org/pdf/2512.01970">Paper</a> <a href="https://sitaocheng.github.io/atomic/">Project page</a> <a href="https://github.com/sitaocheng/from_atomic_to_composite">Code</a> <a href="https://huggingface.co/datasets/sitao/From_atomic_to_composite">Data</a></div>
   </div>
 </div>
 <div class="pub-card">

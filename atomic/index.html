@@ -1,0 +1,650 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>From Atomic to Composite: Reinforcement Learning Enables Generalization in Complementary Reasoning</title>
+<meta name="description" content="SFT on composite questions memorizes seen reasoning paths; RL generalizes to unseen compositions, but only after the model learns the atomic skills of recalling facts from its weights and reading facts from the context.">
+<link rel="canonical" href="https://sitaocheng.github.io/atomic/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Ccircle cx='5' cy='6' r='2.6' fill='%232f5e99'/%3E%3Ccircle cx='5' cy='14' r='2.6' fill='%23c0612b'/%3E%3Ccircle cx='15' cy='10' r='3.2' fill='none' stroke='%233f4a5a' stroke-width='1.8'/%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:title" content="From Atomic to Composite: Reinforcement Learning Enables Generalization in Complementary Reasoning">
+<meta property="og:description" content="SFT on composite questions memorizes seen reasoning paths; RL generalizes to unseen compositions, but only after the model learns the atomic skills of recalling facts from its weights and reading facts from the context.">
+<meta property="og:url" content="https://sitaocheng.github.io/atomic/">
+<meta property="og:image" content="https://sitaocheng.github.io/atomic/img/data_construction_s4.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="From Atomic to Composite: Reinforcement Learning Enables Generalization in Complementary Reasoning">
+<meta name="twitter:description" content="SFT on composite questions memorizes seen reasoning paths; RL generalizes to unseen compositions, but only after the model learns the atomic skills of recalling facts from its weights and reading facts from the context.">
+<meta name="twitter:image" content="https://sitaocheng.github.io/atomic/img/data_construction_s4.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;600;700;800&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>html{color-scheme:light}body{margin:0}[hidden]{display:none!important}img{max-width:100%}</style>
+<style>
+:root{
+  --bg:#fbfcfd; --paper:#ffffff; --ink:#18202c; --ink2:#3f4a5a; --mute:#6b7686; --line:#dfe4ea; --line2:#eef1f5;
+  --blue:#2f5e99; --blue-ink:#23497a; --blue-band:#eaf1f9; --orange:#c0612b; --orange-ink:#8c431c; --orange-band:#fcf0e3;
+  --prim-band:#f3f4f6; --prim:#8a93a0; --reuse:#7a3e9d; --hl:#fff4c2; --hl-line:#e0b400;
+  --btn:#18202c; --btn-ink:#ffffff; --code:#f4f6f9; --figbg:#ffffff;
+  --display:"Schibsted Grotesk",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --body:"Source Sans 3",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#10141b; --paper:#161b24; --ink:#e8ecf2; --ink2:#c2cad6; --mute:#8d98a8; --line:#2a323f; --line2:#1d2430;
+    --blue:#7fa8de; --blue-ink:#a9c6ee; --blue-band:#1a2638; --orange:#e39461; --orange-ink:#f0b58c; --orange-band:#2e2119;
+    --prim-band:#1c222c; --prim:#8791a0; --reuse:#c48ce6; --hl:#3a3316; --hl-line:#d8b23a;
+    --btn:#e8ecf2; --btn-ink:#10141b; --code:#1b212b; --figbg:#f7f8fa;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#10141b; --paper:#161b24; --ink:#e8ecf2; --ink2:#c2cad6; --mute:#8d98a8; --line:#2a323f; --line2:#1d2430;
+  --blue:#7fa8de; --blue-ink:#a9c6ee; --blue-band:#1a2638; --orange:#e39461; --orange-ink:#f0b58c; --orange-band:#2e2119;
+  --prim-band:#1c222c; --prim:#8791a0; --reuse:#c48ce6; --hl:#3a3316; --hl-line:#d8b23a;
+  --btn:#e8ecf2; --btn-ink:#10141b; --code:#1b212b; --figbg:#f7f8fa;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;padding-inline:16px}
+a{color:var(--blue)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.wrap{max-width:1040px;margin:0 auto}
+.narrow{max-width:760px;margin:0 auto}
+.intro{max-width:none;margin:0}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;line-height:1.18;margin:0}
+h2{font-size:30px;font-weight:700;letter-spacing:-.01em}
+h3{font-size:19px;font-weight:700}
+p{margin:0}
+code,.mono{font-family:var(--mono);font-size:.86em}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);margin-inline:-16px;padding-inline:16px}
+.nav .wrap{display:flex;align-items:center;gap:20px;height:52px}
+.brand{font-family:var(--display);font-weight:800;font-size:18px;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:8px;white-space:nowrap;flex:none}
+.brand svg{width:20px;height:20px}
+.nav nav{display:flex;gap:18px;margin-left:auto;overflow-x:auto}
+.nav nav a{color:var(--ink2);text-decoration:none;font-size:15px;white-space:nowrap}
+@media (max-width:620px){.nav nav{gap:12px}.nav nav a{font-size:13.5px}.nav nav a.opt{display:none}}
+.nav nav a:hover{color:var(--ink)}
+
+/* hero */
+.hero{padding-block:64px 36px;text-align:center}
+.venue{display:inline-block;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);border:1px solid var(--line);border-radius:999px;padding:4px 12px;margin-bottom:20px}
+.hero h1{font-size:clamp(28px,4.3vw,46px);font-weight:800;letter-spacing:-.02em;line-height:1.15;margin:0 auto}
+@media (max-width:760px){.hero h1 .br2{display:none}}
+.hero h1 .x{color:var(--blue)}
+.authors{margin-top:18px;color:var(--ink2);font-size:18px}
+.affil{color:var(--mute);font-size:15px;margin-top:2px}
+.links{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:26px}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--btn);color:var(--btn-ink);border:0;border-radius:999px;padding:9px 18px;font-family:var(--display);font-weight:600;font-size:15px;text-decoration:none;cursor:pointer}
+.btn svg{width:16px;height:16px}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.btn.ghost small{font-family:var(--mono);font-size:11px;color:var(--mute)}
+.btn.soon{background:transparent;color:var(--mute);border:1px dashed var(--line);cursor:default}
+.btn.soon small{font-family:var(--mono);font-size:11px}
+
+/* TL;DR and abstract */
+.tldr{max-width:780px;margin:30px auto 0;text-align:left;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 22px}
+.tldr>p{margin:0;font-size:18.5px;line-height:1.55;color:var(--ink)}
+.tldr>p b{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--blue);margin-right:8px;vertical-align:2px}
+.abs{margin-top:12px;border-top:1px solid var(--line2);padding-top:10px}
+.abs summary{cursor:pointer;font-family:var(--display);font-weight:600;font-size:14.5px;color:var(--blue);list-style:none}
+.abs summary::-webkit-details-marker{display:none}
+.abs summary::before{content:"+ ";font-family:var(--mono)}
+.abs[open] summary::before{content:"− "}
+.abs .prose{margin-top:10px;font-size:16px}
+/* key numbers */
+.nums{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:14px;background:var(--paper);margin-top:40px;overflow:hidden}
+.num{padding:18px 18px 16px;border-left:1px solid var(--line)}
+.num:first-child{border-left:0}
+.num b{display:block;font-family:var(--display);font-size:34px;font-weight:800;letter-spacing:-.02em;color:var(--ink);font-variant-numeric:tabular-nums}
+.num span{display:block;font-size:14px;color:var(--ink2);line-height:1.35}
+.num em{font-style:normal;font-family:var(--mono);font-size:11px;color:var(--mute);letter-spacing:.04em;text-transform:uppercase;display:block;margin-bottom:6px}
+@media (max-width:760px){.nums{grid-template-columns:repeat(2,1fr)}.num:nth-child(3){border-left:0}.num:nth-child(n+3){border-top:1px solid var(--line)}}
+
+section{padding-block:56px}
+section+section{border-top:1px solid var(--line2)}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:10px}
+.lead{font-size:19px;color:var(--ink2);margin-top:14px}
+.prose{display:grid;gap:14px;margin-top:18px;color:var(--ink2)}
+.prose strong{color:var(--ink)}
+figure{margin:28px 0 0}
+figure .img{background:var(--figbg);border:1px solid var(--line);border-radius:12px;padding:14px}
+figure img{display:block;width:100%;height:auto}
+figcaption{font-size:14.5px;color:var(--mute);margin-top:10px;line-height:1.5}
+figcaption b{color:var(--ink2)}
+
+/* explorer */
+.explorer{margin-top:26px;background:var(--paper);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.ex-top{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;padding:14px 16px;border-bottom:1px solid var(--line)}
+.tabs{display:flex;gap:4px;background:var(--line2);border-radius:10px;padding:3px;flex-wrap:wrap}
+.tab{border:0;background:transparent;color:var(--ink2);font-family:var(--display);font-weight:600;font-size:14.5px;padding:7px 13px;border-radius:8px;cursor:pointer}
+.tab[aria-selected="true"]{background:var(--paper);color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.08)}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{border:1px solid var(--line);background:transparent;color:var(--ink2);font-size:13.5px;padding:5px 11px;border-radius:999px;cursor:pointer;font-family:var(--body)}
+.chip[aria-pressed="true"]{border-color:var(--blue);color:var(--blue-ink);background:var(--blue-band)}
+.task{padding:14px 16px;border-bottom:1px solid var(--line);display:grid;gap:6px}
+.task .meta{font-family:var(--mono);font-size:12px;color:var(--mute);display:flex;gap:14px;flex-wrap:wrap}
+.task .utt{font-size:16px;color:var(--ink)}
+.ex-body{display:grid;grid-template-columns:minmax(0,1fr) 290px;align-items:stretch}
+@media (max-width:900px){.ex-body{grid-template-columns:1fr}}
+.traj{overflow-x:auto;align-self:start}
+@media (max-width:900px){.traj{border-right:0;border-bottom:1px solid var(--line)}}
+.grid{position:relative;display:grid;grid-template-columns:minmax(260px,1fr) auto;min-width:640px}
+.rows{position:relative}
+.row{height:var(--row,32px);display:grid;grid-template-columns:30px minmax(0,1fr) auto;align-items:center;gap:8px;padding-inline:10px 8px;border-bottom:1px solid transparent;cursor:pointer}
+.row .i{font-family:var(--mono);font-size:11px;color:var(--mute);text-align:right;font-variant-numeric:tabular-nums}
+.row .cmd{font-family:var(--mono);font-size:12.5px;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tok{font-family:var(--mono);font-size:11.5px;padding:2px 7px;border-radius:6px;background:var(--paper);border:1px solid var(--line);color:var(--ink2);white-space:nowrap}
+.row.b0{background:var(--blue-band)} .row.b1{background:var(--orange-band)} .row.bp{background:var(--prim-band)}
+.row.hl{background:var(--hl)!important;box-shadow:inset 3px 0 0 var(--hl-line)}
+.row.hl .tok{border-color:var(--hl-line)}
+.tree{display:block}
+.tree text{font-family:var(--mono);font-size:10.5px}
+.tree .edge{fill:none;stroke-width:1.4}
+.tree .node{cursor:pointer}
+.tree .node circle{stroke-width:1.6}
+.tree .dim{opacity:.22}
+.tree .leader{fill:none;stroke-width:1;stroke-dasharray:2 3;opacity:.55}
+.tree .leader.on{opacity:1;stroke-dasharray:none}
+.tree .nlabel{font-size:11px;cursor:pointer}
+.tree .nlabel.top{font-weight:700;font-size:11.5px}
+.tree .nlabel .sid{fill:var(--mute);font-weight:400;font-size:9.5px}
+.tree .nlabel.on{text-decoration:underline;text-underline-offset:3px}
+.tree .nlabel:focus-visible{outline:2px solid var(--blue)}
+.side{padding:16px;display:grid;gap:16px;align-content:start;border-left:1px solid var(--line)}
+@media (max-width:900px){.side{border-left:0;border-top:1px solid var(--line)}}
+.side h4{margin:0;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);font-weight:500}
+.card-node .name{font-family:var(--display);font-weight:700;font-size:20px;line-height:1.2;overflow-wrap:normal}
+.card-node .id{font-family:var(--mono);font-size:12px;color:var(--mute)}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;font-size:14.5px;margin-top:10px}
+.kv dt{color:var(--mute)} .kv dd{margin:0;font-variant-numeric:tabular-nums;color:var(--ink)}
+.compose{display:flex;flex-wrap:wrap;gap:5px;align-items:center;margin-top:10px;font-size:13px;color:var(--mute)}
+.compose button{font-family:var(--mono);font-size:11.5px;border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:6px;padding:2px 7px;cursor:pointer}
+.compose button.prim{cursor:default;color:var(--ink2)}
+.expand{margin-top:10px;font-family:var(--mono);font-size:11.5px;color:var(--ink2);line-height:1.7}
+.merge{display:grid;gap:10px;padding:12px 16px;border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--line2) 55%,transparent)}
+.merge-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+.merge-row h4{margin:0}
+.merge input{flex:0 1 220px;min-width:120px;accent-color:var(--blue)}
+.merge .ratio{margin-left:auto}
+.narrow-note{display:none;margin:0;padding:10px 16px;font-size:13px;color:var(--mute);border-top:1px solid var(--line)}
+@media (max-width:620px){.tree{display:none!important}.grid{min-width:0!important;grid-template-columns:1fr!important}.narrow-note{display:block}.merge .ratio{margin-left:0}}
+.merge .val{font-family:var(--mono);font-size:12px;color:var(--ink2);min-width:64px;text-align:right}
+.play{border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:8px;padding:4px 10px;font-size:13px;cursor:pointer;font-family:var(--body)}
+.stream{display:flex;flex-wrap:wrap;gap:4px}
+.sym{font-family:var(--mono);font-size:11px;padding:2px 6px;border-radius:5px;border:1px solid var(--line);background:var(--prim-band);color:var(--ink2);cursor:pointer}
+.sym.n0{background:var(--blue-band);border-color:color-mix(in srgb,var(--blue) 45%,transparent);color:var(--blue-ink)}
+.sym.n1{background:var(--orange-band);border-color:color-mix(in srgb,var(--orange) 45%,transparent);color:var(--orange-ink)}
+.ratio{font-size:13.5px;color:var(--ink2)}
+.ratio b{font-family:var(--display);font-size:18px;color:var(--ink)}
+.legend{display:flex;flex-wrap:wrap;gap:14px;padding:10px 16px;border-top:1px solid var(--line);font-size:13px;color:var(--mute)}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:-1px;margin-right:6px}
+
+/* method */
+.formula{margin-top:22px;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:18px 20px;overflow-x:auto}
+.formula .eq{font-family:var(--mono);font-size:16px;color:var(--ink);white-space:nowrap}
+.formula .eq .t{display:inline-block;text-align:center;vertical-align:top;margin-inline:2px}
+.formula .eq .t small{display:block;font-family:var(--body);font-size:12px;color:var(--mute);border-top:1px solid var(--line);margin-top:4px;padding-top:2px}
+.steps3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
+@media (max-width:760px){.steps3{grid-template-columns:1fr}}
+.step{border:1px solid var(--line);border-radius:12px;padding:16px;background:var(--paper)}
+.step .k{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.step h3{margin-top:6px}
+.step p{margin-top:8px;color:var(--ink2);font-size:15.5px}
+.canon{margin-top:10px;font-family:var(--mono);font-size:12.5px;color:var(--ink2);background:var(--code);border-radius:8px;padding:8px 10px;overflow-x:auto;white-space:nowrap}
+
+/* one-line section heading on desktop */
+@media (min-width:1000px){.h2-one{font-size:26.5px;white-space:nowrap}}
+/* result blocks */
+.res{margin-top:40px}
+.res h3{font-size:21px;line-height:1.3}
+.res p{margin-top:8px;font-size:17px;color:var(--ink2)}
+.res+.tablewrap,.res+figure{margin-top:16px}
+/* trees */
+.trees{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:22px}
+@media (max-width:900px){.trees{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.trees{grid-template-columns:1fr}}
+.tcard{border:1px solid var(--line);border-radius:12px;background:var(--paper);padding:14px 16px;display:grid;gap:8px;align-content:start}
+.tcard h3{font-size:17px}
+.tcard dl{display:grid;grid-template-columns:auto 1fr;gap:3px 12px;margin:0;font-size:14px}
+.tcard dt{color:var(--mute)} .tcard dd{margin:0;font-variant-numeric:tabular-nums}
+.tcard a{font-family:var(--display);font-weight:600;font-size:14px;text-decoration:none}
+.fmt{margin-top:16px;font-family:var(--mono);font-size:12.5px;color:var(--ink2);background:var(--code);border:1px solid var(--line);border-radius:10px;padding:12px 14px;overflow-x:auto;white-space:pre}
+/* results table */
+.tablewrap{overflow-x:auto;margin-top:22px;border:1px solid var(--line);border-radius:12px;background:var(--paper)}
+table{border-collapse:collapse;width:100%;font-size:14.5px;font-variant-numeric:tabular-nums}
+th,td{padding:8px 12px;text-align:right;white-space:nowrap;border-bottom:1px solid var(--line2)}
+th:first-child,td:first-child{text-align:left}
+thead th{font-family:var(--display);font-weight:600;color:var(--ink2);font-size:13.5px;background:var(--line2)}
+td.all,th.all{border-left:1px solid var(--line);font-weight:700}
+tr.group td{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);text-align:left;background:transparent;padding-top:12px}
+tr.ours td{background:var(--blue-band);color:var(--blue-ink);font-weight:700}
+.results-grid{display:grid;grid-template-columns:1fr;gap:10px}
+
+/* bibtex */
+.bib{position:relative;margin-top:18px}
+.bib pre{margin:0;background:var(--code);border:1px solid var(--line);border-radius:12px;padding:16px;font-family:var(--mono);font-size:13px;line-height:1.55;overflow-x:auto;color:var(--ink)}
+.copy{position:absolute;top:10px;right:10px;border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:8px;padding:4px 10px;font-size:13px;cursor:pointer;font-family:var(--body)}
+footer{padding-block:36px 48px;border-top:1px solid var(--line);color:var(--mute);font-size:14px;text-align:center}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+/* integrations demo */
+.xt{list-style:none;margin:0;padding:0}
+.xt ul{list-style:none;margin:0;padding-left:14px}
+.xt li{position:relative;padding:3px 0 3px 14px}
+.xt ul>li::before{content:"";position:absolute;left:0;top:0;bottom:0;border-left:1px solid var(--line)}
+.xt ul>li:last-child::before{bottom:auto;height:14px}
+.xt ul>li::after{content:"";position:absolute;left:0;top:14px;width:10px;border-top:1px solid var(--line)}
+.xt.root>li{padding-left:0}
+.xn{display:inline-grid}
+.xn b{font-family:var(--mono);font-size:12.5px;color:var(--ink)}
+.xn small{font-size:11px;color:var(--mute)}
+.xl{display:inline-grid;gap:1px;border-left:3px solid var(--kc);padding:2px 0 2px 7px;background:color-mix(in srgb,var(--kc) 9%,transparent);border-radius:0 6px 6px 0}
+.xl i{font-style:normal;font-family:var(--mono);font-size:10.5px;color:var(--mute)}
+.xl span{font-family:var(--mono);font-size:11.5px;color:var(--ink)}
+.legend2{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;font-size:12.5px;color:var(--mute)}
+.legend2 .sw{display:inline-block;width:12px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+.legend2 .sw.pos{background:var(--blue)} .legend2 .sw.neg{background:var(--orange)}
+:root{--k0:#2f5e99;--k1:#c0612b;--k2:#2e8b6e;--k3:#8a4fb3;--k4:#b8912a;--k5:#c2477a}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--k0:#7fa8de;--k1:#e39461;--k2:#5cc3a2;--k3:#b98ae0;--k4:#e0bf5e;--k5:#e882ad}}
+:root[data-theme="dark"]{--k0:#7fa8de;--k1:#e39461;--k2:#5cc3a2;--k3:#b98ae0;--k4:#e0bf5e;--k5:#e882ad}
+.integ{margin-top:26px;background:var(--paper);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.integ-top{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid var(--line)}
+.integ-ex{display:flex;flex-wrap:wrap;gap:6px;padding:10px 16px;border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--line2) 55%,transparent)}
+.integ-ex .env{font-family:var(--mono);font-size:10.5px;color:var(--mute);margin-right:4px}
+.ctrl{display:flex;gap:6px}
+.ctrl button{border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:8px;padding:5px 12px;font-size:13.5px;cursor:pointer;font-family:var(--body)}
+.ctrl button:disabled{opacity:.45;cursor:default}
+.integ-body{display:grid;grid-template-columns:minmax(0,1fr) 300px}
+@media (max-width:900px){.integ-body{grid-template-columns:1fr}}
+.integ-main{padding:16px;display:grid;gap:14px;align-content:start;min-width:0}
+.integ-hint{padding:16px;border-left:1px solid var(--line);display:grid;gap:10px;align-content:start;background:color-mix(in srgb,var(--line2) 35%,transparent)}
+@media (max-width:900px){.integ-hint{border-left:0;border-top:1px solid var(--line)}}
+.integ-hint h4{margin:0;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);font-weight:500}
+.integ-cap{font-size:15.5px;color:var(--ink2);min-height:46px;margin:0}
+.integ-cap b{color:var(--ink)}
+.integ-task{font-size:14.5px;color:var(--ink);background:var(--line2);border-radius:8px;padding:8px 10px}
+.integ-task span{font-family:var(--mono);font-size:10.5px;color:var(--mute);display:block;margin-bottom:2px;letter-spacing:.06em;text-transform:uppercase}
+.lane{display:grid;grid-template-columns:112px minmax(0,1fr);gap:10px;align-items:start}
+@media (max-width:620px){.lane{grid-template-columns:1fr}}
+.lane>.lab{font-family:var(--mono);font-size:11.5px;color:var(--mute);padding-top:5px}
+.acts{display:flex;flex-wrap:wrap;gap:6px}
+.act{font-family:var(--mono);font-size:12px;border:1px solid var(--line);border-radius:7px;padding:4px 8px;background:var(--prim-band);color:var(--ink2)}
+.act.ctx{background:var(--paper);color:var(--mute)}
+.act.kc{background:color-mix(in srgb,var(--kc) 12%,var(--paper));border-color:color-mix(in srgb,var(--kc) 55%,transparent);color:var(--ink)}
+.act.bad{background:#fbe9e7;border-color:#d0674f;color:#8a2c19}
+.act .mk{font-weight:700;margin-right:5px}
+.act.kc .mk{color:var(--kc)}
+.act.pend{opacity:.35}
+.hnode{border:1px solid var(--line);border-radius:10px;background:var(--paper);padding:10px 12px;display:grid;gap:6px}
+.hnode .nm{font-family:var(--mono);font-weight:700;font-size:13px;color:var(--ink);word-break:break-word}
+.hnode .meta{font-size:12.5px;color:var(--mute)}
+.hkid{display:grid;grid-template-columns:10px minmax(0,1fr);gap:8px;align-items:start;font-size:13px}
+.hkid i{width:10px;height:10px;border-radius:3px;margin-top:4px;background:var(--kc)}
+.hkid b{font-family:var(--mono);font-weight:600;font-size:12px;color:var(--ink);word-break:break-word}
+.hkid small{display:block;font-family:var(--mono);font-size:11px;color:var(--mute)}
+.strip{display:flex;flex-wrap:wrap;gap:4px;align-items:center}
+.seg{font-family:var(--mono);font-size:11px;border-radius:6px;padding:3px 7px;border:1px solid transparent;white-space:nowrap}
+.seg.kc{background:color-mix(in srgb,var(--kc) 14%,var(--paper));border-color:color-mix(in srgb,var(--kc) 60%,transparent);color:var(--ink)}
+.seg.kc em{font-style:normal;color:var(--mute);margin-left:4px}
+.seg.px{background:var(--prim-band);border-color:var(--line);color:var(--mute)}
+.rolls{display:grid;gap:10px}
+.roll{display:grid;grid-template-columns:24px minmax(0,1fr) 64px 130px;gap:10px;align-items:center}
+@media (max-width:720px){.roll{grid-template-columns:24px minmax(0,1fr) 58px}.roll .bar{grid-column:2 / 4}}
+.roll .rid{font-family:var(--mono);font-size:12px;color:var(--mute)}
+.out{font-family:var(--mono);font-size:11.5px;text-align:center;border-radius:6px;padding:2px 0}
+.out.win{background:#e6f4ea;color:#1e5b2c} .out.lose{background:var(--prim-band);color:var(--mute)}
+.bar{position:relative;height:16px;background:var(--line2);border-radius:5px;overflow:hidden}
+.bar i{position:absolute;top:0;bottom:0;background:var(--blue);opacity:.85;transition:left .4s,width .4s}
+.bar i.neg{background:var(--orange)}
+.bar .zero{position:absolute;left:50%;top:0;bottom:0;width:1px;background:var(--mute)}
+.bar.one i{left:0}
+.scen{display:flex;flex-wrap:wrap;gap:6px}
+.pill{display:inline-block;font-family:var(--mono);font-size:11.5px;border-radius:999px;padding:2px 9px;border:1px solid var(--line)}
+.pill.on{background:#e6f4ea;border-color:#5aa469;color:#1e5b2c}
+.pill.mid{background:#fdf3dc;border-color:#d9b24a;color:#7a5a0c}
+.pill.off{background:var(--prim-band);color:var(--mute)}
+.card-ctx{font-family:var(--mono);font-size:11.3px;line-height:1.55;color:var(--ink2);background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:8px 10px;max-height:260px;overflow:auto}
+.card-ctx div{padding:1px 4px;border-radius:4px}
+.card-ctx .hit{background:color-mix(in srgb,var(--k0) 16%,var(--paper));outline:1px solid color-mix(in srgb,var(--k0) 55%,transparent);color:var(--ink)}
+.toks{display:flex;flex-wrap:wrap;gap:8px;align-items:flex-end}
+.tk{display:grid;justify-items:center;gap:4px;font-family:var(--mono);font-size:12.5px}
+.tk .g{width:36px;background:var(--line2);border-radius:4px 4px 0 0;position:relative;height:56px;overflow:hidden}
+.tk .g i{position:absolute;left:0;right:0;bottom:0;background:var(--k0);transition:height .4s}
+.tk .w{border:1px solid var(--line);border-radius:6px;padding:2px 7px;background:var(--paper);color:var(--ink)}
+.tk.inf .w{border-color:color-mix(in srgb,var(--k0) 60%,transparent);background:color-mix(in srgb,var(--k0) 12%,var(--paper))}
+.note{font-size:12.5px;color:var(--mute);margin:0}
+
+
+/* home link + More research menu (shared by all project pages) */
+.nav-left{display:flex;align-items:center;gap:4px;flex:none}
+.home-link{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:8px;color:var(--ink2);flex:none}
+.home-link:hover{color:var(--ink);background:var(--line2)}
+.home-link svg{width:18px;height:18px}
+.more{position:relative}
+.more-btn{display:inline-flex;align-items:center;gap:6px;height:34px;padding:0 10px;border:0;border-radius:8px;background:transparent;color:var(--blue);font-family:var(--display);font-weight:600;font-size:14.5px;cursor:pointer;white-space:nowrap}
+.more-btn:hover,.more-btn[aria-expanded="true"]{background:var(--line2)}
+.more-btn svg{width:12px;height:12px;transition:transform .15s ease}
+.more-btn[aria-expanded="true"] svg{transform:rotate(180deg)}
+.more-menu{position:absolute;left:0;top:calc(100% + 8px);min-width:270px;background:var(--paper);border:1px solid var(--line);border-radius:12px;box-shadow:0 12px 32px rgba(0,0,0,.14);padding:6px;z-index:60}
+.more-menu a{display:block;padding:8px 12px;border-radius:8px;color:var(--ink);text-decoration:none;font-family:var(--display);font-weight:600;font-size:14.5px;line-height:1.3}
+.more-menu a small{display:block;font-family:var(--body);font-weight:400;font-size:12.5px;color:var(--mute);margin-top:2px}
+.more-menu a:hover,.more-menu a:focus-visible{background:var(--blue-band);outline:none}
+.more-menu a[aria-current="page"]{color:var(--blue)}
+.more-menu a[aria-current="page"] small::after{content:" \00b7  this page"}
+.more-menu .all{margin-top:4px;padding-top:10px;border-top:1px solid var(--line2);border-radius:0 0 8px 8px;color:var(--blue);font-size:14px}
+.nav-sep{width:1px;height:22px;background:var(--line);flex:none}
+@media (max-width:620px){.more-btn{padding:0 6px;font-size:13.5px}.nav-sep{display:none}}
+</style>
+<style>
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+@media (max-width:860px){.grid2{grid-template-columns:1fr}}
+td.sep{border-left:1px solid var(--line)}
+th[rowspan]{vertical-align:bottom}
+thead tr+tr th:first-child{text-align:right}
+.steps3 .step .canon sub{font-size:.75em}
+@media (max-width:760px){.steps3{grid-template-columns:1fr}}
+/* charts */
+.chart-card{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:14px 16px 10px;
+  --c-blue:#2f5e99;--c-orange:#c0612b;--c-g1:#a3abb6;--c-g2:#6b7686}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .chart-card{--c-blue:#5b8ce0;--c-orange:#d9773d;--c-g1:#6d7684;--c-g2:#9aa4b2}}
+:root[data-theme="dark"] .chart-card{--c-blue:#5b8ce0;--c-orange:#d9773d;--c-g1:#6d7684;--c-g2:#9aa4b2}
+.chart{position:relative;outline:none;border-radius:6px}
+.chart svg{display:block;overflow:visible}
+.chart:focus-visible{outline:2px solid var(--blue);outline-offset:4px}
+.ch-grid{stroke:var(--line2);stroke-width:1}
+.ch-guide{stroke:var(--line2);stroke-width:1}
+.ch-axis{stroke:var(--line);stroke-width:1}
+.ch-tick{font-family:var(--body);font-size:12px;fill:var(--mute);font-variant-numeric:tabular-nums}
+.ch-lab{font-family:var(--body);font-size:12.5px;fill:var(--mute)}
+.ch-end{font-family:var(--body);font-size:13px;fill:var(--ink2)}
+.ch-end-em{font-weight:700;fill:var(--ink)}
+.ch-note{font-family:var(--mono);font-size:11px;fill:var(--mute)}
+.ch-line{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ch-trend{stroke-width:1.2;stroke-dasharray:4 4;opacity:.55}
+.ch-off{fill:none;stroke:var(--mute);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.ch-cross{stroke:var(--mute);stroke-width:1}
+.ch-ref{stroke:var(--mute);stroke-width:1;stroke-dasharray:3 3}
+.ch-row{font-family:var(--body);font-size:13.5px;fill:var(--ink2)}
+.ch-row-em{font-weight:700;fill:var(--ink)}
+.ch-val{font-family:var(--body);font-size:13px;fill:var(--ink2);font-variant-numeric:tabular-nums}
+.ch-val-em{font-weight:700;fill:var(--ink)}
+.ch-tip{position:absolute;z-index:5;pointer-events:none;background:var(--paper);border:1px solid var(--line);border-radius:8px;
+  box-shadow:0 4px 14px rgba(0,0,0,.1);padding:7px 10px;font-size:13px;min-width:150px;white-space:nowrap}
+.ch-tip-h{font-family:var(--mono);font-size:11px;color:var(--mute);margin-bottom:3px;letter-spacing:.04em}
+.ch-tip-r{display:grid;grid-template-columns:14px auto 1fr;align-items:center;gap:7px;line-height:1.55}
+.ch-tip-r i{display:block;width:12px;height:2.5px;border-radius:2px}
+.ch-tip-r b{font-variant-numeric:tabular-nums;color:var(--ink);font-weight:700}
+.ch-tip-r span{color:var(--mute)}
+.ch-legend{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:13.5px;color:var(--ink2);margin:0 0 4px}
+.ch-legend span{display:inline-flex;align-items:center;gap:7px}
+.ch-legend svg{width:28px;height:10px;flex:none}
+.panels3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+@media (max-width:860px){.panels3{grid-template-columns:1fr}}
+.panel h4{margin:6px 0 2px;font-family:var(--display);font-size:15px;font-weight:700;color:var(--ink)}
+.chart-data{margin-top:10px}
+.chart-data summary{cursor:pointer;font-family:var(--display);font-weight:600;font-size:13.5px;color:var(--blue);list-style:none}
+.chart-data summary::-webkit-details-marker{display:none}
+.chart-data summary::before{content:"+ ";font-family:var(--mono)}
+.chart-data[open] summary::before{content:"\2212 "}
+.chart-data .tablewrap{margin-top:8px}
+.chart-data table{font-size:13.5px}
+.chart-data caption{caption-side:top;text-align:left;padding:8px 12px 0;font-size:13px;color:var(--mute)}
+.tables3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+@media (max-width:860px){.tables3{grid-template-columns:1fr}}
+.ch-glab{font-family:var(--mono);font-size:11px;letter-spacing:.06em;fill:var(--mute)}
+
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <div class="nav-left">
+      <a class="home-link" href="https://sitaocheng.github.io/" aria-label="Sitao Cheng's homepage" title="Homepage"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 9.3L10 3l7 6.3V17a1 1 0 0 1-1 1h-3.7v-5.2H7.7V18H4a1 1 0 0 1-1-1z" fill="currentColor"/></svg></a>
+      <div class="more" data-more-research>
+        <button class="more-btn" type="button" aria-expanded="false" aria-controls="moreMenu">More research<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5L6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="more-menu" id="moreMenu" hidden>
+        <a href="https://sitaocheng.github.io/xtree/">X-Tree<small>Reusable experience for agent training</small></a>
+        <a href="https://sitaocheng.github.io/derl/">DERL<small>A reward proposer that learns from its trials</small></a>
+        <a href="https://sitaocheng.github.io/atomic/" aria-current="page">From Atomic to Composite<small>When RL composes new reasoning skills</small></a>
+        <a class="all" href="https://sitaocheng.github.io/projects/">All projects</a>
+        </div>
+      </div>
+    </div>
+    <span class="nav-sep" aria-hidden="true"></span>
+    <a class="brand" href="#top" aria-label="From Atomic to Composite home">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="5" cy="6" r="2.6" fill="var(--blue)"/><circle cx="5" cy="14" r="2.6" fill="var(--orange)"/><path d="M8 6.5l4 3M8 13.5l4-3" stroke="var(--ink2)" stroke-width="1.6" fill="none"/><circle cx="15" cy="10" r="3.2" fill="none" stroke="var(--ink2)" stroke-width="1.8"/></svg>
+      Atomic&#8202;&#8594;&#8202;Composite
+    </a>
+    <nav aria-label="Sections">
+      <a href="#data">Data</a>
+      <a href="#findings">Findings</a>
+      <a class="opt" href="#analysis">Analysis</a>
+      <a class="opt" href="#bibtex">BibTeX</a>
+    </nav>
+  </div>
+</header>
+<main id="top">
+<div class="wrap">
+  <div class="hero">
+    <div class="venue">Preprint · 2025</div>
+    <h1><span class="x">From Atomic to Composite</span>: Reinforcement Learning Enables Generalization<br class="br2"> in Complementary Reasoning</h1>
+    <p class="authors">Sitao Cheng<sup>1</sup>, Xunjian Yin<sup>2</sup>, Ruiwen Zhou<sup>3</sup>, Yuxuan Li<sup>1</sup>, Xinyi Wang<sup>4</sup>, Liangming Pan<sup>5</sup>, William Yang Wang<sup>6</sup>, Victor Zhong<sup>1</sup></p>
+    <p class="affil"><sup>1</sup>University of Waterloo &nbsp;·&nbsp; <sup>2</sup>Duke University &nbsp;·&nbsp; <sup>3</sup>National University of Singapore &nbsp;·&nbsp; <sup>4</sup>Princeton University &nbsp;·&nbsp; <sup>5</sup>Peking University &nbsp;·&nbsp; <sup>6</sup>University of California, Santa Barbara</p>
+    <p class="affil">Contact: <a class="mono" href="mailto:sitao.cheng@uwaterloo.ca">sitao.cheng@uwaterloo.ca</a> · <a class="mono" href="mailto:liangmingpan@pku.edu.cn">liangmingpan@pku.edu.cn</a> · <a class="mono" href="mailto:victor.zhong@uwaterloo.ca">victor.zhong@uwaterloo.ca</a></p>
+    <div class="links">
+      <a class="btn" href="https://arxiv.org/abs/2512.01970"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 1.5h5l3 3v10H4z M9 1.5v3h3" fill="none" stroke="currentColor" stroke-width="1.3"/></svg>Paper</a>
+      <a class="btn ghost" href="https://github.com/sitaocheng/from_atomic_to_composite"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5.5 4L2 8l3.5 4M10.5 4L14 8l-3.5 4" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>Code</a>
+      <a class="btn ghost" href="https://huggingface.co/datasets/sitao/From_atomic_to_composite"><svg viewBox="0 0 16 16" aria-hidden="true"><ellipse cx="8" cy="3.8" rx="5.2" ry="2" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M2.8 3.8v8.4c0 1.1 2.3 2 5.2 2s5.2-.9 5.2-2V3.8M2.8 8c0 1.1 2.3 2 5.2 2s5.2-.9 5.2-2" fill="none" stroke="currentColor" stroke-width="1.3"/></svg>Data</a>
+      <a class="btn" href="#data"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="4" cy="4" r="2" fill="currentColor"/><circle cx="4" cy="12" r="2" fill="currentColor"/><circle cx="12" cy="8" r="2.4" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M6 5l4 2M6 11l4-2" stroke="currentColor" stroke-width="1.3"/></svg>See how the data is built</a>
+    </div>
+    <div class="tldr">
+      <p><b>TL;DR</b> Does RL synthesize new reasoning skills, or only amplify ones the model already has? On a contamination-free benchmark of synthetic biographies, SFT on composite questions memorizes the seen reasoning paths and fails on unseen relations. RL generalizes to these unseen compositions, but only when the model has first learned the two atomic skills: recalling facts from its weights and reading facts from the context.</p>
+      <details class="abs">
+        <summary>Read the abstract</summary>
+        <div class="prose">
+          <p>Does Reinforcement Learning (RL) merely amplify existing skills, or does it synthesize new ones? We study this question through <em>Complementary Reasoning</em>: the capability of integrating knowledge stored in model weights with novel information provided in context, a prerequisite for continual learning and retrieval-augmented generation. To avoid pre-training contamination, we construct a controlled semantic-synthetic dataset of biographies and decompose the capability into two atomic skills: <em>Parametric Reasoning</em> (retrieving facts encoded in model weights) and <em>Contextual Reasoning</em> (processing novel in-context information). We present two findings. First, models supervised directly on the composite task reach high accuracy on seen facts and reasoning paths (90%) but collapse on paths with unseen relations (18%), indicating that Supervised Fine-Tuning (SFT) relies on memorization rather than skill integration. Second, RL closes this generalization gap and acts as a behavioral <em>synthesizer</em> rather than a mere amplifier, but only under a strict prerequisite: it composes new strategies only when the base model has first acquired the independent atomic skills via SFT. These results suggest that decoupled atomic training followed by RL offers a scalable path to complex and novel reasoning.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+  <div class="nums" role="list">
+    <div class="num" role="listitem"><em>SFT on composite data</em><b>90&#8594;18</b><span>accuracy (%) on seen paths vs. paths with an unseen relation</span></div>
+    <div class="num" role="listitem"><em>Unseen relations, after RL</em><b>&#8805;12.7</b><span>points ahead of composite-first for atomic-first, at every data split (up to 30.8)</span></div>
+    <div class="num" role="listitem"><em>Same RL, unseen relations</em><b>24.1&#8594;42.6</b><span>accuracy (%) of the model with both atomic skills, before vs. after RL</span></div>
+    <div class="num" role="listitem"><em>pass@512, unseen relations</em><b>62.9 vs 44.3</b><span>after vs. before RL: answers the SFT model never samples</span></div>
+  </div>
+</div>
+<section id="data">
+  <div class="wrap">
+    <div class="intro">
+      <div class="eyebrow">Benchmark</div>
+      <h2>One knowledge graph, three reasoning types</h2>
+      <p class="lead">Every fact comes from a synthetic knowledge graph, so no fact appears in pre-training data. Where a fact lives decides which skill a question needs: memory facts are trained into the weights, and context facts are given in the prompt.</p>
+    </div>
+    <figure>
+      <div class="img"><img src="img/data_construction.gif" alt="Animation in four steps. 1: a knowledge graph of synthetic people with memory relations such as roommate, boss and occupation, and context relations such as spouse and best friend. 2: memory facts become biographies that are trained into the weights, and context facts become documents given in the prompt. 3: a random walk samples the path roommate, spouse, boss from John Parsons to Kenneth Nelson and fills a question template. 4: the same graph yields a parametric question (roommate then occupation, answer Ecologist), a contextual question (spouse then best friend, answer Mikayla Myers) and a complementary question (roommate, spouse, boss, answer Kenneth Nelson)." width="1200" height="660" loading="lazy"></div>
+      <figcaption><b>How the data is built.</b> All people, facts and sentences are from the released data, and the three relation paths are in the paper's path lists. The 39 relations are split at random into a memory set and a context set. A parametric question uses only memory facts, a contextual question uses only context facts, and a complementary question needs both.</figcaption>
+    </figure>
+    <div class="steps3">
+      <div class="step">
+        <div class="k">IID</div>
+        <h3>Seen path, new people</h3>
+        <p>The relation path appears in training, asked about different people. SFT is enough here, because the model only recalls an observed structure.</p>
+        <div class="canon">2,135 complementary test questions</div>
+      </div>
+      <div class="step">
+        <div class="k">Composition</div>
+        <h3>Seen relations, new order</h3>
+        <p>Every relation appears in training, but never in this combination. The model must assemble known relations into a new path.</p>
+        <div class="canon">1,415 complementary test questions</div>
+      </div>
+      <div class="step">
+        <div class="k">Zero-shot</div>
+        <h3>A relation never trained</h3>
+        <p>The path contains a relation that no training question uses. Memorized patterns cannot help, so this level tests real composition.</p>
+        <div class="canon">918 complementary test questions</div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="findings">
+  <div class="wrap">
+    <div class="intro">
+      <div class="eyebrow">Findings</div>
+      <h2>RL composes skills, if the atomic skills come first</h2>
+    </div>
+    <div class="grid2" style="align-items:start">
+      <div class="res">
+        <h3>SFT memorizes rather than generalizes</h3>
+        <p>SFT directly on 181k complementary questions reaches 90.3% on seen paths but only 18.4% when a relation is new. SFT on the atomic skills alone does not compose them either. Learning each skill does not teach the model to combine them.</p>
+      </div>
+      <div class="tablewrap" style="margin-top:40px">
+        <table>
+          <caption style="caption-side:bottom;text-align:left;padding:10px 12px;font-size:13.5px;color:var(--mute)">Exact match (%) on the complementary test set, Qwen2.5-1.5B.</caption>
+          <thead><tr><th>SFT data</th><th>IID</th><th>Comp.</th><th>Zero-shot</th></tr></thead>
+          <tbody>
+            <tr><td>Memory + context (atomic)</td><td>35.18</td><td>28.20</td><td>24.07</td></tr>
+            <tr><td>Complementary (composite)</td><td>90.30</td><td>76.25</td><td>18.41</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="res">
+      <h3>Atomic-first beats composite-first at every data split</h3>
+      <p>We split the complementary data into an SFT part and an RL part. The composite-first recipe runs SFT on the composite part and RL on the rest. The atomic-first recipe runs SFT on the memory and context data instead, then the same RL. On unseen relations, atomic-first wins at every split.</p>
+    </div>
+    <figure>
+      <div class="chart-card">
+        <div class="ch-legend" aria-hidden="true"><span><svg viewBox="0 0 28 10" aria-hidden="true"><line x1="1" y1="5" x2="27" y2="5" style="stroke:var(--c-blue);stroke-width:2.5;stroke-linecap:round"/><circle cx="14" cy="5" r="3.5" style="fill:var(--c-blue);stroke:var(--paper);stroke-width:1.5"/></svg>Atomic-first: SFT on memory + context, then RL</span><span><svg viewBox="0 0 28 10" aria-hidden="true"><line x1="1" y1="5" x2="27" y2="5" style="stroke:var(--c-orange);stroke-width:2;stroke-linecap:round"/><rect x="10.8" y="1.8" width="6.4" height="6.4" rx="1" style="fill:var(--c-orange);stroke:var(--paper);stroke-width:1.5"/></svg>Composite-first: SFT on composite, then RL</span></div>
+        <div class="panels3">
+          <div class="panel"><h4>IID</h4><div class="chart" id="ch-suf-iid" tabindex="0" role="img" aria-label="IID accuracy after RL. Atomic-first: 71.3 to 83.1 percent. Composite-first: 29.9 to 90.4 percent, rising with the SFT share."></div></div>
+          <div class="panel"><h4>Composition</h4><div class="chart" id="ch-suf-comp" tabindex="0" role="img" aria-label="Composition accuracy after RL. Atomic-first: 60.5 to 65.3 percent. Composite-first: 28.1 to 80.4 percent, rising with the SFT share."></div></div>
+          <div class="panel"><h4>Zero-shot</h4><div class="chart" id="ch-suf-zs" tabindex="0" role="img" aria-label="Zero-shot accuracy after RL. Atomic-first: 42.6 to 48.6 percent. Composite-first: 17.8 to 31.2 percent. Atomic-first is higher at every split."></div></div>
+        </div>
+      </div>
+      <figcaption>Accuracy after RL (%) as the composite data moves from the RL part to the SFT part. The x-axis is the share of the composite data used for SFT in the composite-first recipe. Both recipes run RL on the same remaining share. With most data in SFT, composite-first wins on seen paths but stays low on unseen relations.</figcaption>
+      <details class="chart-data"><summary>Show the data</summary><div class="tablewrap"><table><thead><tr><th>Composite data in SFT</th><th>Atomic-first IID</th><th>Comp.</th><th>Zero-shot</th><th>Composite-first IID</th><th>Comp.</th><th>Zero-shot</th></tr></thead><tbody><tr><td>10%</td><td>83.14</td><td>65.30</td><td>48.58</td><td>29.93</td><td>28.13</td><td>17.76</td></tr><tr><td>30%</td><td>81.08</td><td>64.24</td><td>47.39</td><td>62.81</td><td>50.81</td><td>31.15</td></tr><tr><td>50%</td><td>80.61</td><td>63.39</td><td>45.97</td><td>78.55</td><td>63.82</td><td>28.76</td></tr><tr><td>70%</td><td>79.53</td><td>62.33</td><td>43.57</td><td>87.03</td><td>76.18</td><td>29.63</td></tr><tr><td>90%</td><td>71.29</td><td>60.49</td><td>42.59</td><td>90.35</td><td>80.35</td><td>29.85</td></tr></tbody></table></div></details>
+    </figure>
+    <div class="grid2">
+      <div>
+        <div class="res" style="margin-top:28px">
+          <h3>RL needs both atomic skills</h3>
+          <p>We give the same RL (12.8k complementary questions) to models with different SFT. Models that learned only memory facts or only context reading gain little, and so do models with a small dose of composite SFT. Only the model with both atomic skills gains strongly.</p>
+        </div>
+        <figure>
+          <div class="chart-card">
+            <div class="chart" id="ch-nec" tabindex="0" role="img" aria-label="Zero-shot accuracy before and after identical RL. SFT on 10 percent composite: 17.3 to 18.9. SFT on 20 percent composite: 19.5 to 20.8. SFT on memory only: 0.0 to 6.0. SFT on context only: 20.6 to 20.9. SFT on memory plus context: 24.1 to 42.6."></div>
+          </div>
+          <figcaption>Zero-shot accuracy (%) before (hollow) and after (filled) the same RL.</figcaption>
+          <details class="chart-data"><summary>Show the data</summary><div class="tablewrap"><table><thead><tr><th>SFT data</th><th>Zero-shot before RL</th><th>Zero-shot after RL</th></tr></thead><tbody><tr><td>SFT on 10% composite</td><td>17.32</td><td>18.85</td></tr><tr><td>SFT on 20% composite</td><td>19.50</td><td>20.81</td></tr><tr><td>SFT on memory only</td><td>0.00</td><td>5.99</td></tr><tr><td>SFT on context only</td><td>20.59</td><td>20.92</td></tr><tr><td>SFT on memory + context</td><td>24.07</td><td>42.59</td></tr></tbody></table></div></details>
+        </figure>
+      </div>
+      <div>
+        <div class="res" style="margin-top:28px">
+          <h3>Further SFT is no substitute for RL</h3>
+          <p>From the same atomic model and the same 12.8k composite questions, further SFT gives the best accuracy on seen paths (75.5% vs. 71.3% for RL). On unseen relations RL leads, with 42.6% against 35.7% for SFT and 34.6% for LoRA.</p>
+        </div>
+        <figure>
+          <div class="chart-card">
+            <div class="chart" id="ch-strat" tabindex="0" role="img" aria-label="Accuracy after training the atomic model on the same 12.8k complementary samples. IID: SFT 75.5, LoRA 64.3, RL 71.3. Composition: SFT 58.6, LoRA 54.0, RL 60.5. Zero-shot: SFT 35.7, LoRA 34.6, RL 42.6."></div>
+          </div>
+          <figcaption>Accuracy (%) after training the atomic model on the same 12.8k complementary samples with SFT, LoRA or RL.</figcaption>
+          <details class="chart-data"><summary>Show the data</summary><div class="tablewrap"><table><thead><tr><th>Training on 12.8k samples</th><th>IID</th><th>Comp.</th><th>Zero-shot</th></tr></thead><tbody><tr><td>SFT</td><td>75.50</td><td>58.59</td><td>35.73</td></tr><tr><td>LoRA</td><td>64.26</td><td>53.99</td><td>34.64</td></tr><tr><td>RL</td><td>71.29</td><td>60.49</td><td>42.59</td></tr></tbody></table></div></details>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="analysis">
+  <div class="wrap">
+    <div class="intro">
+      <div class="eyebrow">Analysis</div>
+      <h2>A synthesizer on atomic skills, an amplifier without them</h2>
+      <p class="lead">If RL only amplified behavior the SFT model already has, sampling the SFT model enough times would find the same answers, and the pass@<i>k</i> curves would meet. They meet only for the composite-first model.</p>
+    </div>
+    <figure>
+      <div class="chart-card">
+        <div class="ch-legend" aria-hidden="true"><span><svg viewBox="0 0 28 10" aria-hidden="true"><line x1="1" y1="5" x2="27" y2="5" style="stroke:var(--c-g2);stroke-width:2;stroke-linecap:round"/><rect x="10.8" y="1.8" width="6.4" height="6.4" rx="1" style="fill:var(--c-g2);stroke:var(--paper);stroke-width:1.5"/></svg>Before RL (SFT model)</span><span><svg viewBox="0 0 28 10" aria-hidden="true"><line x1="1" y1="5" x2="27" y2="5" style="stroke:var(--c-blue);stroke-width:2.5;stroke-linecap:round"/><circle cx="14" cy="5" r="3.5" style="fill:var(--c-blue);stroke:var(--paper);stroke-width:1.5"/></svg>After RL</span></div>
+        <div class="grid2" style="gap:22px">
+          <div class="panel"><h4>Atomic-first: SFT on memory + context</h4><div class="chart" id="ch-pass-atomic" tabindex="0" role="img" aria-label="Zero-shot pass at k for the atomic-first model. Before RL: 24.1 at k equals 1 to 44.3 at k equals 512. After RL: 47.4 to 62.9. The gap stays open at every k."></div></div>
+          <div class="panel"><h4>Composite-first: SFT on 90% of the composite data</h4><div class="chart" id="ch-pass-comp" tabindex="0" role="img" aria-label="Zero-shot pass at k for the composite-first model. Before RL: 26.3 to 52.0. After RL: 29.9 to 51.5. The curves meet by k equals 32."></div></div>
+        </div>
+      </div>
+      <figcaption>Zero-shot pass@<i>k</i> (%) for <i>k</i> = 1 to 512. With atomic skills, the gap stays open even at <i>k</i> = 512: RL produces answers that the SFT model does not sample. Without them, the curves meet by <i>k</i> = 32.</figcaption>
+      <details class="chart-data"><summary>Show the data</summary><div class="tablewrap"><table><thead><tr><th>k</th><th>Atomic-first before RL</th><th>after RL</th><th>Composite-first before RL</th><th>after RL</th></tr></thead><tbody><tr><td>1</td><td>24.07</td><td>47.39</td><td>26.25</td><td>29.85</td></tr><tr><td>2</td><td>29.30</td><td>51.09</td><td>33.55</td><td>35.51</td></tr><tr><td>4</td><td>31.92</td><td>55.88</td><td>36.38</td><td>39.00</td></tr><tr><td>8</td><td>34.64</td><td>56.43</td><td>40.09</td><td>41.29</td></tr><tr><td>16</td><td>36.60</td><td>58.50</td><td>42.59</td><td>43.14</td></tr><tr><td>32</td><td>38.13</td><td>58.71</td><td>46.41</td><td>45.64</td></tr><tr><td>64</td><td>41.07</td><td>60.24</td><td>46.30</td><td>47.39</td></tr><tr><td>128</td><td>40.85</td><td>61.66</td><td>48.47</td><td>49.35</td></tr><tr><td>256</td><td>42.81</td><td>62.20</td><td>50.87</td><td>50.00</td></tr><tr><td>512</td><td>44.34</td><td>62.85</td><td>51.96</td><td>51.53</td></tr></tbody></table></div></details>
+    </figure>
+    <div class="grid2" style="align-items:center">
+      <div class="res">
+        <h3>RL moves the failure point later</h3>
+        <p>Without atomic-first RL, most errors happen early, when the model reads the context. After atomic-first RL, 70% of the remaining errors are in recalling memory facts, and they happen near the end of the chain. RL fixes the bridging between context and memory.</p>
+      </div>
+      <div class="tablewrap">
+        <table>
+          <caption style="caption-side:bottom;text-align:left;padding:10px 12px;font-size:13.5px;color:var(--mute)">Share of errors at context (Ctx) and memory (Mem) hops, and the position of the first error in the chain (Progress).</caption>
+          <thead><tr><th>Model</th><th>Ctx</th><th>Mem</th><th>Progress</th></tr></thead>
+          <tbody>
+            <tr><td>SFT on composite</td><td>90%</td><td>10%</td><td>54.5%</td></tr>
+            <tr><td>Composite-first (SFT, then RL)</td><td>86%</td><td>14%</td><td>45.0%</td></tr>
+            <tr><td>SFT on memory + context</td><td>86%</td><td>14%</td><td>18.5%</td></tr>
+            <tr class="ours"><td>Atomic-first (SFT, then RL)</td><td>30%</td><td>70%</td><td>71.8%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="bibtex">
+  <div class="wrap narrow" style="margin-inline:auto">
+    <div class="eyebrow">Cite</div>
+    <h2>BibTeX</h2>
+    <div class="bib">
+      <button class="copy" id="copyBib" type="button">Copy</button>
+<pre id="bibText">@article{cheng2025atomic,
+  title   = {From Atomic to Composite: Reinforcement Learning Enables
+             Generalization in Complementary Reasoning},
+  author  = {Cheng, Sitao and Yin, Xunjian and Zhou, Ruiwen and Li, Yuxuan and
+             Wang, Xinyi and Pan, Liangming and Wang, William Yang and
+             Zhong, Victor},
+  journal = {arXiv preprint arXiv:2512.01970},
+  year    = {2025}
+}</pre>
+    </div>
+  </div>
+</section>
+</main>
+<footer>
+  <div class="wrap">From Atomic to Composite project page. All numbers are from the paper.</div>
+</footer>
+<script>
+(function(){
+  const $ = id => document.getElementById(id);
+  function selectPre(){ const r=document.createRange(); r.selectNodeContents($('bibText')); const s=getSelection(); s.removeAllRanges(); s.addRange(r); }
+  $('copyBib').addEventListener('click', ()=>{
+    const t = $('bibText').textContent, b = $('copyBib');
+    const done = ok => { b.textContent = ok ? 'Copied' : 'Select the text to copy'; setTimeout(()=>b.textContent='Copy', 1800); };
+    if (navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(t).then(()=>done(true), ()=>{ selectPre(); done(false); }); }
+    else { selectPre(); done(false); }
+  });
+})();
+</script>
+<script src="charts.js" defer></script>
+<script>
+(function(){
+  var root = document.querySelector('[data-more-research]'); if (!root) return;
+  var btn = root.querySelector('.more-btn'), menu = root.querySelector('.more-menu'), timer = null;
+  function open(v){ menu.hidden = !v; btn.setAttribute('aria-expanded', v ? 'true' : 'false'); }
+  btn.addEventListener('click', function(e){ e.stopPropagation(); open(menu.hidden); });
+  document.addEventListener('click', function(e){ if (!root.contains(e.target)) open(false); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && !menu.hidden){ open(false); btn.focus(); } });
+  root.addEventListener('focusout', function(e){ if (!root.contains(e.relatedTarget)) open(false); });
+  if (window.matchMedia && matchMedia('(hover:hover) and (pointer:fine)').matches){
+    root.addEventListener('mouseenter', function(){ clearTimeout(timer); open(true); });
+    root.addEventListener('mouseleave', function(){ timer = setTimeout(function(){ open(false); }, 200); });
+  }
+})();
+</script>
+</body>
+</html>
