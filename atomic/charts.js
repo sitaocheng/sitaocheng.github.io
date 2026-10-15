@@ -261,6 +261,12 @@
     zs:   { atomic0: 24.07, atomic: [48.58, 47.39, 45.97, 43.57, 42.59], comp0: [17.32, 25.93, 27.78, 30.61, 26.25], comp: [17.76, 31.15, 28.76, 29.63, 29.85] }
   };
   var signed = function (v) { return (v < 0 ? '−' : '+') + Math.abs(v).toFixed(1); };
+  // each panel has its own y-scale (zero baseline kept); the gain panels share a baseline height of 7%
+  var SUF_Y = {
+    iid:  { gain: { min: -4, max: 50, ticks: [0, 25, 50] }, acc: { min: 0, max: 100, ticks: [0, 25, 50, 75, 100] } },
+    comp: { gain: { min: -3, max: 40, ticks: [0, 20, 40] }, acc: { min: 0, max: 85, ticks: [0, 20, 40, 60, 80] } },
+    zs:   { gain: { min: -2, max: 25, ticks: [0, 10, 20] }, acc: { min: 0, max: 50, ticks: [0, 10, 20, 30, 40, 50] } }
+  };
   function suf(key, gain) {
     var d = SUF[key];
     var before = { a: sftPct.map(function () { return d.atomic0; }), c: d.comp0 };
@@ -273,7 +279,7 @@
         xlabel: gain ? null : 'Composite data split (% SFT / % RL)',
         ylabel: gain ? 'Gain from RL (points)' : 'Accuracy after RL (%)',
         height: gain ? 136 : 168, fmt: gain ? signed : f1,
-        y: gain ? { min: -5, max: 50, ticks: [0, 25, 50] } : { min: 0, max: 100, ticks: [0, 25, 50, 75, 100] },
+        y: SUF_Y[key][gain ? 'gain' : 'acc'],
         series: [
           { name: 'Atomic-first', vals: val(d.atomic, before.a), color: C.blue, detail: detail(d.atomic, before.a) },
           { name: 'Composite-first', vals: val(d.comp, before.c), color: C.orange, detail: detail(d.comp, before.c) }
