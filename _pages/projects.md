@@ -22,7 +22,7 @@ Each project has its own page with the method, the results, and interactive figu
   <div class="pub-body">
     <a class="pub-title" href="https://sitaocheng.github.io/derl/">DERL: Dual-Evolving Reinforcement Learning for Automated Reward Design</a>
     <div class="pub-authors"><strong>Sitao Cheng*</strong>, Tianle Li*, Xuhan Huang*, Xunjian Yin, Difan Zou</div>
-    <div class="pub-note">* Equal contribution</div><div class="pub-venue">Preprint, 2025</div>
+    <div class="pub-note">* Equal contribution</div><div class="pub-venue">Preprint, 2026</div>
     <p class="pub-desc">Automated reward design usually searches with a proposer that never learns. DERL tunes the proposer itself with its trials and their scores: a small model composes rewards from task primitives and learns by policy gradient from the validation performance of the policies its rewards train.</p><div class="pub-links"><a href="https://arxiv.org/abs/2512.13399">Paper</a> <a href="https://sitaocheng.github.io/derl/">Project page</a> <a href="https://github.com/sitaocheng/DERL">Code</a> <a href="https://huggingface.co/DifferentiableEvolutionaryRL">Models</a></div>
   </div>
 </div>

@@ -63,9 +63,9 @@ Publications
 [[paper](https://arxiv.org/pdf/2512.01970)] [[code](https://github.com/sitaocheng/from_atomic_to_composite)] [[data](https://huggingface.co/datasets/sitao/From_atomic_to_composite)]
 
 
-- **[ICLR'26 Workshop]** Differentiable Evolutionary Reinforcement Learning \
+- **[ICLR'26 Workshop]** Dual-Evolving Reinforcement Learning for Automated Reward Design \
 **Sitao Cheng\***, Tianle Li\*, Xuhan Huang\*, Xunjian Yin, Difan Zou \
-[[paper](https://arxiv.org/abs/2512.13399)] [[code](https://github.com/sitaocheng/DERL)] [[model](https://huggingface.co/DifferentiableEvolutionaryRL)]
+[[paper](https://arxiv.org/abs/2512.13399)] [[code](https://github.com/sitaocheng/DERL)] [[model](https://huggingface.co/DifferentiableEvolutionaryRL)] [[homepage](https://sitaocheng.github.io/derl/)]
 
 
 - **[ACL'25 Workshop Oral]** Understanding the Interplay between Parametric and Contextual Knowledge for Large Language Models \

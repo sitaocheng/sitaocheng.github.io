@@ -15,7 +15,7 @@ My research asks how reasoning in large language models can generalize *efficien
 
 1. **Efficient generalization of language agents.** How can an agent build a reusable hierarchy of skills from its own experience, and how can training teach it to capture how those skills compose?
 2. **RL and compositional generalization.** Which training strategies produce models that compose skills they were never explicitly taught, and what does that reveal about how RL works?
-3. **Automatic reward modeling.** Can reward functions be *discovered* rather than hand-designed, through differentiable evolutionary meta-rewards?
+3. **Automatic reward modeling.** Can reward functions be *discovered* rather than hand-designed, by a reward proposer that learns from its own trials?
 {: .research-list}
 
 I am always glad to talk about research, so please feel free to [reach out](mailto:sitao.cheng@uwaterloo.ca). You can also read my [CV](https://sitaocheng.github.io/files/sitao_cheng_cv_2026_10.pdf).
@@ -73,9 +73,9 @@ I am always glad to talk about research, so please feel free to [reach out](mail
 <div class="pub-card">
   <a class="pub-thumb" href="https://sitaocheng.github.io/derl/" aria-hidden="true" tabindex="-1"><img src="/images/pubs/derl.png" alt="" loading="lazy"></a>
   <div class="pub-body">
-    <a class="pub-title" href="https://sitaocheng.github.io/derl/">Differentiable Evolutionary Reinforcement Learning</a>
+    <a class="pub-title" href="https://sitaocheng.github.io/derl/">Dual-Evolving Reinforcement Learning for Automated Reward Design</a>
     <div class="pub-authors"><strong>Sitao Cheng*</strong>, Tianle Li*, Xuhan Huang*, Xunjian Yin, Difan Zou</div>
-    <div class="pub-note">* Equal contribution</div><div class="pub-venue">Preprint, 2025</div>
+    <div class="pub-note">* Equal contribution</div><div class="pub-venue">Preprint, 2026</div>
     <div class="pub-links"><a href="https://arxiv.org/abs/2512.13399">Paper</a> <a href="https://sitaocheng.github.io/derl/">Project page</a> <a href="https://github.com/sitaocheng/DERL">Code</a> <a href="https://huggingface.co/DifferentiableEvolutionaryRL">Models</a></div>
   </div>
 </div>
