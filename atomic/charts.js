@@ -139,6 +139,64 @@
     };
   }
 
+  /* ---------- grouped bars: one bar per series in each group, data ends rounded, anchored at zero ---------- */
+  function barPath(x, w, y0, y1, r) {
+    var h = Math.abs(y0 - y1); r = Math.min(r, h, w / 2);
+    var s = y1 <= y0 ? 1 : -1; // 1: bar grows up from the baseline, -1: down
+    return 'M' + x + ' ' + y0 + 'V' + (y1 + s * r) + 'Q' + x + ' ' + y1 + ' ' + (x + r) + ' ' + y1 + 'H' + (x + w - r) +
+      'Q' + (x + w) + ' ' + y1 + ' ' + (x + w) + ' ' + (y1 + s * r) + 'V' + y0 + 'Z';
+  }
+  function barChart(host, cfg) {
+    var svgOld = host.querySelector('svg'); if (svgOld) host.removeChild(svgOld);
+    var W = host.clientWidth, H = cfg.height, n = cfg.groups.length, k = cfg.series.length;
+    var m = { l: 34, r: 4, t: 22, b: cfg.xlabel ? 38 : 22 };
+    var pw = W - m.l - m.r, ph = H - m.t - m.b, gw = pw / n, gap = 2;
+    var bw = Math.max(6, Math.min(18, (gw - 14) / k - gap));
+    var sy = function (v) { return m.t + (cfg.y.max - v) / (cfg.y.max - cfg.y.min) * ph; };
+    var y0 = sy(0);
+    var svg = el('svg', { width: W, height: H, viewBox: '0 0 ' + W + ' ' + H, 'aria-hidden': 'true' });
+    host.insertBefore(svg, host.firstChild);
+    var g = el('g', {}, svg);
+    text(g, 4, 13, cfg.ylabel, 'ch-lab');
+    var band = el('rect', { x: 0, y: m.t - 4, width: gw, height: ph + 8, rx: 6, 'class': 'ch-band', visibility: 'hidden' }, g);
+    cfg.y.ticks.forEach(function (t) {
+      if (t !== 0) el('line', { x1: m.l, x2: W - m.r, y1: sy(t), y2: sy(t), 'class': 'ch-grid' }, g);
+      text(g, m.l - 8, sy(t) + 4, String(t), 'ch-tick', 'end');
+    });
+    var x0 = function (i) { return m.l + gw * (i + 0.5) - (k * bw + (k - 1) * gap) / 2; };
+    cfg.series.forEach(function (s, j) {
+      s.vals.forEach(function (v, i) {
+        el('path', { d: barPath(x0(i) + j * (bw + gap), bw, y0, sy(v), 4), style: 'fill:' + s.color }, g);
+      });
+    });
+    el('line', { x1: m.l, x2: W - m.r, y1: y0, y2: y0, 'class': 'ch-axis' }, g);
+    cfg.groups.forEach(function (lab, i) { text(g, m.l + gw * (i + 0.5), m.t + ph + 15, lab, 'ch-tick', 'middle'); });
+    if (cfg.xlabel) text(g, m.l + pw / 2, H - 4, cfg.xlabel, 'ch-lab', 'middle');
+    var hit = el('rect', { x: m.l, y: 0, width: pw, height: H, fill: 'transparent' }, svg);
+    var tip = tooltip(host), cur = 0;
+    function show(i, px, py) {
+      cur = i;
+      band.setAttribute('x', m.l + gw * i); band.setAttribute('visibility', 'visible');
+      fillTip(tip, cfg.gname(i), cfg.series.map(function (s) {
+        return { color: s.color, value: cfg.fmt(s.vals[i]), name: s.name + ' · ' + s.detail(i) };
+      }));
+      placeTip(host, tip, px === undefined ? m.l + gw * (i + 1) : px, py === undefined ? m.t + ph / 2 : py);
+    }
+    function hide() { band.setAttribute('visibility', 'hidden'); tip.hidden = true; }
+    hit.addEventListener('pointermove', function (e) {
+      var r = svg.getBoundingClientRect(), px = e.clientX - r.left;
+      show(Math.max(0, Math.min(n - 1, Math.floor((px - m.l) / gw))), px, e.clientY - r.top);
+    });
+    hit.addEventListener('pointerleave', hide);
+    host.onfocus = function () { show(cur); };
+    host.onblur = hide;
+    host.onkeydown = function (e) {
+      if (e.key === 'ArrowRight') { show(Math.min(n - 1, cur + 1)); e.preventDefault(); }
+      if (e.key === 'ArrowLeft') { show(Math.max(0, cur - 1)); e.preventDefault(); }
+      if (e.key === 'Escape') hide();
+    };
+  }
+
   /* ---------- dot plot (optional "before" value v0 and group labels) ---------- */
   function dotPlot(host, cfg) {
     var svgOld = host.querySelector('svg'); if (svgOld) host.removeChild(svgOld);
@@ -194,20 +252,31 @@
   /* ---------- data (from the paper) ---------- */
   var f1 = function (v) { return v.toFixed(1); };
   var C = { blue: 'var(--c-blue)', orange: 'var(--c-orange)', g1: 'var(--c-g1)', g2: 'var(--c-g2)' };
-  var splits = ['10%', '30%', '50%', '70%', '90%'];
-  var SUF = { // accuracy after RL; x = share of the composite data used for SFT in the composite-first recipe
-    iid:  { atomic: [83.14, 81.08, 80.61, 79.53, 71.29], comp: [29.93, 62.81, 78.55, 87.03, 90.35] },
-    comp: { atomic: [65.30, 64.24, 63.39, 62.33, 60.49], comp: [28.13, 50.81, 63.82, 76.18, 80.35] },
-    zs:   { atomic: [48.58, 47.39, 45.97, 43.57, 42.59], comp: [17.76, 31.15, 28.76, 29.63, 29.85] }
+  /* sufficiency: the composite data is split into an SFT share and an RL share (10/90 ... 90/10). Composite-first runs
+     SFT on the SFT share; atomic-first runs SFT on the atomic data (one model for every split). Both run RL on the RL share. */
+  var sftPct = [10, 30, 50, 70, 90];
+  var SUF = {
+    iid:  { atomic0: 35.18, atomic: [83.14, 81.08, 80.61, 79.53, 71.29], comp0: [31.43, 51.15, 72.83, 82.86, 88.90], comp: [29.93, 62.81, 78.55, 87.03, 90.35] },
+    comp: { atomic0: 28.20, atomic: [65.30, 64.24, 63.39, 62.33, 60.49], comp0: [27.14, 43.25, 57.74, 73.43, 78.37], comp: [28.13, 50.81, 63.82, 76.18, 80.35] },
+    zs:   { atomic0: 24.07, atomic: [48.58, 47.39, 45.97, 43.57, 42.59], comp0: [17.32, 25.93, 27.78, 30.61, 26.25], comp: [17.76, 31.15, 28.76, 29.63, 29.85] }
   };
-  function suf(key, y) {
+  var signed = function (v) { return (v < 0 ? '−' : '+') + Math.abs(v).toFixed(1); };
+  function suf(key, gain) {
+    var d = SUF[key];
+    var before = { a: sftPct.map(function () { return d.atomic0; }), c: d.comp0 };
+    var val = function (after, b) { return gain ? after.map(function (v, i) { return v - b[i]; }) : after; };
+    var detail = function (after, b) { return function (i) { return f1(b[i]) + ' → ' + f1(after[i]); }; };
     return function (h) {
-      lineChart(h, {
-        xs: splits, xname: 'Composite data in SFT:', xlabel: 'Composite data used for SFT', height: 230, fmt: f1,
-        ylabel: 'Accuracy after RL (%)', y: y,
+      barChart(h, {
+        groups: sftPct.map(function (p) { return p + '/' + (100 - p); }),
+        gname: function (i) { return sftPct[i] + '% SFT / ' + (100 - sftPct[i]) + '% RL'; },
+        xlabel: gain ? null : 'Composite data split (% SFT / % RL)',
+        ylabel: gain ? 'Gain from RL (points)' : 'Accuracy after RL (%)',
+        height: gain ? 136 : 168, fmt: gain ? signed : f1,
+        y: gain ? { min: -5, max: 50, ticks: [0, 25, 50] } : { min: 0, max: 100, ticks: [0, 25, 50, 75, 100] },
         series: [
-          { name: 'Atomic-first', vals: SUF[key].atomic, color: C.blue, width: 2.5, marker: 'circle', emph: true },
-          { name: 'Composite-first', vals: SUF[key].comp, color: C.orange, width: 2, marker: 'square' }
+          { name: 'Atomic-first', vals: val(d.atomic, before.a), color: C.blue, detail: detail(d.atomic, before.a) },
+          { name: 'Composite-first', vals: val(d.comp, before.c), color: C.orange, detail: detail(d.comp, before.c) }
         ]
       });
     };
@@ -226,9 +295,9 @@
     };
   }
   var charts = [
-    ['ch-suf-iid', suf('iid', { min: 20, max: 100, ticks: [20, 40, 60, 80, 100] })],
-    ['ch-suf-comp', suf('comp', { min: 20, max: 100, ticks: [20, 40, 60, 80, 100] })],
-    ['ch-suf-zs', suf('zs', { min: 10, max: 55, ticks: [10, 20, 30, 40, 50] })],
+    ['ch-gain-iid', suf('iid', true)], ['ch-acc-iid', suf('iid', false)],
+    ['ch-gain-comp', suf('comp', true)], ['ch-acc-comp', suf('comp', false)],
+    ['ch-gain-zs', suf('zs', true)], ['ch-acc-zs', suf('zs', false)],
     ['ch-nec', function (h) {
       dotPlot(h, {
         xlabel: 'Zero-shot accuracy (%)', unit: 'zero-shot accuracy (%)', fmt: f1, l: 176, lNarrow: 112,

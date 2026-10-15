@@ -399,6 +399,57 @@ thead tr+tr th:first-child{text-align:right}
 .tldr>p{font-size:18px;line-height:1.5}
 .tldr .abs{margin-top:8px;padding-top:8px}
 
+/* From Atomic to Composite page only (loaded after the shared extra.css) */
+.recipes,.cmp{--c-blue:#2f5e99;--c-orange:#c0612b}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .recipes,:root:not([data-theme="light"]) .cmp{--c-blue:#5b8ce0;--c-orange:#d9773d}}
+:root[data-theme="dark"] .recipes,:root[data-theme="dark"] .cmp{--c-blue:#5b8ce0;--c-orange:#d9773d}
+
+/* two-line title */
+.hero{padding-bottom:0}
+.hero h1{font-size:clamp(26px,3.55vw,39px);text-wrap:balance}
+
+/* atomic vs composite data and the two recipes */
+.recipes{display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px 26px;align-items:center;margin:16px auto 0;text-align:left;
+  background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:13px 20px}
+.rc-rows{display:grid;grid-template-columns:auto auto;gap:8px 14px;align-items:center}
+.rc-name{display:inline-flex;align-items:center;gap:8px;font-family:var(--display);font-weight:700;font-size:15px;color:var(--ink);white-space:nowrap}
+.rc-flow{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.rpill{display:inline-flex;font-family:var(--body);align-items:baseline;gap:6px;padding:3px 11px;border-radius:999px;border:1.5px solid;font-size:14px;font-weight:600;line-height:1.35;white-space:nowrap}
+.rpill small{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.06em;opacity:.8}
+.rpill.pa{background:var(--blue-band);border-color:var(--c-blue);color:var(--blue-ink)}
+.rpill.pc{background:var(--orange-band);border-color:var(--c-orange);color:var(--orange-ink)}
+.arr{color:var(--mute);font-size:15px}
+.sq{display:inline-block;flex:none;width:11px;height:11px;border-radius:3px}
+.sq-a{background:var(--c-blue)}
+.sq-c{background:var(--c-orange)}
+.rc-defs{margin:0;padding-left:24px;border-left:1px solid var(--line);display:grid;gap:5px;font-size:14.5px;line-height:1.45;color:var(--ink2)}
+.rc-defs p{margin:0}
+.rc-defs b{color:var(--ink);font-weight:700}
+@media (max-width:900px){.recipes{grid-template-columns:1fr}.rc-defs{padding:10px 0 0;border-left:0;border-top:1px solid var(--line)}}
+@media (max-width:520px){.rc-rows{grid-template-columns:1fr;gap:4px}.rc-rows .rc-flow{margin-bottom:6px}}
+
+/* number tiles: two labelled values per tile, each with a bar on a 0-100 scale */
+.nums.cmp{margin-top:12px}
+.nums.cmp .num{padding:12px 18px 13px}
+.nums.cmp .num em{margin-bottom:7px}
+.cmp-row{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.nums.cmp .cmp-row span{display:inline;font-size:14px;color:var(--ink2);line-height:1.2}
+.nums.cmp .cmp-row b{display:inline;font-size:19px;line-height:1.15;letter-spacing:-.01em}
+.cmp-bar{height:5px;border-radius:3px;background:var(--line2);margin:3px 0 7px;overflow:hidden}
+.cmp-bar:last-child{margin-bottom:0}
+.cmp-bar i{display:block;height:100%;border-radius:3px}
+.cmp-bar i.a{background:var(--c-blue)}
+.cmp-bar i.c{background:var(--c-orange)}
+
+/* sufficiency figure */
+.split-key{display:grid;grid-template-columns:auto auto;justify-content:start;gap:7px 14px;align-items:center;margin:2px 0 8px}
+.split-key .rc-name{font-size:14px}
+.split-key .rpill{font-size:13px;padding:2px 10px}
+@media (max-width:620px){.split-key{grid-template-columns:1fr;gap:3px}.split-key .rc-flow{margin-bottom:6px}}
+.suf3 .panel h4{margin-bottom:0}
+.ch-band{fill:var(--line2)}
+.suf3 .chart+.chart{margin-top:10px}
+
 </style>
 </head>
 <body>
@@ -433,7 +484,7 @@ thead tr+tr th:first-child{text-align:right}
 <div class="wrap">
   <div class="hero">
     <div class="venue">Preprint · 2025</div>
-    <h1><span class="x">From Atomic to Composite</span>: Reinforcement Learning Enables Generalization<br class="br2"> in Complementary Reasoning</h1>
+    <h1><span class="x">From Atomic to Composite</span>: Reinforcement Learning<br class="br2"> Enables Generalization in Complementary Reasoning</h1>
     <p class="authors">Sitao Cheng<sup>1</sup>, Xunjian Yin<sup>2</sup>, Ruiwen Zhou<sup>3</sup>, Yuxuan Li<sup>1</sup>, Xinyi Wang<sup>4</sup>, Liangming Pan<sup>5</sup>, William Yang Wang<sup>6</sup>, Victor Zhong<sup>1</sup></p>
     <p class="affil"><sup>1</sup>University of Waterloo &nbsp;·&nbsp; <sup>2</sup>Duke University &nbsp;·&nbsp; <sup>3</sup>National University of Singapore &nbsp;·&nbsp; <sup>4</sup>Princeton University &nbsp;·&nbsp; <sup>5</sup>Peking University &nbsp;·&nbsp; <sup>6</sup>University of California, Santa Barbara</p>
     <p class="affil">Contact: <a class="mono" href="mailto:sitao.cheng@uwaterloo.ca">sitao.cheng@uwaterloo.ca</a> · <a class="mono" href="mailto:liangmingpan@pku.edu.cn">liangmingpan@pku.edu.cn</a> · <a class="mono" href="mailto:victor.zhong@uwaterloo.ca">victor.zhong@uwaterloo.ca</a></p>
@@ -453,11 +504,35 @@ thead tr+tr th:first-child{text-align:right}
       </details>
     </div>
   </div>
-  <div class="nums" role="list">
-    <div class="num" role="listitem"><em>SFT on composite data</em><b>90&#8594;18</b><span>accuracy (%) on seen paths vs. paths with an unseen relation</span></div>
-    <div class="num" role="listitem"><em>Unseen relations, after RL</em><b>&#8805;12.7</b><span>points ahead of composite-first for atomic-first, at every data split (up to 30.8)</span></div>
-    <div class="num" role="listitem"><em>Same RL, unseen relations</em><b>24.1&#8594;42.6</b><span>accuracy (%) of the model with both atomic skills, before vs. after RL</span></div>
-    <div class="num" role="listitem"><em>pass@512, unseen relations</em><b>62.9 vs 44.3</b><span>after vs. before RL: answers the SFT model never samples</span></div>
+  <div class="recipes" role="group" aria-label="Atomic data, composite data and the two training recipes">
+    <div class="rc-rows">
+      <span class="rc-name"><i class="sq sq-a" aria-hidden="true"></i>Atomic-first</span>
+      <span class="rc-flow"><span class="rpill pa"><small>SFT</small>atomic data</span><span class="arr" aria-hidden="true">&#8594;</span><span class="rpill pc"><small>RL</small>composite data</span></span>
+      <span class="rc-name"><i class="sq sq-c" aria-hidden="true"></i>Composite-first</span>
+      <span class="rc-flow"><span class="rpill pc"><small>SFT</small>composite data</span><span class="arr" aria-hidden="true">&#8594;</span><span class="rpill pc"><small>RL</small>composite data</span></span>
+    </div>
+    <div class="rc-defs">
+      <p><b>Atomic data</b> tests one skill at a time: parametric questions recall facts from the weights, and contextual questions read facts from the context.</p>
+      <p><b>Composite data</b> tests both at once: each complementary question chains facts from the weights and facts from the context.</p>
+    </div>
+  </div>
+  <div class="nums cmp" role="list">
+    <div class="num" role="listitem"><em>SFT on composite data</em>
+      <div class="cmp-row"><span>Seen paths</span><b>90.3%</b></div><div class="cmp-bar" aria-hidden="true"><i class="c" style="width:90.3%"></i></div>
+      <div class="cmp-row"><span>Unseen relations</span><b>18.4%</b></div><div class="cmp-bar" aria-hidden="true"><i class="c" style="width:18.4%"></i></div>
+    </div>
+    <div class="num" role="listitem"><em>Unseen relations, 3 seeds</em>
+      <div class="cmp-row"><span>Atomic-first</span><b>48.8%</b></div><div class="cmp-bar" aria-hidden="true"><i class="a" style="width:48.8%"></i></div>
+      <div class="cmp-row"><span>Composite-first</span><b>31.5%</b></div><div class="cmp-bar" aria-hidden="true"><i class="c" style="width:31.5%"></i></div>
+    </div>
+    <div class="num" role="listitem"><em>Llama-3.2-1B, unseen relations</em>
+      <div class="cmp-row"><span>Atomic-first</span><b>36.9%</b></div><div class="cmp-bar" aria-hidden="true"><i class="a" style="width:36.9%"></i></div>
+      <div class="cmp-row"><span>Composite-first</span><b>17.1%</b></div><div class="cmp-bar" aria-hidden="true"><i class="c" style="width:17.1%"></i></div>
+    </div>
+    <div class="num" role="listitem"><em>5-hop chains, unseen relations</em>
+      <div class="cmp-row"><span>Atomic-first</span><b>30.4%</b></div><div class="cmp-bar" aria-hidden="true"><i class="a" style="width:30.4%"></i></div>
+      <div class="cmp-row"><span>Composite-first</span><b>15.2%</b></div><div class="cmp-bar" aria-hidden="true"><i class="c" style="width:15.2%"></i></div>
+    </div>
   </div>
 </div>
 <section id="data">
@@ -469,7 +544,7 @@ thead tr+tr th:first-child{text-align:right}
     </div>
     <figure>
       <div class="img"><img src="img/data_construction.gif" alt="Animation in four steps. 1: a knowledge graph of synthetic people with memory relations such as roommate, boss and occupation, and context relations such as spouse and best friend. 2: memory facts become biographies that are trained into the weights, and context facts become documents given in the prompt. 3: a random walk samples the path roommate, spouse, boss from John Parsons to Kenneth Nelson and fills a question template. 4: the same graph yields a parametric question (roommate then occupation, answer Ecologist), a contextual question (spouse then best friend, answer Mikayla Myers) and a complementary question (roommate, spouse, boss, answer Kenneth Nelson)." width="1200" height="660" loading="lazy"></div>
-      <figcaption><b>How the data is built.</b> All people, facts and sentences are from the released data, and the three relation paths are in the paper's path lists. The 39 relations are split at random into a memory set and a context set. A parametric question uses only memory facts, a contextual question uses only context facts, and a complementary question needs both.</figcaption>
+      <figcaption><b>How the data is built.</b> All people, facts and sentences are from the released data, and the three relation paths are in the paper's path lists. The 39 relations are split at random into a memory set and a context set. A parametric question uses only memory facts, a contextual question uses only context facts, and a complementary question needs both. Parametric and contextual questions are the atomic data. Complementary questions are the composite data.</figcaption>
     </figure>
     <div class="steps3">
       <div class="step">
@@ -516,20 +591,31 @@ thead tr+tr th:first-child{text-align:right}
       </div>
     </div>
     <div class="res">
-      <h3>Atomic-first beats composite-first at every data split</h3>
-      <p>We split the complementary data into an SFT part and an RL part. The composite-first recipe runs SFT on the composite part and RL on the rest. The atomic-first recipe runs SFT on the memory and context data instead, then the same RL. On unseen relations, atomic-first wins at every split.</p>
+      <h3>Atomic-first wins on unseen relations at every data split</h3>
+      <p>We split the composite data into an SFT share and an RL share. Composite-first runs SFT on the SFT share, and atomic-first runs SFT on the atomic data instead. Both recipes then run the same RL on the RL share. At every split, RL adds 18 to 48 points to atomic-first and at most 12 points to composite-first.</p>
     </div>
     <figure>
       <div class="chart-card">
-        <div class="ch-legend" aria-hidden="true"><span><svg viewBox="0 0 28 10" aria-hidden="true"><line x1="1" y1="5" x2="27" y2="5" style="stroke:var(--c-blue);stroke-width:2.5;stroke-linecap:round"/><circle cx="14" cy="5" r="3.5" style="fill:var(--c-blue);stroke:var(--paper);stroke-width:1.5"/></svg>Atomic-first: SFT on memory + context, then RL</span><span><svg viewBox="0 0 28 10" aria-hidden="true"><line x1="1" y1="5" x2="27" y2="5" style="stroke:var(--c-orange);stroke-width:2;stroke-linecap:round"/><rect x="10.8" y="1.8" width="6.4" height="6.4" rx="1" style="fill:var(--c-orange);stroke:var(--paper);stroke-width:1.5"/></svg>Composite-first: SFT on composite, then RL</span></div>
-        <div class="panels3">
-          <div class="panel"><h4>IID</h4><div class="chart" id="ch-suf-iid" tabindex="0" role="img" aria-label="IID accuracy after RL. Atomic-first: 71.3 to 83.1 percent. Composite-first: 29.9 to 90.4 percent, rising with the SFT share."></div></div>
-          <div class="panel"><h4>Composition</h4><div class="chart" id="ch-suf-comp" tabindex="0" role="img" aria-label="Composition accuracy after RL. Atomic-first: 60.5 to 65.3 percent. Composite-first: 28.1 to 80.4 percent, rising with the SFT share."></div></div>
-          <div class="panel"><h4>Zero-shot</h4><div class="chart" id="ch-suf-zs" tabindex="0" role="img" aria-label="Zero-shot accuracy after RL. Atomic-first: 42.6 to 48.6 percent. Composite-first: 17.8 to 31.2 percent. Atomic-first is higher at every split."></div></div>
+        <div class="split-key" role="group" aria-label="The two recipes at one split of the composite data">
+          <span class="rc-name"><i class="sq sq-a" aria-hidden="true"></i>Atomic-first</span>
+          <span class="rc-flow"><span class="rpill pa"><small>SFT</small>atomic data</span><span class="arr" aria-hidden="true">&#8594;</span><span class="rpill pc"><small>RL</small>RL share of the composite data</span></span>
+          <span class="rc-name"><i class="sq sq-c" aria-hidden="true"></i>Composite-first</span>
+          <span class="rc-flow"><span class="rpill pc"><small>SFT</small>SFT share of the composite data</span><span class="arr" aria-hidden="true">&#8594;</span><span class="rpill pc"><small>RL</small>RL share of the composite data</span></span>
+        </div>
+        <div class="panels3 suf3">
+          <div class="panel"><h4>IID</h4>
+            <div class="chart" id="ch-gain-iid" tabindex="0" role="img" aria-label="IID, gain from RL. Atomic-first gains 36.1 to 48.0 points. Composite-first gains between minus 1.5 and 11.7 points."></div>
+            <div class="chart" id="ch-acc-iid" tabindex="0" role="img" aria-label="IID, accuracy after RL. Atomic-first: 71.3 to 83.1 percent. Composite-first: 29.9 to 90.4 percent, rising with the SFT share."></div></div>
+          <div class="panel"><h4>Composition</h4>
+            <div class="chart" id="ch-gain-comp" tabindex="0" role="img" aria-label="Composition, gain from RL. Atomic-first gains 32.3 to 37.1 points. Composite-first gains 1.0 to 7.6 points."></div>
+            <div class="chart" id="ch-acc-comp" tabindex="0" role="img" aria-label="Composition, accuracy after RL. Atomic-first: 60.5 to 65.3 percent. Composite-first: 28.1 to 80.4 percent, rising with the SFT share."></div></div>
+          <div class="panel"><h4>Zero-shot</h4>
+            <div class="chart" id="ch-gain-zs" tabindex="0" role="img" aria-label="Zero-shot, gain from RL. Atomic-first gains 18.5 to 24.5 points. Composite-first gains between minus 1.0 and 5.2 points."></div>
+            <div class="chart" id="ch-acc-zs" tabindex="0" role="img" aria-label="Zero-shot, accuracy after RL. Atomic-first: 42.6 to 48.6 percent. Composite-first: 17.8 to 31.2 percent. Atomic-first is higher at every split."></div></div>
         </div>
       </div>
-      <figcaption>Accuracy after RL (%) as the composite data moves from the RL part to the SFT part. The x-axis is the share of the composite data used for SFT in the composite-first recipe. Both recipes run RL on the same remaining share. With most data in SFT, composite-first wins on seen paths but stays low on unseen relations.</figcaption>
-      <details class="chart-data"><summary>Show the data</summary><div class="tablewrap"><table><thead><tr><th>Composite data in SFT</th><th>Atomic-first IID</th><th>Comp.</th><th>Zero-shot</th><th>Composite-first IID</th><th>Comp.</th><th>Zero-shot</th></tr></thead><tbody><tr><td>10%</td><td>83.14</td><td>65.30</td><td>48.58</td><td>29.93</td><td>28.13</td><td>17.76</td></tr><tr><td>30%</td><td>81.08</td><td>64.24</td><td>47.39</td><td>62.81</td><td>50.81</td><td>31.15</td></tr><tr><td>50%</td><td>80.61</td><td>63.39</td><td>45.97</td><td>78.55</td><td>63.82</td><td>28.76</td></tr><tr><td>70%</td><td>79.53</td><td>62.33</td><td>43.57</td><td>87.03</td><td>76.18</td><td>29.63</td></tr><tr><td>90%</td><td>71.29</td><td>60.49</td><td>42.59</td><td>90.35</td><td>80.35</td><td>29.85</td></tr></tbody></table></div></details>
+      <figcaption>Top: gain from RL in points, which is the accuracy after RL minus the accuracy of the SFT model. Bottom: accuracy after RL (%). Each pair of bars is one split of the composite data, given as % for SFT / % for RL. With most of the composite data in SFT, composite-first leads on seen paths but stays low on unseen relations.</figcaption>
+      <details class="chart-data"><summary>Show the data</summary><div class="tablewrap"><table><thead><tr><th>Split (% SFT / % RL)</th><th>Recipe</th><th>IID: SFT &#8594; RL (gain)</th><th>Composition</th><th>Zero-shot</th></tr></thead><tbody><tr><td>10 / 90</td><td>Atomic-first</td><td>35.18 &#8594; 83.14 (+47.96)</td><td>28.20 &#8594; 65.30 (+37.10)</td><td>24.07 &#8594; 48.58 (+24.51)</td></tr><tr><td></td><td>Composite-first</td><td>31.43 &#8594; 29.93 (&#8722;1.50)</td><td>27.14 &#8594; 28.13 (+0.99)</td><td>17.32 &#8594; 17.76 (+0.44)</td></tr><tr><td>30 / 70</td><td>Atomic-first</td><td>35.18 &#8594; 81.08 (+45.90)</td><td>28.20 &#8594; 64.24 (+36.04)</td><td>24.07 &#8594; 47.39 (+23.32)</td></tr><tr><td></td><td>Composite-first</td><td>51.15 &#8594; 62.81 (+11.66)</td><td>43.25 &#8594; 50.81 (+7.56)</td><td>25.93 &#8594; 31.15 (+5.22)</td></tr><tr><td>50 / 50</td><td>Atomic-first</td><td>35.18 &#8594; 80.61 (+45.43)</td><td>28.20 &#8594; 63.39 (+35.19)</td><td>24.07 &#8594; 45.97 (+21.90)</td></tr><tr><td></td><td>Composite-first</td><td>72.83 &#8594; 78.55 (+5.72)</td><td>57.74 &#8594; 63.82 (+6.08)</td><td>27.78 &#8594; 28.76 (+0.98)</td></tr><tr><td>70 / 30</td><td>Atomic-first</td><td>35.18 &#8594; 79.53 (+44.35)</td><td>28.20 &#8594; 62.33 (+34.13)</td><td>24.07 &#8594; 43.57 (+19.50)</td></tr><tr><td></td><td>Composite-first</td><td>82.86 &#8594; 87.03 (+4.17)</td><td>73.43 &#8594; 76.18 (+2.75)</td><td>30.61 &#8594; 29.63 (&#8722;0.98)</td></tr><tr><td>90 / 10</td><td>Atomic-first</td><td>35.18 &#8594; 71.29 (+36.11)</td><td>28.20 &#8594; 60.49 (+32.29)</td><td>24.07 &#8594; 42.59 (+18.52)</td></tr><tr><td></td><td>Composite-first</td><td>88.90 &#8594; 90.35 (+1.45)</td><td>78.37 &#8594; 80.35 (+1.98)</td><td>26.25 &#8594; 29.85 (+3.60)</td></tr></tbody></table></div></details>
     </figure>
     <div class="grid2">
       <div>
