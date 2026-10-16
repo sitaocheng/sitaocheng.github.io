@@ -58,9 +58,9 @@ Preprints
 Publications
 ======
 
-- **[ICLR'26 Workshop]** Atomic Skills are the Prerequisite: When Reinforcement Learning Synthesizes Compositional Reasoning, and When It Only Amplifies \
+- **[ICLR'26 Workshop]** From Atomic to Composite: Reinforcement Learning Enables Generalization in Complementary Reasoning \
 **Sitao Cheng**, Xunjian Yin, Ruiwen Zhou, Yuxuan Li, Xinyi Wang, Liangming Pan, William Yang Wang, Victor Zhong \
-[[paper](https://arxiv.org/pdf/2512.01970)] [[code](https://github.com/sitaocheng/from_atomic_to_composite)] [[data](https://huggingface.co/datasets/sitao/From_atomic_to_composite)]
+[[paper](https://arxiv.org/pdf/2512.01970)] [[code](https://github.com/sitaocheng/from_atomic_to_composite)] [[data](https://huggingface.co/datasets/sitao/From_atomic_to_composite)] [[homepage](https://sitaocheng.github.io/atomic/)]
 
 
 - **[ICLR'26 Workshop]** Dual-Evolving Reinforcement Learning for Automated Reward Design \
