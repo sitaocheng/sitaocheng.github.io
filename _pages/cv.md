@@ -9,7 +9,7 @@ redirect_from:
 
 {% include base_path %}
 
-Download my [CV (PDF)](../files/sitao_cheng_cv_2026_10.pdf) ([Transcripts](../files/transcript_NJU.pdf))
+Download my [CV (PDF)](../files/sitao_cheng_cv_2026_11.pdf) ([Transcripts](../files/transcript_NJU.pdf))
 <!-- , my [Personal Statements](../files/stcheng_PS.pdf), and [Slides of my works](../files/stcheng_research_slides.pdf) -->
 
 
