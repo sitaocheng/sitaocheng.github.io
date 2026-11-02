@@ -85,7 +85,7 @@ Xiang Huang\*, **Sitao Cheng\***, Shanshan Huang, Jiayu Shen, Yong Xu, Chaoyun Z
 
 - LEDOM: Reverse Language Model \
 Xunjian Yin, **Sitao Cheng**, Yuxi Xie, Xinyu Hu, Li Lin, Xinyi Wang, Liangming Pan, William Yang Wang, Xiaojun Wan \
-[[paper](https://arxiv.org/abs/2507.01335)] [[model](https://huggingface.co/Corning/Reverse-Model-7B-348B)]
+[[paper](https://arxiv.org/abs/2507.01335)] [[code](https://github.com/Arvid-pku/LEDOM)] [[model](https://huggingface.co/Corning/Reverse-Model-7B-348B)]
 
 
 - Dynamic Evaluation for Oversensitivity in LLMs \
